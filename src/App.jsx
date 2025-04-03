@@ -6,6 +6,7 @@ import Aboutus from './Pages/AboutUs/Aboutus';
 import Events from './Pages/Events/Events';
 import Timeline from './Pages/Timeline/Timeline';
 import Team from './Pages/Team/Team';
+import MainPage from './Pages/MainPage/MainPage';
 
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path='/Home' element={<MainPage />} />
         <Route path='/gallery' element={<Gallery />} />
         <Route path='/about' element={<Aboutus />} />
         <Route path='/events' element={<Events />} />
