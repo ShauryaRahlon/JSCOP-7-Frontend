@@ -12,6 +12,7 @@ const Portfolio = () => {
   const contentRef = useRef(null);
   const sliderInnerRef = useRef(null);
   const cursorRef = useRef(null);
+  const scrollRef = useRef(null);
 
   const offset = 760;
   const margin = 0;
@@ -139,6 +140,31 @@ const Portfolio = () => {
       }
     }, 2500);
   };
+  const handleLandingTriggerClick = () => {
+  
+    // Reset styles for .page_portfolio
+    const pagePortfolio = document.querySelector(".page_portfolio");
+    if (pagePortfolio) {
+      pagePortfolio.style.opacity = "";
+      pagePortfolio.style.clipPath = "";
+    }
+  
+    // Remove "out" class from elements
+    document
+      .querySelectorAll(
+        ".logo img, .portfolio_home__title h1, .portfolio_home__title hr, .portfolio_home__title img.trigger"
+      )
+      .forEach((el) => {
+        el.classList.remove("out");
+      });
+  
+    // Remove "in" class from .slider_inner
+    const sliderInner = document.querySelector(".slider_inner");
+    if (sliderInner) {
+      sliderInner.classList.remove("in");
+    }
+  };
+
 
   // const handleButtonClick = (e) => {
   //   e.target.parentNode.classList.add("clicked");
@@ -156,14 +182,36 @@ const Portfolio = () => {
     portfolioWork.classList.toggle("expand");
   };
 
+const handleSliderScroll = () => {
+  console.log("Scrolling");
+  // i want to scroll the slider horizontally
+  const sliderInner = document.querySelector(".slider_inner");
+  const sliderInnerWidth = sliderInner.offsetWidth;
+  const sliderInnerScrollLeft = sliderInner.scrollLeft;
+  const sliderInnerScrollRight = sliderInner.scrollLeft + sliderInnerWidth;
+  console.log(sliderInnerScrollLeft, sliderInnerScrollRight);
+
+  if (sliderInnerScrollLeft === 0) {
+    sliderInner.scrollLeft = sliderInnerWidth;
+  }
+
+  if (sliderInnerScrollRight === sliderInner.scrollWidth) {
+    sliderInner.scrollLeft = 0;
+  }
+  
+}
+
   const handleSliderClick = () => {
+    console.log("Clicked slider button")
     document.querySelectorAll(".slider_inner__slide").forEach((slide) => {
       slide.style.animation = "none";
       slide.style.transform = "rotateY(0deg) scale(1)";
     });
+
   };
 
   const handleSliderMouseDown = (e) => {
+    console.log("SliderMouseDown")
     setInitX(e.clientX);
     setDragging(true);
 
@@ -205,6 +253,7 @@ const Portfolio = () => {
   };
 
   const handleSliderMouseUp = () => {
+    console.log("SliderMouseUp")
     if (cursorRef.current) {
       cursorRef.current.style.transition = `transform ${cursorSettings.transitionTime} ${cursorSettings.transitionEase}, width ${cursorSettings.expandSpeed}s .2s, height ${cursorSettings.expandSpeed}s .2s, opacity 1s .2s`;
     }
@@ -268,8 +317,9 @@ const Portfolio = () => {
     }
   };
 
-  const handleBackClick = (e) => {
+    const handleBackClick = (e) => {
     console.log("click");
+    console.log(e);
     e.target.parentNode.parentNode.parentNode.classList.remove("clicked");
     e.target.parentNode.parentNode.classList.remove("clicked");
     document.querySelector(".portfolio_home__work").classList.remove("expand");
@@ -448,6 +498,22 @@ const Portfolio = () => {
 
     cursorRef.current = cursor;
 
+    // Fixed scroll handler function with both X and Y scroll positions
+    const handleScroll = () => {
+        const scrollX = window.scrollX || window.pageXOffset;
+        console.log('Scroll position - X:');
+        
+        // Example of logic using horizontal scroll
+        if (scrollX > 200) {
+            console.log('User scrolled horizontally past threshold');
+            // Do something when user scrolled horizontally past 200px
+        }
+        
+    };
+
+    // Add scroll event listener
+    window.addEventListener('scroll', handleScroll);
+
     // Load Font Awesome
     const link = document.createElement("link");
     link.rel = "stylesheet";
@@ -468,8 +534,63 @@ const Portfolio = () => {
       if (link && link.parentNode) {
         link.parentNode.removeChild(link);
       }
+      
+      // Clean up scroll event listener
+      window.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+}, []);
+
+const handleNavClick = (index) => {
+  const openCard = document.querySelector(".slider_inner__slide.clicked");
+  if (openCard) {
+    openCard.classList.remove("clicked");
+    document.querySelector(".portfolio_home__work").classList.remove("expand");
+  }
+
+  // Find the target card using the data-index attribute
+  const targetCard = document.querySelector(
+    `.slider_inner__slide[data-index="${index}"]`
+  );
+  if (targetCard) {
+    targetCard.scrollIntoView({ behavior: "smooth", block: "center" });
+
+    // Open the target card after scrolling
+    setTimeout(() => {
+      targetCard.classList.add("clicked");
+      document.querySelector(".portfolio_home__work").classList.add("expand");
+    }, 500); // Delay to ensure scrolling is complete
+  }
+
+  // Update navbar underline
+  const navItems = document.querySelectorAll(".nav ul li");
+  navItems.forEach((item, idx) => {
+    if (idx === index) {
+      item.classList.add("active");
+    } else {
+      item.classList.remove("active");
+    }
+  });
+
+  // Update slider position
+  const sliderInner = document.querySelector(".slider_inner");
+  const newThreshold = offset - (offset + margin) * index;
+  sliderInner.style.transform = `translateX(${newThreshold}px) translateY(120px)`;
+  sliderInner.style.transition = "transform 0.5s ease-in-out";
+  sliderInner.scrollLeft = newThreshold;
+
+  // Reset state variables
+  setIndex(index);
+  setEndPosition(newThreshold);
+  setDifference(0);
+  setDragging(false);
+  setScrollPosition(0);
+  setInitX(0);
+
+  // Remove transition after animation
+  setTimeout(() => {
+    sliderInner.style.transition = "";
+  }, 500);
+};
 
   return (
     <>
@@ -525,14 +646,14 @@ const Portfolio = () => {
                   </div>
                   <div className="nav">
                     <ul>
-                      <li className="active trigger">Our work</li>
-                      <li className="trigger">Our services</li>
-                      <li className="trigger">About us</li>
-                      <li className="trigger">Contact us</li>
+                      <li className="active trigger" onClick={() => handleNavClick(0)}>Our work</li>
+                      <li className="trigger" onClick={() => handleNavClick(1)}>Our services</li>
+                      <li className="trigger" onClick={() => handleNavClick(2)}>About us</li>
+                      <li className="trigger" onClick={() => handleNavClick(3)}>Contact us</li>
                     </ul>
                   </div>
                   <div className="number black">0161 345 3464</div>
-                  <div className="hamburger black trigger">
+                  <div className="hamburger black trigger" onClick={handleLandingTriggerClick}>
                     <div className="hamburger_part"></div>
                     <div className="hamburger_part"></div>
                     <div className="hamburger_part"></div>
@@ -557,14 +678,14 @@ const Portfolio = () => {
                     </div>
                     <div className="nav">
                       <ul>
-                        <li className="active trigger">Our work</li>
-                        <li className="trigger">Our services</li>
-                        <li className="trigger">About us</li>
-                        <li className="trigger">Contact us</li>
+                        <li className="active trigger" onClick={() => handleNavClick(0)}>Our work</li>
+                        <li className="trigger" onClick={() => handleNavClick(1)}>Our services</li>
+                        <li className="trigger" onClick={() => handleNavClick(2)}>About us</li>
+                        <li className="trigger" onClick={() => handleNavClick(3)}>Contact us</li>
                       </ul>
                     </div>
                     <div className="number white">0161 345 3464</div>
-                    <div className="hamburger white trigger">
+                    <div className="hamburger white trigger" onClick={handleLandingTriggerClick}>
                       <div className="hamburger_part"></div>
                       <div className="hamburger_part"></div>
                       <div className="hamburger_part"></div>
@@ -664,9 +785,14 @@ const Portfolio = () => {
                     onMouseDown={handleSliderMouseDown}
                     onMouseMove={handleSliderMouseMove}
                     onMouseUp={handleSliderMouseUp}
+                    onScroll={handleSliderScroll}
+                    // ref={scrollRef}
+                    
                   >
                     <div className="slider_inner__slide">
-                      <div className="title">
+                      <div className="title"
+                        data-index="0"
+                      >
                         .01
                         <br />
                         My Protein
@@ -692,7 +818,8 @@ const Portfolio = () => {
                       </div>
                     </div>
                     <div className="slider_inner__slide">
-                      <div className="title">
+                      <div className="title"
+                      data-index="1">
                         .02
                         <br />
                         Nike Air Max
@@ -720,7 +847,8 @@ const Portfolio = () => {
                       </div>
                     </div>
                     <div className="slider_inner__slide">
-                      <div className="title">
+                      <div className="title"
+                      data-index="2">
                         .03
                         <br />
                         Apple Watch
@@ -746,7 +874,8 @@ const Portfolio = () => {
                       </div>
                     </div>
                     <div className="slider_inner__slide">
-                      <div className="title">
+                      <div className="title"
+                      data-index="3">
                         .04
                         <br />
                         Jade Teriyaki
