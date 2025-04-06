@@ -141,14 +141,13 @@ const Portfolio = () => {
     }, 2500);
   };
   const handleLandingTriggerClick = () => {
-  
     // Reset styles for .page_portfolio
     const pagePortfolio = document.querySelector(".page_portfolio");
     if (pagePortfolio) {
       pagePortfolio.style.opacity = "";
       pagePortfolio.style.clipPath = "";
     }
-  
+
     // Remove "out" class from elements
     document
       .querySelectorAll(
@@ -157,7 +156,7 @@ const Portfolio = () => {
       .forEach((el) => {
         el.classList.remove("out");
       });
-  
+
     // Remove "in" class from .slider_inner
     const sliderInner = document.querySelector(".slider_inner");
     if (sliderInner) {
@@ -165,53 +164,184 @@ const Portfolio = () => {
     }
   };
 
-
   // const handleButtonClick = (e) => {
   //   e.target.parentNode.classList.add("clicked");
   //   e.target.parentNode.parentNode.parentNode.classList.add("clicked");
   //   document.querySelector(".portfolio_home__work").classList.add("expand");
   // };
 
+  let prev_parent;
+
   const handleButtonClick = (e) => {
     const parent = e.target.parentNode;
+    prev_parent = parent;
     const grandParent = parent.parentNode.parentNode;
     const portfolioWork = document.querySelector(".portfolio_home__work");
-
+    console.log("parent", parent);
+    console.log("grandParent", grandParent);
+    console.log("portfolioWork", portfolioWork);
     parent.classList.toggle("clicked");
     grandParent.classList.toggle("clicked");
     portfolioWork.classList.toggle("expand");
   };
 
-const handleSliderScroll = () => {
-  console.log("Scrolling");
-  // i want to scroll the slider horizontally
-  const sliderInner = document.querySelector(".slider_inner");
-  const sliderInnerWidth = sliderInner.offsetWidth;
-  const sliderInnerScrollLeft = sliderInner.scrollLeft;
-  const sliderInnerScrollRight = sliderInner.scrollLeft + sliderInnerWidth;
-  console.log(sliderInnerScrollLeft, sliderInnerScrollRight);
+  const handleNavClick = (index) => {
+    const openCard = document.querySelector(".slider_inner__slide.clicked");
+    if (openCard) {
+      openCard.classList.remove("clicked");
+      document
+        .querySelector(".portfolio_home__work")
+        .classList.remove("expand");
+    }
 
-  if (sliderInnerScrollLeft === 0) {
-    sliderInner.scrollLeft = sliderInnerWidth;
-  }
+    // Find the target card using the data-index attribute
+    const targetCard = document.querySelector(
+      `.slider_inner__slide[data-index="${index}"]`
+    );
+    if (targetCard) {
+      targetCard.scrollIntoView({ behavior: "smooth", block: "center" });
 
-  if (sliderInnerScrollRight === sliderInner.scrollWidth) {
-    sliderInner.scrollLeft = 0;
-  }
-  
-}
+      // Open the target card after scrolling
+      setTimeout(() => {
+        targetCard.classList.add("clicked");
+        document.querySelector(".portfolio_home__work").classList.add("expand");
+      }, 500); // Delay to ensure scrolling is complete
+    }
+
+    // Update navbar underline
+    const navItems = document.querySelectorAll(".nav ul li");
+    navItems.forEach((item, idx) => {
+      if (idx === index) {
+        item.classList.add("active");
+      } else {
+        item.classList.remove("active");
+      }
+    });
+
+    // Update slider position
+    const sliderInner = document.querySelector(".slider_inner");
+    const newThreshold = offset - (offset + margin) * index;
+    sliderInner.style.transform = `translateX(${newThreshold}px) translateY(120px)`;
+    sliderInner.style.transition = "transform 0.8s ease-in-out";
+    sliderInner.scrollLeft = newThreshold;
+
+    // Reset state variables
+    setIndex(index);
+    setEndPosition(newThreshold);
+    setDifference(0);
+    setDragging(false);
+    setScrollPosition(0);
+    setInitX(0);
+
+    // Remove transition after animation
+    setTimeout(() => {
+      sliderInner.style.transition = "";
+    }, 500);
+  };
+  const prevIdxRef = useRef(1);
+  const moveBetweenPages = (openIdx) => {
+    if (prev_parent) {
+      console.log("prev : ", prev_parent);
+
+      // Remove classes from previous elements
+      prev_parent.parentNode.parentNode.classList.remove("clicked");
+      prev_parent.parentNode.classList.remove("clicked");
+      document
+        .querySelector(".portfolio_home__work")
+        .classList.remove("expand");
+      prev_parent.parentNode.classList.remove("expand");
+
+      // Animate previous elements
+    }
+    const prevIdx = prevIdxRef.current;
+    console.log(`.cats_${prevIdx}`, " prevIdx : ", prevIdx);
+
+    const catsPrev = document.querySelector(`.cats_${prevIdx}`);
+    const overlayPrev = document.querySelector(`.overlay_${prevIdx}`);
+    const titlePrev = document.querySelector(`.title_${prevIdx}`);
+    const buttonPrev = document.querySelector(`.button_${prevIdx}`);
+
+    // Delay navigation and new fade-in
+    setTimeout(() => {
+      // Trigger the nav logic (e.g., change content)
+      handleNavClick(openIdx);
+
+      if (catsPrev) {
+        catsPrev.style.transition = "opacity 0.6s ease";
+        catsPrev.style.opacity = 0;
+        console.log("called");
+      }
+      if (overlayPrev) {
+        overlayPrev.style.transition = "opacity 0.6s ease";
+        overlayPrev.style.opacity = 0;
+      }
+      if (titlePrev) {
+        titlePrev.style.transition = "opacity 0.6s ease";
+        titlePrev.style.opacity = 0;
+      }
+      if (buttonPrev) {
+        buttonPrev.style.transition = "opacity 0.6s ease";
+        buttonPrev.style.opacity = 0;
+      }
+
+      // Animate new elements in
+      const catsNew = document.querySelector(`.cats_${openIdx}`);
+      const overlayNew = document.querySelector(`.overlay_${openIdx}`);
+      const titleNew = document.querySelector(`.title_${openIdx}`);
+      const buttonNew = document.querySelector(`.button_${openIdx}`);
+
+      if (catsNew) {
+        catsNew.style.transition = "opacity 0.6s ease 0.2s";
+        catsNew.style.opacity = 1;
+      }
+      if (overlayNew) {
+        overlayNew.style.transition = "opacity 0.6s ease 0.2s";
+        overlayNew.style.opacity = 1;
+      }
+      if (titleNew) {
+        titleNew.style.transition = "opacity 0.6s ease 0.2s";
+        titleNew.style.opacity = 1;
+      }
+      if (buttonNew) {
+        buttonNew.style.transition = "opacity 0.6s ease 0.2s";
+        buttonNew.style.opacity = 1;
+      }
+    }, 1000);
+    // setTimeout(() => {
+    //   document.querySelector(`.button_${openIdx}`).click();
+    // }, 2000);
+    prevIdxRef.current = openIdx;
+    console.log("prevIdx", prevIdx);
+  };
+
+  const handleSliderScroll = () => {
+    console.log("Scrolling");
+    // i want to scroll the slider horizontally
+    const sliderInner = document.querySelector(".slider_inner");
+    const sliderInnerWidth = sliderInner.offsetWidth;
+    const sliderInnerScrollLeft = sliderInner.scrollLeft;
+    const sliderInnerScrollRight = sliderInner.scrollLeft + sliderInnerWidth;
+    console.log(sliderInnerScrollLeft, sliderInnerScrollRight);
+
+    if (sliderInnerScrollLeft === 0) {
+      sliderInner.scrollLeft = sliderInnerWidth;
+    }
+
+    if (sliderInnerScrollRight === sliderInner.scrollWidth) {
+      sliderInner.scrollLeft = 0;
+    }
+  };
 
   const handleSliderClick = () => {
-    console.log("Clicked slider button")
+    console.log("Clicked slider button");
     document.querySelectorAll(".slider_inner__slide").forEach((slide) => {
       slide.style.animation = "none";
       slide.style.transform = "rotateY(0deg) scale(1)";
     });
-
   };
 
   const handleSliderMouseDown = (e) => {
-    console.log("SliderMouseDown")
+    console.log("SliderMouseDown");
     setInitX(e.clientX);
     setDragging(true);
 
@@ -253,7 +383,7 @@ const handleSliderScroll = () => {
   };
 
   const handleSliderMouseUp = () => {
-    console.log("SliderMouseUp")
+    console.log("SliderMouseUp");
     if (cursorRef.current) {
       cursorRef.current.style.transition = `transform ${cursorSettings.transitionTime} ${cursorSettings.transitionEase}, width ${cursorSettings.expandSpeed}s .2s, height ${cursorSettings.expandSpeed}s .2s, opacity 1s .2s`;
     }
@@ -317,8 +447,9 @@ const handleSliderScroll = () => {
     }
   };
 
-    const handleBackClick = (e) => {
-      console.log("Click")
+  const handleBackClick = (e) => {
+    console.log("click");
+    console.log(e);
     e.target.parentNode.parentNode.parentNode.classList.remove("clicked");
     e.target.parentNode.parentNode.classList.remove("clicked");
     document.querySelector(".portfolio_home__work").classList.remove("expand");
@@ -499,19 +630,18 @@ const handleSliderScroll = () => {
 
     // Fixed scroll handler function with both X and Y scroll positions
     const handleScroll = () => {
-        const scrollX = window.scrollX || window.pageXOffset;
-        console.log('Scroll position - X:');
-        
-        // Example of logic using horizontal scroll
-        if (scrollX > 200) {
-            console.log('User scrolled horizontally past threshold');
-            // Do something when user scrolled horizontally past 200px
-        }
-        
+      const scrollX = window.scrollX || window.pageXOffset;
+      console.log("Scroll position - X:");
+
+      // Example of logic using horizontal scroll
+      if (scrollX > 200) {
+        console.log("User scrolled horizontally past threshold");
+        // Do something when user scrolled horizontally past 200px
+      }
     };
 
     // Add scroll event listener
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
 
     // Load Font Awesome
     const link = document.createElement("link");
@@ -533,125 +663,11 @@ const handleSliderScroll = () => {
       if (link && link.parentNode) {
         link.parentNode.removeChild(link);
       }
-      
+
       // Clean up scroll event listener
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
-}, []);
-
-// const handleNavClick = (index,e) => {
-//   const openCard = document.querySelector(".slider_inner__slide.clicked");
-//   if (openCard) {
-//     openCard.classList.remove("clicked");
-//     document.querySelector(".portfolio_home__work").classList.remove("expand");
-//   }
-
-//   // Find the target card using the data-index attribute
-//   const targetCard = document.querySelector(
-//     `.slider_inner__slide[data-index="${index}"]`
-//   );
-//   if (targetCard) {
-//     targetCard.scrollIntoView({ behavior: "smooth", block: "center" });
-
-//     // Open the target card after scrolling
-//     setTimeout(() => {
-//       targetCard.classList.add("clicked");
-//       document.querySelector(".portfolio_home__work").classList.add("expand");
-//     }, 500); // Delay to ensure scrolling is complete
-//   }
-
-//   // Update navbar underline
-//   const navItems = document.querySelectorAll(".nav ul li");
-//   navItems.forEach((item, idx) => {
-//     if (idx === index) {
-//       item.classList.add("active");
-//     } else {
-//       item.classList.remove("active");
-//     }
-//   });
-
-//   // Update slider position
-//   const sliderInner = document.querySelector(".slider_inner");
-//   const newThreshold = offset - (offset + margin) * index;
-//   sliderInner.style.transform = `translateX(${newThreshold}px) translateY(120px)`;
-//   sliderInner.style.transition = "transform 0.5s ease-in-out";
-//   sliderInner.scrollLeft = newThreshold;
-
-//   // Reset state variables
-//   setIndex(index);
-//   setEndPosition(newThreshold);
-//   setDifference(0);
-//   setDragging(false);
-//   setScrollPosition(0);
-//   setInitX(0);
-
-//   // Remove transition after animation
-//   setTimeout(() => {
-//     sliderInner.style.transition = "";
-//   }, 500);
-// };
-
-const handleNavClick = (index, e) => {
-  // Remove classes from any open card
-  const openCard = document.querySelector(".slider_inner__slide.clicked");
-  if (openCard) {
-    openCard.classList.remove("clicked");
-
-    // Also remove expand/clicked from relevant parent nodes as in handleBackClick
-    const parent1 = openCard.parentNode;
-    const parent2 = parent1?.parentNode;
-    const parent3 = parent2?.parentNode;
-
-    parent1?.classList.remove("clicked", "expand");
-    parent2?.classList.remove("clicked", "expand");
-    parent3?.classList.remove("clicked");
-
-    document.querySelector(".portfolio_home__work")?.classList.remove("expand");
-  }
-
-  // Find and scroll to the target card
-  const targetCard = document.querySelector(
-    `.slider_inner__slide[data-index="${index}"]`
-  );
-  if (targetCard) {
-    targetCard.scrollIntoView({ behavior: "smooth", block: "center" });
-
-    // Open the target card after scrolling
-    setTimeout(() => {
-      targetCard.classList.add("clicked");
-
-      // Also add "expand" to its parent container
-      document.querySelector(".portfolio_home__work")?.classList.add("expand");
-    }, 500);
-  }
-
-  // Update navbar underline
-  const navItems = document.querySelectorAll(".nav ul li");
-  navItems.forEach((item, idx) => {
-    item.classList.toggle("active", idx === index);
-  });
-
-  // Update slider position
-  const sliderInner = document.querySelector(".slider_inner");
-  const newThreshold = offset - (offset + margin) * index;
-  sliderInner.style.transform = `translateX(${newThreshold}px) translateY(120px)`;
-  sliderInner.style.transition = "transform 0.5s ease-in-out";
-  sliderInner.scrollLeft = newThreshold;
-
-  // Reset state variables
-  setIndex(index);
-  setEndPosition(newThreshold);
-  setDifference(0);
-  setDragging(false);
-  setScrollPosition(0);
-  setInitX(0);
-
-  // Remove transition after animation
-  setTimeout(() => {
-    sliderInner.style.transition = "";
-  }, 500);
-};
-
+  }, []);
 
   return (
     <>
@@ -707,14 +723,37 @@ const handleNavClick = (index, e) => {
                   </div>
                   <div className="nav">
                     <ul>
-                      <li className="active trigger" onClick={() => handleNavClick(0)}>Our work</li>
-                      <li className="trigger" onClick={() => handleNavClick(1)}>Our services</li>
-                      <li className="trigger" onClick={() => handleNavClick(2)}>About us</li>
-                      <li className="trigger" onClick={() => handleNavClick(3)}>Contact us</li>
+                      <li
+                        className="trigger"
+                        onClick={() => moveBetweenPages(0)}
+                      >
+                        Our work
+                      </li>
+                      <li
+                        className="active trigger"
+                        onClick={() => moveBetweenPages(1)}
+                      >
+                        Our services
+                      </li>
+                      <li
+                        className="trigger"
+                        onClick={() => moveBetweenPages(2)}
+                      >
+                        About us
+                      </li>
+                      <li
+                        className="trigger"
+                        onClick={() => moveBetweenPages(3)}
+                      >
+                        Contact us
+                      </li>
                     </ul>
                   </div>
                   <div className="number black">0161 345 3464</div>
-                  <div className="hamburger black trigger" onClick={handleLandingTriggerClick}>
+                  <div
+                    className="hamburger black trigger"
+                    onClick={handleLandingTriggerClick}
+                  >
                     <div className="hamburger_part"></div>
                     <div className="hamburger_part"></div>
                     <div className="hamburger_part"></div>
@@ -739,14 +778,37 @@ const handleNavClick = (index, e) => {
                     </div>
                     <div className="nav">
                       <ul>
-                        <li className="active trigger" onClick={() => handleNavClick(0)}>Our work</li>
-                        <li className="trigger" onClick={() => handleNavClick(1)}>Our services</li>
-                        <li className="trigger" onClick={() => handleNavClick(2)}>About us</li>
-                        <li className="trigger" onClick={() => handleNavClick(3)}>Contact us</li>
+                        <li
+                          className="active trigger"
+                          onClick={() => moveBetweenPages(0)}
+                        >
+                          Our work
+                        </li>
+                        <li
+                          className="trigger"
+                          onClick={() => moveBetweenPages(1)}
+                        >
+                          Our services
+                        </li>
+                        <li
+                          className="trigger"
+                          onClick={() => moveBetweenPages(2)}
+                        >
+                          About us
+                        </li>
+                        <li
+                          className="trigger"
+                          onClick={() => moveBetweenPages(3)}
+                        >
+                          Contact us
+                        </li>
                       </ul>
                     </div>
                     <div className="number white">0161 345 3464</div>
-                    <div className="hamburger white trigger" onClick={handleLandingTriggerClick}>
+                    <div
+                      className="hamburger white trigger"
+                      onClick={handleLandingTriggerClick}
+                    >
                       <div className="hamburger_part"></div>
                       <div className="hamburger_part"></div>
                       <div className="hamburger_part"></div>
@@ -758,7 +820,7 @@ const handleNavClick = (index, e) => {
                       <br />
                       My Protein
                     </div>
-                    <div className="image">
+                    <div className="image parent_0">
                       <img
                         draggable="false"
                         src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/fud.png"
@@ -777,7 +839,7 @@ const handleNavClick = (index, e) => {
                       <br />
                       Nike Air Max
                     </div>
-                    <div className="image">
+                    <div className="image parent_1">
                       <img
                         draggable="false"
                         src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/nike.png"
@@ -798,7 +860,7 @@ const handleNavClick = (index, e) => {
                       <br />
                       Apple Watch
                     </div>
-                    <div className="image">
+                    <div className="image parent_2">
                       <img
                         draggable="false"
                         src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/rpo.jpg"
@@ -817,7 +879,7 @@ const handleNavClick = (index, e) => {
                       <br />
                       Jade Teriyaki
                     </div>
-                    <div className="image">
+                    <div className="image parent_3">
                       <img
                         draggable="false"
                         src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/orangetyhing.png"
@@ -848,28 +910,30 @@ const handleNavClick = (index, e) => {
                     onMouseUp={handleSliderMouseUp}
                     onScroll={handleSliderScroll}
                     // ref={scrollRef}
-                    
                   >
                     <div className="slider_inner__slide">
-                      <div className="title"
-                        data-index="0"
-                      >
+                      <div className="title" data-index="0">
                         .01
                         <br />
                         My Protein
                       </div>
-                      <div className="image">
+                      <div className="image parent_0">
                         <img
                           draggable="false"
                           src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/fud.png"
                           alt="My Protein"
                         />
-                        <div className="overlay"></div>
-                        <div className="cats">ADVERTISING DESIGN DIGITAL</div>
-                        <div className="title">
+                        <div className="overlay overlay_0"></div>
+                        <div className="cats cats_0">
+                          ADVERTISING DESIGN DIGITAL
+                        </div>
+                        <div className="title title_0">
                           My protein rebrand and digital campaign
                         </div>
-                        <div className="button" onClick={handleButtonClick}>
+                        <div
+                          className="button button_0"
+                          onClick={handleButtonClick}
+                        >
                           View case study
                           <img
                             src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/arrowbblakc.png"
@@ -879,26 +943,28 @@ const handleNavClick = (index, e) => {
                       </div>
                     </div>
                     <div className="slider_inner__slide">
-                      <div className="title"
-                      data-index="1">
+                      <div className="title" data-index="1">
                         .02
                         <br />
                         Nike Air Max
                       </div>
-                      <div className="image">
+                      <div className="image parent_1">
                         <img
                           draggable="false"
                           src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/nike.png"
                           alt="Nike Air Max"
                         />
-                        <div className="overlay"></div>
-                        <div className="cats">
+                        <div className="overlay overlay_1"></div>
+                        <div className="cats cats_1">
                           ADVERTISING DESIGN DIGITAL STRATEGY
                         </div>
-                        <div className="title">
+                        <div className="title title_1">
                           Nike Air max video campaign 2017
                         </div>
-                        <div className="button" onClick={handleButtonClick}>
+                        <div
+                          className="button button_1"
+                          onClick={handleButtonClick}
+                        >
                           View case study
                           <img
                             src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/arrowbblakc.png"
@@ -908,24 +974,28 @@ const handleNavClick = (index, e) => {
                       </div>
                     </div>
                     <div className="slider_inner__slide">
-                      <div className="title"
-                      data-index="2">
+                      <div className="title" data-index="2">
                         .03
                         <br />
                         Apple Watch
                       </div>
-                      <div className="image">
+                      <div className="image parent_2">
                         <img
                           draggable="false"
                           src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/rpo.jpg"
                           alt="Apple Watch"
                         />
-                        <div className="overlay"></div>
-                        <div className="cats">ADVERTISING DIGITAL STRATEGY</div>
-                        <div className="title">
+                        <div className="overlay overlay_2"></div>
+                        <div className="cats cats_2">
+                          ADVERTISING DIGITAL STRATEGY
+                        </div>
+                        <div className="title title_2">
                           The new Apple Watch digital campaign 2019
                         </div>
-                        <div className="button" onClick={handleButtonClick}>
+                        <div
+                          className="button button_2"
+                          onClick={handleButtonClick}
+                        >
                           View case study
                           <img
                             src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/arrowbblakc.png"
@@ -935,26 +1005,28 @@ const handleNavClick = (index, e) => {
                       </div>
                     </div>
                     <div className="slider_inner__slide">
-                      <div className="title"
-                      data-index="3">
+                      <div className="title" data-index="3">
                         .04
                         <br />
                         Jade Teriyaki
                       </div>
-                      <div className="image">
+                      <div className="image parent_3">
                         <img
                           draggable="false"
                           src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/orangetyhing.png"
                           alt="Jade Teriyaki"
                         />
-                        <div className="overlay"></div>
-                        <div className="cats">
+                        <div className="overlay overlay_3"></div>
+                        <div className="cats cats_3">
                           ADVERTISING DESIGN DIGITAL STRATEGY
                         </div>
-                        <div className="title">
+                        <div className="title title_3">
                           Another agency did this campaign, not us
                         </div>
-                        <div className="button" onClick={handleButtonClick}>
+                        <div
+                          className="button button_3"
+                          onClick={handleButtonClick}
+                        >
                           View case study
                           <img
                             src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/arrowbblakc.png"
