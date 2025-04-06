@@ -318,8 +318,7 @@ const handleSliderScroll = () => {
   };
 
     const handleBackClick = (e) => {
-    console.log("click");
-    console.log(e);
+      console.log("Click")
     e.target.parentNode.parentNode.parentNode.classList.remove("clicked");
     e.target.parentNode.parentNode.classList.remove("clicked");
     document.querySelector(".portfolio_home__work").classList.remove("expand");
@@ -540,14 +539,77 @@ const handleSliderScroll = () => {
     };
 }, []);
 
-const handleNavClick = (index) => {
+// const handleNavClick = (index,e) => {
+//   const openCard = document.querySelector(".slider_inner__slide.clicked");
+//   if (openCard) {
+//     openCard.classList.remove("clicked");
+//     document.querySelector(".portfolio_home__work").classList.remove("expand");
+//   }
+
+//   // Find the target card using the data-index attribute
+//   const targetCard = document.querySelector(
+//     `.slider_inner__slide[data-index="${index}"]`
+//   );
+//   if (targetCard) {
+//     targetCard.scrollIntoView({ behavior: "smooth", block: "center" });
+
+//     // Open the target card after scrolling
+//     setTimeout(() => {
+//       targetCard.classList.add("clicked");
+//       document.querySelector(".portfolio_home__work").classList.add("expand");
+//     }, 500); // Delay to ensure scrolling is complete
+//   }
+
+//   // Update navbar underline
+//   const navItems = document.querySelectorAll(".nav ul li");
+//   navItems.forEach((item, idx) => {
+//     if (idx === index) {
+//       item.classList.add("active");
+//     } else {
+//       item.classList.remove("active");
+//     }
+//   });
+
+//   // Update slider position
+//   const sliderInner = document.querySelector(".slider_inner");
+//   const newThreshold = offset - (offset + margin) * index;
+//   sliderInner.style.transform = `translateX(${newThreshold}px) translateY(120px)`;
+//   sliderInner.style.transition = "transform 0.5s ease-in-out";
+//   sliderInner.scrollLeft = newThreshold;
+
+//   // Reset state variables
+//   setIndex(index);
+//   setEndPosition(newThreshold);
+//   setDifference(0);
+//   setDragging(false);
+//   setScrollPosition(0);
+//   setInitX(0);
+
+//   // Remove transition after animation
+//   setTimeout(() => {
+//     sliderInner.style.transition = "";
+//   }, 500);
+// };
+
+const handleNavClick = (index, e) => {
+  // Remove classes from any open card
   const openCard = document.querySelector(".slider_inner__slide.clicked");
   if (openCard) {
     openCard.classList.remove("clicked");
-    document.querySelector(".portfolio_home__work").classList.remove("expand");
+
+    // Also remove expand/clicked from relevant parent nodes as in handleBackClick
+    const parent1 = openCard.parentNode;
+    const parent2 = parent1?.parentNode;
+    const parent3 = parent2?.parentNode;
+
+    parent1?.classList.remove("clicked", "expand");
+    parent2?.classList.remove("clicked", "expand");
+    parent3?.classList.remove("clicked");
+
+    document.querySelector(".portfolio_home__work")?.classList.remove("expand");
   }
 
-  // Find the target card using the data-index attribute
+  // Find and scroll to the target card
   const targetCard = document.querySelector(
     `.slider_inner__slide[data-index="${index}"]`
   );
@@ -557,18 +619,16 @@ const handleNavClick = (index) => {
     // Open the target card after scrolling
     setTimeout(() => {
       targetCard.classList.add("clicked");
-      document.querySelector(".portfolio_home__work").classList.add("expand");
-    }, 500); // Delay to ensure scrolling is complete
+
+      // Also add "expand" to its parent container
+      document.querySelector(".portfolio_home__work")?.classList.add("expand");
+    }, 500);
   }
 
   // Update navbar underline
   const navItems = document.querySelectorAll(".nav ul li");
   navItems.forEach((item, idx) => {
-    if (idx === index) {
-      item.classList.add("active");
-    } else {
-      item.classList.remove("active");
-    }
+    item.classList.toggle("active", idx === index);
   });
 
   // Update slider position
@@ -591,6 +651,7 @@ const handleNavClick = (index) => {
     sliderInner.style.transition = "";
   }, 500);
 };
+
 
   return (
     <>
