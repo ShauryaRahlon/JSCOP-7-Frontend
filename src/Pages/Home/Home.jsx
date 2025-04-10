@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./NewLandingPage.css";
+import { Menu } from "lucide-react";
 const Portfolio = () => {
   const [introComplete, setIntroComplete] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -18,6 +19,12 @@ const Portfolio = () => {
   const margin = 0;
   const threshold = 100;
 
+
+
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const toggleMenu = () => {
+    setIsMenuOpen((prev) => !prev);
+  };
   // Cursor settings
   const cursorSettings = {
     size: "18",
