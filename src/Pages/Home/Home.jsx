@@ -21,6 +21,10 @@ const Portfolio = () => {
   const margin = 0;
   const threshold = 100;
 
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const toggleMenu = () => {
+    setIsMenuOpen((prev) => !prev);
+  };
   // Cursor settings
   const cursorSettings = {
     size: "18",
