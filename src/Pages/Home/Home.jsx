@@ -1,5 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
+import Navbar from "../../Components/Navbar/Navbar";
+import { Home } from "lucide-react";
 import "./NewLandingPage.css";
+
 const Portfolio = () => {
   const [introComplete, setIntroComplete] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -14,7 +17,7 @@ const Portfolio = () => {
   const cursorRef = useRef(null);
   const scrollRef = useRef(null);
 
-  const offset = 760;
+  const offset = window.innerWidth <= 768 ? 370 : 760;
   const margin = 0;
   const threshold = 100;
 
@@ -221,6 +224,7 @@ const Portfolio = () => {
     // Update slider position
     const sliderInner = document.querySelector(".slider_inner");
     const newThreshold = offset - (offset + margin) * index;
+    console.log("new....", newThreshold);
     sliderInner.style.transform = `translateX(${newThreshold}px) translateY(120px)`;
     sliderInner.style.transition = "transform 0.8s ease-in-out";
     sliderInner.scrollLeft = newThreshold;
@@ -749,7 +753,10 @@ const Portfolio = () => {
                       </li>
                     </ul>
                   </div>
-                  <div className="number black">0161 345 3464</div>
+                  {/* <div className="number black">0161 345 3464</div> */}
+                  {/* <div style={{ position: "relative" }}> */}
+                  <Navbar moveBetweenPages={moveBetweenPages} />
+                  {/* </div> */}
                   <div
                     className="hamburger black trigger"
                     onClick={handleLandingTriggerClick}
@@ -804,7 +811,7 @@ const Portfolio = () => {
                         </li>
                       </ul>
                     </div>
-                    <div className="number white">0161 345 3464</div>
+                    {/* <div className="number white">0161 345 3464</div> */}
                     <div
                       className="hamburger white trigger"
                       onClick={handleLandingTriggerClick}

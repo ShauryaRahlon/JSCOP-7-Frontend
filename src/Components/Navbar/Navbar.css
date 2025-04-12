@@ -1,0 +1,237 @@
+/* .app {
+  min-height: 100vh;
+  background: #1a1a1a;
+  position: relative;
+} */
+
+.mobile_nav_app {
+  display: none;
+}
+
+/* Mobile Menu Button */
+.mobile_menu_button {
+  /* position: fixed; */
+  position: relative;
+  right: -74%;
+  top: -8px;
+  padding: 10px 10px 6px 10px;
+  background: rgba(255, 255, 255, 0.5);
+  color: #07101d;
+  border: none;
+  border-radius: 80px;
+  cursor: pointer;
+  z-index: 98;
+  backdrop-filter: blur(10px);
+}
+
+/* Sidebar Styles */
+.mobile_sidebar {
+  position: fixed;
+  top: 1vh;
+  right: -100%;
+  width: 300px;
+  height: 96vh;
+  background: linear-gradient(180deg, #2c1810 0%, #1a1a1a 100%);
+  color: white;
+  transition: right 0.3s ease-in-out;
+  z-index: 100;
+  overflow-y: auto;
+  padding: 24px 20px;
+  margin: 10px 15px;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+}
+
+.mobile_sidebar_open {
+  right: 0;
+}
+
+/* Sidebar Header */
+.mobile_sidebar_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 35px;
+}
+
+.mobile_user_info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.mobile_user_avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.mobile_user_details h3 {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 2px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.mobile_user_details p {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.mobile_close_button {
+  background: none;
+  border: none;
+  /* position: relative; */
+  /* top: -20px; */
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 24px;
+  cursor: pointer;
+  padding: 5px;
+  margin-top: -5px;
+}
+
+/* Navigation */
+.mobile_nav {
+  margin-bottom: 35px;
+}
+
+.mobile_nav_item {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-size: 14px;
+  gap: 12px;
+  border-radius: 8px;
+  margin-bottom: 4px;
+  transition: all 0.2s ease;
+}
+
+.mobile_nav_item:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.mobile_nav_icon {
+  width: 20px;
+  text-align: center;
+  opacity: 0.8;
+}
+
+/* Messages Section */
+.mobile_messages {
+  margin-bottom: 35px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mobile_messages h4 {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.4);
+  margin-bottom: 15px;
+  letter-spacing: 0.5px;
+}
+
+.mobile_message_item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+}
+
+.mobile_message_item img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mobile_message_item span {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Task Card */
+.mobile_task_card {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ff8e8e 100%);
+  padding: 6px 20px 20px 20px;
+  border-radius: 16px;
+  /* margin-top: 20px; */
+  box-shadow: 0 8px 24px rgba(255, 107, 107, 0.2);
+}
+
+.mobile_task_card h3 {
+  font-size: 16px;
+  margin-bottom: 8px;
+  color: white;
+  font-weight: 600;
+}
+
+.mobile_task_card p {
+  font-size: 13px;
+  margin-bottom: 20px;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.4;
+}
+
+.mobile_add_task {
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 13px;
+  font-weight: 500;
+  transition: background 0.2s ease;
+}
+
+.mobile_add_task:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Overlay */
+.mobile_overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
+  z-index: 99;
+  backdrop-filter: blur(4px);
+}
+
+.mobile_overlay_visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .mobile_sidebar {
+    width: 280px;
+  }
+
+  .mobile_menu_button {
+    position: absolute;
+    right: 70px;
+    top: 30px;
+  }
+  .mobile_nav_app {
+    display: block;
+  }
+}
+
+@media (max-width: 480px) {
+  /* .mobile_sidebar {
+    width: 100%;
+  } */
+}
