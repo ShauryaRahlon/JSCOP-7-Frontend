@@ -387,9 +387,8 @@ const Portfolio = () => {
       });
 
       if (sliderInnerRef.current) {
-        sliderInnerRef.current.style.transform = `translateX(${
-          newDifference + endPosition
-        }px) translateY(120px)`;
+        sliderInnerRef.current.style.transform = `translateX(${newDifference + endPosition
+          }px) translateY(120px)`;
       }
     }
   };
@@ -525,9 +524,8 @@ const Portfolio = () => {
           const velocity = 0.5 - pps / 40000;
 
           document.querySelectorAll(".slider_inner__slide").forEach((slide) => {
-            slide.style.transform = `rotateY(${direction}${
-              pps / 110
-            }deg) scale(1)`;
+            slide.style.transform = `rotateY(${direction}${pps / 110
+              }deg) scale(1)`;
             slide.style.transition = `all ${velocity}s`;
           });
         }
@@ -1064,7 +1062,7 @@ const Portfolio = () => {
                     onMouseMove={handleSliderMouseMove}
                     onMouseUp={handleSliderMouseUp}
                     onScroll={handleSliderScroll}
-                    // ref={scrollRef}
+                  // ref={scrollRef}
                   >
                     <div className="slider_inner__slide">
                       <div className="title" data-index="0">
@@ -1240,8 +1238,7 @@ const Portfolio = () => {
                         </div>
                         <div
                           className="button button_5"
-                          onClick={handleButtonClick}
-                        >
+                          onClick={handleButtonClick}>
                           View Moments
                           <img
                             src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/arrowbblakc.png"
