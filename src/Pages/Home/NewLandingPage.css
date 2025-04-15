@@ -90,6 +90,17 @@
     transition: all 0.8s 0.1s cubic-bezier(0.79, -0.01, 0, 0.99);
     height: 100%;
   }
+  @media screen and (max-width: 760px) {
+    body .portfolio .slideClone .image img {
+      position: absolute;
+      left: 0;
+      z-index: -1;
+      top: 0;
+      transition: all 0.8s 0.1s cubic-bezier(0.79, -0.01, 0, 0.99);
+      height: calc(100vw);
+      width: calc(130vw);
+    }
+  }
   body .portfolio .slideClone .image .overlay {
     position: absolute;
     top: 0;
@@ -196,11 +207,11 @@
     perspective-origin: 50% 200px;
   }
   body .portfolio_home__slider .slider_inner {
-    transform: translateY(120px);
+    transform: translateY(12vh);
     position: absolute;
     left: 0;
     right: 0;
-    width: 30000px;
+    width: 500vw;
     transition: all 0.8s cubic-bezier(0, 0.6, 0.25, 1);
     transform-style: preserve-3d;
     pointer-events: none;
@@ -221,6 +232,24 @@
     transform-style: preserve-3d;
     transform: scale(0);
   }
+  @media screen and (max-width: 760px) {
+    body .portfolio_home__slider .slider_inner {
+      transform: translateY(10vh);
+      width: 1000vw; /* accommodate smaller screens while keeping horizontal scroll */
+    }
+    body .portfolio_home__slider {
+      transform: translateX(-30vw);
+      perspective: 80vw;
+      perspective-origin: 50% 15vh;
+    }
+
+    body .portfolio_home__slider .slider_inner__slide {
+      width: calc(90vw);
+      height: calc(90vw * 1.5);
+      margin-right: 10px;
+    }
+    
+  }
   body .portfolio_home__slider .slider_inner__slide .title {
     font-weight: 800;
     color: #060608;
@@ -236,8 +265,8 @@
   }
   body .portfolio_home__slider .slider_inner__slide .image {
     position: relative;
-    margin-top: 10px;
-    padding: 94px 94px;
+    margin-top: 1vh;
+    padding: 8vh 8vw;
     height: 380px;
     transform-style: preserve-3d;
   }
@@ -289,9 +318,13 @@
     position: absolute;
     width: calc(90vw);
   }
+  
   body .portfolio_home__slider .slider_inner__slide .image img{
     position: absolute;
-    width: calc(90vw);
+    left: 0;
+    z-index: -1;
+    top: 0;
+    height: 100%;
   }
 }
   body .portfolio_home__slider .slider_inner__slide .image .cats {
