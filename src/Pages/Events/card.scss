@@ -1,0 +1,291 @@
+.card_events {
+    position: relative;
+    float: left;
+    width: 29%;
+    height: 0;
+    margin: 2%;
+    padding-bottom: 20%;
+    transition: opacity 0.3s, visibility 0.3s; /* Add transition for hiding */
+}
+
+/* Style for hidden cards */
+.card_events--hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition-delay: 0.2s; /* Delay hiding slightly */
+}
+
+.card_events__container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: 100%;
+    height: 100%;
+    -webkit-transform: translate3d(0, 0, 0);
+    /* prevents flicker */
+
+    -webkit-overflow-scrolling: touch;
+}
+
+.card_events__container--closed {
+    position: absolute;
+    overflow: hidden;
+}
+
+.card_events__image {
+    position: relative;
+    left: 50%;
+    display: block;
+    height: 100%;
+    max-height: 500px;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+
+.card_events__container--closed .card_events__image {
+    cursor: pointer;
+}
+
+.card_events__content {
+    position: relative;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    padding: 30px 40px 22px;
+    color: #888;
+    background: #fff;
+}
+
+.card_events__container--closed .card_events__content {
+    margin-top: 0;
+    padding: 5px 16px;
+    pointer-events: none;
+    background: transparent;
+}
+
+.card_events__caption {
+    font-size: 2em;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 35px 30px 0px;
+}
+
+.card_events__container--closed .card_events__caption {
+    font-size: 1em;
+    max-width: none;
+    padding: 30px 10px;
+    -webkit-transform: translateY(-100%);
+    -ms-transform: translateY(-100%);
+    transform: translateY(-100%);
+}
+
+.card_events__title {
+    font-size: 1.5em;
+    line-height: 1;
+    margin: 5px 0 0 0;
+    color: #3b393d;
+}
+
+.card_events__container--closed .card_events__title {
+    color: #fff;
+}
+
+.card_events__subtitle {
+    font-size: .95em;
+    line-height: 1;
+    margin: 5px 0 0;
+    color: #777778;
+}
+
+.card_events__container--closed .card_events__subtitle {
+    color: #f5f5f5;
+}
+
+.card_events__copy {
+    font-size: 1.25em;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 25px 30px 100px;
+    color: #3b393d;
+}
+
+.card_events__copy p:first-of-type {
+    font-size: 1.5em;
+    padding: 0 0 1em 0;
+}
+.card_events__btn-close::before{
+    display: none;
+}
+.card_events__btn-close {
+    font-size: 22px;
+    border: none;
+    background-color: transparent;
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: #000000;
+    padding: 36px;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+    font: bold;
+}
+.card_events__btn-close:hover{
+    transition: 0.2s ease-in-out;
+    transform: scale(1.4);
+}
+
+.card_events__container--closed .card_events__btn-close {
+    display: none;
+}
+
+.meta_events {
+    font-size: .85em;
+    display: -webkit-flex;
+    display: flex;
+    padding: 0 0 35px 0;
+
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.card_events__container--closed .meta_events {
+    visibility: hidden;
+}
+
+.meta_events__avatar {
+    border-radius: 50%;
+}
+
+.meta_events__author {
+    font-weight: bold;
+    padding: 0 15px;
+}
+
+.meta_events__date {
+    margin: 0 0 0 auto;
+}
+
+/* Secondary Image Styles */
+.card_events__secondary-image {
+    position: absolute;
+    top: 0; // Align vertically with the primary image's top edge
+    margin-top: 100px;
+    border-radius: 5%;
+    left: 50%; // Center horizontally relative to the container
+    transform: translateX(-50%); // Fine-tune horizontal centering
+    width: 500px; // Square width, matching primary image height
+    height: 50%; // Match primary image height
+    object-fit: cover; // Cover the area without distortion
+    opacity: 0;
+    box-shadow: #000000 0px 0px 20px 0px;
+    visibility: hidden;
+    pointer-events: none;
+    z-index: 1; // Ensure it's above the primary SVG image
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+    /* Visibility is now controlled by GSAP in Card.jsx */
+}
+
+/* REMOVED rule for showing image based on container class */
+@media screen and (min-width: 1366px) {
+    .card_events__secondary-image {
+        height: 500px;
+        width: 500px;
+        top: -50px;
+   
+        // blur
+        filter: blur(0px);
+        transition: filter 0.5s ease-in-out;
+        // opacity
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        z-index: 1; // Ensure it's above the primary SVG image
+        transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+    }
+    .card_events__container--closed .card_events__secondary-image {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
+    /* Select when container does NOT have the closed class */
+    .card_events__container:not(.card_events__container--closed) .card_events__secondary-image { /* Reverted */
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+    }
+    
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+    .card_events__secondary-image {
+        height: 300px;
+        width: 300px;
+        margin-top: 1px;
+        margin-top: 20px;
+        border-radius: 10px;
+        object-fit: cover;
+        // Remove the opacity and visibility settings from here
+        // They should follow the default hidden state
+        z-index: 1;
+    }
+}
+
+@media only screen and (min-width: 834px) and (max-width: 1366px) {
+    .card_events__secondary-image {
+        height: 500px;
+        width: 500px;
+        top: -50px;
+        // Remove any opacity or visibility settings here as well
+    }
+}
+
+@media only screen and (max-width: 980px) {
+    .card_events {
+        width: 46%;
+        padding-bottom: 32.2%;
+    }
+
+    .card_events__image {
+        max-height: 360px;
+    }
+
+    .card_events__content {
+        margin-bottom: 0;
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+}
+
+@media only screen and (max-width: 580px) {
+    .card_events {
+        width: 96%;
+        padding-bottom: 67.2%;
+    }
+    .card_events__secondary-image{
+        height: 360px;
+        width: 100%;    
+        margin-top: 0px;
+        border-radius: 0%;
+        
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .card_events__caption {
+        font-size: 1.25em;
+        padding: 35px 0px 0px;
+    }
+
+    .meta_events {
+        padding: 0 0 25px 0;
+    }
+
+    .card_events__copy {
+        font-size: 90%;
+        padding: 25px 0px 100px;
+    }
+}

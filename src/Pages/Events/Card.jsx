@@ -1,0 +1,342 @@
+import React, { useState, useRef, useEffect } from 'react';
+import './card.scss'; // Card specific styles
+
+
+// Declare global variables used by the scripts loaded in index.html
+/* global TimelineLite, TweenLite, Expo, Power2 */
+
+// Enum of CSS classes (mirrors original script)
+const CLASSES = {
+    containerClosed: 'card_events__container--closed',
+    bodyHidden: 'body_events--hidden',
+    cardHidden: 'card_events--hidden', // Add class for hiding inactive cards
+};
+
+// Accept props from App
+function Card({
+    cardKey,
+    openingCardKey,
+    onOpening,
+    onClosing,
+    imgSrc,
+    secondaryImgSrc, // Add prop for secondary image
+    title,
+    subtitle, // Re-added
+    authorImg, // Re-added
+    authorName, // Re-added
+    date,
+    copy // Re-added copy prop
+}) {
+    const clipPathId = `clipPath-${cardKey}`; // Generate unique ID
+    const [isOpen, setIsOpen] = useState(false);
+    const cardRef = useRef(null); // Ref for the main card element
+    const containerRef = useRef(null); // Ref for the card__container
+    const contentRef = useRef(null); // Ref for card__content
+    const clipRef = useRef(null); // Ref for the SVG polygon.clip
+    const primaryImageRef = useRef(null); // Ref for the primary SVG image
+    const secondaryImageRef = useRef(null); // Ref for the secondary image
+    const timelineRef = useRef(null); // Ref to store the GSAP timeline
+
+    // --- Animation Functions (adapted from Card-polygon.js) ---
+
+    const slideContentDown = () => {
+        if (!contentRef.current) return null;
+        return TweenLite.to(contentRef.current, 0.8, {
+            y: window.innerHeight,
+            ease: Expo.easeInOut,
+        });
+    };
+
+    const clipImageIn = () => {
+        if (!clipRef.current) return null;
+        const TL = new TimelineLite();
+        const start = [
+            [0, 500], [0, 0], [1920, 0], [1920, 500]
+        ];
+        const end = [
+            [1025, 330], [1117, 171], [828, 206], [913, 260]
+        ];
+        let points = [];
+
+        start.forEach((point, i) => {
+            const tween = TweenLite.to(point, 1.5, {
+                ...end[i], // Spread the target coordinates
+                onUpdate: () => {
+                    points.push(point.join());
+                    if (points.length === end.length) {
+                        if (clipRef.current) {
+                            clipRef.current.setAttribute('points', points.join(' '));
+                        }
+                        points = [];
+                    }
+                },
+                ease: Expo.easeInOut,
+            });
+            TL.add(tween, 0);
+        });
+        return TL;
+    };
+
+    const floatContainer = () => {
+        if (!containerRef.current) return null;
+        document.body.classList.add(CLASSES.bodyHidden);
+        const TL = new TimelineLite();
+        const rect = containerRef.current.getBoundingClientRect();
+        const windowW = window.innerWidth;
+        const track = {
+            width: rect.width, // Start tracking from initial width
+            x: rect.left + rect.width / 2,
+            y: rect.top + rect.height / 2,
+        };
+
+        TL.set(containerRef.current, {
+            width: rect.width,
+            height: rect.height,
+            x: rect.left,
+            y: rect.top,
+            position: 'fixed',
+            overflow: 'hidden', // Keep hidden during transition
+        });
+
+        TL.to([containerRef.current, track], 2, {
+            width: windowW,
+            height: '100%',
+            x: windowW / 2,
+            y: 0,
+            xPercent: -50,
+            // overflowY: 'auto', // REMOVE from animation properties
+            ease: Expo.easeInOut,
+            // clearProps: 'all', // Delay clearProps until reverse complete
+            className: '-=' + CLASSES.containerClosed,
+            // Removed onUpdate call to onCardMove
+            onComplete: () => { // ADD onComplete callback
+                // Set overflowY after animation finishes
+                if (containerRef.current) {
+                    containerRef.current.style.overflowY = 'auto';
+                }
+            }
+        });
+
+        return TL;
+    };
+
+    const clipImageOut = () => {
+        const tween = clipImageIn();
+        if (tween) {
+            // Need to wait for the tween to be created before reversing
+            // Using a slight delay or ensuring it's fully created might be needed,
+            // but GSAP's reverse() usually handles this if called on the timeline instance.
+            tween.reverse();
+        }
+        return tween;
+    };
+
+    const slideContentUp = () => {
+        if (!contentRef.current) return null;
+        return TweenLite.to(contentRef.current, 1, {
+            y: 0,
+            // clearProps: 'all', // Delay clearProps
+            ease: Expo.easeInOut,
+        });
+    };
+
+    // --- Effect to handle hiding/showing based on openingCardKey ---
+    useEffect(() => {
+        if (!cardRef.current) return;
+
+        if (openingCardKey && openingCardKey !== cardKey) {
+            // Another card is opening, hide this one
+            cardRef.current.classList.add(CLASSES.cardHidden);
+        } else {
+            // This card is opening or no card is opening, show this one
+            cardRef.current.classList.remove(CLASSES.cardHidden);
+        }
+    }, [openingCardKey, cardKey]); // Rerun when openingCardKey changes
+
+
+    // --- Event Handlers ---
+
+    const handleOpen = () => {
+        // Prevent opening if another card is already opening or this card is animating
+        if (openingCardKey || timelineRef.current?.isActive()) return;
+
+        onOpening(cardKey); // Notify App that this card is opening
+
+        // Ensure secondary image is initially hidden before animation starts
+        if (secondaryImageRef.current) {
+            TweenLite.set(secondaryImageRef.current, { opacity: 0, visibility: 'hidden' });
+        }
+
+        const tl = new TimelineLite({
+            onComplete: () => {
+                setIsOpen(true); // Update local state after main animation
+
+                // Mobile specific: Hide primary image after expansion
+                if (window.innerWidth <= 580 && primaryImageRef.current) {
+                    TweenLite.set(primaryImageRef.current, { opacity: 0, visibility: 'hidden' });
+                }
+
+                // Fade in secondary image *after* main animation completes
+                if (secondaryImageRef.current) {
+                    TweenLite.to(secondaryImageRef.current, 0.5, { // Fade-in duration 0.5s
+                        opacity: 1,
+                        visibility: 'visible',
+                        ease: Power2.easeOut // Optional easing
+                    });
+                }
+            }
+        });
+        timelineRef.current = tl; // Store the timeline
+
+        const anim1 = slideContentDown();
+        const anim2 = clipImageIn();
+        const anim3 = floatContainer();
+        const anim4 = clipImageOut();
+        const anim5 = slideContentUp();
+
+        // Add tweens to timeline if they exist
+        if (anim1) tl.add(anim1);
+        if (anim2) tl.add(anim2, 0);
+        if (anim3) tl.add(anim3, '-=' + (anim2?.duration() ?? 0) * 0.6);
+        if (anim4) tl.add(anim4, '-=' + (anim3?.duration() ?? 0) * 0.3);
+        if (anim5) tl.add(anim5, '-=' + (anim4?.duration() ?? 0) * 0.6);
+
+        tl.play();
+    };
+
+    const handleClose = () => {
+        if (!isOpen || !timelineRef.current || timelineRef.current.isActive()) return; // Prevent if already closed or animating
+
+        // Mobile specific: Show primary image before closing starts
+        if (window.innerWidth <= 580 && primaryImageRef.current) {
+            TweenLite.set(primaryImageRef.current, { opacity: 1, visibility: 'visible' });
+        }
+
+        // 1. Fade out secondary image *first*
+        if (secondaryImageRef.current) {
+            // Increased duration to 0.6s and changed ease for smoother fade
+            TweenLite.to(secondaryImageRef.current, 0.6, {
+                opacity: 0,
+                visibility: 'hidden',
+                ease: Power2.easeInOut, // Changed easing
+                onComplete: () => {
+                    // 2. THEN scroll container to top
+                    if (containerRef.current) {
+                        TweenLite.to(containerRef.current, 0.4, {
+                            scrollTo: { y: 0 },
+                            ease: Power2.easeOut,
+                            onComplete: () => {
+                                if (containerRef.current) {
+                                    containerRef.current.style.overflow = 'hidden';
+                                }
+                                // 3. FINALLY, reverse the main timeline
+                                reverseMainTimeline();
+                            }
+                        });
+                    } else {
+                        // If no container scroll needed, just reverse main timeline
+                        reverseMainTimeline();
+                    }
+                }
+            });
+        } else {
+            // If no secondary image, just scroll and reverse
+            if (containerRef.current) {
+                TweenLite.to(containerRef.current, 0.4, {
+                    scrollTo: { y: 0 },
+                    ease: Power2.easeOut,
+                    onComplete: () => {
+                        if (containerRef.current) {
+                            containerRef.current.style.overflow = 'hidden';
+                        }
+                        reverseMainTimeline();
+                    }
+                });
+            } else {
+                reverseMainTimeline();
+            }
+        }
+    };
+
+    // Helper function to reverse the main timeline and handle cleanup
+    const reverseMainTimeline = () => {
+        if (!timelineRef.current) return;
+
+        timelineRef.current.eventCallback('onReverseComplete', () => {
+            // Clean up styles after reverse animation completes
+            TweenLite.set([containerRef.current, contentRef.current, primaryImageRef.current, secondaryImageRef.current], { clearProps: 'all' }); // Clear all relevant props
+            document.body.classList.remove(CLASSES.bodyHidden);
+            setIsOpen(false); // Update local state
+            timelineRef.current = null; // Clear timeline ref
+            onClosing(); // Notify App that closing is complete
+        });
+
+        timelineRef.current.reverse();
+    };
+
+    // Note: hideCard
+
+    return (
+        // Add cardRef here
+        <div className="card_events" ref={cardRef}>
+            <div
+                // Apply closed class based on local isOpen state
+                className={`card_events__container ${!isOpen ? CLASSES.containerClosed : ''}`}
+                ref={containerRef}
+            >
+                <svg
+                    className="card_events__image"
+                    ref={primaryImageRef} // Add ref here
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlnsXlink="http://www.w3.org/1999/xlink"
+                    viewBox="0 0 1920 500"
+                    preserveAspectRatio="xMidYMid slice"
+                    onClick={handleOpen} // Attach open handler
+                >
+                    <defs>
+                        {/* Use unique ID */}
+                        <clipPath id={clipPathId}>
+                            <polygon ref={clipRef} className="clip" points="0,500 0,0 1920,0 1920,500"></polygon>
+                        </clipPath>
+                    </defs>
+                    {/* Use imgSrc prop and reference unique ID */}
+                    <image clipPath={`url(#${clipPathId})`} width="1920" height="500" xlinkHref={imgSrc}></image>
+                </svg>
+                {/* Add Secondary Image */}
+                <img
+                    src={secondaryImgSrc || 'public/img/authors/1.png'} // Use prop or placeholder
+                    alt="Secondary image"
+                    className="card_events__secondary-image"
+                    ref={secondaryImageRef} // Add ref here
+                />
+                <div className="card_events__content" ref={contentRef}>
+                    <button
+                        className="card_events__btn-close fa fa-times"
+                        onClick={handleClose} // Attach close handler
+                    >X</button>
+                    {/* Explicit Back button removed */}
+                    <div className="card_events__caption">
+                        {/* Use title and subtitle props */}
+                        <h2 className="card_events__title">{title}</h2>
+                        <p className="card_events__subtitle">{subtitle}</p> {/* Re-added subtitle */}
+                    </div>
+                    <div className="card_events__copy">
+                        {/* Re-added meta div */}
+                        <div className="meta_events">
+                            {/* Use authorImg, authorName, date props */}
+                            <img className="meta_events__avatar" src={authorImg} alt="author" />
+                            <span className="meta_events__author">{authorName}</span>
+                            <span className="meta_events__date">{date}</span>
+                        </div>
+                        {/* Re-added copy paragraphs */}
+                        {copy && copy.map((paragraph, index) => (
+                            <p key={index}>{paragraph}</p>
+                        ))}
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+}
+
+export default Card;
