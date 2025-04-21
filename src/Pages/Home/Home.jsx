@@ -405,7 +405,7 @@ const Portfolio = () => {
     let newEndPosition = endPosition;
 
     if (difference < -160) {
-      if (newIndex < 3) {
+      if (newIndex < 7) {
         newIndex++;
       }
     } else if (difference > 160) {
