@@ -77,95 +77,55 @@ function Navbar({ moveBetweenPages }) {
           right: `${position.right}px`,
           cursor: "grab",
         }}
-      >
+      > 
         <LayoutDashboard size={24} />
       </button>
 
       <div
-        className={`mobile_sidebar ${
-          isSidebarOpen ? "mobile_sidebar_open" : ""
-        }`}
-      >
+  className={`mobile_sidebar ${
+    isSidebarOpen ? "mobile_sidebar_open" : ""
+  }`}
+>
+
+
+
         <div className="mobile_sidebar_header">
-          <div className="mobile_user_info">
-            <img
-              src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?w=100&h=100&fit=crop"
-              alt="User"
-              className="mobile_user_avatar"
-            />
-            <div className="mobile_user_details">
-              <h3>JSCOP 7.0</h3>
-              <p>Optica JIIT Student Chapter</p>
-            </div>
-          </div>
           <button className="mobile_close_button" onClick={toggleSidebar}>
             ×
           </button>
         </div>
 
+
         <nav className="mobile_nav">
           <div onClick={() => handlePageChange(0)} className="mobile_nav_item">
-            <span className="mobile_nav_icon">⬜</span>
-            Dashboard
+            About Us
           </div>
           <div onClick={() => handlePageChange(1)} className="mobile_nav_item">
-            <span className="mobile_nav_icon">📈</span>
-            Activity
+            Events
           </div>
           <div onClick={() => handlePageChange(2)} className="mobile_nav_item">
-            <span className="mobile_nav_icon">📊</span>
-            Traffic
+            Speakers
           </div>
           <div onClick={() => handlePageChange(3)} className="mobile_nav_item">
-            <span className="mobile_nav_icon">📊</span>
-            Statistic
+            Timeline
           </div>
           <div onClick={() => handlePageChange(4)} className="mobile_nav_item">
-            <span className="mobile_nav_icon">📄</span>
-            Invoices
+            Team
           </div>
           <div onClick={() => handlePageChange(5)} className="mobile_nav_item">
-            <span className="mobile_nav_icon">💰</span>
-            Wallet
+            Gallery
+          </div>
+          <div onClick={() => handlePageChange(6)} className="mobile_nav_item">
+            Hackathon
+          </div>
+          <div onClick={() => handlePageChange(7)} className="mobile_nav_item">
+            Contact Us
           </div>
           {/* <a href="#" className="mobile_nav_item">
             <span className="mobile_nav_icon">🔔</span>
             Notification
           </a> */}
         </nav>
-
-        <div className="mobile_messages">
-          <h4>MESSAGES</h4>
-          <div className="mobile_message_item">
-            <img
-              src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=40&h=40&fit=crop"
-              alt="Erik"
-            />
-            <span>Erik Gunsel</span>
-          </div>
-          <div className="mobile_message_item">
-            <img
-              src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=40&h=40&fit=crop"
-              alt="Emily"
-            />
-            <span>Emily Smith</span>
-          </div>
-          {/* <div className="mobile_message_item">
-            <img
-              src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=40&h=40&fit=crop"
-              alt="Arthur"
-            />
-            <span>Arthur Ateik</span>
-          </div> */}
-        </div>
-
-        <div className="mobile_task_card">
-          <h3>Join JSCOP 2025!</h3>
-          <p>
-            Experience the annual flagship event of Optica JIIT Student Chapter
-          </p>
-          <button className="mobile_add_task">+ &nbsp; Register Now</button>
-        </div>
       </div>
 
       <div

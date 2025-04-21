@@ -16,7 +16,6 @@ const Portfolio = () => {
   const [initX, setInitX] = useState(0);
   const [difference, setDifference] = useState(0);
   const [index, setIndex] = useState(1);
-  const navigate = useNavigate(); // Get navigate function
 
   const contentRef = useRef(null);
   const sliderInnerRef = useRef(null);
@@ -235,6 +234,7 @@ const Portfolio = () => {
     const sliderInner = document.querySelector(".slider_inner");
     const newThreshold = offset - (offset + margin) * index;
     console.log("new....", newThreshold);
+    console.log("New index", prevIdxRef.current + 1)
     sliderInner.style.transform = `translateX(${newThreshold}px) translateY(120px)`;
     sliderInner.style.transition = "transform 0.8s ease-in-out";
     sliderInner.scrollLeft = newThreshold;
@@ -277,55 +277,50 @@ const Portfolio = () => {
 
     // Delay navigation and new fade-in
     setTimeout(() => {
-      // If the target is Events (index 1), navigate after animation
-      if (openIdx === 1) {
-        navigate('/events');
-      } else {
-        // Otherwise, trigger the internal nav logic and animations
-        handleNavClick(openIdx);
+      // Trigger the nav logic (e.g., change content)
+      handleNavClick(openIdx);
 
-        if (catsPrev) {
-          catsPrev.style.transition = "opacity 0.6s ease";
-          catsPrev.style.opacity = 0;
-          console.log("called");
-        }
-        if (overlayPrev) {
-          overlayPrev.style.transition = "opacity 0.6s ease";
-          overlayPrev.style.opacity = 0;
-        }
-        if (titlePrev) {
-          titlePrev.style.transition = "opacity 0.6s ease";
-          titlePrev.style.opacity = 0;
-        }
-        if (buttonPrev) {
-          buttonPrev.style.transition = "opacity 0.6s ease";
-          buttonPrev.style.opacity = 0;
-        }
+      if (catsPrev) {
+        catsPrev.style.transition = "opacity 0.6s ease";
+        catsPrev.style.opacity = 0;
+        console.log("called");
+      }
+      if (overlayPrev) {
+        overlayPrev.style.transition = "opacity 0.6s ease";
+        overlayPrev.style.opacity = 0;
+      }
+      if (titlePrev) {
+        titlePrev.style.transition = "opacity 0.6s ease";
+        titlePrev.style.opacity = 0;
+      }
+      if (buttonPrev) {
+        buttonPrev.style.transition = "opacity 0.6s ease";
+        buttonPrev.style.opacity = 0;
+      }
 
-        // Animate new elements in
-        const catsNew = document.querySelector(`.cats_${openIdx}`);
-        const overlayNew = document.querySelector(`.overlay_${openIdx}`);
-        const titleNew = document.querySelector(`.title_${openIdx}`);
-        const buttonNew = document.querySelector(`.button_${openIdx}`);
+      // Animate new elements in
+      const catsNew = document.querySelector(`.cats_${openIdx}`);
+      const overlayNew = document.querySelector(`.overlay_${openIdx}`);
+      const titleNew = document.querySelector(`.title_${openIdx}`);
+      const buttonNew = document.querySelector(`.button_${openIdx}`);
 
-        if (catsNew) {
-          catsNew.style.transition = "opacity 0.6s ease 0.2s";
-          catsNew.style.opacity = 1;
-        }
-        if (overlayNew) {
-          overlayNew.style.transition = "opacity 0.6s ease 0.2s";
-          overlayNew.style.opacity = 1;
-        }
-        if (titleNew) {
-          titleNew.style.transition = "opacity 0.6s ease 0.2s";
-          titleNew.style.opacity = 1;
-        }
-        if (buttonNew) {
-          buttonNew.style.transition = "opacity 0.6s ease 0.2s";
-          buttonNew.style.opacity = 1;
-        }
-      } // End of the else block
-    }, 1000); // Keep the 1-second delay
+      if (catsNew) {
+        catsNew.style.transition = "opacity 0.6s ease 0.2s";
+        catsNew.style.opacity = 1;
+      }
+      if (overlayNew) {
+        overlayNew.style.transition = "opacity 0.6s ease 0.2s";
+        overlayNew.style.opacity = 1;
+      }
+      if (titleNew) {
+        titleNew.style.transition = "opacity 0.6s ease 0.2s";
+        titleNew.style.opacity = 1;
+      }
+      if (buttonNew) {
+        buttonNew.style.transition = "opacity 0.6s ease 0.2s";
+        buttonNew.style.opacity = 1;
+      }
+    }, 1000);
     // setTimeout(() => {
     //   document.querySelector(`.button_${openIdx}`).click();
     // }, 2000);
@@ -410,7 +405,7 @@ const Portfolio = () => {
     let newEndPosition = endPosition;
 
     if (difference < -160) {
-      if (newIndex < 7) {
+      if (newIndex < 3) {
         newIndex++;
       }
     } else if (difference > 160) {
@@ -463,7 +458,18 @@ const Portfolio = () => {
     if (currentClone) {
       currentClone.style.display = "block";
     }
+
+    // Update nav item active state
+    const navItems = document.querySelectorAll(".nav ul li");
+    navItems.forEach((item, idx) => {
+      if (idx === newIndex) {
+        item.classList.add("active");
+      } else {
+        item.classList.remove("active");
+      }
+    });
   };
+
 
   const handleBackClick = (e) => {
     console.log("click");
