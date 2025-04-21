@@ -1,5 +1,3 @@
-
-
 :root {
     --columns: 3;
     --black: rgba(238, 188, 31, 1);
@@ -11,6 +9,7 @@
 
 .book-grid-container {
     background-color: #07101d;
+
     .book-grid {
         display: grid;
         grid-template-columns: repeat(var(--columns), 1fr);
