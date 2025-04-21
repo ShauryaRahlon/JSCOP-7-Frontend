@@ -1,0 +1,267 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+    padding: 0;
+}
+
+.team-section {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  font-family: 'Roboto', sans-serif;
+  background-color: #000;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+// Interstellar theme elements
+.stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000 url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png') repeat;
+  z-index: 0;
+}
+
+.twinkling {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/twinkling.png') repeat;
+  z-index: 1;
+  animation: move-twink-back 200s linear infinite;
+}
+
+.wormhole {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(0, 149, 255, 0.1) 0%, rgba(0, 0, 0, 0) 70%);
+  z-index: 2;
+  opacity: 0.5;
+}
+
+@keyframes move-twink-back {
+  from {background-position: 0 0;}
+  to {background-position: -10000px 5000px;}
+}
+
+.content {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: transparent;
+}
+
+.heading {
+  font-size: 2rem;
+  text-align: center;
+  margin: 20px 0;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(0, 149, 255, 0.8);
+  
+  h3 {
+    font-size: 3rem;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+  }
+  
+  .quote {
+    font-size: 1rem;
+    font-style: italic;
+    color: #aaa;
+    margin-top: 0.5rem;
+  }
+}
+
+.toggle-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8rem;
+  margin: 2.5rem 0;
+  // button {
+  //   background-color: rgba(0, 0, 0, 0.7);
+  //   color: #fff;
+  //   border: 2px solid rgba(0, 149, 255, 0.5);
+  //   padding: 15px 30px;
+  //   border-radius: 5px;
+  //   cursor: pointer;
+  //   transition: all 0.3s ease;
+  //   position: relative;
+  //   overflow: hidden;
+    
+  //   &:before {
+  //     content: '';
+  //     position: absolute;
+  //     top: 0;
+  //     left: -100%;
+  //     width: 100%;
+  //     height: 100%;
+  //     background: linear-gradient(90deg, transparent, rgba(0, 149, 255, 0.2), transparent);
+  //     transition: all 0.5s;
+  //   }
+    
+  //   &:hover {
+  //     box-shadow: 0 0 15px rgba(0, 149, 255, 0.5);
+      
+  //     &:before {
+  //       left: 100%;
+  //     }
+  //   }
+    
+  //   &.active {
+  //     background-color: rgba(0, 149, 255, 0.2);
+  //     border-color: rgba(0, 149, 255, 0.8);
+  //     box-shadow: 0 0 15px rgba(0, 149, 255, 0.5);
+  //   }
+  // }
+  button {
+    position: relative;
+    // left: 50%;
+    // top: 50%;
+    // transform: translate(-50%, -50%);
+
+    background: transparent;
+    width: 200px;
+    padding: 10px 20px;
+
+    border: 4px solid #323140;
+    color:  #fff;
+    font-size: 22px;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: center;
+
+    z-index: 10; // increased for visibility
+    transition: all 0.15s ease-out 0.15s;
+
+    &:after,
+    &:before {
+      position: absolute;
+      width: 100%;
+      max-width: 100%;
+      top: 100%;
+      left: 0;
+      bottom: -10px;
+      content: '';
+      z-index: 1;
+      transition: all 0.15s ease-out 0.15s;
+    }
+
+    &:before {
+      background: #323140;
+      top: 10px;
+      left: -15px;
+      height: 100%;
+      width: 15px;
+    }
+
+    &:after {
+      width: 100%;
+      background: #323140;
+      right: 0px;
+      left: -15px;
+      height: 15px;
+    }
+
+    &:hover {
+      background: #5a5b5c;
+      color: #fff;
+      margin-left: -7.5px;
+      margin-bottom: -7.5px;
+
+      &:after,
+      &:before {
+        top: 100%;
+        left: 0;
+        bottom: 0px;
+      }
+
+      &:before {
+        top: 0px;
+        left: 0px;
+        width: 0px;
+      }
+
+      &:after {
+        right: 0px;
+        left: 0px;
+        height: 0px;
+      }
+    }
+  } 
+}
+
+.team-container {
+  display: flex;
+  justify-content: center ;
+  width: 100%;
+}
+
+
+
+// button {
+//   cursor: pointer;
+//   width: 100%;
+//   height: 50px;
+//   font-size: 26px;
+//   font-family: 'Alegreya Sans SC', sans-serif;
+//   display: block;
+//   margin: 20px;
+//   transition: all 0.3s;
+//   color: whitesmoke;
+//   font-weight: 600;
+//   padding: 10px 20px;
+// }
+
+// button:hover {
+//   transition: all 0.2s;
+// }
+
+// button:focus {
+//   outline: none;
+// }
+
+// button:active {
+//   transition: none; /* So when you tap, effect is instant */
+//   padding: 0; /* Firefox adds padding because it's a special sausage */
+// }
+
+// main:nth-child(2) > button:nth-child(1), button:nth-child(2) {
+//   // background-color: #da4f49;
+//   background-color: transparent;
+//   border: 2ps solid white;
+//   border-radius: 8px;
+//   // box-shadow: 0 4px 0 rgba(0,0,0,0.25),
+//   //             0 4px 0 rgba(218,79,73,1),
+//   //             0 4px 6px rgba(0,0,0,0.45);
+// }
+
+// main:nth-child(2) > button:nth-child(1):hover, button:nth-child(2):hover  {
+//   box-shadow: 0 1px 2px rgba(0,0,0,0.45);
+//   transform: translateY(4px);
+// }
+
+// main:nth-child(2) > button:nth-child(1):active, button:nth-child(2):active  {
+//   background-color: linear-gradient(90deg,rgba(46, 46, 51, 1) 0%, rgba(5, 5, 82, 1) 100%, rgba(0, 212, 255, 1) 100%);
+// }
