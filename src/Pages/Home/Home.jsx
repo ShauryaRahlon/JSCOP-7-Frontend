@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 import Navbar from "../../Components/Navbar/Navbar";
 import { Home, ArrowDown, ArrowLeft } from "lucide-react";
 import jscopLogo from "./../../assets/jscopLogo.png";
@@ -15,6 +16,7 @@ const Portfolio = () => {
   const [initX, setInitX] = useState(0);
   const [difference, setDifference] = useState(0);
   const [index, setIndex] = useState(1);
+  const navigate = useNavigate(); // Get navigate function
 
   const contentRef = useRef(null);
   const sliderInnerRef = useRef(null);
@@ -275,50 +277,55 @@ const Portfolio = () => {
 
     // Delay navigation and new fade-in
     setTimeout(() => {
-      // Trigger the nav logic (e.g., change content)
-      handleNavClick(openIdx);
+      // If the target is Events (index 1), navigate after animation
+      if (openIdx === 1) {
+        navigate('/events');
+      } else {
+        // Otherwise, trigger the internal nav logic and animations
+        handleNavClick(openIdx);
 
-      if (catsPrev) {
-        catsPrev.style.transition = "opacity 0.6s ease";
-        catsPrev.style.opacity = 0;
-        console.log("called");
-      }
-      if (overlayPrev) {
-        overlayPrev.style.transition = "opacity 0.6s ease";
-        overlayPrev.style.opacity = 0;
-      }
-      if (titlePrev) {
-        titlePrev.style.transition = "opacity 0.6s ease";
-        titlePrev.style.opacity = 0;
-      }
-      if (buttonPrev) {
-        buttonPrev.style.transition = "opacity 0.6s ease";
-        buttonPrev.style.opacity = 0;
-      }
+        if (catsPrev) {
+          catsPrev.style.transition = "opacity 0.6s ease";
+          catsPrev.style.opacity = 0;
+          console.log("called");
+        }
+        if (overlayPrev) {
+          overlayPrev.style.transition = "opacity 0.6s ease";
+          overlayPrev.style.opacity = 0;
+        }
+        if (titlePrev) {
+          titlePrev.style.transition = "opacity 0.6s ease";
+          titlePrev.style.opacity = 0;
+        }
+        if (buttonPrev) {
+          buttonPrev.style.transition = "opacity 0.6s ease";
+          buttonPrev.style.opacity = 0;
+        }
 
-      // Animate new elements in
-      const catsNew = document.querySelector(`.cats_${openIdx}`);
-      const overlayNew = document.querySelector(`.overlay_${openIdx}`);
-      const titleNew = document.querySelector(`.title_${openIdx}`);
-      const buttonNew = document.querySelector(`.button_${openIdx}`);
+        // Animate new elements in
+        const catsNew = document.querySelector(`.cats_${openIdx}`);
+        const overlayNew = document.querySelector(`.overlay_${openIdx}`);
+        const titleNew = document.querySelector(`.title_${openIdx}`);
+        const buttonNew = document.querySelector(`.button_${openIdx}`);
 
-      if (catsNew) {
-        catsNew.style.transition = "opacity 0.6s ease 0.2s";
-        catsNew.style.opacity = 1;
-      }
-      if (overlayNew) {
-        overlayNew.style.transition = "opacity 0.6s ease 0.2s";
-        overlayNew.style.opacity = 1;
-      }
-      if (titleNew) {
-        titleNew.style.transition = "opacity 0.6s ease 0.2s";
-        titleNew.style.opacity = 1;
-      }
-      if (buttonNew) {
-        buttonNew.style.transition = "opacity 0.6s ease 0.2s";
-        buttonNew.style.opacity = 1;
-      }
-    }, 1000);
+        if (catsNew) {
+          catsNew.style.transition = "opacity 0.6s ease 0.2s";
+          catsNew.style.opacity = 1;
+        }
+        if (overlayNew) {
+          overlayNew.style.transition = "opacity 0.6s ease 0.2s";
+          overlayNew.style.opacity = 1;
+        }
+        if (titleNew) {
+          titleNew.style.transition = "opacity 0.6s ease 0.2s";
+          titleNew.style.opacity = 1;
+        }
+        if (buttonNew) {
+          buttonNew.style.transition = "opacity 0.6s ease 0.2s";
+          buttonNew.style.opacity = 1;
+        }
+      } // End of the else block
+    }, 1000); // Keep the 1-second delay
     // setTimeout(() => {
     //   document.querySelector(`.button_${openIdx}`).click();
     // }, 2000);
@@ -403,7 +410,7 @@ const Portfolio = () => {
     let newEndPosition = endPosition;
 
     if (difference < -160) {
-      if (newIndex < 3) {
+      if (newIndex < 7) {
         newIndex++;
       }
     } else if (difference > 160) {
