@@ -1,6 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
+import Navbar from "../../Components/Navbar/Navbar";
+import { Home, ArrowDown, ArrowLeft } from "lucide-react";
+import jscopLogo from "./../../assets/jscopLogo.png";
+import opticaLogo from "./../../assets/opticaLogo.png";
+import nav_jscop from "./../../assets/nav_jscop.png";
+import nav_2_jscop from "./../../assets/nav_2_jscop.png";
 import "./NewLandingPage.css";
-import { Menu } from "lucide-react";
+
 const Portfolio = () => {
   const [introComplete, setIntroComplete] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -15,11 +21,9 @@ const Portfolio = () => {
   const cursorRef = useRef(null);
   const scrollRef = useRef(null);
 
-  const offset = 760;
+  const offset = window.innerWidth <= 768 ? 370 : 760;
   const margin = 0;
   const threshold = 100;
-
-
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const toggleMenu = () => {
@@ -228,6 +232,8 @@ const Portfolio = () => {
     // Update slider position
     const sliderInner = document.querySelector(".slider_inner");
     const newThreshold = offset - (offset + margin) * index;
+    console.log("new....", newThreshold);
+    console.log("New index", prevIdxRef.current + 1)
     sliderInner.style.transform = `translateX(${newThreshold}px) translateY(120px)`;
     sliderInner.style.transition = "transform 0.8s ease-in-out";
     sliderInner.scrollLeft = newThreshold;
@@ -313,7 +319,7 @@ const Portfolio = () => {
         buttonNew.style.transition = "opacity 0.6s ease 0.2s";
         buttonNew.style.opacity = 1;
       }
-    }, 1000);
+    }, 500);
     // setTimeout(() => {
     //   document.querySelector(`.button_${openIdx}`).click();
     // }, 2000);
@@ -382,77 +388,87 @@ const Portfolio = () => {
       });
 
       if (sliderInnerRef.current) {
-        sliderInnerRef.current.style.transform = `translateX(${
-          newDifference + endPosition
-        }px) translateY(120px)`;
+        sliderInnerRef.current.style.transform = `translateX(${newDifference + endPosition
+          }px) translateY(120px)`;
       }
     }
   };
 
   const handleSliderMouseUp = () => {
-    console.log("SliderMouseUp");
-    if (cursorRef.current) {
-      cursorRef.current.style.transition = `transform ${cursorSettings.transitionTime} ${cursorSettings.transitionEase}, width ${cursorSettings.expandSpeed}s .2s, height ${cursorSettings.expandSpeed}s .2s, opacity 1s .2s`;
+  console.log("SliderMouseUp");
+  if (cursorRef.current) {
+    cursorRef.current.style.transition = `transform ${cursorSettings.transitionTime} ${cursorSettings.transitionEase}, width ${cursorSettings.expandSpeed}s .2s, height ${cursorSettings.expandSpeed}s .2s, opacity 1s .2s`;
+  }
+
+  let newIndex = index;
+  let newEndPosition = endPosition;
+
+  if (difference < -160) {
+    if (newIndex < 7) {
+      newIndex++;
     }
-
-    let newIndex = index;
-    let newEndPosition = endPosition;
-
-    if (difference < -160) {
-      if (newIndex < 3) {
-        newIndex++;
-      }
-    } else if (difference > 160) {
-      if (newIndex > 0) {
-        newIndex--;
-      }
+  } else if (difference > 160) {
+    if (newIndex > 0) {
+      newIndex--;
     }
+  }
 
-    // Calculate new threshold position
-    const newThreshold = offset - (offset + margin) * newIndex;
+  // Calculate new threshold position
+  const newThreshold = offset - (offset + margin) * newIndex;
 
-    if (sliderInnerRef.current) {
-      sliderInnerRef.current.style.transform = `translateX(${newThreshold}px) translateY(120px)`;
-    }
+  if (sliderInnerRef.current) {
+    sliderInnerRef.current.style.transform = `translateX(${newThreshold}px) translateY(120px)`;
+  }
 
-    setEndPosition(newThreshold);
-    setIndex(newIndex);
-    setDragging(false);
-    setDifference(0);
+  setEndPosition(newThreshold);
+  setIndex(newIndex);
+  setDragging(false);
+  setDifference(0);
 
-    // Reset opacity and transform for slides
-    document
-      .querySelectorAll(
-        `.slider_inner__slide:nth-of-type(${parseInt(
-          newIndex + 1
-        )}) .image .overlay, .slider_inner__slide:nth-of-type(${parseInt(
-          newIndex + 1
-        )}) .image .title, .slider_inner__slide:nth-of-type(${parseInt(
-          newIndex + 1
-        )}) .image .cats, .slider_inner__slide:nth-of-type(${parseInt(
-          newIndex + 1
-        )}) .image .button`
-      )
-      .forEach((el) => {
-        el.style.opacity = 1;
-      });
-
-    document.querySelectorAll(".slider_inner__slide").forEach((slide) => {
-      slide.style.transform = "rotateY(0deg) scale(1)";
+  // Reset opacity and transform for slides
+  document
+    .querySelectorAll(
+      `.slider_inner__slide:nth-of-type(${parseInt(
+        newIndex + 1
+      )}) .image .overlay, .slider_inner__slide:nth-of-type(${parseInt(
+        newIndex + 1
+      )}) .image .title, .slider_inner__slide:nth-of-type(${parseInt(
+        newIndex + 1
+      )}) .image .cats, .slider_inner__slide:nth-of-type(${parseInt(
+        newIndex + 1
+      )}) .image .button`
+    )
+    .forEach((el) => {
+      el.style.opacity = 1;
     });
 
-    // Hide all slideClones and show only the current one
-    document.querySelectorAll(".slideClone").forEach((clone) => {
-      clone.style.display = "none";
-    });
+  document.querySelectorAll(".slider_inner__slide").forEach((slide) => {
+    slide.style.transform = "rotateY(0deg) scale(1)";
+  });
 
-    const currentClone = document.querySelector(
-      `.slideClone:nth-of-type(${parseInt(newIndex + 2)})`
-    );
-    if (currentClone) {
-      currentClone.style.display = "block";
+  // Hide all slideClones and show only the current one
+  document.querySelectorAll(".slideClone").forEach((clone) => {
+    clone.style.display = "none";
+  });
+
+  const currentClone = document.querySelector(
+    `.slideClone:nth-of-type(${parseInt(newIndex + 2)})`
+  );
+  if (currentClone) {
+    currentClone.style.display = "block";
+  }
+
+  // Update nav item active state
+  const navItems = document.querySelectorAll(".nav ul li");
+  navItems.forEach((item, idx) => {
+    if (idx === newIndex) {
+      item.classList.add("active");
+    } else {
+      item.classList.remove("active");
     }
-  };
+  });
+};
+
 
   const handleBackClick = (e) => {
     console.log("click");
@@ -520,9 +536,8 @@ const Portfolio = () => {
           const velocity = 0.5 - pps / 40000;
 
           document.querySelectorAll(".slider_inner__slide").forEach((slide) => {
-            slide.style.transform = `rotateY(${direction}${
-              pps / 110
-            }deg) scale(1)`;
+            slide.style.transform = `rotateY(${direction}${pps / 110
+              }deg) scale(1)`;
             slide.style.transition = `all ${velocity}s`;
           });
         }
@@ -712,21 +727,25 @@ const Portfolio = () => {
             <div className="logo">
               <img
                 className="first"
-                src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/clogotemp.png"
+                src={opticaLogo}
+                // src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/clogotemp.png"
                 alt="Logo"
-              />
+              />{" "}
+              &nbsp;
               <img
                 className="second"
-                src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/clogotemp2.png"
+                src={jscopLogo}
+                // src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/clogotemp2.png"
                 alt="Logo"
               />
               <div className="page_portfolio">
                 <div className="portfolio_home__header">
                   <div className="logoMain">
-                    <img
+                    <img src={nav_jscop} alt="jscop" />
+                    {/* <img
                       src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/cagencylogo.png"
                       alt="Agency Logo"
-                    />
+                    /> */}
                   </div>
                   <div className="nav">
                     <ul>
@@ -734,29 +753,56 @@ const Portfolio = () => {
                         className="trigger"
                         onClick={() => moveBetweenPages(0)}
                       >
-                        Our work
+                        About Us
                       </li>
                       <li
                         className="active trigger"
                         onClick={() => moveBetweenPages(1)}
                       >
-                        Our services
+                        Events
                       </li>
                       <li
                         className="trigger"
                         onClick={() => moveBetweenPages(2)}
                       >
-                        About us
+                        Speakers
                       </li>
                       <li
                         className="trigger"
                         onClick={() => moveBetweenPages(3)}
                       >
-                        Contact us
+                        Timeline
+                      </li>
+                      <li
+                        className="trigger"
+                        onClick={() => moveBetweenPages(4)}
+                      >
+                        Team
+                      </li>
+                      <li
+                        className="trigger"
+                        onClick={() => moveBetweenPages(5)}
+                      >
+                        Gallery
+                      </li>
+                      <li
+                        className="trigger"
+                        onClick={() => moveBetweenPages(6)}
+                      >
+                        Hackathon
+                      </li>
+                      <li
+                        className="trigger"
+                        onClick={() => moveBetweenPages(7)}
+                      >
+                        Contact
                       </li>
                     </ul>
                   </div>
-                  <div className="number black">0161 345 3464</div>
+                  {/* <div className="number black">0161 345 3464</div> */}
+                  {/* <div style={{ position: "relative" }}> */}
+                  <Navbar moveBetweenPages={moveBetweenPages} />
+                  {/* </div> */}
                   <div
                     className="hamburger black trigger"
                     onClick={handleLandingTriggerClick}
@@ -770,48 +816,79 @@ const Portfolio = () => {
                 <div className="portfolio_home__work">
                   <div className="portfolio_home__header work">
                     <div className="back" onClick={handleBackClick}>
-                      <img
+                      {/* <img
                         className="trigger"
                         src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/arrowDown.png"
                         alt="Arrow"
                         // onClick={handleButtonClick}
+                      /> */}
+                      <ArrowLeft
+                        className="trigger"
+                        size={30}
+                        style={{ marginTop: "82vh" }}
+                        color="#b9c1ca"
                       />
                     </div>
                     <div className="logoMain">
-                      <img
+                      <img src={nav_2_jscop} alt="Logo White" />
+                      {/* <img
                         src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/slogowhite.png"
                         alt="Logo White"
-                      />
+                      /> */}
                     </div>
                     <div className="nav">
                       <ul>
                         <li
-                          className="active trigger"
+                          className="trigger"
                           onClick={() => moveBetweenPages(0)}
                         >
-                          Our work
+                          About Us
                         </li>
                         <li
-                          className="trigger"
+                          className="active trigger"
                           onClick={() => moveBetweenPages(1)}
                         >
-                          Our services
+                          Events
                         </li>
                         <li
                           className="trigger"
                           onClick={() => moveBetweenPages(2)}
                         >
-                          About us
+                          Speakers
                         </li>
                         <li
                           className="trigger"
                           onClick={() => moveBetweenPages(3)}
                         >
-                          Contact us
+                          Timeline
+                        </li>
+                        <li
+                          className="trigger"
+                          onClick={() => moveBetweenPages(4)}
+                        >
+                          Team
+                        </li>
+                        <li
+                          className="trigger"
+                          onClick={() => moveBetweenPages(5)}
+                        >
+                          Gallery
+                        </li>
+                        <li
+                          className="trigger"
+                          onClick={() => moveBetweenPages(6)}
+                        >
+                          Hackathon
+                        </li>
+                        <li
+                          className="trigger"
+                          onClick={() => moveBetweenPages(7)}
+                        >
+                          Contact
                         </li>
                       </ul>
                     </div>
-                    <div className="number white">0161 345 3464</div>
+                    {/* <div className="number white">0161 345 3464</div> */}
                     <div
                       className="hamburger white trigger"
                       onClick={handleLandingTriggerClick}
@@ -825,7 +902,7 @@ const Portfolio = () => {
                     <div className="title f">
                       .01
                       <br />
-                      My Protein
+                      About Us
                     </div>
                     <div className="image parent_0">
                       <img
@@ -834,9 +911,9 @@ const Portfolio = () => {
                         alt="My Protein"
                       />
                       <div className="overlay"></div>
-                      <div className="cats">ADVERTISING DESIGN DIGITAL</div>
+                      <div className="cats">OPTICA · JIIT · SOCIETY</div>
                       <div className="title">
-                        My protein rebrand and digital campaign
+                        Optica’s student-led journey through JSCOP
                       </div>
                     </div>
                   </div>
@@ -844,7 +921,7 @@ const Portfolio = () => {
                     <div className="title f">
                       .02
                       <br />
-                      Nike Air Max
+                      Events
                     </div>
                     <div className="image parent_1">
                       <img
@@ -854,10 +931,10 @@ const Portfolio = () => {
                       />
                       <div className="overlay"></div>
                       <div className="cats">
-                        ADVERTISING DESIGN DIGITAL STRATEGY
+                        ALL THE ACTION, ALL IN ONE PLACE
                       </div>
                       <div className="title">
-                        Nike Air max video campaign 2017
+                        From Fun Games to Tech & ECE Events
                       </div>
                     </div>
                   </div>
@@ -865,7 +942,7 @@ const Portfolio = () => {
                     <div className="title f">
                       .03
                       <br />
-                      Apple Watch
+                      Speakers
                     </div>
                     <div className="image parent_2">
                       <img
@@ -874,9 +951,9 @@ const Portfolio = () => {
                         alt="Apple Watch"
                       />
                       <div className="overlay"></div>
-                      <div className="cats">ADVERTISING DIGITAL STRATEGY</div>
+                      <div className="cats">Our ESTEEMED SPEAKERS</div>
                       <div className="title">
-                        The new Apple Watch digital campaign 2019
+                        Get inspired by expert speakers & professionals.
                       </div>
                     </div>
                   </div>
@@ -884,7 +961,7 @@ const Portfolio = () => {
                     <div className="title f">
                       .04
                       <br />
-                      Jade Teriyaki
+                      Timeline
                     </div>
                     <div className="image parent_3">
                       <img
@@ -893,19 +970,100 @@ const Portfolio = () => {
                         alt="Jade Teriyaki"
                       />
                       <div className="overlay"></div>
-                      <div className="cats">
-                        ADVERTISING DESIGN DIGITAL STRATEGY
-                      </div>
+                      <div className="cats">MARK THE DATES, DON'T BE LATE</div>
                       <div className="title">
-                        Another agency did this campaign, not us
+                        Keep up with what's next — stay tuned!
                       </div>
                     </div>
                   </div>
-                  <img
+                  <div className="slideClone">
+                    <div className="title f">
+                      .05
+                      <br />
+                      Our Team
+                    </div>
+                    <div className="image parent_4">
+                      <img
+                        draggable="false"
+                        src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/orangetyhing.png"
+                        alt="Jade Teriyaki"
+                      />
+                      <div className="overlay"></div>
+                      <div className="cats">
+                        TEAM OPTICA: THE MINDS BEHIND JSCOP
+                      </div>
+                      <div className="title">
+                        Meet the crew making JSCOP 7.0 magic
+                      </div>
+                    </div>
+                  </div>
+                  <div className="slideClone">
+                    <div className="title f">
+                      .06
+                      <br />
+                      Gallery
+                    </div>
+                    <div className="image parent_5">
+                      <img
+                        draggable="false"
+                        src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/orangetyhing.png"
+                        alt="Jade Teriyaki"
+                      />
+                      <div className="overlay"></div>
+                      <div className="cats">
+                        RELIVE THE MOMENTS, EXPLORE OUR GALLERY
+                      </div>
+                      <div className="title">
+                        Browse through memories of our events
+                      </div>
+                    </div>
+                  </div>
+                  <div className="slideClone">
+                    <div className="title f">
+                      .07
+                      <br />
+                      Hackathon
+                    </div>
+                    <div className="image parent_6">
+                      <img
+                        draggable="false"
+                        src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/orangetyhing.png"
+                        alt="Jade Teriyaki"
+                      />
+                      <div className="overlay"></div>
+                      <div className="cats">CODE. CREATE. CONQUER.</div>
+                      <div className="title">
+                        Collaborate, compete, and create at Hackathon
+                      </div>
+                    </div>
+                  </div>
+                  <div className="slideClone">
+                    <div className="title f">
+                      .08
+                      <br />
+                      Contact Us
+                    </div>
+                    <div className="image parent_7">
+                      <img
+                        draggable="false"
+                        src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/orangetyhing.png"
+                        alt="Jade Teriyaki"
+                      />
+                      <div className="overlay"></div>
+                      <div className="cats">GET IN TOUCH WITH OPTICA</div>
+                      <div className="title">
+                        Questions, ideas, or feedback? Let’s connect.
+                      </div>
+                    </div>
+                  </div>
+                  {/* <img
                     className="scroll"
                     src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/arrowDown.png"
                     alt="Scroll"
-                  />
+                  /> */}
+                  <div className="arrow-icon">
+                    <ArrowDown className="scroll" size={30} color="#b9c1ca" />
+                  </div>
                 </div>
                 <div className="portfolio_home__slider">
                   <div
@@ -916,13 +1074,13 @@ const Portfolio = () => {
                     onMouseMove={handleSliderMouseMove}
                     onMouseUp={handleSliderMouseUp}
                     onScroll={handleSliderScroll}
-                    // ref={scrollRef}
+                  // ref={scrollRef}
                   >
                     <div className="slider_inner__slide">
                       <div className="title" data-index="0">
                         .01
                         <br />
-                        My Protein
+                        About Us
                       </div>
                       <div className="image parent_0">
                         <img
@@ -932,16 +1090,16 @@ const Portfolio = () => {
                         />
                         <div className="overlay overlay_0"></div>
                         <div className="cats cats_0">
-                          ADVERTISING DESIGN DIGITAL
+                          OPTICA · JIIT · SOCIETY
                         </div>
                         <div className="title title_0">
-                          My protein rebrand and digital campaign
+                          Optica’s student-led journey through JSCOP
                         </div>
                         <div
                           className="button button_0"
                           onClick={handleButtonClick}
                         >
-                          View case study
+                          Get to Know Us
                           <img
                             src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/arrowbblakc.png"
                             alt="Arrow"
@@ -953,7 +1111,7 @@ const Portfolio = () => {
                       <div className="title" data-index="1">
                         .02
                         <br />
-                        Nike Air Max
+                        Events
                       </div>
                       <div className="image parent_1">
                         <img
@@ -963,16 +1121,16 @@ const Portfolio = () => {
                         />
                         <div className="overlay overlay_1"></div>
                         <div className="cats cats_1">
-                          ADVERTISING DESIGN DIGITAL STRATEGY
+                          ALL THE ACTION, ALL IN ONE PLACE
                         </div>
                         <div className="title title_1">
-                          Nike Air max video campaign 2017
+                          From Fun Games to Tech & ECE Events
                         </div>
                         <div
                           className="button button_1"
                           onClick={handleButtonClick}
                         >
-                          View case study
+                          See What’s Happening
                           <img
                             src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/arrowbblakc.png"
                             alt="Arrow"
@@ -984,7 +1142,7 @@ const Portfolio = () => {
                       <div className="title" data-index="2">
                         .03
                         <br />
-                        Apple Watch
+                        Speakers
                       </div>
                       <div className="image parent_2">
                         <img
@@ -993,17 +1151,15 @@ const Portfolio = () => {
                           alt="Apple Watch"
                         />
                         <div className="overlay overlay_2"></div>
-                        <div className="cats cats_2">
-                          ADVERTISING DIGITAL STRATEGY
-                        </div>
+                        <div className="cats cats_2">OUR ESTEEMED SPEAKERS</div>
                         <div className="title title_2">
-                          The new Apple Watch digital campaign 2019
+                          Get inspired by expert speakers & professionals.
                         </div>
                         <div
                           className="button button_2"
                           onClick={handleButtonClick}
                         >
-                          View case study
+                          Meet Our Guests
                           <img
                             src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/arrowbblakc.png"
                             alt="Arrow"
@@ -1015,7 +1171,7 @@ const Portfolio = () => {
                       <div className="title" data-index="3">
                         .04
                         <br />
-                        Jade Teriyaki
+                        Timeline
                       </div>
                       <div className="image parent_3">
                         <img
@@ -1025,16 +1181,139 @@ const Portfolio = () => {
                         />
                         <div className="overlay overlay_3"></div>
                         <div className="cats cats_3">
-                          ADVERTISING DESIGN DIGITAL STRATEGY
+                          MARK THE DATES, DON'T BE LATE
                         </div>
                         <div className="title title_3">
-                          Another agency did this campaign, not us
+                          Keep up with what's next — stay tuned!
                         </div>
                         <div
                           className="button button_3"
                           onClick={handleButtonClick}
                         >
-                          View case study
+                          View Full Timeline
+                          <img
+                            src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/arrowbblakc.png"
+                            alt="Arrow"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div className="slider_inner__slide">
+                      <div className="title" data-index="4">
+                        .05
+                        <br />
+                        Our Team
+                      </div>
+                      <div className="image parent_4">
+                        <img
+                          draggable="false"
+                          src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/orangetyhing.png"
+                          alt="Jade Teriyaki"
+                        />
+                        <div className="overlay overlay_4"></div>
+                        <div className="cats cats_4">
+                          TEAM OPTICA: THE MINDS BEHIND JSCOP
+                        </div>
+                        <div className="title title_4">
+                          Meet the crew making JSCOP 7.0 magic
+                        </div>
+                        <div
+                          className="button button_4"
+                          onClick={handleButtonClick}
+                        >
+                          Meet the Team
+                          <img
+                            src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/arrowbblakc.png"
+                            alt="Arrow"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div className="slider_inner__slide">
+                      <div className="title" data-index="5">
+                        .06
+                        <br />
+                        Gallery
+                      </div>
+                      <div className="image parent_5">
+                        <img
+                          draggable="false"
+                          src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/orangetyhing.png"
+                          alt="Jade Teriyaki"
+                        />
+                        <div className="overlay overlay_5"></div>
+                        <div className="cats cats_5">
+                          RELIVE THE MOMENTS, EXPLORE OUR GALLERY
+                        </div>
+                        <div className="title title_5">
+                          Browse through memories of our events
+                        </div>
+                        <div
+                          className="button button_5"
+                          onClick={handleButtonClick}>
+                          View Moments
+                          <img
+                            src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/arrowbblakc.png"
+                            alt="Arrow"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div className="slider_inner__slide">
+                      <div className="title" data-index="6">
+                        .07
+                        <br />
+                        Hackathon
+                      </div>
+                      <div className="image parent_6">
+                        <img
+                          draggable="false"
+                          src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/orangetyhing.png"
+                          alt="Jade Teriyaki"
+                        />
+                        <div className="overlay overlay_6"></div>
+                        <div className="cats cats_6">
+                          CODE. CREATE. CONQUER.
+                        </div>
+                        <div className="title title_6">
+                          Collaborate, compete, and create at Hackathon
+                        </div>
+                        <div
+                          className="button button_6"
+                          onClick={handleButtonClick}
+                        >
+                          Join the Hack
+                          <img
+                            src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/arrowbblakc.png"
+                            alt="Arrow"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div className="slider_inner__slide">
+                      <div className="title" data-index="7">
+                        .08
+                        <br />
+                        Contact Us
+                      </div>
+                      <div className="image parent_7">
+                        <img
+                          draggable="false"
+                          src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/orangetyhing.png"
+                          alt="Jade Teriyaki"
+                        />
+                        <div className="overlay overlay_7"></div>
+                        <div className="cats cats_7">
+                          GET IN TOUCH WITH OPTICA
+                        </div>
+                        <div className="title title_7">
+                          Questions, ideas, or feedback? Let’s connect.
+                        </div>
+                        <div
+                          className="button button_7"
+                          onClick={handleButtonClick}
+                        >
+                          Get in Touch
                           <img
                             src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/arrowbblakc.png"
                             alt="Arrow"
@@ -1047,18 +1326,37 @@ const Portfolio = () => {
               </div>
             </div>
             <hr />
-            <h1>
+            {/* <h1>
               We are an Independent
-              <span>Creative Advertising</span>
+              <span> Creative Advertising</span>
               &amp;
               <span>Branding Agency</span>
+            </h1> */}
+            <h1>
+              Welcome to
+              <span> JSCOP 7.0 </span>
+              <div>
+                <p className="mainpage_title">—</p>
+                <span> JIIT Student Conference for Optics and Photonics</span>
+              </div>
+              <div className="mainpage_title">
+                The Annual Flagship Event of
+                <span> JIIT Optica Student Chapter </span>
+              </div>
             </h1>
-            <img
+            {/* <img
               className="trigger"
               src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/arrowDown.png"
               alt="Arrow"
               onClick={handleTriggerClick}
-            />
+            /> */}
+            <div className="arrow-icon">
+              <ArrowDown
+                size={30}
+                color="#b9c1ca"
+                onClick={handleTriggerClick}
+              />
+            </div>
           </div>
         </div>
       </div>
