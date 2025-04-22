@@ -927,8 +927,9 @@ const Portfolio = () => {
                     <div className="image parent_1">
                       <img
                         draggable="false"
-                        src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/nike.png"
+                        src="https://mir-s3-cdn-cf.behance.net/project_modules/source/02896e26093165.5634f7cdacf7b.png"
                         alt="Nike Air Max"
+                        width={"100%"}
                       />
                       <div className="overlay"></div>
                       <div className="cats">
@@ -1117,8 +1118,9 @@ const Portfolio = () => {
                       <div className="image parent_1">
                         <img
                           draggable="false"
-                          src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/nike.png"
+                          src="https://mir-s3-cdn-cf.behance.net/project_modules/source/02896e26093165.5634f7cdacf7b.png"
                           alt="Nike Air Max"
+                          width={"100%"}
                         />
                         <div className="overlay overlay_1"></div>
                         <div className="cats cats_1">

@@ -26,6 +26,7 @@ body {
 // Interstellar theme elements
 .stars {
   position: absolute;
+  
   top: 0;
   left: 0;
   width: 100%;
@@ -70,6 +71,13 @@ body {
   margin: 0 auto;
   padding: 2rem;
   background: transparent;
+  // Responsive padding
+  @media (max-width: 900px) {
+    padding: 1rem;
+  }
+  @media (max-width: 600px) {
+    padding: 0.5rem;
+  }
 }
 
 .heading {
@@ -83,6 +91,13 @@ body {
     font-size: 3rem;
     letter-spacing: 2px;
     margin-bottom: 0.5rem;
+    // Responsive font size
+    @media (max-width: 900px) {
+      font-size: 2.2rem;
+    }
+    @media (max-width: 600px) {
+      font-size: 1.5rem;
+    }
   }
   
   .quote {
@@ -90,6 +105,13 @@ body {
     font-style: italic;
     color: #aaa;
     margin-top: 0.5rem;
+    // Responsive font size
+    @media (max-width: 900px) {
+      font-size: 0.9rem;
+    }
+    @media (max-width: 600px) {
+      font-size: 0.8rem;
+    }
   }
 }
 
@@ -99,48 +121,17 @@ body {
   align-items: center;
   gap: 8rem;
   margin: 2.5rem 0;
-  // button {
-  //   background-color: rgba(0, 0, 0, 0.7);
-  //   color: #fff;
-  //   border: 2px solid rgba(0, 149, 255, 0.5);
-  //   padding: 15px 30px;
-  //   border-radius: 5px;
-  //   cursor: pointer;
-  //   transition: all 0.3s ease;
-  //   position: relative;
-  //   overflow: hidden;
-    
-  //   &:before {
-  //     content: '';
-  //     position: absolute;
-  //     top: 0;
-  //     left: -100%;
-  //     width: 100%;
-  //     height: 100%;
-  //     background: linear-gradient(90deg, transparent, rgba(0, 149, 255, 0.2), transparent);
-  //     transition: all 0.5s;
-  //   }
-    
-  //   &:hover {
-  //     box-shadow: 0 0 15px rgba(0, 149, 255, 0.5);
-      
-  //     &:before {
-  //       left: 100%;
-  //     }
-  //   }
-    
-  //   &.active {
-  //     background-color: rgba(0, 149, 255, 0.2);
-  //     border-color: rgba(0, 149, 255, 0.8);
-  //     box-shadow: 0 0 15px rgba(0, 149, 255, 0.5);
-  //   }
-  // }
+  @media (max-width: 900px) {
+    gap: 3rem;
+    margin: 1.5rem 0;
+  }
+  @media (max-width: 600px) {
+    flex-direction: column;
+    gap: 1rem;
+    margin: 1rem 0;
+  }
   button {
     position: relative;
-    // left: 50%;
-    // top: 50%;
-    // transform: translate(-50%, -50%);
-
     background: transparent;
     width: 200px;
     padding: 10px 20px;
@@ -154,6 +145,18 @@ body {
 
     z-index: 10; // increased for visibility
     transition: all 0.15s ease-out 0.15s;
+
+    // Responsive button
+    @media (max-width: 900px) {
+      width: 150px;
+      font-size: 18px;
+      padding: 8px 12px;
+    }
+    @media (max-width: 600px) {
+      width: 100%;
+      font-size: 16px;
+      padding: 8px 8px;
+    }
 
     &:after,
     &:before {
@@ -216,6 +219,16 @@ body {
   display: flex;
   justify-content: center ;
   width: 100%;
+  // Responsive layout
+  @media (max-width: 900px) {
+    flex-direction: column;
+    align-items: center;
+  }
+  @media (max-width: 600px) {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0 0.5rem;
+  }
 }
 
 
