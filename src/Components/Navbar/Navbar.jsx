@@ -77,24 +77,20 @@ function Navbar({ moveBetweenPages }) {
           right: `${position.right}px`,
           cursor: "grab",
         }}
-      > 
+      >
         <LayoutDashboard size={24} />
       </button>
 
       <div
-  className={`mobile_sidebar ${
-    isSidebarOpen ? "mobile_sidebar_open" : ""
-  }`}
->
-
-
-
+        className={`mobile_sidebar ${
+          isSidebarOpen ? "mobile_sidebar_open" : ""
+        }`}
+      >
         <div className="mobile_sidebar_header">
           <button className="mobile_close_button" onClick={toggleSidebar}>
             ×
           </button>
         </div>
-
 
         <nav className="mobile_nav">
           <div onClick={() => handlePageChange(0)} className="mobile_nav_item">

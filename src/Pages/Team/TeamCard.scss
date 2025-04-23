@@ -1,6 +1,6 @@
 // Card3D.scss - Restored with customizations
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap'); // Added Open Sans
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap"); // Added Open Sans
 
 // .card-container {
 //   // Using original container styles, adjust if needed
@@ -24,11 +24,13 @@
   grid-template-columns: repeat(1, 1fr); // Default for mobile
   gap: 0.5rem; // gap-6 = 1.5rem
 
-  @media (min-width: 768px) { // md breakpoint
+  @media (min-width: 768px) {
+    // md breakpoint
     grid-template-columns: repeat(2, 1fr);
   }
 
-  @media (min-width: 1024px) { // lg breakpoint
+  @media (min-width: 1024px) {
+    // lg breakpoint
     grid-template-columns: repeat(3, 1fr);
   }
 }
@@ -40,7 +42,12 @@
   margin-right: 2vw;
   margin-top: 5vh;
   margin-bottom: 5vh;
-  background: rgba(30, 30, 30, 0.85); // Slightly darker and added transparency (0.85)
+  background: rgba(
+    30,
+    30,
+    30,
+    0.85
+  ); // Slightly darker and added transparency (0.85)
   opacity: 0.9; // Added overall card transparency
   border-radius: 10px;
   box-shadow: 0 0 15px rgba(0, 255, 255, 0.2); // Slightly softer shadow
@@ -63,10 +70,12 @@
     z-index: 5; // Increased z-index from original fix
     // Removed pointer-events: auto from original fix
 
-    a { // Target links within actions
+    a {
+      // Target links within actions
       position: relative;
       z-index: 6; // Increased z-index from original fix
-      transition: transform 0.2s ease, color 0.35s ease-out, border-color 0.35s ease-out;
+      transition: transform 0.2s ease, color 0.35s ease-out,
+        border-color 0.35s ease-out;
 
       &:hover {
         transform: scale(1.1);
@@ -76,7 +85,7 @@
 
   // Hover Lining Effect (Restored)
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
@@ -85,8 +94,10 @@
     border-radius: 10px; // Match card border-radius
     background: linear-gradient(
       135deg,
-      rgba(0, 255, 255, 0.15) 0%, // Slightly increased opacity
-      rgba(0, 255, 255, 0.08) 50%, // Slightly increased opacity
+      rgba(0, 255, 255, 0.15) 0%,
+      // Slightly increased opacity
+      rgba(0, 255, 255, 0.08) 50%,
+      // Slightly increased opacity
       transparent 100%
     );
     opacity: 0;
@@ -149,7 +160,7 @@
   z-index: 10; // High z-index
 
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
@@ -183,7 +194,7 @@
   position: absolute;
   bottom: -10em; // Adjust as needed
   right: -32px; // Adjust as needed
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   padding: 5px;
   color: white;
   text-align: center;
@@ -192,7 +203,7 @@
   // Removed pointer-events: auto from original fix
 
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
@@ -236,7 +247,8 @@
   position: relative;
   z-index: 5; // Ensure actions are above description box ::before
 
-  a { // Styles already adjusted above for z-index
+  a {
+    // Styles already adjusted above for z-index
     position: relative;
     z-index: 6; // Ensure links are clickable
   }
@@ -271,9 +283,9 @@
   background-color: transparent;
   color: #00ffff; // Keep original color or adjust
   // border: 1px solid #00ffff; // Uncomment if border is desired
-  
+
   // Increase padding specifically for the icon links to enlarge hover area
-  padding: 6px 8px; 
+  padding: 6px 8px;
   display: inline-flex; // Helps center the icon within the padding
   align-items: center;
   justify-content: center;

@@ -7,6 +7,8 @@ import opticaLogo from "./../../assets/opticaLogo.png";
 import nav_jscop from "./../../assets/nav_jscop.png";
 import nav_2_jscop from "./../../assets/nav_2_jscop.png";
 import "./NewLandingPage.css";
+import Events from "../Events/Events";
+import LoadComponent, { BackToHome } from "../LoadComponent/LoadComponent";
 
 const Portfolio = () => {
   const [introComplete, setIntroComplete] = useState(false);
@@ -16,6 +18,9 @@ const Portfolio = () => {
   const [initX, setInitX] = useState(0);
   const [difference, setDifference] = useState(0);
   const [index, setIndex] = useState(1);
+
+  const [partName, setPartName] = useState("");
+  const [isOpen, setIsOpen] = useState(false);
 
   const contentRef = useRef(null);
   const sliderInnerRef = useRef(null);
@@ -185,6 +190,12 @@ const Portfolio = () => {
   let prev_parent;
 
   const handleButtonClick = (e) => {
+    setPartName(e.target.dataset.partName);
+    setTimeout(() => {
+      // setIsScrolling((prev) => !prev);
+      setIsOpen((prev) => !prev);
+    }, 500);
+
     const parent = e.target.parentNode;
     prev_parent = parent;
     const grandParent = parent.parentNode.parentNode;
@@ -234,7 +245,7 @@ const Portfolio = () => {
     const sliderInner = document.querySelector(".slider_inner");
     const newThreshold = offset - (offset + margin) * index;
     console.log("new....", newThreshold);
-    console.log("New index", prevIdxRef.current + 1)
+    console.log("New index", prevIdxRef.current + 1);
     sliderInner.style.transform = `translateX(${newThreshold}px) translateY(120px)`;
     sliderInner.style.transition = "transform 0.8s ease-in-out";
     sliderInner.scrollLeft = newThreshold;
@@ -389,8 +400,9 @@ const Portfolio = () => {
       });
 
       if (sliderInnerRef.current) {
-        sliderInnerRef.current.style.transform = `translateX(${newDifference + endPosition
-          }px) translateY(120px)`;
+        sliderInnerRef.current.style.transform = `translateX(${
+          newDifference + endPosition
+        }px) translateY(120px)`;
       }
     }
   };
@@ -470,9 +482,9 @@ const Portfolio = () => {
     });
   };
 
-
   const handleBackClick = (e) => {
     console.log("click");
+    setIsOpen((prev) => !prev);
     console.log(e);
     e.target.parentNode.parentNode.parentNode.classList.remove("clicked");
     e.target.parentNode.parentNode.classList.remove("clicked");
@@ -537,8 +549,9 @@ const Portfolio = () => {
           const velocity = 0.5 - pps / 40000;
 
           document.querySelectorAll(".slider_inner__slide").forEach((slide) => {
-            slide.style.transform = `rotateY(${direction}${pps / 110
-              }deg) scale(1)`;
+            slide.style.transform = `rotateY(${direction}${
+              pps / 110
+            }deg) scale(1)`;
             slide.style.transition = `all ${velocity}s`;
           });
         }
@@ -816,20 +829,30 @@ const Portfolio = () => {
                 <div className="slider_note">Drag through our work</div>
                 <div className="portfolio_home__work">
                   <div className="portfolio_home__header work">
-                    <div className="back" onClick={handleBackClick}>
-                      {/* <img
+                    {/* <div className="back" onClick={handleBackClick}> */}
+                    {/* <img
                         className="trigger"
                         src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/arrowDown.png"
                         alt="Arrow"
                         // onClick={handleButtonClick}
                       /> */}
-                      <ArrowLeft
+                    {/* <ArrowLeft
                         className="trigger"
                         size={30}
-                        style={{ marginTop: "82vh" }}
+                        style={{
+                          marginTop: "82vh",
+                          position: "absolute",
+                          left: "10px",
+                          bottom: "100px",
+                          zIndex: "1000",
+                        }}
                         color="#b9c1ca"
-                      />
-                    </div>
+                      /> */}
+                    <BackToHome
+                      isOpen={isOpen}
+                      handleBackClick={handleBackClick}
+                    />
+                    {/* </div> */}
                     <div className="logoMain">
                       <img src={nav_2_jscop} alt="Logo White" />
                       {/* <img
@@ -924,7 +947,13 @@ const Portfolio = () => {
                       <br />
                       Events
                     </div>
-                    <div className="image parent_1">
+                    <div
+                      className="image parent_1"
+                      // style={{
+                      //   position: "relative",
+                      //   overflow: flag ? "scroll" : "hidden",
+                      // }}
+                    >
                       <img
                         draggable="false"
                         src="https://mir-s3-cdn-cf.behance.net/project_modules/source/02896e26093165.5634f7cdacf7b.png"
@@ -937,6 +966,17 @@ const Portfolio = () => {
                       </div>
                       <div className="title">
                         From Fun Games to Tech & ECE Events
+                      </div>
+                      <div
+                        style={{
+                          position: "absolute",
+                          bottom: "10px",
+                          left: "10px",
+                          width: "100%",
+                          height: "100%",
+                        }}
+                      >
+                        <LoadComponent isOpen={isOpen} part={partName} />
                       </div>
                     </div>
                   </div>
@@ -999,7 +1039,13 @@ const Portfolio = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="slideClone">
+                  <div
+                    className="slideClone"
+                    // style={{
+                    //   overflowY: isScrolling ? "scroll" : "hidden",
+                    //   overflowX: "hidden",
+                    // }}
+                  >
                     <div className="title f">
                       .06
                       <br />
@@ -1018,6 +1064,8 @@ const Portfolio = () => {
                       <div className="title">
                         Browse through memories of our events
                       </div>
+
+                      {/* <LoadComponent isOpen={isOpen} part={"gallery"} /> */}
                     </div>
                   </div>
                   <div className="slideClone">
@@ -1076,7 +1124,7 @@ const Portfolio = () => {
                     onMouseMove={handleSliderMouseMove}
                     onMouseUp={handleSliderMouseUp}
                     onScroll={handleSliderScroll}
-                  // ref={scrollRef}
+                    // ref={scrollRef}
                   >
                     <div className="slider_inner__slide">
                       <div className="title" data-index="0">
@@ -1132,6 +1180,7 @@ const Portfolio = () => {
                         <div
                           className="button button_1"
                           onClick={handleButtonClick}
+                          data-part-name="events"
                         >
                           See What’s Happening
                           <img
@@ -1192,6 +1241,7 @@ const Portfolio = () => {
                         <div
                           className="button button_3"
                           onClick={handleButtonClick}
+                          data-part-name="timeline"
                         >
                           View Full Timeline
                           <img
@@ -1223,6 +1273,7 @@ const Portfolio = () => {
                         <div
                           className="button button_4"
                           onClick={handleButtonClick}
+                          data-part-name="team"
                         >
                           Meet the Team
                           <img
@@ -1253,7 +1304,9 @@ const Portfolio = () => {
                         </div>
                         <div
                           className="button button_5"
-                          onClick={handleButtonClick}>
+                          onClick={handleButtonClick}
+                          data-part-name="gallery"
+                        >
                           View Moments
                           <img
                             src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/arrowbblakc.png"
