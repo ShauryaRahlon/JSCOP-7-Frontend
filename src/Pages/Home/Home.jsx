@@ -6,6 +6,7 @@ import jscopLogo from "./../../assets/jscopLogo.png";
 import opticaLogo from "./../../assets/opticaLogo.png";
 import nav_jscop from "./../../assets/nav_jscop.png";
 import nav_2_jscop from "./../../assets/nav_2_jscop.png";
+import rocketanimation from "./../../assets/rocket-animation.mp4";
 import "./NewLandingPage.css";
 
 const Portfolio = () => {
@@ -700,22 +701,17 @@ const Portfolio = () => {
       </div>
       <div className="portfolio">
         <div className="portfolio_home">
-          <div
-            style={{
-              position: "fixed",
-              zIndex: -99,
-              width: "2320px",
-              height: "180%",
-              left: 0,
-              top: "-38%",
-            }}
-          >
-            <iframe
-              frameBorder="0"
-              height="100%"
-              width="100%"
-              src="https://youtube.com/embed/tz8Puc4W5BM?autoplay=1&controls=0&showinfo=0&autohide=1&mute=1"
-            ></iframe>
+          <div className="rocket-animation-overlay"></div>
+          <div className="rocket-animation-container">
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="rocket-animation-video"
+            >
+              <source src={rocketanimation} type="video/mp4" />
+            </video>
           </div>
           <div className="portfolio_home__header">
             <div className="hamburger trigger" onClick={handleTriggerClick}>
