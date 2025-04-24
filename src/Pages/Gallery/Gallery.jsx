@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./Gallery.scss";
+import cross_icon from "../../assets/cross_icon.png"; // Import the cross icon
 
 const Gallery = () => {
   // State to track which book is selected for the modal
@@ -87,7 +88,11 @@ const Gallery = () => {
               onClick={(e) => e.stopPropagation()}
             />
             <button className="gal-close-button" onClick={startCloseModal}>
-              ×
+              <img
+                src={cross_icon}
+                alt="cross"
+                style={{ height: "20px", width: "20px" }}
+              />
             </button>
           </div>
         </div>

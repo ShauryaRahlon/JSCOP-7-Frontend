@@ -226,6 +226,10 @@
     animation: fade-in 0.6s ease forwards;
   }
 
+  .book-modal-image {
+    // border-radius: 20px;
+  }
+
   @keyframes fade-in {
     0% {
       background: rgba(0, 0, 0, 0);
@@ -258,8 +262,8 @@
 
     .gal-close-button {
       position: absolute;
-      top: -20px;
-      right: -20px;
+      top: -18px;
+      right: -18px;
       width: 40px;
       height: 40px;
       border-radius: 50%;
@@ -277,7 +281,7 @@
       animation-delay: 0.2s;
 
       &:hover {
-        background: #7e7c7c;
+        opacity: 0.8;
       }
     }
   }
