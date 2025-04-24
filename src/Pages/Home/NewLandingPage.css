@@ -992,7 +992,7 @@ body .portfolio_home__title .page_portfolio {
 /* Default styles for large screens */
 .rocket-animation-container {
   position: fixed;
-  z-index: -99;
+  /* z-index: -99; */
   width: 2000px;
   /* Default width for large screens */
   height: 150%;
