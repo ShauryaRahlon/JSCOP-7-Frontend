@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom"; // Import useNavigate
 import Navbar from "../../Components/Navbar/Navbar";
-import { Home, ArrowDown, ArrowLeft } from "lucide-react";
+import { Home, ArrowDown, ArrowLeft, Rotate3D } from "lucide-react";
 import jscopLogo from "./../../assets/jscopLogo.png";
 import opticaLogo from "./../../assets/opticaLogo.png";
 import nav_jscop from "./../../assets/nav_jscop.png";
@@ -720,7 +720,7 @@ const Portfolio = () => {
               playsInline
               className="rocket-animation-video"
             >
-              {/* <source src={HomePageBG} type="video/mp4" /> */}
+              <source src={HomePageBG} type="video/mp4" />
             </video>
           </div>
           <div className="portfolio_home__header">
@@ -983,8 +983,9 @@ const Portfolio = () => {
                     <div className="image parent_2">
                       <img
                         draggable="false"
-                        src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/rpo.jpg"
+                        src="https://i.pinimg.com/1200x/99/0d/a2/990da2cf0c344336fb5f1cb3d126cdf8.jpg"
                         alt="Apple Watch"
+                        width={"100%"}
                       />
                       <div className="overlay"></div>
                       <div className="cats">Our ESTEEMED SPEAKERS</div>
@@ -1021,8 +1022,10 @@ const Portfolio = () => {
                     <div className="image parent_4">
                       <img
                         draggable="false"
-                        src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/orangetyhing.png"
+                        src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5181c7f5-4300-4d23-a0d1-d0cc2a40214b/de8ruib-78b98309-28f0-4c3f-a560-f58e885d2d27.jpg/v1/fill/w_1192,h_670,q_70,strp/anomaly_by_tobiasroetsch_de8ruib-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTA4MCIsInBhdGgiOiJcL2ZcLzUxODFjN2Y1LTQzMDAtNGQyMy1hMGQxLWQwY2MyYTQwMjE0YlwvZGU4cnVpYi03OGI5ODMwOS0yOGYwLTRjM2YtYTU2MC1mNThlODg1ZDJkMjcuanBnIiwid2lkdGgiOiI8PTE5MjAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.EqxrCHV903nldbc4EMwoSlVlWfP51pWUJUi__43zbw0
+                        "
                         alt="Jade Teriyaki"
+
                       />
                       <div className="overlay"></div>
                       <div className="cats">
@@ -1071,8 +1074,9 @@ const Portfolio = () => {
                     <div className="image parent_6">
                       <img
                         draggable="false"
-                        src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/orangetyhing.png"
+                        src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/9f4085a5-316b-4aa3-9708-18958f71343d/dj6qfii-99ab04c2-8a40-404a-be03-900f6ab30361.jpg/v1/fill/w_1210,h_660,q_70,strp/tidal_gravity_generation_habitat__by_artworksstudio_dj6qfii-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9Njk5IiwicGF0aCI6IlwvZlwvOWY0MDg1YTUtMzE2Yi00YWEzLTk3MDgtMTg5NThmNzEzNDNkXC9kajZxZmlpLTk5YWIwNGMyLThhNDAtNDA0YS1iZTAzLTkwMGY2YWIzMDM2MS5qcGciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.mS4eLyHQInmTOGAb7VFCLlYPvDbVWNF_7JV-TtgNpdY"
                         alt="Jade Teriyaki"
+                        width={"100%"}
                       />
                       <div className="overlay"></div>
                       <div className="cats">CODE. CREATE. CONQUER.</div>
@@ -1195,8 +1199,9 @@ const Portfolio = () => {
                       <div className="image parent_2">
                         <img
                           draggable="false"
-                          src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/rpo.jpg"
+                          src="https://i.pinimg.com/1200x/99/0d/a2/990da2cf0c344336fb5f1cb3d126cdf8.jpg"
                           alt="Apple Watch"
+                          width={"100%"}
                         />
                         <div className="overlay overlay_2"></div>
                         <div className="cats cats_2">OUR ESTEEMED SPEAKERS</div>
@@ -1256,8 +1261,10 @@ const Portfolio = () => {
                       <div className="image parent_4">
                         <img
                           draggable="false"
-                          src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/orangetyhing.png"
+                          src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5181c7f5-4300-4d23-a0d1-d0cc2a40214b/de8ruib-78b98309-28f0-4c3f-a560-f58e885d2d27.jpg/v1/fill/w_1192,h_670,q_70,strp/anomaly_by_tobiasroetsch_de8ruib-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTA4MCIsInBhdGgiOiJcL2ZcLzUxODFjN2Y1LTQzMDAtNGQyMy1hMGQxLWQwY2MyYTQwMjE0YlwvZGU4cnVpYi03OGI5ODMwOS0yOGYwLTRjM2YtYTU2MC1mNThlODg1ZDJkMjcuanBnIiwid2lkdGgiOiI8PTE5MjAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.EqxrCHV903nldbc4EMwoSlVlWfP51pWUJUi__43zbw0"
                           alt="Jade Teriyaki"
+                          width={"100%"}
+
                         />
                         <div className="overlay overlay_4"></div>
                         <div className="cats cats_4">
@@ -1321,8 +1328,9 @@ const Portfolio = () => {
                       <div className="image parent_6">
                         <img
                           draggable="false"
-                          src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/orangetyhing.png"
+                          src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/9f4085a5-316b-4aa3-9708-18958f71343d/dj6qfii-99ab04c2-8a40-404a-be03-900f6ab30361.jpg/v1/fill/w_1210,h_660,q_70,strp/tidal_gravity_generation_habitat__by_artworksstudio_dj6qfii-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9Njk5IiwicGF0aCI6IlwvZlwvOWY0MDg1YTUtMzE2Yi00YWEzLTk3MDgtMTg5NThmNzEzNDNkXC9kajZxZmlpLTk5YWIwNGMyLThhNDAtNDA0YS1iZTAzLTkwMGY2YWIzMDM2MS5qcGciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.mS4eLyHQInmTOGAb7VFCLlYPvDbVWNF_7JV-TtgNpdY"
                           alt="Jade Teriyaki"
+                          width={"100%"}
                         />
                         <div className="overlay overlay_6"></div>
                         <div className="cats cats_6">
