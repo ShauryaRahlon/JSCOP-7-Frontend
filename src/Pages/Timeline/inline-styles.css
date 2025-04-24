@@ -37,6 +37,48 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.box {
+  position: relative;
+  background: inear-gradient(to right, #1f3341, #274051, #325b6c);
+  color: white;
+  padding: 60px 20px;
+  /* Adjust as needed */
+
+  --wave-mask: radial-gradient(55.34px at 50% 76.5px, #000 99%, #0000 101%)
+      calc(50% - 60px) 0 / 120px 100%,
+    radial-gradient(55.34px at 50% -46.5px, #0000 99%, #000 101%) 50% 30px /
+      120px 100% repeat-x;
+
+  -webkit-mask: var(--wave-mask);
+  mask: var(--wave-mask);
+}
+
+.box {
+  position: relative;
+  background: inear-gradient(to right, #1f3341, #274051, #325b6c);
+  padding: 60px 20px;
+  color: white;
+  overflow: hidden;
+}
+
+.box::before {
+  content: "";
+  position: absolute;
+  top: -30px;
+  left: 0;
+  width: 100%;
+  height: 60px;
+
+  --mask: radial-gradient(55.34px at 50% 76.5px, #000 99%, #0000 101%)
+      calc(50% - 60px) 0/120px 100%,
+    radial-gradient(55.34px at 50% -46.5px, #0000 99%, #000 101%) 50% 30px/120px
+      100% repeat-x;
+
+  -webkit-mask: var(--mask);
+  mask: var(--mask);
+  background: linear-gradient(to right, #1f3341, #274051, #325b6c);
+}
+
 a {
   outline: none;
   color: #323f5c;
@@ -74,16 +116,16 @@ a:focus {
   position: fixed;
   /* width: 100%; */
   /* Removed width 100% */
-  width: auto;
+  /* width: auto; */
   /* Let content define width */
-  max-width: 90%;
+  /* min-width: 80vw !important; */
   /* Prevent excessive width */
   z-index: 2000;
   pointer-events: auto;
   /* Explicitly allow events on header */
-  top: 1em;
+  top: 20px;
   /* Adjust top position */
-  left: 1em;
+  left: 5%;
   /* Add left position */
   display: flex;
   /* Use flexbox for alignment */
@@ -91,7 +133,7 @@ a:focus {
   /* Stack children vertically */
   /* align-items: center; */
   /* Removed center alignment */
-  align-items: flex-start;
+  /* align-items: flex-start; */
   /* Align items to the start (left) */
 }
 
@@ -143,13 +185,31 @@ a:focus {
   display: none;
   opacity: 0;
   transition: opacity 0.3s ease;
-  padding: 10px;
+  padding: 0px 0px 0px 25px;
+  /* padding: 10px; */
   max-width: 90%;
   /* margin: 0 auto; */
   /* Removed auto margin for centering */
-  margin: 0;
+  margin-top: -20px;
+  margin-left: 25px;
   /* Reset margin */
-  margin-top: 5px;
+  /* margin-top: 5px; */
+  /* Reduced top margin */
+  text-align: left;
+  /* Ensure text aligns left */
+}
+
+.card-detailss {
+  padding: 0px 0px 0px 25px;
+  /* padding: 10px; */
+  max-width: 90%;
+  /* margin: 0 auto; */
+  /* Removed auto margin for centering */
+  margin-top: -40px;
+  margin-left: 18px;
+  margin-bottom: 20px;
+  /* Reset margin */
+  /* margin-top: 5px; */
   /* Reduced top margin */
   text-align: left;
   /* Ensure text aligns left */
@@ -191,18 +251,18 @@ a:focus {
   max-width: 100%;
   /* Allow buttons to take needed width within header */
   /* Don't let it get too wide */
-  background-color: rgba(236, 235, 239, 0.8);
+  /* background-color: rgba(236, 235, 239, 0.8); */
   /* Add a semi-transparent background */
-  padding: 8px 12px;
+  padding: 0px 12px 8px 12px;
   border-radius: 5px;
-  margin-bottom: 15px;
+  /* margin-bottom: 15px; */
   /* Add space below buttons */
   pointer-events: auto;
   /* Ensure buttons are clickable */
 }
 
 .day-btn {
-  padding: 8px 16px;
+  /* padding: 8px 16px; */
   background-color: #333;
   color: white;
   border: none;
@@ -236,20 +296,43 @@ a:focus {
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-  .codrops-header {
+  /* .codrops-header {
     padding: 0.5em;
     top: 0.5em;
     left: 0.5em;
+  } */
+
+  .codrops-header {
+    padding: 1em;
+    position: fixed;
+    z-index: 2000;
+    pointer-events: auto;
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    /* Explicitly allow events on header */
+    top: 4%;
+    /* Adjust top position */
+    left: 0;
+    /* Add left position */
+    display: flex;
+    flex-direction: column;
   }
 
   .day-buttons {
-    /* flex-direction: column; */
-    /* align-items: center; */
-    /* Removed center alignment */
-    /* align-items: flex-start; */
-    /* Align buttons left */
-    margin-bottom: 5px;
-    /* Adjust margin */
+    position: relative;
+    /* Position relative to header */
+
+    flex-wrap: nowrap;
+    /* justify-content: flex-start; */
+    /* Align buttons to the start */
+    width: auto;
+    height: 70px;
+    max-width: 100%;
+    padding: 0px 12px 8px 12px;
+    border-radius: 5px;
+    pointer-events: auto;
+    /* Ensure buttons are clickable */
   }
 
   .day-btn {
@@ -261,6 +344,41 @@ a:focus {
     /* max-width: 180px; */
     /* Reduced max-width */
     text-align: center;
+  }
+
+  .card-details {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    padding: 0px 0px 0px 25px;
+    /* padding: 10px; */
+    max-width: 90%;
+    /* margin: 0 auto; */
+    /* Removed auto margin for centering */
+    margin-top: -30px;
+    margin-left: 6px;
+    /* Reset margin */
+    /* margin-top: 5px; */
+    /* Reduced top margin */
+    text-align: left;
+    min-width: 90vw;
+    /* Ensure text aligns left */
+  }
+
+  .card-detailss {
+    padding: 0px 0px 0px 25px;
+    /* padding: 10px; */
+    max-width: 90%;
+    /* margin: 0 auto; */
+    /* Removed auto margin for centering */
+    margin-top: -50px;
+    margin-left: 6px;
+
+    /* Reset margin */
+    /* margin-top: 5px; */
+    /* Reduced top margin */
+    text-align: left;
+    /* Ensure text aligns left */
   }
 
   .card-details h2 {
