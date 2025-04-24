@@ -924,8 +924,9 @@ const Portfolio = () => {
                     <div className="image parent_0">
                       <img
                         draggable="false"
-                        src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/fud.png"
+                        src="https://images4.alphacoders.com/135/thumb-1920-1355268.jpeg"
                         alt="My Protein"
+                        width={"100%"}
                       />
                       <div className="overlay"></div>
                       <div className="cats">OPTICA · JIIT · SOCIETY</div>
@@ -1047,7 +1048,7 @@ const Portfolio = () => {
                     <div className="image parent_5">
                       <img
                         draggable="false"
-                        src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/orangetyhing.png"
+                        src="https://i.pinimg.com/1200x/1f/dc/04/1fdc0438f61ea244d2e48ea3ccefffb6.jpg"
                         alt="Jade Teriyaki"
                       />
                       <div className="overlay"></div>
@@ -1128,8 +1129,9 @@ const Portfolio = () => {
                       <div className="image parent_0">
                         <img
                           draggable="false"
-                          src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/fud.png"
+                          src="https://images4.alphacoders.com/135/thumb-1920-1355268.jpeg"
                           alt="My Protein"
+                          width={"100%"}
                         />
                         <div className="overlay overlay_0"></div>
                         <div className="cats cats_0">
@@ -1285,8 +1287,9 @@ const Portfolio = () => {
                       <div className="image parent_5">
                         <img
                           draggable="false"
-                          src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/orangetyhing.png"
+                          src="https://i.pinimg.com/1200x/1f/dc/04/1fdc0438f61ea244d2e48ea3ccefffb6.jpg"
                           alt="Jade Teriyaki"
+                          width={"100%"}
                         />
                         <div className="overlay overlay_5"></div>
                         <div className="cats cats_5">
