@@ -18,13 +18,13 @@ function Team() {
       <div className="wormhole"></div>
 
       <div className="content">
-        <header className="heading">
+        {/* <header className="heading">
           <h3>TEAM MEMBERS</h3>
           <p className="quote">
             "Do not go gentle into that good night. Rage, rage against the dying
             of the light."
           </p>
-        </header>
+        </header> */}
 
         <main className="toggle-box">
           <button

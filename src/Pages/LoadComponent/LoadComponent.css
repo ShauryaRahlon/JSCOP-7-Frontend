@@ -1,0 +1,61 @@
+.component_wrapper {
+  position: absolute;
+  top: 70%;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10;
+}
+
+.backToHome {
+  position: fixed;
+  left: 20px;
+  height: 45px;
+  width: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
+  /* backdropfilter: "blur(10px)"; */
+  bottom: 60px;
+  z-index: 9999;
+  cursor: pointer;
+}
+
+.loadComponent-fade-back {
+  /* Initial fade-in animation when appearing */
+  animation: fadeIn 0.4s ease forwards;
+}
+
+.fade-out {
+  animation: fadeOut 0.4s ease forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .component_wrapper {
+    top: 50%;
+  }
+  /* .backToHome {
+    bottom: 20px;
+    left: 10px;
+  } */
+}
