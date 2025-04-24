@@ -7,6 +7,7 @@ import Events from "./Pages/Events/Events";
 import Timeline from "./Pages/Timeline/Timeline";
 import Team from "./Pages/Team/Team";
 import MainPage from "./Pages/MainPage/MainPage";
+import Hackathon from "./Pages/Hackathon/Hackathon";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/events" element={<Events />} />
         <Route path="/timeline" element={<Timeline />} />
         <Route path="/team" element={<Team />} />
+        <Route path="/hackathon" element={<Hackathon />} />
       </Routes>
     </Router>
   );

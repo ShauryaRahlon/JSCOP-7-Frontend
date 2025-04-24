@@ -5,6 +5,7 @@ import Gallery from "../Gallery/Gallery";
 import Events from "../Events/Events";
 import Team from "../Team/Team";
 import Timeline from "../Timeline/Timeline";
+// import Hackathon from "../Hackathon/Hackathon";
 import { ArrowLeft } from "lucide-react";
 
 const FadePortal = ({ isOpen, children }) => {
@@ -56,6 +57,8 @@ const LoadComponent = ({ isOpen, part }) => {
         return <Team />;
       case "timeline":
         return <Timeline />;
+      // case "hackathon":
+      //   return <Hackathon />;
       default:
         return null;
     }
