@@ -989,24 +989,20 @@ body .portfolio_home__title .page_portfolio {
   }
 }
 
-/* Default styles for large screens */
 .rocket-animation-container {
   position: fixed;
-  /* z-index: -99; */
-  width: 2000px;
-  /* Default width for large screens */
-  height: 150%;
-  /* Default height for large screens */
-  left: 0%;
-  /* Center horizontally */
-  top: -30%;
-  /* Adjust vertical position */
+  width: 100vw;
+  height: 100vh;
+  left: 0;
+  top: 0;
 }
 
 .rocket-animation-video {
+  transform: rotateY(180deg);
   width: 100%;
   height: 100%;
   object-fit: cover;
+  opacity: 0.4;
 }
 
 .rocket-animation-overlay {
@@ -1015,46 +1011,84 @@ body .portfolio_home__title .page_portfolio {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  /* Light shade for desktop */
   pointer-events: none;
-  /* Allow clicks to pass through */
 }
 
-/* For medium screens (tablets) */
+/* Media Queries for Adjustments */
+@media (max-width: 1300px) {
+  .rocket-animation-container {
+    width: 105vw;
+    height: 100vh;
+    left: -2.5vw;
+    top: 0;
+  }
+
+  .rocket-animation-overlay {
+    background: rgba(0, 0, 0, 0.6);
+  }
+}
+
 @media (max-width: 1024px) {
   .rocket-animation-container {
-    width: 1500px;
-    /* Reduce width for tablets */
-    height: 120%;
-    /* Adjust height */
-    left: -10%;
-    /* Center horizontally */
-    top: -20%;
-    /* Adjust vertical position */
+    width: 110vw;
+    height: 100vh;
+    left: -10vw;
+    top: 0vh;
   }
 
   .rocket-animation-overlay {
     background: rgba(0, 0, 0, 0.6);
-    /* Slightly darker shade for tablets */
   }
 }
 
-/* For small screens (mobile) */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .rocket-animation-container {
-    width: 100%;
-    /* Full width for mobile */
-    height: 100%;
-    /* Full height for mobile */
-    left: 0;
-    /* Align to the left */
-    top: -10%;
-    /* Align to the top */
+    width: 130vw;
+    height: 100vh;
+    left: -25vw;
+    top: 0vh;
   }
 
   .rocket-animation-overlay {
     background: rgba(0, 0, 0, 0.6);
-    /* Darker shade for mobile */
+  }
+}
+
+@media (max-width: 778px) {
+  .rocket-animation-container {
+    width: 160vw;
+    height: 100vh;
+    left: -60vw;
+    top: 0vh;
+  }
+
+  .rocket-animation-overlay {
+    background: rgba(0, 0, 0, 0.6);
+  }
+}
+
+@media (max-width: 556px) {
+  .rocket-animation-container {
+    width: 190vw;
+    height: 100vh;
+    left: -90vw;
+    top: 0vh;
+  }
+
+  .rocket-animation-overlay {
+    background: rgba(0, 0, 0, 0.6);
+  }
+}
+
+@media (max-width: 480px) {
+  .rocket-animation-container {
+    width: 235vw;
+    height: 100vh;
+    left: -135vw;
+    top: 0vh;
+  }
+
+  .rocket-animation-overlay {
+    background: rgba(0, 0, 0, 0.6);
   }
 }
