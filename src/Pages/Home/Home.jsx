@@ -720,7 +720,7 @@ const Portfolio = () => {
               playsInline
               className="rocket-animation-video"
             >
-              <source src={HomePageBG} type="video/mp4" />
+              {/* <source src={HomePageBG} type="video/mp4" /> */}
             </video>
           </div>
           <div className="portfolio_home__header">
@@ -1090,8 +1090,9 @@ const Portfolio = () => {
                     <div className="image parent_7">
                       <img
                         draggable="false"
-                        src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/orangetyhing.png"
+                        src="https://i.pinimg.com/1200x/5f/e3/e1/5fe3e182ec10205edfc194c3126eb3aa.jpg"
                         alt="Jade Teriyaki"
+                        width={"100%"}
                       />
                       <div className="overlay"></div>
                       <div className="cats">GET IN TOUCH WITH OPTICA</div>
@@ -1352,8 +1353,9 @@ const Portfolio = () => {
                       <div className="image parent_7">
                         <img
                           draggable="false"
-                          src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/orangetyhing.png"
+                          src="https://i.pinimg.com/1200x/5f/e3/e1/5fe3e182ec10205edfc194c3126eb3aa.jpg"
                           alt="Jade Teriyaki"
+                          width={"100%"}
                         />
                         <div className="overlay overlay_7"></div>
                         <div className="cats cats_7">
