@@ -49,9 +49,9 @@
     0.85
   ); // Slightly darker and added transparency (0.85)
   opacity: 0.9; // Added overall card transparency
-  border-radius: 10px;
-  box-shadow: 0 0 15px rgba(0, 255, 255, 0.2); // Slightly softer shadow
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease; // Added opacity transition
+  // border-radius: 10px;
+  // box-shadow: 0 0 15px rgba(0, 255, 255, 0.2); // Slightly softer shadow
+  // transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease; // Added opacity transition
   transform-style: preserve-3d;
   position: relative;
   background-size: cover;
@@ -91,15 +91,15 @@
     left: 0;
     right: 0;
     bottom: 0;
-    border-radius: 10px; // Match card border-radius
-    background: linear-gradient(
-      135deg,
-      rgba(0, 255, 255, 0.15) 0%,
-      // Slightly increased opacity
-      rgba(0, 255, 255, 0.08) 50%,
-      // Slightly increased opacity
-      transparent 100%
-    );
+    // border-radius: 10px; // Match card border-radius
+    // background: linear-gradient(
+    //   135deg,
+    //   rgba(0, 255, 255, 0.15) 0%,
+    //   // Slightly increased opacity
+    //   rgba(0, 255, 255, 0.08) 50%,
+    //   // Slightly increased opacity
+    //   transparent 100%
+    // );
     opacity: 0;
     transition: opacity 0.3s ease; // Only transition opacity
     z-index: 1; // Ensure it's behind content but above background
@@ -107,7 +107,7 @@
 
   &:hover {
     // Note: transform is handled by JS inline style now
-    box-shadow: 0 8px 25px rgba(0, 255, 255, 0.3); // Enhanced shadow on hover
+    // box-shadow: 0 8px 25px rgba(0, 255, 255, 0.3); // Enhanced shadow on hover
     opacity: 1; // Fully opaque on hover
 
     &::before {
@@ -148,15 +148,18 @@
 
 // Restored Title Box Styles
 .card-title-box_V {
-  width: 50%;
+  width: 60%;
   background-color: rgba(255, 255, 255, 0.5);
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   line-height: 1.5;
   overflow: hidden;
   position: absolute;
   top: -30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   left: -30px;
-  padding: 5px 10px;
+  padding: 2px 8px;
   z-index: 10; // High z-index
 
   &::before {
@@ -186,7 +189,7 @@
 
 // Restored Description Box Styles
 .card-description-box_V {
-  width: 50%;
+  width: 70%;
   background-color: rgba(0, 0, 0, 0.5);
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   line-height: 1.5;
@@ -275,18 +278,26 @@
 }
 
 .btn-primary_V {
-  background-color: #00ffff;
+  background-color: white;
   color: #000;
 }
 
 .btn-secondary_V {
   background-color: transparent;
-  color: #00ffff; // Keep original color or adjust
+  color: white; // Keep original color or adjust
   // border: 1px solid #00ffff; // Uncomment if border is desired
 
   // Increase padding specifically for the icon links to enlarge hover area
-  padding: 6px 8px;
+  padding: 0px 8px 6px 8px;
   display: inline-flex; // Helps center the icon within the padding
   align-items: center;
   justify-content: center;
+}
+
+@media (max-width: 780px) {
+  .card-title-box_V {
+    top: -30px;
+    left: -20px;
+    padding: 2px 8px;
+  }
 }
