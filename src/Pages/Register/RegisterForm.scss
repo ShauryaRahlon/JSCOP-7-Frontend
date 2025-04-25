@@ -1,0 +1,405 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600;700&display=swap');
+.RegistrationPage {
+  display: flex;
+  justify-content: center;
+  padding: 2%;
+  font-family:'Exo 2', sans-serif;
+
+  .RegistrationPageSection {
+    display: flex;
+    justify-content: center;
+    // align-items: center;
+    // background-color: #d4f2ff;
+    height: 100%;
+    max-width: 1300px;
+    background-image: url("/public/images/image5.png");
+    background-size: cover;       /* Make the image cover the entire section */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    background-position: center;  /* Center the image */ 
+
+    .regisGuidelineSection {
+      display: flex;
+      flex-direction: column;
+      padding: 2%;
+      flex-basis: 50%;
+      // background-color: white;
+      flex: 1;
+
+      .GuidelineContainer {
+        // height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .regisGuidelines {
+          font-size: 1rem;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+          letter-spacing: 0.0875rem;
+          width: 95%;
+
+          ol {
+            li {
+              margin: 2% 0% 2% 5%;
+              color: rgb(207, 187, 255);
+              // padding-left: 5% !important;
+            }
+          }
+        }
+      }
+    }
+
+    .regis {
+      padding-bottom: 30px;
+      padding: 2%;
+      height: 100%;
+      flex-basis: 50%;
+      // background-color: #d9d9d9;
+      border-radius: 2%;
+      flex: 1;
+
+      .registration-form {
+        color: white;
+        font-size: small;
+        max-width: 450px;
+        margin: auto;
+        padding: 20px;
+        background: linear-gradient(180deg,rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.25), rgba(255,255,255,0)); /* Subtle dark blue to black gradient */
+
+    }
+
+    .reginput {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      color: #ffffff;
+      background: rgba(33, 13, 51, 0.7); /* Semi-transparent dark purple */
+      border: 1px solid rgba(141, 92, 255, 0.3); /* Subtle border using your purple button color */
+      border-radius: 6px;
+      outline: none;
+      transition: all 0.3s ease;
+      font-family: 'Exo 2', sans-serif;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+    
+    .reginput:focus {
+      border-color: rgb(141, 92, 255); /* Match your button color when focused */
+      box-shadow: 0 0 8px rgba(141, 92, 255, 0.4);
+    }
+    
+    /* Improved autofill styles */
+    .reginput:-webkit-autofill,
+    .reginput:-webkit-autofill:hover, 
+    .reginput:-webkit-autofill:focus,
+    .reginput:-webkit-autofill:active {
+      -webkit-text-fill-color: white !important;
+      transition: background-color 5000s ease-in-out 0s;
+      box-shadow: 0 0 0px 1000px rgba(33, 13, 51, 0.8) inset !important;
+      -webkit-box-shadow: 0 0 0px 1000px rgba(33, 13, 51, 0.8) inset !important;
+    }
+    
+    /* Placeholder text styling */
+    .reginput::placeholder {
+      color: rgba(255, 255, 255, 0.5);
+      font-style: italic;
+    }
+    
+    /* Adjust font size for better readability */
+    .reginput, label {
+      font-size: 1rem;
+    }
+    
+    /* For Firefox */
+    .reginput:-moz-autofill,
+    .reginput:-moz-autofill:focus {
+      background: rgba(33, 13, 51, 0.7) !important;
+      color: white !important;
+    }
+    
+    .error {
+      color: #ff6b6b; /* Brighter red that's visible on dark backgrounds */
+      font-size: 14px;
+      margin-bottom: 10px;
+      font-weight: 500;
+    }
+  
+  /* Fix for autofill background color change */
+  .reginput:-webkit-autofill,
+.reginput:-webkit-autofill:hover, 
+.reginput:-webkit-autofill:focus,
+.reginput:-webkit-autofill:active {
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: white !important;
+    transition: background-color 5000s ease-in-out 0s;
+    background: linear-gradient(to right, #000000, #210d33) !important;
+    box-shadow: inset 0 0 20px 20px #210d33 !important;
+}
+
+/* For Firefox */
+.reginput:-moz-autofill,
+.reginput:-moz-autofill:focus {
+    background: linear-gradient(to right, #000000, #2e0d33) !important;
+    color: white !important;
+        }
+        .reginput2 {
+          width: 100%;
+          padding: 10px 0px;
+          margin-bottom: 10px;
+          // border: 1px solid #ccc;
+          // border: 1px solid black;
+          //   border-radius: 3px;
+          //   color: black;
+        }
+        label {
+          display: block;
+          // background-color: aqua;
+          width: 100%;
+          margin-bottom: 5px;
+        }
+
+        .form-group {
+          margin-bottom: 15px;
+        }
+
+        .reglist {
+          list-style-type: disc;
+          background-color: #000000;
+        }
+
+        .dareg {
+          min-width: 100px;
+        }
+
+        /* Style for error messages */
+        .error {
+          color: red;
+          font-size: 14px;
+          margin-bottom: 10px;
+        }
+
+        .dayregi {
+          height: 20px;
+          width: 20px;
+          // position: relative;
+          // right: 0px !important;
+        }
+
+        .dayylab {
+          display: flex;
+          align-items: center;
+        }
+
+        .checkbox-group {
+          display: flex;
+          // flex-direction: column;
+          align-items: center;
+        }
+
+        .regbtn {
+          background-color: rgb(141, 92, 255) !important;
+          // color: white;
+          color: white;
+          border: none;
+          text-align: center;
+          font-weight: bold;
+          padding: 14px 10px;
+          width: 50%;
+          font-size: 17px;
+          cursor: pointer;
+          border-radius: 10px;
+          // border: 2px solid white;
+        }
+
+        .heyreg {
+          display: flex;
+          justify-content: center;
+        }
+
+        .regbtn:hover {
+          background-color: rgb(190, 162, 255) !important;
+        }
+
+        option:first {
+          color: #999;
+        }
+      }
+    }
+  }
+
+.registernecessary {
+  color: rgb(192, 15, 15);
+  font-weight: bold;
+}
+
+.registerr-header {
+  color: white;
+  text-align: center;
+  font-size: 36px;
+  font-weight: 700;
+  //   margin-top: 750px;
+  padding-top: 75px;
+}
+
+.RegistrationPageHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 5%;
+
+  .RegistrationPageHeaderSectionHeader_text {
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    .RegistrationPageHeaderSectionHeader_text_text-content {
+      color: #EAEAEA; /* deep sky blue / light blue */
+      font-size: 36px;
+      font-weight: 700;
+      line-height: normal;
+      text-align: center;
+      padding-bottom: 5px;
+    }
+    
+
+    .RegistrationPageHeaderUnderline {
+      background-color: #EAEAEA; /* light blue */
+      width: 80%;
+      height: 2px;}
+  }
+}
+
+.regis-sub-heading {
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-decoration: underline;
+  color: white;
+}
+.regis-sub-head {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+/* styles.css or your custom CSS file */
+.custom-toast-success {
+  background-color: #d4f2ff !important;
+  /* Change the background color */
+}
+
+// .Toastify__progress-bar {
+//   // display: none;
+//   // background-color: #a0c4ea !important;
+// }
+
+@media screen and (max-width: 1280px) {
+  .RegistrationPage {
+    .RegistrationPageSection {
+      .regisGuidelineSection {
+        .GuidelineContainer {
+          .regisGuidelines {
+            font-family: 'Exo 2', sans-serif;
+            font-size: 0.9rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1080px) {
+  .RegistrationPage {
+    .RegistrationPageSection {
+      .regisGuidelineSection {
+        .GuidelineContainer {
+          .regisGuidelines {
+            font-family: 'Exo 2', sans-serif;
+            font-size: 0.85rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .regbtn {
+    width: 80% !important;
+  }
+  .RegistrationPage {
+    .RegistrationPageSection {
+      flex-direction: column;
+      padding: 0%;
+      background-image: none; /* Remove background image on mobile */
+      background-color: transparent;
+      align-items: center;
+      
+      .regisGuidelineSection {
+        width: 95%;
+        border-radius: 10px;
+        margin-top: 5%;
+        background: rgba(33, 13, 51, 0.9); /* Dark background to match form */
+        color: white;
+
+        .GuidelineContainer {
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+
+          .regisGuidelines {
+            font-family: 'Exo 2', sans-serif;
+            font-size: 0.8rem;
+            width: 95%;
+            
+            ol li {
+              color: rgb(207, 187, 255); /* Maintain the purple text color */
+            }
+          }
+        }
+      }
+
+      .regis {
+        width: 95%;
+        border-radius: 10px;
+        margin-top: 5%;
+        padding: 5%;
+        margin-bottom: 5%;
+        background: rgba(15, 5, 25, 0.95); /* Dark background to match the theme */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+
+        .registration-form {
+          box-shadow: none;
+          background: transparent; /* Remove the form background */
+        }
+        
+        /* Ensure input styling remains consistent */
+        .reginput {
+          background: rgba(33, 13, 51, 0.7);
+          border: 1px solid rgba(141, 92, 255, 0.3);
+        }
+      }
+    }
+  }
+
+  .RegistrationPageHeader {
+    .RegistrationPageHeaderSectionHeader_text {
+      .RegistrationPageHeaderSectionHeader_text_text-content {
+        color: white; /* Changed to white to match dark theme */
+        font-size: 1.26rem;
+        font-weight: 700;
+        line-height: normal;
+        text-align: center;
+        padding-bottom: 5px;
+      }
+
+      .RegistrationPageHeaderUnderline {
+        background-color: rgb(141, 92, 255); /* Match the accent color */
+        width: 80%;
+        height: 2px;
+      }
+    }
+  }
+}
