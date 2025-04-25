@@ -8,6 +8,7 @@ import Timeline from "../Timeline/Timeline";
 // import Hackathon from "../Hackathon/Hackathon";
 import { ArrowLeft } from "lucide-react";
 import Contact from "../Contact/Contact";
+import AboutUs from "../AboutUs/Aboutus";
 
 const FadePortal = ({ isOpen, children }) => {
 	const [shouldRender, setShouldRender] = useState(isOpen);
@@ -50,6 +51,8 @@ const LoadComponent = ({ isOpen, part }) => {
 
 	const renderComponent = () => {
 		switch (part) {
+			case "aboutus":
+				return <AboutUs />
 			case "gallery":
 				return <Gallery />;
 			case "events":
