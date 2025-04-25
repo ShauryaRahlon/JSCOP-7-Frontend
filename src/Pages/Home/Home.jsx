@@ -11,6 +11,7 @@ import HomePageBG from "./../../assets/HomePageBG.mp4";
 import "./NewLandingPage.css";
 import Events from "../Events/Events";
 import LoadComponent, { BackToHome } from "../LoadComponent/LoadComponent";
+import image5 from "../../../public/img/image5.png";
 
 const Portfolio = () => {
   const [introComplete, setIntroComplete] = useState(false);
@@ -468,7 +469,7 @@ const Portfolio = () => {
     let newEndPosition = endPosition;
 
     if (difference < -160) {
-      if (newIndex < 7) {
+      if (newIndex < 8) {
         newIndex++;
       }
     } else if (difference > 160) {
@@ -856,6 +857,12 @@ const Portfolio = () => {
                       >
                         Contact
                       </li>
+                      <li
+                        className="trigger"
+                        onClick={() => moveBetweenPages(8)}
+                      >
+                        Register
+                      </li>
                     </ul>
                   </div>
                   {/* <div className="number black">0161 345 3464</div> */}
@@ -954,6 +961,12 @@ const Portfolio = () => {
                           onClick={() => moveBetweenPages(7)}
                         >
                           Contact
+                        </li>
+                        <li
+                          className="trigger"
+                          onClick={() => moveBetweenPages(8)}
+                        >
+                          Register
                         </li>
                       </ul>
                     </div>
@@ -1146,7 +1159,27 @@ const Portfolio = () => {
                     <div className="image parent_7">
                       <img
                         draggable="false"
-                        src="https://i.pinimg.com/1200x/5f/e3/e1/5fe3e182ec10205edfc194c3126eb3aa.jpg"
+                        src={image5}
+                        alt="Jade Teriyaki"
+                        width={"100%"}
+                      />
+                      <div className="overlay"></div>
+                      <div className="cats">GET IN TOUCH WITH OPTICA</div>
+                      <div className="title">
+                        Questions, ideas, or feedback? Let’s connect.
+                      </div>
+                    </div>
+                  </div>
+                  <div className="slideClone">
+                    <div className="title f">
+                      .09
+                      <br />
+                      Register
+                    </div>
+                    <div className="image parent_8">
+                      <img
+                        draggable="false"
+                        src={image5}
                         alt="Jade Teriyaki"
                         width={"100%"}
                       />
@@ -1427,6 +1460,39 @@ const Portfolio = () => {
                         </div>
                         <div
                           className="button button_7"
+                          onClick={handleButtonClick}
+                          data-part-name="contact"
+                        >
+                          Get in Touch
+                          <img
+                            src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/arrowbblakc.png"
+                            alt="Arrow"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div className="slider_inner__slide">
+                      <div className="title" data-index="7">
+                        .09
+                        <br />
+                        Register
+                      </div>
+                      <div className="image parent_8">
+                        <img
+                          draggable="false"
+                          src={image5}
+                          alt="Jade Teriyaki"
+                          width={"100%"}
+                        />
+                        <div className="overlay overlay_8"></div>
+                        <div className="cats cats_8">
+                          GET IN TOUCH WITH OPTICA
+                        </div>
+                        <div className="title title_8">
+                          Questions, ideas, or feedback? Let’s connect.
+                        </div>
+                        <div
+                          className="button button_8"
                           onClick={handleButtonClick}
                           data-part-name="contact"
                         >
