@@ -1,96 +1,154 @@
 @font-face {
-    font-weight: normal;
-    font-style: normal;
-    font-family: 'codropsicons';
-    /* Adjusted paths for public folder structure - now relative to root */
-    src: url('/fonts/codropsicons/codropsicons.eot');
-    src: url('/fonts/codropsicons/codropsicons.eot?#iefix') format('embedded-opentype'),
-        url('/fonts/codropsicons/codropsicons.woff') format('woff'),
-        url('/fonts/codropsicons/codropsicons.ttf') format('truetype'),
-        url('/fonts/codropsicons/codropsicons.svg#codropsicons') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-family: "codropsicons";
+  /* Adjusted paths for public folder structure - now relative to root */
+  src: url("/fonts/codropsicons/codropsicons.eot");
+  src: url("/fonts/codropsicons/codropsicons.eot?#iefix")
+      format("embedded-opentype"),
+    url("/fonts/codropsicons/codropsicons.woff") format("woff"),
+    url("/fonts/codropsicons/codropsicons.ttf") format("truetype"),
+    url("/fonts/codropsicons/codropsicons.svg#codropsicons") format("svg");
 }
 
 *,
 *::after,
 *::before {
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .clearfix::before,
 .clearfix::after {
-    display: table;
-    content: '';
+  display: table;
+  content: "";
 }
 
 .clearfix::after {
-    clear: both;
+  clear: both;
 }
 
 body {
-    font-family: 'Avenir Next', Avenir, 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    color: #dee6e0;
-    background: #D4D2E0;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  font-family: "Avenir Next", Avenir, "Helvetica Neue", Helvetica, Arial,
+    sans-serif;
+  color: #dee6e0;
+  background: #d4d2e0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
+.box {
+  position: relative;
+  background: linear-gradient(to bottom, #1f3341, #274051, #325b6c);
+  color: white;
+  padding: 60px 20px;
+
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, black 10%);
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    black 10%
+  );
+}
+
+/* 
+.box {
+  position: relative;
+  background: inear-gradient(to right, #1f3341, #274051, #325b6c);
+  color: white;
+  padding: 60px 20px;
+
+  --wave-mask: radial-gradient(55.34px at 50% 76.5px, #000 99%, #0000 101%)
+      calc(50% - 60px) 0 / 120px 100%,
+    radial-gradient(55.34px at 50% -46.5px, #0000 99%, #000 101%) 50% 30px /
+      120px 100% repeat-x;
+
+  -webkit-mask: var(--wave-mask);
+  mask: var(--wave-mask);
+}
+
+.box {
+  position: relative;
+  background: inear-gradient(to right, #1f3341, #274051, #325b6c);
+  padding: 60px 20px;
+  color: white;
+  overflow: hidden;
+}
+
+.box::before {
+  content: "";
+  position: absolute;
+  top: -30px;
+  left: 0;
+  width: 100%;
+  height: 60px;
+
+  --mask: radial-gradient(55.34px at 50% 76.5px, #000 99%, #0000 101%)
+      calc(50% - 60px) 0/120px 100%,
+    radial-gradient(55.34px at 50% -46.5px, #0000 99%, #000 101%) 50% 30px/120px
+      100% repeat-x;
+
+  -webkit-mask: var(--mask);
+  mask: var(--mask);
+  background: linear-gradient(to right, #1f3341, #274051, #325b6c);
+} */
+
 a {
-    outline: none;
-    color: #323F5C;
-    text-decoration: none;
+  outline: none;
+  color: #323f5c;
+  text-decoration: none;
 }
 
 a:hover,
 a:focus {
-    color: #4d5871;
-    outline: none;
+  color: #4d5871;
+  outline: none;
 }
 
 .button-menu {
-    width: 50px;
-    height: 30px;
-    position: fixed;
-    top: 3em;
-    right: 3em;
-    border: none;
-    background: transparent;
-    fill: #fff;
-    cursor: pointer;
-    pointer-events: auto;
+  width: 50px;
+  height: 30px;
+  position: fixed;
+  top: 3em;
+  right: 3em;
+  border: none;
+  background: transparent;
+  fill: #fff;
+  cursor: pointer;
+  pointer-events: auto;
 }
 
 .button-menu:focus {
-    outline: none;
+  outline: none;
 }
 
 .codrops-header {
-    /* padding: 3vmax 0 0 3vmax; */
-    /* Removed padding */
-    padding: 1em;
-    /* Use fixed padding */
-    position: fixed;
-    /* width: 100%; */
-    /* Removed width 100% */
-    width: auto;
-    /* Let content define width */
-    max-width: 90%;
-    /* Prevent excessive width */
-    z-index: 2000;
-    pointer-events: auto;
-    /* Explicitly allow events on header */
-    top: 1em;
-    /* Adjust top position */
-    left: 1em;
-    /* Add left position */
-    display: flex;
-    /* Use flexbox for alignment */
-    flex-direction: column;
-    /* Stack children vertically */
-    /* align-items: center; */
-    /* Removed center alignment */
-    align-items: flex-start;
-    /* Align items to the start (left) */
+  /* padding: 3vmax 0 0 3vmax; */
+  /* Removed padding */
+  padding: 1em;
+  /* Use fixed padding */
+  position: fixed;
+  /* width: 100%; */
+  /* Removed width 100% */
+  /* width: auto; */
+  /* Let content define width */
+  /* min-width: 80vw !important; */
+  /* Prevent excessive width */
+  z-index: 2000;
+  pointer-events: auto;
+  /* Explicitly allow events on header */
+  top: 20px;
+  /* Adjust top position */
+  left: 5%;
+  /* Add left position */
+  display: flex;
+  /* Use flexbox for alignment */
+  flex-direction: column;
+  /* Stack children vertically */
+  /* align-items: center; */
+  /* Removed center alignment */
+  /* align-items: flex-start; */
+  /* Align items to the start (left) */
 }
 
 /* 
@@ -110,194 +168,268 @@ a:focus {
 } */
 
 @media screen and (max-width: 50em) {
-    .codrops-header {
-        width: 80%;
-    }
+  .codrops-header {
+    width: 80%;
+  }
 }
 
 /* Responsive scroll length adjustment */
 /* Default (Mobile-first) - Allow more scroll */
 .pseudo-scroller {
-    max-height: 120vh !important;
-    /* Adjust as needed */
+  max-height: 120vh !important;
+  /* Adjust as needed */
 }
 
 /* Larger screens - Reduce scroll length */
 @media (min-width: 769px) {
-
-    /* Desktop adjustment: Move grid down (Keep this rule) */
-    .isolayer--scroll1 {
-        /* Increase translateY to move down. Use !important if needed to override inline styles */
-        transform: translateX(-15vw) translateY(350px) rotateX(45deg) rotateZ(45deg) !important;
-    }
+  /* Desktop adjustment: Move grid down (Keep this rule) */
+  .isolayer--scroll1 {
+    /* Increase translateY to move down. Use !important if needed to override inline styles */
+    transform: translateX(-15vw) translateY(350px) rotateX(45deg) rotateZ(45deg) !important;
+  }
 }
 
 .header-content {
-    transition: opacity 0.3s ease;
-    text-align: center;
-    padding: 10px;
+  transition: opacity 0.3s ease;
+  text-align: center;
+  padding: 10px;
 }
 
 .card-details {
-    display: none;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    padding: 10px;
-    max-width: 90%;
-    /* margin: 0 auto; */
-    /* Removed auto margin for centering */
-    margin: 0;
-    /* Reset margin */
-    margin-top: 5px;
-    /* Reduced top margin */
-    text-align: left;
-    /* Ensure text aligns left */
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  padding: 0px 0px 0px 25px;
+  /* padding: 10px; */
+  max-width: 90%;
+  /* margin: 0 auto; */
+  /* Removed auto margin for centering */
+  margin-top: -20px;
+  margin-left: 25px;
+  /* Reset margin */
+  /* margin-top: 5px; */
+  /* Reduced top margin */
+  text-align: left;
+  /* Ensure text aligns left */
+}
+
+.card-detailss {
+  padding: 0px 0px 0px 25px;
+  /* padding: 10px; */
+  max-width: 90%;
+  /* margin: 0 auto; */
+  /* Removed auto margin for centering */
+  margin-top: -40px;
+  margin-left: 18px;
+  margin-bottom: 20px;
+  /* Reset margin */
+  /* margin-top: 5px; */
+  /* Reduced top margin */
+  text-align: left;
+  /* Ensure text aligns left */
 }
 
 .card-details.active {
-    display: block;
-    opacity: 1;
+  display: block;
+  opacity: 1;
 }
 
 .card-details h2 {
-    margin-bottom: 5px;
-    font-size: 1.5rem;
+  margin-bottom: 5px;
+  font-size: 1.5rem;
 }
 
 .card-details p {
-    margin: 5px 0;
-    font-size: 1rem;
+  margin: 5px 0;
+  font-size: 1rem;
 }
 
 .day-buttons {
-    /* Removed fixed positioning */
-    /* position: fixed; */
-    /* top: 20px; */
-    /* left: 50%; */
-    /* transform: translateX(-50%); */
-    /* z-index: 1000; */
-    position: relative;
-    /* Position relative to header */
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    /* justify-content: center; */
-    /* Removed center justification */
-    justify-content: flex-start;
-    /* Align buttons to the start */
-    width: auto;
-    /* Let width be determined by content */
-    max-width: 100%;
-    /* Allow buttons to take needed width within header */
-    /* Don't let it get too wide */
-    background-color: rgba(236, 235, 239, 0.8);
-    /* Add a semi-transparent background */
-    padding: 8px 12px;
-    border-radius: 5px;
-    margin-bottom: 15px;
-    /* Add space below buttons */
-    pointer-events: auto;
-    /* Ensure buttons are clickable */
+  /* Removed fixed positioning */
+  /* position: fixed; */
+  /* top: 20px; */
+  /* left: 50%; */
+  /* transform: translateX(-50%); */
+  /* z-index: 1000; */
+  position: relative;
+  /* Position relative to header */
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  /* justify-content: center; */
+  /* Removed center justification */
+  justify-content: flex-start;
+  /* Align buttons to the start */
+  width: auto;
+  /* Let width be determined by content */
+  max-width: 100%;
+  /* Allow buttons to take needed width within header */
+  /* Don't let it get too wide */
+  /* background-color: rgba(236, 235, 239, 0.8); */
+  /* Add a semi-transparent background */
+  padding: 0px 12px 8px 12px;
+  border-radius: 5px;
+  /* margin-bottom: 15px; */
+  /* Add space below buttons */
+  pointer-events: auto;
+  /* Ensure buttons are clickable */
 }
 
 .day-btn {
-    padding: 8px 16px;
-    background-color: #333;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-    font-size: 1rem;
+  /* padding: 8px 16px; */
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  font-size: 1rem;
 }
 
 .day-btn.active {
-    background-color: #4285f4;
+  background-color: #4285f4;
 }
 
 .day-btn:hover {
-    background-color: #555;
+  background-color: #555;
 }
 
 .day-btn.active:hover {
-    background-color: #2a75f3;
+  background-color: #2a75f3;
 }
 
 .centre {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: 100%;
-    padding-top: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  padding-top: 15px;
 }
-
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-    .codrops-header {
-        padding: 0.5em;
-        top: 0.5em;
-        left: 0.5em;
-    }
+  /* .codrops-header {
+    padding: 0.5em;
+    top: 0.5em;
+    left: 0.5em;
+  } */
 
-    .day-buttons {
-        /* flex-direction: column; */
-        /* align-items: center; */
-        /* Removed center alignment */
-        /* align-items: flex-start; */
-        /* Align buttons left */
-        margin-bottom: 5px;
-        /* Adjust margin */
-    }
+  .codrops-header {
+    padding: 1em;
+    position: fixed;
+    z-index: 2000;
+    pointer-events: auto;
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    /* Explicitly allow events on header */
+    top: 4%;
+    /* Adjust top position */
+    left: 0;
+    /* Add left position */
+    display: flex;
+    flex-direction: column;
+  }
 
-    .day-btn {
-        padding: 8px 16px;
-        /* Reduced padding */
-        font-size: 1rem;
-        /* Reduced font size */
-        /* width: 100%; */
-        /* max-width: 180px; */
-        /* Reduced max-width */
-        text-align: center;
-    }
+  .day-buttons {
+    position: relative;
+    /* Position relative to header */
 
-    .card-details h2 {
-        font-size: 1.1rem;
-        /* Further reduced font size */
-    }
+    flex-wrap: nowrap;
+    /* justify-content: flex-start; */
+    /* Align buttons to the start */
+    width: auto;
+    height: 70px;
+    max-width: 100%;
+    padding: 0px 12px 8px 12px;
+    border-radius: 5px;
+    pointer-events: auto;
+    /* Ensure buttons are clickable */
+  }
 
-    .card-details p {
-        font-size: 0.85rem;
-        /* Further reduced font size */
-    }
+  .day-btn {
+    padding: 8px 16px;
+    /* Reduced padding */
+    font-size: 1rem;
+    /* Reduced font size */
+    /* width: 100%; */
+    /* max-width: 180px; */
+    /* Reduced max-width */
+    text-align: center;
+  }
+
+  .card-details {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    padding: 0px 0px 0px 25px;
+    /* padding: 10px; */
+    max-width: 90%;
+    /* margin: 0 auto; */
+    /* Removed auto margin for centering */
+    margin-top: -30px;
+    margin-left: 6px;
+    /* Reset margin */
+    /* margin-top: 5px; */
+    /* Reduced top margin */
+    text-align: left;
+    min-width: 90vw;
+    /* Ensure text aligns left */
+  }
+
+  .card-detailss {
+    padding: 0px 0px 0px 25px;
+    /* padding: 10px; */
+    max-width: 90%;
+    /* margin: 0 auto; */
+    /* Removed auto margin for centering */
+    margin-top: -50px;
+    margin-left: 6px;
+
+    /* Reset margin */
+    /* margin-top: 5px; */
+    /* Reduced top margin */
+    text-align: left;
+    /* Ensure text aligns left */
+  }
+
+  .card-details h2 {
+    font-size: 1.1rem;
+    /* Further reduced font size */
+  }
+
+  .card-details p {
+    font-size: 0.85rem;
+    /* Further reduced font size */
+  }
 }
 
 @media (max-width: 480px) {
-    .day-buttons {
-        gap: 8px;
-    }
+  .day-buttons {
+    gap: 8px;
+  }
 
-    .day-btn {
-        font-size: 0.9rem;
-        /* Further reduced font size */
-        padding: 6px 12px;
-        /* Further reduced padding */
-    }
+  .day-btn {
+    font-size: 0.9rem;
+    /* Further reduced font size */
+    padding: 6px 12px;
+    /* Further reduced padding */
+  }
 
-    .card-details h2 {
-        font-size: 1rem;
-        /* Further reduced font size */
-    }
+  .card-details h2 {
+    font-size: 1rem;
+    /* Further reduced font size */
+  }
 
-    .card-details p {
-        font-size: 0.8rem;
-        /* Further reduced font size */
-    }
+  .card-details p {
+    font-size: 0.8rem;
+    /* Further reduced font size */
+  }
 }
 
 .card-details p {
-    font-size: 0.8rem;
-    /* Further reduced font size */
+  font-size: 0.8rem;
+  /* Further reduced font size */
 }
