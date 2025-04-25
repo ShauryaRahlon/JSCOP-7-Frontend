@@ -3,22 +3,21 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    color: white;
-    /* Use a semi-transparent background for glass effect */
-    background-color: rgba(180, 126, 54, 0.35);
-    /* antiquewhite with opacity */
     position: relative;
-    margin: 40px 6%;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    padding: 4% 2%;
-    border-radius: 20px;
-    overflow: hidden;
-    min-height: 400px;
-    /* Add glassy blur effect */
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
+    background: linear-gradient(to bottom, #1f3341, #274051, #325b6c);
+    color: white;
+    /* padding: 60px 20px; */
+    background-color: rgb(243, 150, 75);
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 10%, black 30%);
+    -webkit-mask-image: linear-gradient(to bottom,
+            rgba(214, 26, 26, 0) 0%,
+            black 40%);
+    min-height: 100vh;
+
+}
+
+.random-aboutsection {
+    display: none;
 }
 
 .gradient-orb_aboutsection {
@@ -33,7 +32,7 @@
 
 .heading_aboutsection {
     font-size: 3rem;
-    font-weight: 700;
+    font-weight: 800;
     text-align: center;
     margin-bottom: 0;
     /* Remove bottom margin so underline is flush */
@@ -132,9 +131,14 @@
 .highlight-ocean_aboutsection {
     color: hsl(234, 90%, 67%);
     /* light ocean blue */
+    opacity: 1;
 }
 
 @media only screen and (max-width: 768px) {
+    about-section_aboutsection {
+        z-index: 10;
+    }
+
     .heading_aboutsection {
         font-size: 2.4rem;
     }
@@ -152,6 +156,7 @@
 
 @media only screen and (max-width: 550px) {
     .heading_aboutsection {
+        margin-top: 300px;
         font-size: 1.8rem;
     }
 
@@ -159,10 +164,7 @@
         font-size: 1rem;
     }
 
-    .about-section_aboutsection {
-        margin: 20px 3%;
-        padding: 6% 2%;
-    }
+
 
     .nav-button_aboutsection {
         width: 32px;
