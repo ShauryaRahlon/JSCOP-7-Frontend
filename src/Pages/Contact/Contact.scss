@@ -1,0 +1,274 @@
+// Contact.scss - Modern card design
+
+// Variables
+$primary-color: #1E88E5;
+$primary-dark: #1565C0;
+$background: #1b1e3d;
+$card-bg: #ECEFF1;
+$dark-text: #263238;
+$light-text: #546E7A;
+$transition-speed: 500ms;
+
+.contact-container {
+    position: relative;
+   
+    color: white;
+    // padding: 60px 20px;
+    overflow: hidden;
+  
+    /* Fade from transparent to solid color from top */
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, black 30%);
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0) 0%,
+      black 30%
+    );
+  }
+
+
+
+// Contact container
+.contact-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+  opacity: 0;
+  transition: opacity $transition-speed ease;
+  background-color: $background;
+  
+  &.visible {
+    opacity: 1;
+  }
+  
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
+}
+
+// Left sidebar
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background-color: linear-gradient(to right, #1b1e3d 0%, #1b1e3d 100%);
+  color: white;
+  gap: 2rem;
+ 
+  
+  @media (min-width: 768px) {
+    width: 50%;
+    padding: 1rem;
+  }
+  
+  .logo-section {
+    text-align: center;
+    // margin-bottom: 2rem;
+    img{
+        width: 100%;
+        height: auto;
+        // margin-bottom: 1rem;
+    }
+    
+    .company-name {
+      font-size: 1.75rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      margin-top: -6rem;
+    }
+    
+    .tagline {
+      color: rgba(white, 0.7);
+    }
+  }
+  
+  .social-media {
+    width: 100%;
+    
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      
+      .social-icon {
+        color: white;
+        transition: transform 0.3s ease, color 0.3s ease;
+        
+        &:hover {
+          color: $card-bg;
+          transform: translateY(-3px);
+        }
+      }
+    }
+  }
+}
+
+// Right content area
+
+
+.content {
+  width: 100%;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  
+  @media (min-width: 768px) {
+    width: 50%;
+    padding: 2rem;
+    .content-wrapper {
+        margin-top: 10rem;
+    }
+  }
+  
+  .content-wrapper {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+    
+    .section-title {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 2rem;
+      color: white;
+    }
+    
+    .contact-cards {
+      display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    
+      
+      @media (min-width: 768px) {
+        flex-direction: column;
+        gap: 2rem;
+        width: 80%;
+        margin-top: 10rem;
+        .contact-card {
+
+            width: 80%;
+        }
+        
+      }
+      
+      .contact-card {
+        position: relative;
+        background-color: $card-bg;
+        width: 100%;
+        height: 200px;
+        border-radius: 10px;
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        
+        &:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+        }
+        
+        .card-bg {
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+          background-color: $primary-color;
+          clip-path: polygon(0 0, 14% 0, 48% 100%, 0% 100%);
+        }
+        
+        .card-bg-overlay {
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 20px;
+          background-color: rgba(0, 0, 0, 0.12);
+          z-index: 0;
+          clip-path: polygon(0 0, 14% 0, 48% 100%, 0% 100%);
+        }
+        
+        .menu-icon {
+          position: absolute;
+          right: 15px;
+          top: 15px;
+          color: $primary-color;
+          cursor: pointer;
+        }
+        
+        .profile-circle {
+          position: absolute;
+          width: 110px;
+          height: 110px;
+          left: 25px;
+          top: 50px;
+          background-color: $card-bg;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          @media screen and (max-width:500px) {
+            width: 100px;
+            height: 100px;
+            left: 25px;
+            top: 90px;
+        
+          }
+          
+          .profile-icon {
+            color: $primary-color;
+          }
+        }
+        
+        .card-text-container {
+          position: absolute;
+          right: 40px;
+          top: 45px;
+          max-width: 250px;
+          text-align: center;
+
+          @media screen and (max-width:500px) {
+            right: 5px;
+    top: 25px;
+          }
+          
+          .card-title {
+            color: $dark-text;
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 10px;
+          }
+          
+          .card-subtitle {
+            color: $primary-color;
+            font-size: 18px;
+            margin-bottom: 10px;
+          }
+          
+          .card-description {
+            font-size: 14px;
+            color: $light-text;
+            margin-bottom: 15px;
+          }
+          
+          .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            font-size: 14px;
+            color: $dark-text;
+            
+            span {
+              display: block;
+            }
+          }
+        }
+      }
+    }
+  }
+}
