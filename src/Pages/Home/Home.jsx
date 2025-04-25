@@ -34,6 +34,8 @@ const Portfolio = () => {
   const threshold = 100;
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const prevParentRef = useRef(null);
+
   const toggleMenu = () => {
     setIsMenuOpen((prev) => !prev);
   };
@@ -1067,6 +1069,41 @@ const Portfolio = () => {
                       <div className="title">
                         Browse through memories of our events
                       </div>
+                      alt="Jade Teriyaki" />
+                      <div className="overlay"></div>
+                      <div className="cats">
+                        TEAM OPTICA: THE MINDS BEHIND JSCOP
+                      </div>
+                      <div className="title">
+                        Meet the crew making JSCOP 7.0 magic
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    className="slideClone"
+                    // style={{
+                    //   overflowY: isScrolling ? "scroll" : "hidden",
+                    //   overflowX: "hidden",
+                    // }}
+                  >
+                    <div className="title f">
+                      .06
+                      <br />
+                      Gallery
+                    </div>
+                    <div className="image parent_5">
+                      <img
+                        draggable="false"
+                        src="https://i.pinimg.com/1200x/1f/dc/04/1fdc0438f61ea244d2e48ea3ccefffb6.jpg"
+                        alt="Jade Teriyaki"
+                      />
+                      <div className="overlay"></div>
+                      <div className="cats">
+                        RELIVE THE MOMENTS, EXPLORE OUR GALLERY
+                      </div>
+                      <div className="title">
+                        Browse through memories of our events
+                      </div>
 
                       {/* <LoadComponent isOpen={isOpen} part={"gallery"} /> */}
                     </div>
@@ -1218,7 +1255,6 @@ const Portfolio = () => {
                         <div
                           className="button button_2"
                           onClick={handleButtonClick}
-                          data-part-name="speaker"
                         >
                           Meet Our Guests
                           <img
