@@ -4,6 +4,9 @@
     justify-content: center;
     flex-direction: column;
     color: white;
+    /* Use a semi-transparent background for glass effect */
+    background-color: rgba(180, 126, 54, 0.35);
+    /* antiquewhite with opacity */
     position: relative;
     margin: 40px 6%;
     background-size: cover;
@@ -13,6 +16,9 @@
     border-radius: 20px;
     overflow: hidden;
     min-height: 400px;
+    /* Add glassy blur effect */
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
 }
 
 .gradient-orb {
@@ -29,10 +35,24 @@
     font-size: 3rem;
     font-weight: 700;
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 0;
+    /* Remove bottom margin so underline is flush */
     text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
     z-index: 2;
     position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.heading-underline {
+    display: block;
+    width: 100%;
+    max-width: 420px;
+    height: 4px;
+    margin: 12px auto 24px auto;
+    background: linear-gradient(90deg, #4fd3ff 0%, #0077ff 100%);
+    border-radius: 2px;
+    z-index: 2;
 }
 
 .content-container {
@@ -106,6 +126,12 @@
 .pagination-dot.active {
     background: white;
     transform: scale(1.2);
+}
+
+/* Optica Color */
+.highlight-ocean {
+    color: #6b8af3;
+    /* light ocean blue */
 }
 
 @media only screen and (max-width: 768px) {

@@ -69,9 +69,8 @@ const Portfolio = () => {
 			const slideWidth = sliderInnerRef.current.querySelector(
 				".slider_inner__slide"
 			).offsetWidth;
-			sliderInnerRef.current.style.left = `${
-				width / 2 - slideWidth / 2
-			}px`;
+			sliderInnerRef.current.style.left = `${width / 2 - slideWidth / 2
+				}px`;
 		}
 
 		// Set introComplete after timeout
@@ -89,9 +88,8 @@ const Portfolio = () => {
 				const slideWidth = sliderInnerRef.current.querySelector(
 					".slider_inner__slide"
 				).offsetWidth;
-				sliderInnerRef.current.style.left = `${
-					width / 2 - slideWidth / 2
-				}px`;
+				sliderInnerRef.current.style.left = `${width / 2 - slideWidth / 2
+					}px`;
 			}
 		};
 		window.addEventListener("resize", handleResize);
@@ -192,8 +190,8 @@ const Portfolio = () => {
 	//   document.querySelector(".portfolio_home__work").classList.add("expand");
 	// };
 
-  let prev_parent;
-  const prevParentRef = useRef(null);
+	let prev_parent;
+	const prevParentRef = useRef(null);
 
 	const handleButtonClick = (e) => {
 		setPartName(e.target.dataset.partName);
@@ -202,18 +200,18 @@ const Portfolio = () => {
 			setIsOpen((prev) => !prev);
 		}, 500);
 
-    const parent = e.target.parentNode;
-    prevParentRef.current = parent;
-    console.log("prev sssss ....", prevParentRef.current);
-    const grandParent = parent.parentNode.parentNode;
-    const portfolioWork = document.querySelector(".portfolio_home__work");
-    console.log("parent", parent);
-    console.log("grandParent", grandParent);
-    console.log("portfolioWork", portfolioWork);
-    parent.classList.toggle("clicked");
-    grandParent.classList.toggle("clicked");
-    portfolioWork.classList.toggle("expand");
-  };
+		const parent = e.target.parentNode;
+		prevParentRef.current = parent;
+		console.log("prev sssss ....", prevParentRef.current);
+		const grandParent = parent.parentNode.parentNode;
+		const portfolioWork = document.querySelector(".portfolio_home__work");
+		console.log("parent", parent);
+		console.log("grandParent", grandParent);
+		console.log("portfolioWork", portfolioWork);
+		parent.classList.toggle("clicked");
+		grandParent.classList.toggle("clicked");
+		portfolioWork.classList.toggle("expand");
+	};
 
 	const handleNavClick = (index) => {
 		const openCard = document.querySelector(".slider_inner__slide.clicked");
@@ -267,25 +265,25 @@ const Portfolio = () => {
 		setScrollPosition(0);
 		setInitX(0);
 
-    // Remove transition after animation
-    setTimeout(() => {
-      sliderInner.style.transition = "";
-    }, 500);
-  };
-  const prevIdxRef = useRef(1);
-  const moveBetweenPages = (openIdx) => {
-    setIsOpen((prev) => false);
-    console.log("hello......", prevParentRef.current);
-    if (prevParentRef.current) {
-      console.log("prev : ", prevParentRef.current);
+		// Remove transition after animation
+		setTimeout(() => {
+			sliderInner.style.transition = "";
+		}, 500);
+	};
+	const prevIdxRef = useRef(1);
+	const moveBetweenPages = (openIdx) => {
+		setIsOpen((prev) => false);
+		console.log("hello......", prevParentRef.current);
+		if (prevParentRef.current) {
+			console.log("prev : ", prevParentRef.current);
 
-      // Remove classes from previous elements
-      prevParentRef.current.parentNode.parentNode.classList.remove("clicked");
-      prevParentRef.current.parentNode.classList.remove("clicked");
-      document
-        .querySelector(".portfolio_home__work")
-        .classList.remove("expand");
-      prevParentRef.current.parentNode.classList.remove("expand");
+			// Remove classes from previous elements
+			prevParentRef.current.parentNode.parentNode.classList.remove("clicked");
+			prevParentRef.current.parentNode.classList.remove("clicked");
+			document
+				.querySelector(".portfolio_home__work")
+				.classList.remove("expand");
+			prevParentRef.current.parentNode.classList.remove("expand");
 
 			// Animate previous elements
 		}
@@ -411,12 +409,12 @@ const Portfolio = () => {
 				el.style.transition = "all .2s";
 			});
 
-      if (sliderInnerRef.current) {
-        sliderInnerRef.current.style.transform = `translateX(${newDifference + endPosition
-          }px) translateY(120px)`;
-      }
-    }
-  };
+			if (sliderInnerRef.current) {
+				sliderInnerRef.current.style.transform = `translateX(${newDifference + endPosition
+					}px) translateY(120px)`;
+			}
+		}
+	};
 
 	const handleSliderMouseUp = () => {
 		console.log("SliderMouseUp");
@@ -493,13 +491,13 @@ const Portfolio = () => {
 		});
 	};
 
-  const handleBackClick = (e) => {
-    console.log("click");
-    setIsOpen((prev) => false);
-    console.log(e);
-    e.target.parentNode.parentNode.parentNode.classList.remove("clicked");
-    e.target.parentNode.parentNode.classList.remove("clicked");
-    document.querySelector(".portfolio_home__work").classList.remove("expand");
+	const handleBackClick = (e) => {
+		console.log("click");
+		setIsOpen((prev) => false);
+		console.log(e);
+		e.target.parentNode.parentNode.parentNode.classList.remove("clicked");
+		e.target.parentNode.parentNode.classList.remove("clicked");
+		document.querySelector(".portfolio_home__work").classList.remove("expand");
 
 		e.target.parentNode.parentNode.classList.remove("expand");
 	};
@@ -561,13 +559,13 @@ const Portfolio = () => {
 				if (dragging) {
 					const velocity = 0.5 - pps / 40000;
 
-          document.querySelectorAll(".slider_inner__slide").forEach((slide) => {
-            slide.style.transform = `rotateY(${direction}${pps / 110
-              }deg) scale(1)`;
-            slide.style.transition = `all ${velocity}s`;
-          });
-        }
-      }
+					document.querySelectorAll(".slider_inner__slide").forEach((slide) => {
+						slide.style.transform = `rotateY(${direction}${pps / 110
+							}deg) scale(1)`;
+						slide.style.transition = `all ${velocity}s`;
+					});
+				}
+			}
 
 			lastMouseTime = now;
 			setTimeout(calculateMouseSpeed, 30);
@@ -894,215 +892,215 @@ const Portfolio = () => {
                         src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/slogowhite.png"
                         alt="Logo White"
                       /> */}
-                    </div>
-                    <div className="nav">
-                      <ul>
-                        <li
-                          className="trigger"
-                          onClick={() => moveBetweenPages(0)}
-                        >
-                          About Us
-                        </li>
-                        <li
-                          className="active trigger"
-                          onClick={() => moveBetweenPages(1)}
-                        >
-                          Events
-                        </li>
-                        <li
-                          className="trigger"
-                          onClick={() => moveBetweenPages(2)}
-                        >
-                          Speakers
-                        </li>
-                        <li
-                          className="trigger"
-                          onClick={() => moveBetweenPages(3)}
-                        >
-                          Timeline
-                        </li>
-                        <li
-                          className="trigger"
-                          onClick={() => moveBetweenPages(4)}
-                        >
-                          Team
-                        </li>
-                        <li
-                          className="trigger"
-                          onClick={() => moveBetweenPages(5)}
-                        >
-                          Gallery
-                        </li>
-                        <li
-                          className="trigger"
-                          onClick={() => moveBetweenPages(6)}
-                        >
-                          Hackathon
-                        </li>
-                        <li
-                          className="trigger"
-                          onClick={() => moveBetweenPages(7)}
-                        >
-                          Contact
-                        </li>
-                      </ul>
-                    </div>
-                    {/* <div className="number white">0161 345 3464</div> */}
-                    <div
-                      className="hamburger white trigger"
-                      onClick={handleLandingTriggerClick}
-                    >
-                      <div className="hamburger_part"></div>
-                      <div className="hamburger_part"></div>
-                      <div className="hamburger_part"></div>
-                    </div>
-                  </div>
-                  <div className="slideClone">
-                    <div className="title f">
-                      .01
-                      <br />
-                      About Us
-                    </div>
-                    <div className="image parent_0">
-                      <img
-                        draggable="false"
-                        src="https://images4.alphacoders.com/135/thumb-1920-1355268.jpeg"
-                        alt="My Protein"
-                        width={"100%"}
-                      />
-                      <div className="overlay"></div>
-                      <div className="cats">OPTICA · JIIT · SOCIETY</div>
-                      <div className="title">
-                        Optica’s student-led journey through JSCOP
-                      </div>
-                    </div>
-                  </div>
-                  <div className="slideClone">
-                    <div className="title f">
-                      .02
-                      <br />
-                      Events
-                    </div>
-                    <div
-                      className="image parent_1"
-                    // style={{
-                    //   position: "relative",
-                    //   overflow: flag ? "scroll" : "hidden",
-                    // }}
-                    >
-                      <img
-                        draggable="false"
-                        src="https://mir-s3-cdn-cf.behance.net/project_modules/source/02896e26093165.5634f7cdacf7b.png"
-                        alt="Nike Air Max"
-                        width={"100%"}
-                      />
-                      <div className="overlay"></div>
-                      <div className="cats">
-                        ALL THE ACTION, ALL IN ONE PLACE
-                      </div>
-                      <div className="title">
-                        From Fun Games to Tech & ECE Events
-                      </div>
-                      <div
-                        style={{
-                          position: "absolute",
-                          bottom: "10px",
-                          left: "10px",
-                          width: "100%",
-                          height: "100%",
-                        }}
-                      >
-                        <LoadComponent isOpen={isOpen} part={partName} />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="slideClone">
-                    <div className="title f">
-                      .03
-                      <br />
-                      Speakers
-                    </div>
-                    <div className="image parent_2">
-                      <img
-                        draggable="false"
-                        src="https://i.pinimg.com/1200x/99/0d/a2/990da2cf0c344336fb5f1cb3d126cdf8.jpg"
-                        alt="Apple Watch"
-                        width={"100%"}
-                      />
-                      <div className="overlay"></div>
-                      <div className="cats">Our ESTEEMED SPEAKERS</div>
-                      <div className="title">
-                        Get inspired by expert speakers & professionals.
-                      </div>
-                    </div>
-                  </div>
-                  <div className="slideClone">
-                    <div className="title f">
-                      .04
-                      <br />
-                      Timeline
-                    </div>
-                    <div className="image parent_3">
-                      <img
-                        draggable="false"
-                        src="https://i.pinimg.com/1200x/0b/ad/76/0bad76ab3862413a4ae861b7f55d4313.jpg"
-                        alt="Jade Teriyaki"
-                        width={"100%"}
-                      />
-                      <div className="overlay"></div>
-                      <div className="cats">MARK THE DATES, DON'T BE LATE</div>
-                      <div className="title">
-                        Keep up with what's next — stay tuned!
-                      </div>
-                    </div>
-                  </div>
-                  <div className="slideClone">
-                    <div className="title f">
-                      .05
-                      <br />
-                      Our Team
-                    </div>
-                    <div className="image parent_4">
-                      <img
-                        draggable="false"
-                        src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5181c7f5-4300-4d23-a0d1-d0cc2a40214b/de8ruib-78b98309-28f0-4c3f-a560-f58e885d2d27.jpg/v1/fill/w_1192,h_670,q_70,strp/anomaly_by_tobiasroetsch_de8ruib-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTA4MCIsInBhdGgiOiJcL2ZcLzUxODFjN2Y1LTQzMDAtNGQyMy1hMGQxLWQwY2MyYTQwMjE0YlwvZGU4cnVpYi03OGI5ODMwOS0yOGYwLTRjM2YtYTU2MC1mNThlODg1ZDJkMjcuanBnIiwid2lkdGgiOiI8PTE5MjAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.EqxrCHV903nldbc4EMwoSlVlWfP51pWUJUi__43zbw0
+										</div>
+										<div className="nav">
+											<ul>
+												<li
+													className="trigger"
+													onClick={() => moveBetweenPages(0)}
+												>
+													About Us
+												</li>
+												<li
+													className="active trigger"
+													onClick={() => moveBetweenPages(1)}
+												>
+													Events
+												</li>
+												<li
+													className="trigger"
+													onClick={() => moveBetweenPages(2)}
+												>
+													Speakers
+												</li>
+												<li
+													className="trigger"
+													onClick={() => moveBetweenPages(3)}
+												>
+													Timeline
+												</li>
+												<li
+													className="trigger"
+													onClick={() => moveBetweenPages(4)}
+												>
+													Team
+												</li>
+												<li
+													className="trigger"
+													onClick={() => moveBetweenPages(5)}
+												>
+													Gallery
+												</li>
+												<li
+													className="trigger"
+													onClick={() => moveBetweenPages(6)}
+												>
+													Hackathon
+												</li>
+												<li
+													className="trigger"
+													onClick={() => moveBetweenPages(7)}
+												>
+													Contact
+												</li>
+											</ul>
+										</div>
+										{/* <div className="number white">0161 345 3464</div> */}
+										<div
+											className="hamburger white trigger"
+											onClick={handleLandingTriggerClick}
+										>
+											<div className="hamburger_part"></div>
+											<div className="hamburger_part"></div>
+											<div className="hamburger_part"></div>
+										</div>
+									</div>
+									<div className="slideClone">
+										<div className="title f">
+											.01
+											<br />
+											About Us
+										</div>
+										<div className="image parent_0">
+											<img
+												draggable="false"
+												src="https://images4.alphacoders.com/135/thumb-1920-1355268.jpeg"
+												alt="My Protein"
+												width={"100%"}
+											/>
+											<div className="overlay"></div>
+											<div className="cats">OPTICA · JIIT · SOCIETY</div>
+											<div className="title">
+												Optica’s student-led journey through JSCOP
+											</div>
+										</div>
+									</div>
+									<div className="slideClone">
+										<div className="title f">
+											.02
+											<br />
+											Events
+										</div>
+										<div
+											className="image parent_1"
+										// style={{
+										//   position: "relative",
+										//   overflow: flag ? "scroll" : "hidden",
+										// }}
+										>
+											<img
+												draggable="false"
+												src="https://mir-s3-cdn-cf.behance.net/project_modules/source/02896e26093165.5634f7cdacf7b.png"
+												alt="Nike Air Max"
+												width={"100%"}
+											/>
+											<div className="overlay"></div>
+											<div className="cats">
+												ALL THE ACTION, ALL IN ONE PLACE
+											</div>
+											<div className="title">
+												From Fun Games to Tech & ECE Events
+											</div>
+											<div
+												style={{
+													position: "absolute",
+													bottom: "10px",
+													left: "10px",
+													width: "100%",
+													height: "100%",
+												}}
+											>
+												<LoadComponent isOpen={isOpen} part={partName} />
+											</div>
+										</div>
+									</div>
+									<div className="slideClone">
+										<div className="title f">
+											.03
+											<br />
+											Speakers
+										</div>
+										<div className="image parent_2">
+											<img
+												draggable="false"
+												src="https://i.pinimg.com/1200x/99/0d/a2/990da2cf0c344336fb5f1cb3d126cdf8.jpg"
+												alt="Apple Watch"
+												width={"100%"}
+											/>
+											<div className="overlay"></div>
+											<div className="cats">Our ESTEEMED SPEAKERS</div>
+											<div className="title">
+												Get inspired by expert speakers & professionals.
+											</div>
+										</div>
+									</div>
+									<div className="slideClone">
+										<div className="title f">
+											.04
+											<br />
+											Timeline
+										</div>
+										<div className="image parent_3">
+											<img
+												draggable="false"
+												src="https://i.pinimg.com/1200x/0b/ad/76/0bad76ab3862413a4ae861b7f55d4313.jpg"
+												alt="Jade Teriyaki"
+												width={"100%"}
+											/>
+											<div className="overlay"></div>
+											<div className="cats">MARK THE DATES, DON'T BE LATE</div>
+											<div className="title">
+												Keep up with what's next — stay tuned!
+											</div>
+										</div>
+									</div>
+									<div className="slideClone">
+										<div className="title f">
+											.05
+											<br />
+											Our Team
+										</div>
+										<div className="image parent_4">
+											<img
+												draggable="false"
+												src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5181c7f5-4300-4d23-a0d1-d0cc2a40214b/de8ruib-78b98309-28f0-4c3f-a560-f58e885d2d27.jpg/v1/fill/w_1192,h_670,q_70,strp/anomaly_by_tobiasroetsch_de8ruib-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTA4MCIsInBhdGgiOiJcL2ZcLzUxODFjN2Y1LTQzMDAtNGQyMy1hMGQxLWQwY2MyYTQwMjE0YlwvZGU4cnVpYi03OGI5ODMwOS0yOGYwLTRjM2YtYTU2MC1mNThlODg1ZDJkMjcuanBnIiwid2lkdGgiOiI8PTE5MjAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.EqxrCHV903nldbc4EMwoSlVlWfP51pWUJUi__43zbw0
                         "
-                        alt="Jade Teriyaki"
-                      />
-                      <div className="overlay"></div>
-                      <div className="cats">
-                        TEAM OPTICA: THE MINDS BEHIND JSCOP
-                      </div>
-                      <div className="title">
-                        Meet the crew making JSCOP 7.0 magic
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    className="slideClone"
-                  // style={{
-                  //   overflowY: isScrolling ? "scroll" : "hidden",
-                  //   overflowX: "hidden",
-                  // }}
-                  >
-                    <div className="title f">
-                      .06
-                      <br />
-                      Gallery
-                    </div>
-                    <div className="image parent_5">
-                      <img
-                        draggable="false"
-                        src="https://i.pinimg.com/1200x/1f/dc/04/1fdc0438f61ea244d2e48ea3ccefffb6.jpg"
-                        alt="Jade Teriyaki"
-                      />
-                      <div className="overlay"></div>
-                      <div className="cats">
-                        RELIVE THE MOMENTS, EXPLORE OUR GALLERY
-                      </div>
-                      <div className="title">
-                        Browse through memories of our events
-                      </div>
+												alt="Jade Teriyaki"
+											/>
+											<div className="overlay"></div>
+											<div className="cats">
+												TEAM OPTICA: THE MINDS BEHIND JSCOP
+											</div>
+											<div className="title">
+												Meet the crew making JSCOP 7.0 magic
+											</div>
+										</div>
+									</div>
+									<div
+										className="slideClone"
+									// style={{
+									//   overflowY: isScrolling ? "scroll" : "hidden",
+									//   overflowX: "hidden",
+									// }}
+									>
+										<div className="title f">
+											.06
+											<br />
+											Gallery
+										</div>
+										<div className="image parent_5">
+											<img
+												draggable="false"
+												src="https://i.pinimg.com/1200x/1f/dc/04/1fdc0438f61ea244d2e48ea3ccefffb6.jpg"
+												alt="Jade Teriyaki"
+											/>
+											<div className="overlay"></div>
+											<div className="cats">
+												RELIVE THE MOMENTS, EXPLORE OUR GALLERY
+											</div>
+											<div className="title">
+												Browse through memories of our events
+											</div>
 
 											{/* <LoadComponent isOpen={isOpen} part={"gallery"} /> */}
 										</div>
@@ -1158,287 +1156,287 @@ const Portfolio = () => {
                     src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/arrowDown.png"
                     alt="Scroll"
                   /> */}
-                  <div className="arrow-icon">
-                    <ArrowDown className="scroll" size={30} color="#b9c1ca" />
-                  </div>
-                </div>
-                <div className="portfolio_home__slider">
-                  <div
-                    className="slider_inner"
-                    ref={sliderInnerRef}
-                    onClick={handleSliderClick}
-                    onMouseDown={handleSliderMouseDown}
-                    onMouseMove={handleSliderMouseMove}
-                    onMouseUp={handleSliderMouseUp}
-                    onScroll={handleSliderScroll}
-                  // ref={scrollRef}
-                  >
-                    <div className="slider_inner__slide">
-                      <div className="title" data-index="0">
-                        .01
-                        <br />
-                        About Us
-                      </div>
-                      <div className="image parent_0">
-                        <img
-                          draggable="false"
-                          src="https://images4.alphacoders.com/135/thumb-1920-1355268.jpeg"
-                          alt="My Protein"
-                          width={"100%"}
-                        />
-                        <div className="overlay overlay_0"></div>
-                        <div className="cats cats_0">
-                          OPTICA · JIIT · SOCIETY
-                        </div>
-                        <div className="title title_0">
-                          Optica’s student-led journey through JSCOP
-                        </div>
-                        <div
-                          className="button button_0"
-                          onClick={handleButtonClick}
-                          data-part-name="aboutus"
-                        >
-                          Get to Know Us
-                          <img
-                            src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/arrowbblakc.png"
-                            alt="Arrow"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                    <div className="slider_inner__slide">
-                      <div className="title" data-index="1">
-                        .02
-                        <br />
-                        Events
-                      </div>
-                      <div className="image parent_1">
-                        <img
-                          draggable="false"
-                          src="https://mir-s3-cdn-cf.behance.net/project_modules/source/02896e26093165.5634f7cdacf7b.png"
-                          alt="Nike Air Max"
-                          width={"100%"}
-                        />
-                        <div className="overlay overlay_1"></div>
-                        <div className="cats cats_1">
-                          ALL THE ACTION, ALL IN ONE PLACE
-                        </div>
-                        <div className="title title_1">
-                          From Fun Games to Tech & ECE Events
-                        </div>
-                        <div
-                          className="button button_1"
-                          onClick={handleButtonClick}
-                          data-part-name="events"
-                        >
-                          See What’s Happening
-                          <img
-                            src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/arrowbblakc.png"
-                            alt="Arrow"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                    <div className="slider_inner__slide">
-                      <div className="title" data-index="2">
-                        .03
-                        <br />
-                        Speakers
-                      </div>
-                      <div className="image parent_2">
-                        <img
-                          draggable="false"
-                          src="https://i.pinimg.com/1200x/99/0d/a2/990da2cf0c344336fb5f1cb3d126cdf8.jpg"
-                          alt="Apple Watch"
-                          width={"100%"}
-                        />
-                        <div className="overlay overlay_2"></div>
-                        <div className="cats cats_2">OUR ESTEEMED SPEAKERS</div>
-                        <div className="title title_2">
-                          Get inspired by expert speakers & professionals.
-                        </div>
-                        <div
-                          className="button button_2"
-                          onClick={handleButtonClick}
-                        >
-                          Meet Our Guests
-                          <img
-                            src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/arrowbblakc.png"
-                            alt="Arrow"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                    <div className="slider_inner__slide">
-                      <div className="title" data-index="3">
-                        .04
-                        <br />
-                        Timeline
-                      </div>
-                      <div className="image parent_3">
-                        <img
-                          draggable="false"
-                          src="https://i.pinimg.com/1200x/0b/ad/76/0bad76ab3862413a4ae861b7f55d4313.jpg"
-                          alt="Jade Teriyaki"
-                          width={"100%"}
-                        />
-                        <div className="overlay overlay_3"></div>
-                        <div className="cats cats_3">
-                          MARK THE DATES, DON'T BE LATE
-                        </div>
-                        <div className="title title_3">
-                          Keep up with what's next — stay tuned!
-                        </div>
-                        <div
-                          className="button button_3"
-                          onClick={handleButtonClick}
-                          data-part-name="timeline"
-                        >
-                          View Full Timeline
-                          <img
-                            src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/arrowbblakc.png"
-                            alt="Arrow"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                    <div className="slider_inner__slide">
-                      <div className="title" data-index="4">
-                        .05
-                        <br />
-                        Our Team
-                      </div>
-                      <div className="image parent_4">
-                        <img
-                          draggable="false"
-                          src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5181c7f5-4300-4d23-a0d1-d0cc2a40214b/de8ruib-78b98309-28f0-4c3f-a560-f58e885d2d27.jpg/v1/fill/w_1192,h_670,q_70,strp/anomaly_by_tobiasroetsch_de8ruib-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTA4MCIsInBhdGgiOiJcL2ZcLzUxODFjN2Y1LTQzMDAtNGQyMy1hMGQxLWQwY2MyYTQwMjE0YlwvZGU4cnVpYi03OGI5ODMwOS0yOGYwLTRjM2YtYTU2MC1mNThlODg1ZDJkMjcuanBnIiwid2lkdGgiOiI8PTE5MjAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.EqxrCHV903nldbc4EMwoSlVlWfP51pWUJUi__43zbw0"
-                          alt="Jade Teriyaki"
-                          width={"100%"}
-                        />
-                        <div className="overlay overlay_4"></div>
-                        <div className="cats cats_4">
-                          TEAM OPTICA: THE MINDS BEHIND JSCOP
-                        </div>
-                        <div className="title title_4">
-                          Meet the crew making JSCOP 7.0 magic
-                        </div>
-                        <div
-                          className="button button_4"
-                          onClick={handleButtonClick}
-                          data-part-name="team"
-                        >
-                          Meet the Team
-                          <img
-                            src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/arrowbblakc.png"
-                            alt="Arrow"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                    <div className="slider_inner__slide">
-                      <div className="title" data-index="5">
-                        .06
-                        <br />
-                        Gallery
-                      </div>
-                      <div className="image parent_5">
-                        <img
-                          draggable="false"
-                          src="https://i.pinimg.com/1200x/1f/dc/04/1fdc0438f61ea244d2e48ea3ccefffb6.jpg"
-                          alt="Jade Teriyaki"
-                          width={"100%"}
-                        />
-                        <div className="overlay overlay_5"></div>
-                        <div className="cats cats_5">
-                          RELIVE THE MOMENTS, EXPLORE OUR GALLERY
-                        </div>
-                        <div className="title title_5">
-                          Browse through memories of our events
-                        </div>
-                        <div
-                          className="button button_5"
-                          onClick={handleButtonClick}
-                          data-part-name="gallery"
-                        >
-                          View Moments
-                          <img
-                            src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/arrowbblakc.png"
-                            alt="Arrow"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                    <div className="slider_inner__slide">
-                      <div className="title" data-index="6">
-                        .07
-                        <br />
-                        Hackathon
-                      </div>
-                      <div className="image parent_6">
-                        <img
-                          draggable="false"
-                          src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/9f4085a5-316b-4aa3-9708-18958f71343d/dj6qfii-99ab04c2-8a40-404a-be03-900f6ab30361.jpg/v1/fill/w_1210,h_660,q_70,strp/tidal_gravity_generation_habitat__by_artworksstudio_dj6qfii-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9Njk5IiwicGF0aCI6IlwvZlwvOWY0MDg1YTUtMzE2Yi00YWEzLTk3MDgtMTg5NThmNzEzNDNkXC9kajZxZmlpLTk5YWIwNGMyLThhNDAtNDA0YS1iZTAzLTkwMGY2YWIzMDM2MS5qcGciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.mS4eLyHQInmTOGAb7VFCLlYPvDbVWNF_7JV-TtgNpdY"
-                          alt="Jade Teriyaki"
-                          width={"100%"}
-                        />
-                        <div className="overlay overlay_6"></div>
-                        <div className="cats cats_6">
-                          CODE. CREATE. CONQUER.
-                        </div>
-                        <div className="title title_6">
-                          Collaborate, compete, and create at Hackathon
-                        </div>
-                        <div
-                          className="button button_6"
-                          onClick={handleButtonClick}
-                          data-part-name="hackathon"
-                        >
-                          Join the Hack
-                          <img
-                            src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/arrowbblakc.png"
-                            alt="Arrow"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                    <div className="slider_inner__slide">
-                      <div className="title" data-index="7">
-                        .08
-                        <br />
-                        Contact Us
-                      </div>
-                      <div className="image parent_7">
-                        <img
-                          draggable="false"
-                          src="https://i.pinimg.com/1200x/5f/e3/e1/5fe3e182ec10205edfc194c3126eb3aa.jpg"
-                          alt="Jade Teriyaki"
-                          width={"100%"}
-                        />
-                        <div className="overlay overlay_7"></div>
-                        <div className="cats cats_7">
-                          GET IN TOUCH WITH OPTICA
-                        </div>
-                        <div className="title title_7">
-                          Questions, ideas, or feedback? Let’s connect.
-                        </div>
-                        <div
-                          className="button button_7"
-                          onClick={handleButtonClick}
-                        >
-                          Get in Touch
-                          <img
-                            src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/arrowbblakc.png"
-                            alt="Arrow"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <hr />
-            {/* <h1>
+									<div className="arrow-icon">
+										<ArrowDown className="scroll" size={30} color="#b9c1ca" />
+									</div>
+								</div>
+								<div className="portfolio_home__slider">
+									<div
+										className="slider_inner"
+										ref={sliderInnerRef}
+										onClick={handleSliderClick}
+										onMouseDown={handleSliderMouseDown}
+										onMouseMove={handleSliderMouseMove}
+										onMouseUp={handleSliderMouseUp}
+										onScroll={handleSliderScroll}
+									// ref={scrollRef}
+									>
+										<div className="slider_inner__slide">
+											<div className="title" data-index="0">
+												.01
+												<br />
+												About Us
+											</div>
+											<div className="image parent_0">
+												<img
+													draggable="false"
+													src="https://images4.alphacoders.com/135/thumb-1920-1355268.jpeg"
+													alt="My Protein"
+													width={"100%"}
+												/>
+												<div className="overlay overlay_0"></div>
+												<div className="cats cats_0">
+													OPTICA · JIIT · SOCIETY
+												</div>
+												<div className="title title_0">
+													Optica’s student-led journey through JSCOP
+												</div>
+												<div
+													className="button button_0"
+													onClick={handleButtonClick}
+													data-part-name="aboutus"
+												>
+													Get to Know Us
+													<img
+														src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/arrowbblakc.png"
+														alt="Arrow"
+													/>
+												</div>
+											</div>
+										</div>
+										<div className="slider_inner__slide">
+											<div className="title" data-index="1">
+												.02
+												<br />
+												Events
+											</div>
+											<div className="image parent_1">
+												<img
+													draggable="false"
+													src="https://mir-s3-cdn-cf.behance.net/project_modules/source/02896e26093165.5634f7cdacf7b.png"
+													alt="Nike Air Max"
+													width={"100%"}
+												/>
+												<div className="overlay overlay_1"></div>
+												<div className="cats cats_1">
+													ALL THE ACTION, ALL IN ONE PLACE
+												</div>
+												<div className="title title_1">
+													From Fun Games to Tech & ECE Events
+												</div>
+												<div
+													className="button button_1"
+													onClick={handleButtonClick}
+													data-part-name="events"
+												>
+													See What’s Happening
+													<img
+														src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/arrowbblakc.png"
+														alt="Arrow"
+													/>
+												</div>
+											</div>
+										</div>
+										<div className="slider_inner__slide">
+											<div className="title" data-index="2">
+												.03
+												<br />
+												Speakers
+											</div>
+											<div className="image parent_2">
+												<img
+													draggable="false"
+													src="https://i.pinimg.com/1200x/99/0d/a2/990da2cf0c344336fb5f1cb3d126cdf8.jpg"
+													alt="Apple Watch"
+													width={"100%"}
+												/>
+												<div className="overlay overlay_2"></div>
+												<div className="cats cats_2">OUR ESTEEMED SPEAKERS</div>
+												<div className="title title_2">
+													Get inspired by expert speakers & professionals.
+												</div>
+												<div
+													className="button button_2"
+													onClick={handleButtonClick}
+												>
+													Meet Our Guests
+													<img
+														src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/arrowbblakc.png"
+														alt="Arrow"
+													/>
+												</div>
+											</div>
+										</div>
+										<div className="slider_inner__slide">
+											<div className="title" data-index="3">
+												.04
+												<br />
+												Timeline
+											</div>
+											<div className="image parent_3">
+												<img
+													draggable="false"
+													src="https://i.pinimg.com/1200x/0b/ad/76/0bad76ab3862413a4ae861b7f55d4313.jpg"
+													alt="Jade Teriyaki"
+													width={"100%"}
+												/>
+												<div className="overlay overlay_3"></div>
+												<div className="cats cats_3">
+													MARK THE DATES, DON'T BE LATE
+												</div>
+												<div className="title title_3">
+													Keep up with what's next — stay tuned!
+												</div>
+												<div
+													className="button button_3"
+													onClick={handleButtonClick}
+													data-part-name="timeline"
+												>
+													View Full Timeline
+													<img
+														src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/arrowbblakc.png"
+														alt="Arrow"
+													/>
+												</div>
+											</div>
+										</div>
+										<div className="slider_inner__slide">
+											<div className="title" data-index="4">
+												.05
+												<br />
+												Our Team
+											</div>
+											<div className="image parent_4">
+												<img
+													draggable="false"
+													src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5181c7f5-4300-4d23-a0d1-d0cc2a40214b/de8ruib-78b98309-28f0-4c3f-a560-f58e885d2d27.jpg/v1/fill/w_1192,h_670,q_70,strp/anomaly_by_tobiasroetsch_de8ruib-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTA4MCIsInBhdGgiOiJcL2ZcLzUxODFjN2Y1LTQzMDAtNGQyMy1hMGQxLWQwY2MyYTQwMjE0YlwvZGU4cnVpYi03OGI5ODMwOS0yOGYwLTRjM2YtYTU2MC1mNThlODg1ZDJkMjcuanBnIiwid2lkdGgiOiI8PTE5MjAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.EqxrCHV903nldbc4EMwoSlVlWfP51pWUJUi__43zbw0"
+													alt="Jade Teriyaki"
+													width={"100%"}
+												/>
+												<div className="overlay overlay_4"></div>
+												<div className="cats cats_4">
+													TEAM OPTICA: THE MINDS BEHIND JSCOP
+												</div>
+												<div className="title title_4">
+													Meet the crew making JSCOP 7.0 magic
+												</div>
+												<div
+													className="button button_4"
+													onClick={handleButtonClick}
+													data-part-name="team"
+												>
+													Meet the Team
+													<img
+														src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/arrowbblakc.png"
+														alt="Arrow"
+													/>
+												</div>
+											</div>
+										</div>
+										<div className="slider_inner__slide">
+											<div className="title" data-index="5">
+												.06
+												<br />
+												Gallery
+											</div>
+											<div className="image parent_5">
+												<img
+													draggable="false"
+													src="https://i.pinimg.com/1200x/1f/dc/04/1fdc0438f61ea244d2e48ea3ccefffb6.jpg"
+													alt="Jade Teriyaki"
+													width={"100%"}
+												/>
+												<div className="overlay overlay_5"></div>
+												<div className="cats cats_5">
+													RELIVE THE MOMENTS, EXPLORE OUR GALLERY
+												</div>
+												<div className="title title_5">
+													Browse through memories of our events
+												</div>
+												<div
+													className="button button_5"
+													onClick={handleButtonClick}
+													data-part-name="gallery"
+												>
+													View Moments
+													<img
+														src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/arrowbblakc.png"
+														alt="Arrow"
+													/>
+												</div>
+											</div>
+										</div>
+										<div className="slider_inner__slide">
+											<div className="title" data-index="6">
+												.07
+												<br />
+												Hackathon
+											</div>
+											<div className="image parent_6">
+												<img
+													draggable="false"
+													src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/9f4085a5-316b-4aa3-9708-18958f71343d/dj6qfii-99ab04c2-8a40-404a-be03-900f6ab30361.jpg/v1/fill/w_1210,h_660,q_70,strp/tidal_gravity_generation_habitat__by_artworksstudio_dj6qfii-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9Njk5IiwicGF0aCI6IlwvZlwvOWY0MDg1YTUtMzE2Yi00YWEzLTk3MDgtMTg5NThmNzEzNDNkXC9kajZxZmlpLTk5YWIwNGMyLThhNDAtNDA0YS1iZTAzLTkwMGY2YWIzMDM2MS5qcGciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.mS4eLyHQInmTOGAb7VFCLlYPvDbVWNF_7JV-TtgNpdY"
+													alt="Jade Teriyaki"
+													width={"100%"}
+												/>
+												<div className="overlay overlay_6"></div>
+												<div className="cats cats_6">
+													CODE. CREATE. CONQUER.
+												</div>
+												<div className="title title_6">
+													Collaborate, compete, and create at Hackathon
+												</div>
+												<div
+													className="button button_6"
+													onClick={handleButtonClick}
+													data-part-name="hackathon"
+												>
+													Join the Hack
+													<img
+														src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/arrowbblakc.png"
+														alt="Arrow"
+													/>
+												</div>
+											</div>
+										</div>
+										<div className="slider_inner__slide">
+											<div className="title" data-index="7">
+												.08
+												<br />
+												Contact Us
+											</div>
+											<div className="image parent_7">
+												<img
+													draggable="false"
+													src="https://i.pinimg.com/1200x/5f/e3/e1/5fe3e182ec10205edfc194c3126eb3aa.jpg"
+													alt="Jade Teriyaki"
+													width={"100%"}
+												/>
+												<div className="overlay overlay_7"></div>
+												<div className="cats cats_7">
+													GET IN TOUCH WITH OPTICA
+												</div>
+												<div className="title title_7">
+													Questions, ideas, or feedback? Let’s connect.
+												</div>
+												<div
+													className="button button_7"
+													onClick={handleButtonClick}
+												>
+													Get in Touch
+													<img
+														src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/arrowbblakc.png"
+														alt="Arrow"
+													/>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<hr />
+						{/* <h1>
               We are an Independent
               <span> Creative Advertising</span>
               &amp;

@@ -9,7 +9,7 @@ export default function AboutUs() {
                 paragraphs={[
                     "JIIT OPTICA, the institute's internationally recognised scientific body, offers a forum for students to discover new worlds beyond the academic curriculum. The club organizes workshops, annual festivals, national conferences, alumni gatherings, and educational visits to top research and development institutions.\nTo inspire young minds, lectures are regularly held by renowned scholars and researchers across diverse fields. From a modest beginning with just a handful of active members, JIIT OPTICA has grown into a vibrant community with impactful social outreach.\nhe journey from following in others' footsteps to forging its own path has been remarkable. Through events like JSCOP, technical seminars, and continuous innovation, JIIT OPTICA has set a high benchmark of excellence."
                 ]}
-                backgroundImage="https://images7.alphacoders.com/550/550739.jpg"
+                backgroundImage=""
                 gradientColor="rgba(103, 58, 183, 0.3)"
             />
         </div>

@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { ChevronLeft, ChevronRight } from "lucide-react"
+
 
 export default function AboutSection({
     title = "WHAT OPTICA DOES?",
@@ -17,6 +17,17 @@ export default function AboutSection({
     const sectionRef = useRef(null)
     const [fadeState, setFadeState] = useState("visible")
     const prevBgRef = useRef(backgroundImage)
+
+    // Helper to highlight "OPTICA" in the title
+    function renderTitle(title) {
+        const regex = /(OPTICA)/i
+        const parts = title.split(regex)
+        return parts.map((part, idx) =>
+            regex.test(part)
+                ? <span key={idx} className="highlight-ocean">{part}</span>
+                : part
+        )
+    }
 
     // Fade out/in when backgroundImage changes
     useEffect(() => {
@@ -166,9 +177,9 @@ export default function AboutSection({
                         transition={{ duration: 0.7, delay: 0.18, ease: [0.4, 0, 0.2, 1] }}
                         style={{ position: "relative", zIndex: 2 }}
                     >
-                        {title}
+                        {renderTitle(title)}
                     </motion.h2>
-
+                    <div className="heading-underline" />
                     <div className="content-container" style={{ position: "relative", zIndex: 2 }}>
                         {/* <button className="nav-button prev" onClick={prevParagraph} aria-label="Previous paragraph">
                             <ChevronLeft className="w-6 h-6" />
@@ -197,7 +208,7 @@ export default function AboutSection({
                             </motion.div>
                         </AnimatePresence>
 
-                        {/* <button className="nav-button next" onClick={nextParagraph} aria-label="Next paragraph">
+                        {/* <button className="nav-button next" onClick={nextParagraph} aria-label="Next paragraph"></button>
                             <ChevronRight className="w-6 h-6" />
                         </button> */}
                     </div>

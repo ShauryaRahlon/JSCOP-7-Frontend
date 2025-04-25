@@ -6,7 +6,7 @@
     color: white;
     position: relative;
     margin: 40px 6%;
-    background: url("https://res.cloudinary.com/dnqsoxydq/image/upload/v1713942223/JSCOP6.0/whatpic1_blfkrk.jpg") no-repeat center center fixed;
+    background: url("") no-repeat center center fixed;
     background-size: cover;
     padding: 4% 2%;
     border-radius: 20px;
@@ -60,8 +60,11 @@
     }
 }
 
+
+
 .content_about_us {
     font-size: 1.2rem;
+    font-weight: 400;
     line-height: 1.8;
     text-align: justify;
     background: rgba(0, 0, 0, 0.5);
