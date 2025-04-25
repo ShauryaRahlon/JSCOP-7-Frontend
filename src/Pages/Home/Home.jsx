@@ -188,6 +188,7 @@ const Portfolio = () => {
   // };
 
   let prev_parent;
+  const prevParentRef = useRef(null);
 
   const handleButtonClick = (e) => {
     setPartName(e.target.dataset.partName);
@@ -197,7 +198,8 @@ const Portfolio = () => {
     }, 500);
 
     const parent = e.target.parentNode;
-    prev_parent = parent;
+    prevParentRef.current = parent;
+    console.log("prev sssss ....", prevParentRef.current);
     const grandParent = parent.parentNode.parentNode;
     const portfolioWork = document.querySelector(".portfolio_home__work");
     console.log("parent", parent);
@@ -265,16 +267,18 @@ const Portfolio = () => {
   };
   const prevIdxRef = useRef(1);
   const moveBetweenPages = (openIdx) => {
-    if (prev_parent) {
-      console.log("prev : ", prev_parent);
+    setIsOpen((prev) => false);
+    console.log("hello......", prevParentRef.current);
+    if (prevParentRef.current) {
+      console.log("prev : ", prevParentRef.current);
 
       // Remove classes from previous elements
-      prev_parent.parentNode.parentNode.classList.remove("clicked");
-      prev_parent.parentNode.classList.remove("clicked");
+      prevParentRef.current.parentNode.parentNode.classList.remove("clicked");
+      prevParentRef.current.parentNode.classList.remove("clicked");
       document
         .querySelector(".portfolio_home__work")
         .classList.remove("expand");
-      prev_parent.parentNode.classList.remove("expand");
+      prevParentRef.current.parentNode.classList.remove("expand");
 
       // Animate previous elements
     }
@@ -484,7 +488,7 @@ const Portfolio = () => {
 
   const handleBackClick = (e) => {
     console.log("click");
-    setIsOpen((prev) => !prev);
+    setIsOpen((prev) => false);
     console.log(e);
     e.target.parentNode.parentNode.parentNode.classList.remove("clicked");
     e.target.parentNode.parentNode.classList.remove("clicked");
