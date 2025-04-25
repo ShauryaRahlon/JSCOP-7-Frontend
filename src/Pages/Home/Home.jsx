@@ -141,6 +141,32 @@ const Portfolio = () => {
   }, [introComplete, scrollPosition]);
 
   const handleTriggerClick = () => {
+    const portfolioWork = document.querySelector(".portfolio_home__work");
+    const portfolioPage = document.querySelector(".page_portfolio");
+
+    console.log("r : ", portfolioPage);
+    console.log("p : ", portfolioWork);
+
+    if (portfolioWork && portfolioPage) {
+      const isExpanded = portfolioWork.classList.contains("expand");
+      const opacity = window
+        .getComputedStyle(portfolioPage)
+        .getPropertyValue("opacity");
+
+      console.log("opacity is: ", opacity, isExpanded);
+
+      if (isExpanded && opacity === "0") {
+        // Delay setIsOpen(true) by 300ms
+        setTimeout(() => {
+          setIsOpen(true);
+        }, 1100);
+      } else {
+        setIsOpen(false);
+      }
+    } else {
+      setIsOpen(false);
+    }
+
     document.querySelector(".page_portfolio").style.opacity = "1";
     document.querySelector(".page_portfolio").style.clipPath =
       "polygon(0 100%, 100% 100%, 100% 0%, 0 0%)";
@@ -160,6 +186,26 @@ const Portfolio = () => {
     }, 2500);
   };
   const handleLandingTriggerClick = () => {
+    setIsOpen(() => {
+      const portfolioWork = document.querySelector(".portfolio_home__work");
+      const portfolioPage = document.querySelector(".page_portfolio");
+      console.log("r : ", portfolioPage);
+      console.log("p : ", portfolioWork);
+
+      if (portfolioWork && portfolioPage) {
+        const isExpanded = portfolioWork.classList.contains("expand");
+        const opacity = window
+          .getComputedStyle(portfolioPage)
+          .getPropertyValue("opacity");
+        console.log("opacity is: ", opacity, isExpanded);
+
+        if (isExpanded && opacity === "0") {
+          return true;
+        }
+      }
+      console.log("returning : ", false);
+      return false;
+    });
     // Reset styles for .page_portfolio
     const pagePortfolio = document.querySelector(".page_portfolio");
     if (pagePortfolio) {
@@ -726,7 +772,7 @@ const Portfolio = () => {
               playsInline
               className="rocket-animation-video"
             >
-              {/* <source src={HomePageBG} type="video/mp4" /> */}
+              <source src={HomePageBG} type="video/mp4" />
             </video>
           </div>
           <div className="portfolio_home__header">
@@ -1033,41 +1079,6 @@ const Portfolio = () => {
                         "
                         alt="Jade Teriyaki"
                       />
-                      <div className="overlay"></div>
-                      <div className="cats">
-                        TEAM OPTICA: THE MINDS BEHIND JSCOP
-                      </div>
-                      <div className="title">
-                        Meet the crew making JSCOP 7.0 magic
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    className="slideClone"
-                  // style={{
-                  //   overflowY: isScrolling ? "scroll" : "hidden",
-                  //   overflowX: "hidden",
-                  // }}
-                  >
-                    <div className="title f">
-                      .06
-                      <br />
-                      Gallery
-                    </div>
-                    <div className="image parent_5">
-                      <img
-                        draggable="false"
-                        src="https://i.pinimg.com/1200x/1f/dc/04/1fdc0438f61ea244d2e48ea3ccefffb6.jpg"
-                        alt="Jade Teriyaki"
-                      />
-                      <div className="overlay"></div>
-                      <div className="cats">
-                        RELIVE THE MOMENTS, EXPLORE OUR GALLERY
-                      </div>
-                      <div className="title">
-                        Browse through memories of our events
-                      </div>
-                      alt="Jade Teriyaki" /
                       <div className="overlay"></div>
                       <div className="cats">
                         TEAM OPTICA: THE MINDS BEHIND JSCOP
