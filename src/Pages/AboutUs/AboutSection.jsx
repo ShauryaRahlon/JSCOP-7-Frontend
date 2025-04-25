@@ -24,7 +24,7 @@ export default function AboutSection({
         const parts = title.split(regex)
         return parts.map((part, idx) =>
             regex.test(part)
-                ? <span key={idx} className="highlight-ocean">{part}</span>
+                ? <span key={idx} className="highlight-ocean_aboutsection">{part}</span>
                 : part
         )
     }
@@ -113,7 +113,7 @@ export default function AboutSection({
                 <motion.div
                     key={backgroundImage}
                     ref={sectionRef}
-                    className="about-section"
+                    className="about-section_aboutsection"
                     initial={{ opacity: 0, y: 30 }}
                     animate={
                         fadeState === "fadingIn"
@@ -150,7 +150,7 @@ export default function AboutSection({
                             return (
                                 <motion.div
                                     key={i}
-                                    className="gradient-orb"
+                                    className="gradient-orb_aboutsection"
                                     variants={orbVariants}
                                     animate="animate"
                                     style={{
@@ -171,7 +171,7 @@ export default function AboutSection({
                         })}
                     </div>
                     <motion.h2
-                        className="heading"
+                        className="heading_aboutsection"
                         initial={{ y: -40, opacity: 0 }}
                         animate={isVisible ? { y: 0, opacity: 1 } : { y: -40, opacity: 0 }}
                         transition={{ duration: 0.7, delay: 0.18, ease: [0.4, 0, 0.2, 1] }}
@@ -179,15 +179,15 @@ export default function AboutSection({
                     >
                         {renderTitle(title)}
                     </motion.h2>
-                    <div className="heading-underline" />
-                    <div className="content-container" style={{ position: "relative", zIndex: 2 }}>
-                        {/* <button className="nav-button prev" onClick={prevParagraph} aria-label="Previous paragraph">
+                    <div className="heading-underline_aboutsection" />
+                    <div className="content-container_aboutsection" style={{ position: "relative", zIndex: 2 }}>
+                        {/* <button className="nav-button_aboutsection prev" onClick={prevParagraph} aria-label="Previous paragraph">
                             <ChevronLeft className="w-6 h-6" />
                         </button> */}
 
                         <AnimatePresence mode="wait" initial={false}>
                             <motion.div
-                                className="content"
+                                className="content_aboutsection"
                                 key={activeIndex}
                                 variants={contentVariants}
                                 initial="initial"
@@ -195,11 +195,11 @@ export default function AboutSection({
                                 exit="exit"
                             >
                                 <p>{paragraphs[activeIndex]}</p>
-                                <div className="pagination">
+                                <div className="pagination_aboutsection">
                                     {paragraphs.map((_, index) => (
                                         <button
                                             key={index}
-                                            className={`pagination-dot ${index === activeIndex ? "active" : ""}`}
+                                            className={`pagination-dot_aboutsection ${index === activeIndex ? "active_aboutsection" : ""}`}
                                             onClick={() => setActiveIndex(index)}
                                             aria-label={`Go to paragraph ${index + 1}`}
                                         />
@@ -208,7 +208,7 @@ export default function AboutSection({
                             </motion.div>
                         </AnimatePresence>
 
-                        {/* <button className="nav-button next" onClick={nextParagraph} aria-label="Next paragraph"></button>
+                        {/* <button className="nav-button_aboutsection next" onClick={nextParagraph} aria-label="Next paragraph"></button>
                             <ChevronRight className="w-6 h-6" />
                         </button> */}
                     </div>

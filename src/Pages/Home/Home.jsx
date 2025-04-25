@@ -724,7 +724,7 @@ const Portfolio = () => {
 							playsInline
 							className="rocket-animation-video"
 						>
-							<source src={HomePageBG} type="video/mp4" />
+							{/* <source src={HomePageBG} type="video/mp4" /> */}
 						</video>
 					</div>
 					<div className="portfolio_home__header">

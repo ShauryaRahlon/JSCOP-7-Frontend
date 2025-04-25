@@ -1,4 +1,4 @@
-.about-section {
+.about-section_aboutsection {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -21,7 +21,7 @@
     -webkit-backdrop-filter: blur(14px);
 }
 
-.gradient-orb {
+.gradient-orb_aboutsection {
     position: absolute;
     width: 150px;
     height: 150px;
@@ -31,7 +31,7 @@
     pointer-events: none;
 }
 
-.heading {
+.heading_aboutsection {
     font-size: 3rem;
     font-weight: 700;
     text-align: center;
@@ -44,7 +44,7 @@
     width: 100%;
 }
 
-.heading-underline {
+.heading-underline_aboutsection {
     display: block;
     width: 100%;
     max-width: 420px;
@@ -55,7 +55,7 @@
     z-index: 2;
 }
 
-.content-container {
+.content-container_aboutsection {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -65,7 +65,7 @@
     z-index: 2;
 }
 
-.content {
+.content_aboutsection {
     font-size: 1.2rem;
     line-height: 1.8;
     text-align: justify;
@@ -82,11 +82,11 @@
     flex-direction: column;
 }
 
-.content:hover {
+.content_aboutsection:hover {
     box-shadow: 0 12px 25px rgba(255, 255, 255, 0.2);
 }
 
-.nav-button {
+.nav-button_aboutsection {
     background: rgba(0, 0, 0, 0.5);
     border: none;
     color: white;
@@ -101,19 +101,19 @@
     z-index: 3;
 }
 
-.nav-button:hover {
+.nav-button_aboutsection:hover {
     background: rgba(255, 255, 255, 0.2);
     transform: scale(1.1);
 }
 
-.pagination {
+.pagination_aboutsection {
     display: flex;
     justify-content: center;
     gap: 8px;
     margin-top: 20px;
 }
 
-.pagination-dot {
+.pagination-dot_aboutsection {
     width: 10px;
     height: 10px;
     border-radius: 50%;
@@ -123,48 +123,48 @@
     transition: all 0.3s ease;
 }
 
-.pagination-dot.active {
+.pagination-dot_aboutsection.active_aboutsection {
     background: white;
     transform: scale(1.2);
 }
 
 /* Optica Color */
-.highlight-ocean {
+.highlight-ocean_aboutsection {
     color: hsl(234, 90%, 67%);
     /* light ocean blue */
 }
 
 @media only screen and (max-width: 768px) {
-    .heading {
+    .heading_aboutsection {
         font-size: 2.4rem;
     }
 
-    .content {
+    .content_aboutsection {
         font-size: 1.1rem;
         padding: 5%;
     }
 
-    .nav-button {
+    .nav-button_aboutsection {
         width: 36px;
         height: 36px;
     }
 }
 
 @media only screen and (max-width: 550px) {
-    .heading {
+    .heading_aboutsection {
         font-size: 1.8rem;
     }
 
-    .content {
+    .content_aboutsection {
         font-size: 1rem;
     }
 
-    .about-section {
+    .about-section_aboutsection {
         margin: 20px 3%;
         padding: 6% 2%;
     }
 
-    .nav-button {
+    .nav-button_aboutsection {
         width: 32px;
         height: 32px;
     }
