@@ -8,7 +8,7 @@ import Timeline from "./Pages/Timeline/Timeline";
 import Team from "./Pages/Team/Team";
 import MainPage from "./Pages/MainPage/MainPage";
 import Hackathon from "./Pages/Hackathon/Hackathon";
-
+import Speaker from "./Pages/Speaker/Speaker";
 function App() {
   return (
     <Router>
@@ -20,6 +20,7 @@ function App() {
         <Route path="/events" element={<Events />} />
         <Route path="/timeline" element={<Timeline />} />
         <Route path="/team" element={<Team />} />
+        <Route path="/speaker" element={<Speaker />} />
         <Route path="/hackathon" element={<Hackathon />} />
       </Routes>
     </Router>
