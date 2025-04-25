@@ -282,7 +282,15 @@ function Timeline() {
 
   return (
     <div ref={sectionRef} className="box timeline-section">
-      <div className="centre">
+      <div
+        className="stars"
+        style={{
+          backgroundColor: " #325b6c",
+        }}
+      ></div>
+      {/* <div className="twinkling"></div> */}
+      {/* <div className="wormhole"></div> */}
+      <div className="centre" style={{ zIndex: "1000" }}>
         {sectionReachedTop ? (
           <header className="codrops-header">
             {/* Day buttons */}

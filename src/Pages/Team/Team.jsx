@@ -12,7 +12,7 @@ function Team() {
   // const activeMembers = activeTab === "technical" ? technicalMembers : managementMembers;
 
   return (
-    <div className="team-section">
+    <div className="team-section team-box">
       <div className="stars"></div>
       <div className="twinkling"></div>
       <div className="wormhole"></div>
@@ -27,23 +27,37 @@ function Team() {
         </header> */}
 
         <main className="toggle-box">
-          <button
-            className={
-              (activeTab === "technical" ? "active" : "", "button__container")
-            }
-            // threeD__btn
-            onClick={() => setActiveTab("technical")}
-          >
-            Technical
-          </button>
-          <button
-            className={
-              (activeTab === "management" ? "active" : "", "button__container")
-            }
-            onClick={() => setActiveTab("management")}
-          >
-            Management
-          </button>
+          <div style={{ marginLeft: "10px" }}>
+            <div
+              className={`button-wrapper ${
+                (activeTab === "technical" ? "active" : "", "button__container")
+              }`}
+              style={{
+                // filter: `hue-rotate(${36}deg)`,
+                // WebkitFilter: `hue-rotate(${36}deg)`,
+                filter: "grayscale(100%)",
+                WebkitFilter: "grayscale(100%)",
+              }}
+              onClick={() => setActiveTab("technical")}
+            >
+              <a className="background-button" href="#" title="Tech Team"></a>
+            </div>
+          </div>
+          <div>
+            <div
+              className={`button-wrapper ${
+                (activeTab === "management" ? "active" : "",
+                "button__container")
+              }`}
+              style={{
+                filter: "grayscale(100%)",
+                WebkitFilter: "grayscale(100%)",
+              }}
+              onClick={() => setActiveTab("management")}
+            >
+              <a className="background-button" href="#" title="Core Team"></a>
+            </div>
+          </div>
         </main>
 
         <div className="team-container">
