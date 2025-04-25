@@ -253,6 +253,7 @@ const Portfolio = () => {
     };
     const prevIdxRef = useRef(1);
     const moveBetweenPages = (openIdx) => {
+        console.log("Clicked on moveBetweenPages");
         if (prev_parent) {
             console.log("prev : ", prev_parent);
 
@@ -278,6 +279,8 @@ const Portfolio = () => {
         setTimeout(() => {
             // Trigger the nav logic (e.g., change content)
             handleNavClick(openIdx);
+
+            console.log("Clicked on handleNavClick")
 
             if (catsPrev) {
                 catsPrev.style.transition = "opacity 0.6s ease";

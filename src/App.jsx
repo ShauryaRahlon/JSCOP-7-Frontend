@@ -7,6 +7,7 @@ import Events from './Pages/Events/Events';
 import Timeline from './Pages/Timeline/Timeline';
 import Team from './Pages/Team/Team';
 import MainPage from './Pages/MainPage/MainPage';
+import RegisterForm from './Pages/RegisterPage/RegisterForm';
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/Regiter" element={<RegisterForm />} />
         <Route path='/Home' element={<MainPage />} />
         <Route path='/gallery' element={<Gallery />} />
         <Route path='/about' element={<Aboutus />} />
