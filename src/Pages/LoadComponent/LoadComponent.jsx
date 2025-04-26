@@ -9,6 +9,7 @@ import Timeline from "../Timeline/Timeline";
 import { ArrowLeft } from "lucide-react";
 import Contact from "../Contact/Contact";
 import AboutUs from "../AboutUs/Aboutus";
+import Speaker from "../Speaker/Speaker";
 import Hackathon from "../Hackathon/Hackathon";
 
 const FadePortal = ({ isOpen, children }) => {

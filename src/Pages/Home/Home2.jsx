@@ -34,8 +34,6 @@ const Portfolio = () => {
   const threshold = 100;
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const prevParentRef = useRef(null);
-
   const toggleMenu = () => {
     setIsMenuOpen((prev) => !prev);
   };
@@ -141,32 +139,6 @@ const Portfolio = () => {
   }, [introComplete, scrollPosition]);
 
   const handleTriggerClick = () => {
-    const portfolioWork = document.querySelector(".portfolio_home__work");
-    const portfolioPage = document.querySelector(".page_portfolio");
-
-    console.log("r : ", portfolioPage);
-    console.log("p : ", portfolioWork);
-
-    if (portfolioWork && portfolioPage) {
-      const isExpanded = portfolioWork.classList.contains("expand");
-      const opacity = window
-        .getComputedStyle(portfolioPage)
-        .getPropertyValue("opacity");
-
-      console.log("opacity is: ", opacity, isExpanded);
-
-      if (isExpanded && opacity === "0") {
-        // Delay setIsOpen(true) by 300ms
-        setTimeout(() => {
-          setIsOpen(true);
-        }, 1100);
-      } else {
-        setIsOpen(false);
-      }
-    } else {
-      setIsOpen(false);
-    }
-
     document.querySelector(".page_portfolio").style.opacity = "1";
     document.querySelector(".page_portfolio").style.clipPath =
       "polygon(0 100%, 100% 100%, 100% 0%, 0 0%)";
@@ -186,26 +158,6 @@ const Portfolio = () => {
     }, 2500);
   };
   const handleLandingTriggerClick = () => {
-    setIsOpen(() => {
-      const portfolioWork = document.querySelector(".portfolio_home__work");
-      const portfolioPage = document.querySelector(".page_portfolio");
-      console.log("r : ", portfolioPage);
-      console.log("p : ", portfolioWork);
-
-      if (portfolioWork && portfolioPage) {
-        const isExpanded = portfolioWork.classList.contains("expand");
-        const opacity = window
-          .getComputedStyle(portfolioPage)
-          .getPropertyValue("opacity");
-        console.log("opacity is: ", opacity, isExpanded);
-
-        if (isExpanded && opacity === "0") {
-          return true;
-        }
-      }
-      console.log("returning : ", false);
-      return false;
-    });
     // Reset styles for .page_portfolio
     const pagePortfolio = document.querySelector(".page_portfolio");
     if (pagePortfolio) {
@@ -236,7 +188,6 @@ const Portfolio = () => {
   // };
 
   let prev_parent;
-  // const prevParentRef = useRef(null);
 
   const handleButtonClick = (e) => {
     setPartName(e.target.dataset.partName);
@@ -246,8 +197,7 @@ const Portfolio = () => {
     }, 500);
 
     const parent = e.target.parentNode;
-    prevParentRef.current = parent;
-    console.log("prev sssss ....", prevParentRef.current);
+    prev_parent = parent;
     const grandParent = parent.parentNode.parentNode;
     const portfolioWork = document.querySelector(".portfolio_home__work");
     console.log("parent", parent);
@@ -315,18 +265,16 @@ const Portfolio = () => {
   };
   const prevIdxRef = useRef(1);
   const moveBetweenPages = (openIdx) => {
-    setIsOpen((prev) => false);
-    console.log("hello......", prevParentRef.current);
-    if (prevParentRef.current) {
-      console.log("prev : ", prevParentRef.current);
+    if (prev_parent) {
+      console.log("prev : ", prev_parent);
 
       // Remove classes from previous elements
-      prevParentRef.current.parentNode.parentNode.classList.remove("clicked");
-      prevParentRef.current.parentNode.classList.remove("clicked");
+      prev_parent.parentNode.parentNode.classList.remove("clicked");
+      prev_parent.parentNode.classList.remove("clicked");
       document
         .querySelector(".portfolio_home__work")
         .classList.remove("expand");
-      prevParentRef.current.parentNode.classList.remove("expand");
+      prev_parent.parentNode.classList.remove("expand");
 
       // Animate previous elements
     }
@@ -535,7 +483,7 @@ const Portfolio = () => {
 
   const handleBackClick = (e) => {
     console.log("click");
-    setIsOpen((prev) => false);
+    setIsOpen((prev) => !prev);
     console.log(e);
     e.target.parentNode.parentNode.parentNode.classList.remove("clicked");
     e.target.parentNode.parentNode.classList.remove("clicked");
@@ -772,7 +720,7 @@ const Portfolio = () => {
               playsInline
               className="rocket-animation-video"
             >
-              {/* <source src={HomePageBG} type="video/mp4" /> */}
+              <source src={HomePageBG} type="video/mp4" />
             </video>
           </div>
           <div className="portfolio_home__header">
@@ -1078,6 +1026,7 @@ const Portfolio = () => {
                         src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5181c7f5-4300-4d23-a0d1-d0cc2a40214b/de8ruib-78b98309-28f0-4c3f-a560-f58e885d2d27.jpg/v1/fill/w_1192,h_670,q_70,strp/anomaly_by_tobiasroetsch_de8ruib-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTA4MCIsInBhdGgiOiJcL2ZcLzUxODFjN2Y1LTQzMDAtNGQyMy1hMGQxLWQwY2MyYTQwMjE0YlwvZGU4cnVpYi03OGI5ODMwOS0yOGYwLTRjM2YtYTU2MC1mNThlODg1ZDJkMjcuanBnIiwid2lkdGgiOiI8PTE5MjAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.EqxrCHV903nldbc4EMwoSlVlWfP51pWUJUi__43zbw0
                         "
                         alt="Jade Teriyaki"
+
                       />
                       <div className="overlay"></div>
                       <div className="cats">
@@ -1126,7 +1075,7 @@ const Portfolio = () => {
                     <div className="image parent_6">
                       <img
                         draggable="false"
-                        src="https://images7.alphacoders.com/550/550739.jpg"
+                        src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/9f4085a5-316b-4aa3-9708-18958f71343d/dj6qfii-99ab04c2-8a40-404a-be03-900f6ab30361.jpg/v1/fill/w_1210,h_660,q_70,strp/tidal_gravity_generation_habitat__by_artworksstudio_dj6qfii-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9Njk5IiwicGF0aCI6IlwvZlwvOWY0MDg1YTUtMzE2Yi00YWEzLTk3MDgtMTg5NThmNzEzNDNkXC9kajZxZmlpLTk5YWIwNGMyLThhNDAtNDA0YS1iZTAzLTkwMGY2YWIzMDM2MS5qcGciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.mS4eLyHQInmTOGAb7VFCLlYPvDbVWNF_7JV-TtgNpdY"
                         alt="Jade Teriyaki"
                         width={"100%"}
                       />
@@ -1200,7 +1149,6 @@ const Portfolio = () => {
                         <div
                           className="button button_0"
                           onClick={handleButtonClick}
-                          data-part-name="aboutus"
                         >
                           Get to Know Us
                           <img
@@ -1318,6 +1266,7 @@ const Portfolio = () => {
                           src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5181c7f5-4300-4d23-a0d1-d0cc2a40214b/de8ruib-78b98309-28f0-4c3f-a560-f58e885d2d27.jpg/v1/fill/w_1192,h_670,q_70,strp/anomaly_by_tobiasroetsch_de8ruib-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTA4MCIsInBhdGgiOiJcL2ZcLzUxODFjN2Y1LTQzMDAtNGQyMy1hMGQxLWQwY2MyYTQwMjE0YlwvZGU4cnVpYi03OGI5ODMwOS0yOGYwLTRjM2YtYTU2MC1mNThlODg1ZDJkMjcuanBnIiwid2lkdGgiOiI8PTE5MjAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.EqxrCHV903nldbc4EMwoSlVlWfP51pWUJUi__43zbw0"
                           alt="Jade Teriyaki"
                           width={"100%"}
+
                         />
                         <div className="overlay overlay_4"></div>
                         <div className="cats cats_4">
@@ -1381,7 +1330,7 @@ const Portfolio = () => {
                       <div className="image parent_6">
                         <img
                           draggable="false"
-                          src="https://images7.alphacoders.com/550/550739.jpg"
+                          src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/9f4085a5-316b-4aa3-9708-18958f71343d/dj6qfii-99ab04c2-8a40-404a-be03-900f6ab30361.jpg/v1/fill/w_1210,h_660,q_70,strp/tidal_gravity_generation_habitat__by_artworksstudio_dj6qfii-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9Njk5IiwicGF0aCI6IlwvZlwvOWY0MDg1YTUtMzE2Yi00YWEzLTk3MDgtMTg5NThmNzEzNDNkXC9kajZxZmlpLTk5YWIwNGMyLThhNDAtNDA0YS1iZTAzLTkwMGY2YWIzMDM2MS5qcGciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.mS4eLyHQInmTOGAb7VFCLlYPvDbVWNF_7JV-TtgNpdY"
                           alt="Jade Teriyaki"
                           width={"100%"}
                         />
@@ -1428,7 +1377,6 @@ const Portfolio = () => {
                         <div
                           className="button button_7"
                           onClick={handleButtonClick}
-                          data-part-name="contact"
                         >
                           Get in Touch
                           <img
