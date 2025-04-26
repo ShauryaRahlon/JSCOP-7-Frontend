@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./card.scss"; // Card specific styles
-import { MapPin, Building, Clock, Timer, Phone } from "lucide-react"; // Import icons from react-feather
+import { MapPin, Timer } from "lucide-react"; // Import icons from react-feather
 import cross_icon from "/images/cross_icon.png"; // Import the cross icon
 
 // Declare global variables used by the scripts loaded in index.html

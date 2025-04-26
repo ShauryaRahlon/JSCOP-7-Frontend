@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useNavigate } from "react-router-dom"; // Import useNavigate
+// import { useNavigate } from "react-router-dom"; // Import useNavigate
 import Navbar from "../../Components/Navbar/Navbar";
-import { Home, ArrowDown, ArrowLeft, Rotate3D } from "lucide-react";
-import jscopLogo from "/images/jscopLogo.png";
+import { ArrowDown } from "lucide-react";
+// import jscopLogo from "/images/jscopLogo.png";
 import Jscop_homeLogo from "/images/Jscop_homeLogo.png";
 import opticaLogo from "/images/opticaLogo.png";
 import nav_jscop from "/images/nav_jscop.png";
@@ -11,7 +11,7 @@ import nav_2_jscop from "/images/nav_2_jscop.png";
 import HomePageBG9 from "/videos/HomePageBG9.mp4";
 // import one from "./../../assets/earth-rotate-moewalls-com.mp4"
 import "./NewLandingPage.css";
-import Events from "../Events/Events";
+// import Events from "../Events/Events";
 import LoadComponent, { BackToHome } from "../LoadComponent/LoadComponent";
 import BlackHole from "../../Components/UI/BlackHole";
 
@@ -30,11 +30,11 @@ const Portfolio = () => {
   const contentRef = useRef(null);
   const sliderInnerRef = useRef(null);
   const cursorRef = useRef(null);
-  const scrollRef = useRef(null);
+  // const scrollRef = useRef(null);
 
   const offset = window.innerWidth <= 768 ? 370 : 760;
   const margin = 0;
-  const threshold = 100;
+  // const threshold = 100;
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const prevParentRef = useRef(null);
@@ -775,7 +775,7 @@ const Portfolio = () => {
               playsInline
               className="rocket-animation-video"
             >
-              {/* <source src={HomePageBG9} type="video/mp4" /> */}
+              <source src={HomePageBG9} type="video/mp4" />
             </video>
           </div>
           <div className="portfolio_home__header">

@@ -6,9 +6,7 @@ import {
   Linkedin,
   Phone,
   Mail,
-  MapPin,
-  Clock,
-  Menu,
+
 } from "lucide-react";
 import "./Contact.scss";
 
