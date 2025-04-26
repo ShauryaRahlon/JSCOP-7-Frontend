@@ -7,7 +7,7 @@ import opticaLogo from "/images/opticaLogo.png";
 import nav_jscop from "/images/nav_jscop.png";
 import nav_2_jscop from "/images/nav_2_jscop.png";
 // import rocketanimation from "./../../assets/rocket-animation.mp4";
-import HomePageBG from "/videos/HomePageBG.mp4";
+import HomePageBG9 from "/videos/HomePageBG9.mp4";
 // import one from "./../../assets/earth-rotate-moewalls-com.mp4"
 import "./NewLandingPage.css";
 import Events from "../Events/Events";
@@ -774,7 +774,7 @@ const Portfolio = () => {
               playsInline
               className="rocket-animation-video"
             >
-              <source src={HomePageBG} type="video/mp4" />
+              <source src={HomePageBG9} type="video/mp4" />
             </video>
           </div>
           <div className="portfolio_home__header">
