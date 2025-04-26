@@ -5,7 +5,7 @@
   // background: linear-gradient(to right, #6e5d54 0%, #6e5d54 100%);
   // background: linear-gradient(to right, #1d242b 0%, #1d242b 100%);
   // overflow: hidden;
-  top: -140px;
+  top: -145px;
 }
 
 .speaker-box {
@@ -63,7 +63,7 @@
       rgba(0, 0, 0, 0)
     );
   background-repeat: repeat;
-  background-size: 200px 200px;
+  background-size: 150px 150px;
   opacity: 0.3;
   animation: twinkle 5s infinite;
 }
@@ -148,7 +148,7 @@
   // max-width: 1200px;
   width: 100%;
   margin: 10px auto;
-  padding: 60px 0 70px 0;
+  padding: 30px 0 30px 0;
 
   .tile {
     opacity: 0;
@@ -208,7 +208,7 @@
 
 @media (max-width: 768px) {
   .wrap {
-    gap: 20px;
+    gap: 50px;
     scale: 0.9;
   }
 
@@ -216,18 +216,25 @@
     padding: 60px 30px;
   }
 
-  .speaker-heading h2 {
+  .speaker-heading {
     font-size: 2.5rem;
+    position: relative;
+    top: 150px;
   }
   .speaker-container {
-    padding: 0;
+    position: relative;
+    top: 150px;
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 448px) {
   // .speaker-section {
   //   padding: 40px 0;
   // }
+  .speaker-container {
+    position: relative;
+    top: 150px;
+  }
 
   .speaker-heading {
     margin: 30px auto 0;
@@ -242,7 +249,7 @@
   }
 
   .speaker-section {
-    padding: 80px 20px;
+    padding: 40px 20px;
   }
   .wrap {
     position: relative;
@@ -254,5 +261,5 @@
 .dtv-container {
   line-height: 20px;
   position: relative;
-  top: 8em;
+  // top: 8em;
 }
