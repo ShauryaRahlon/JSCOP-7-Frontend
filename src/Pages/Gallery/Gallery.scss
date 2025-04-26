@@ -14,16 +14,14 @@
 
   /* Fade from transparent to solid color from top */
   //   mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, black 20%);
-  -webkit-mask-image: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0) 0%,
-    black 20%
-  );
+  -webkit-mask-image: linear-gradient(to bottom,
+      rgba(0, 0, 0, 0) 0%,
+      black 20%);
 }
 
 .book-grid-container {
-  background-color: #16212c;
-  //   padding-bottom: 2px;
+  background-color: #16212C;
+
   .book-grid {
     display: grid;
     grid-template-columns: repeat(var(--columns), 1fr);
@@ -59,153 +57,119 @@
         clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
         -webkit-clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
         background-repeat: no-repeat;
-        background-image: linear-gradient(
-            -45deg,
+        background-image: linear-gradient(-45deg,
             var(--black) 53.5%,
             var(--black) 53.5%,
             var(--black) 60%,
-            var(--black) 60%
-          ),
-          linear-gradient(
-            45deg,
+            var(--black) 60%),
+          linear-gradient(45deg,
             var(--black) 53.5%,
             var(--black) 53.5%,
             var(--black) 60%,
-            var(--black) 60%
-          );
+            var(--black) 60%);
       }
 
       &::after {
-        clip-path: polygon(
-          100% 50%,
-          50% 100%,
-          0 50%,
-          20% 50%,
-          50% 80%,
-          80% 50%
-        );
-        -webkit-clip-path: polygon(
-          100% 50%,
-          50% 100%,
-          0 50%,
-          20% 50%,
-          50% 80%,
-          80% 50%
-        );
+        clip-path: polygon(100% 50%,
+            50% 100%,
+            0 50%,
+            20% 50%,
+            50% 80%,
+            80% 50%);
+        -webkit-clip-path: polygon(100% 50%,
+            50% 100%,
+            0 50%,
+            20% 50%,
+            50% 80%,
+            80% 50%);
         background-repeat: no-repeat;
-        background-image: linear-gradient(
-            45deg,
+        background-image: linear-gradient(45deg,
             var(--black) 40%,
-            var(--black) 40%
-          ),
+            var(--black) 40%),
           linear-gradient(-45deg, var(--black) 40%, var(--black) 40%);
       }
 
       &:nth-child(2n)::before {
-        background-image: linear-gradient(
-            -45deg,
+        background-image: linear-gradient(-45deg,
             var(--black) 53.5%,
             var(--black) 53.5%,
             var(--black) 60%,
-            var(--black) 60%
-          ),
-          linear-gradient(
-            45deg,
+            var(--black) 60%),
+          linear-gradient(45deg,
             var(--black) 53.5%,
             var(--black) 53.5%,
             var(--black) 60%,
-            var(--black) 60%
-          );
+            var(--black) 60%);
       }
 
       &:nth-child(2n)::after {
-        background-image: linear-gradient(
-            45deg,
+        background-image: linear-gradient(45deg,
             var(--black) 40%,
-            var(--black) 40%
-          ),
+            var(--black) 40%),
           linear-gradient(-45deg, var(--black) 40%, var(--black) 40%);
       }
 
       &:nth-child(5n)::before {
-        background-image: linear-gradient(
-            -45deg,
+        background-image: linear-gradient(-45deg,
             var(--black) 53.5%,
             var(--black) 53.5%,
             var(--black) 60%,
-            var(--black) 60%
-          ),
-          linear-gradient(
-            45deg,
+            var(--black) 60%),
+          linear-gradient(45deg,
             var(--black) 53.5%,
             var(--black) 53.5%,
             var(--black) 60%,
-            var(--black) 60%
-          );
+            var(--black) 60%);
       }
 
       &:nth-child(5n)::after {
-        background-image: linear-gradient(
-            45deg,
+        background-image: linear-gradient(45deg,
             var(--black) 40%,
-            var(--black) 40%
-          ),
+            var(--black) 40%),
           linear-gradient(-45deg, var(--black) 40%, var(--black) 40%);
       }
 
       &:nth-child(7n)::before,
       &:nth-child(7n-4)::before {
-        background-image: linear-gradient(
-            -45deg,
+        background-image: linear-gradient(-45deg,
             var(--black) 53.5%,
             var(--black) 53.5%,
             var(--black) 60%,
-            var(--black) 60%
-          ),
-          linear-gradient(
-            45deg,
+            var(--black) 60%),
+          linear-gradient(45deg,
             var(--black) 53.5%,
             var(--black) 53.5%,
             var(--black) 60%,
-            var(--black) 60%
-          );
+            var(--black) 60%);
       }
 
       &:nth-child(7n)::after,
       &:nth-child(7n-4)::after {
-        background-image: linear-gradient(
-            45deg,
+        background-image: linear-gradient(45deg,
             var(--black) 40%,
-            var(--black) 40%
-          ),
+            var(--black) 40%),
           linear-gradient(-45deg, var(--black) 40%, var(--black) 40%);
       }
 
       &:nth-child(9n)::before,
       &:nth-child(9n-5)::before {
-        background-image: linear-gradient(
-            -45deg,
+        background-image: linear-gradient(-45deg,
             var(--black) 53.5%,
             var(--black) 53.5%,
             var(--black) 60%,
-            var(--black) 60%
-          ),
-          linear-gradient(
-            45deg,
+            var(--black) 60%),
+          linear-gradient(45deg,
             var(--black) 53.5%,
             var(--black) 53.5%,
             var(--black) 60%,
-            var(--black) 60%
-          );
+            var(--black) 60%);
       }
 
       &:nth-child(9n)::after,
       &:nth-child(9n-5)::after {
-        background-image: linear-gradient(
-            45deg,
+        background-image: linear-gradient(45deg,
             var(--black) 40%,
-            var(--black) 40%
-          ),
+            var(--black) 40%),
           linear-gradient(-45deg, var(--black) 40%, var(--black) 40%);
       }
 
@@ -441,26 +405,5 @@
         grid-column-start: 2;
       }
     }
-  }
-}
-
-@media (max-width: 780px) {
-  .gallary-box {
-    position: relative;
-    //   background: linear-gradient(to bottom, #1f3341, #274051, #325b6c);
-    color: white;
-    //   padding: 200px 0px 10px 0px;
-    overflow: hidden;
-    padding-top: 600px;
-    padding-bottom: 10px;
-    margin-top: -400px;
-
-    /* Fade from transparent to solid color from top */
-    //   mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, black 20%);
-    -webkit-mask-image: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0) 0%,
-      black 20%
-    );
   }
 }
