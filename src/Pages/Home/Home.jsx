@@ -772,7 +772,7 @@ const Portfolio = () => {
               playsInline
               className="rocket-animation-video"
             >
-              <source src={HomePageBG} type="video/mp4" />
+              {/* <source src={HomePageBG} type="video/mp4" /> */}
             </video>
           </div>
           <div className="portfolio_home__header">
@@ -1126,7 +1126,7 @@ const Portfolio = () => {
                     <div className="image parent_6">
                       <img
                         draggable="false"
-                        src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/9f4085a5-316b-4aa3-9708-18958f71343d/dj6qfii-99ab04c2-8a40-404a-be03-900f6ab30361.jpg/v1/fill/w_1210,h_660,q_70,strp/tidal_gravity_generation_habitat__by_artworksstudio_dj6qfii-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9Njk5IiwicGF0aCI6IlwvZlwvOWY0MDg1YTUtMzE2Yi00YWEzLTk3MDgtMTg5NThmNzEzNDNkXC9kajZxZmlpLTk5YWIwNGMyLThhNDAtNDA0YS1iZTAzLTkwMGY2YWIzMDM2MS5qcGciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.mS4eLyHQInmTOGAb7VFCLlYPvDbVWNF_7JV-TtgNpdY"
+                        src="https://images7.alphacoders.com/550/550739.jpg"
                         alt="Jade Teriyaki"
                         width={"100%"}
                       />
@@ -1381,7 +1381,7 @@ const Portfolio = () => {
                       <div className="image parent_6">
                         <img
                           draggable="false"
-                          src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/9f4085a5-316b-4aa3-9708-18958f71343d/dj6qfii-99ab04c2-8a40-404a-be03-900f6ab30361.jpg/v1/fill/w_1210,h_660,q_70,strp/tidal_gravity_generation_habitat__by_artworksstudio_dj6qfii-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9Njk5IiwicGF0aCI6IlwvZlwvOWY0MDg1YTUtMzE2Yi00YWEzLTk3MDgtMTg5NThmNzEzNDNkXC9kajZxZmlpLTk5YWIwNGMyLThhNDAtNDA0YS1iZTAzLTkwMGY2YWIzMDM2MS5qcGciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.mS4eLyHQInmTOGAb7VFCLlYPvDbVWNF_7JV-TtgNpdY"
+                          src="https://images7.alphacoders.com/550/550739.jpg"
                           alt="Jade Teriyaki"
                           width={"100%"}
                         />
