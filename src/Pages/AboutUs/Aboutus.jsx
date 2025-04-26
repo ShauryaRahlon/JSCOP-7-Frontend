@@ -1,5 +1,5 @@
-import AboutSection from "./AboutSection";
-import './about-section.css'
+// import AboutSection from "./AboutSection";
+// import './about-section.css'
 export default function AboutUs() {
     return (
         <div className="aboutus-container">
