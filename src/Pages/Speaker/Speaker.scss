@@ -1,29 +1,31 @@
 .speaker-section {
-  margin-top: 500px;
-  position: relative;
-  // background: linear-gradient(to bottom, #1f3341, #274051, #325b6c);
-  color: white;
-  height: 100vh;
-  width: 100vw;
-  // padding: 40px 20px;
-
-  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, black 10%);
-  -webkit-mask-image: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0) 0%,
-    black 20%
-  );
-}
-
-.speaker-section {
   position: relative;
   margin: auto;
   // padding: 80px 0;
-  background: linear-gradient(to right, #6e5d54 0%, #6e5d54 100%);
+  // background: linear-gradient(to right, #6e5d54 0%, #6e5d54 100%);
   // background: linear-gradient(to right, #1d242b 0%, #1d242b 100%);
   // overflow: hidden;
+  top: -140px;
 }
 
+.speaker-box {
+  position: relative;
+  // background: linear-gradient(to bottom, #1f3341, #274051, #325b6c);
+  // background: linear-gradient(to right, #6b5744 0%, #6b5744 100%);
+  background: linear-gradient(to right, #6d5040 0%, #6d5040 100%);
+  // background: linear-gradient(to right, #64473b 0%, #424040 100%);
+  color: white;
+  padding: 200px 0px 10px 0px;
+  overflow: hidden;
+
+  /* Fade from transparent to solid color from top */
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, black 60%);
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    black 25%
+  );
+}
 .stars-bg {
   position: absolute;
   top: 0;
@@ -90,8 +92,10 @@
 
 .speaker-heading {
   text-align: center;
-  margin-bottom: 60px;
+  margin: 80px 0 40px 0;
+  // padding: 40px 0;
   position: relative;
+  top: -30px;
 
   h2 {
     font-size: 3rem;
@@ -110,40 +114,41 @@
     display: inline-block;
   }
 
-  // .cosmic-line {
-  //   height: 3px;
-  //   width: 100px;
-  //   background: linear-gradient(
-  //     to right,
-  //     rgba(111, 184, 255, 0),
-  //     rgba(111, 184, 255, 1),
-  //     rgba(111, 184, 255, 0)
-  //   );
-  //   margin: 15px auto 0;
-  //   position: relative;
+  .cosmic-line {
+    height: 3px;
+    width: 55%;
+    background: linear-gradient(
+      to right,
+      rgba(234, 238, 241, 0),
+      rgb(255, 255, 255, 1),
+      rgb(242, 242, 247, 0)
+    );
+    margin: 15px auto 0;
+    position: relative;
 
-  //   &:after {
-  //     content: "";
-  //     position: absolute;
-  //     top: 50%;
-  //     left: 50%;
-  //     transform: translate(-50%, -50%);
-  //     width: 10px;
-  //     height: 10px;
-  //     background-color: #6fb8ff;
-  //     border-radius: 50%;
-  //     box-shadow: 0 0 15px 5px rgba(111, 184, 255, 0.7);
-  //   }
-  // }
+    &:after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 10px;
+      height: 10px;
+      background-color: #f9fbfc;
+      border-radius: 50%;
+      box-shadow: 0 0 15px 5px rgba(243, 244, 245, 0.7);
+    }
+  }
 }
 
 .wrap {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
-  max-width: 1200px;
+  // max-width: 1200px;
   width: 100%;
   margin: 0 auto;
+  padding: 60px 0 70px 0;
 
   .tile {
     opacity: 0;
