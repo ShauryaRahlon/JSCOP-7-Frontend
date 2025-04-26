@@ -8,11 +8,9 @@ import nav_jscop from "./../../assets/nav_jscop.png";
 import nav_2_jscop from "./../../assets/nav_2_jscop.png";
 // import rocketanimation from "./../../assets/rocket-animation.mp4";
 import HomePageBG from "./../../assets/HomePageBG.mp4";
-// import one from "./../../assets/earth-rotate-moewalls-com.mp4"
 import "./NewLandingPage.css";
 import Events from "../Events/Events";
 import LoadComponent, { BackToHome } from "../LoadComponent/LoadComponent";
-import BlackHole from "../../Components/UI/BlackHole";
 
 const Portfolio = () => {
   const [introComplete, setIntroComplete] = useState(false);
@@ -36,8 +34,6 @@ const Portfolio = () => {
   const threshold = 100;
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const prevParentRef = useRef(null);
-
   const toggleMenu = () => {
     setIsMenuOpen((prev) => !prev);
   };
@@ -143,32 +139,6 @@ const Portfolio = () => {
   }, [introComplete, scrollPosition]);
 
   const handleTriggerClick = () => {
-    const portfolioWork = document.querySelector(".portfolio_home__work");
-    const portfolioPage = document.querySelector(".page_portfolio");
-
-    console.log("r : ", portfolioPage);
-    console.log("p : ", portfolioWork);
-
-    if (portfolioWork && portfolioPage) {
-      const isExpanded = portfolioWork.classList.contains("expand");
-      const opacity = window
-        .getComputedStyle(portfolioPage)
-        .getPropertyValue("opacity");
-
-      console.log("opacity is: ", opacity, isExpanded);
-
-      if (isExpanded && opacity === "0") {
-        // Delay setIsOpen(true) by 300ms
-        setTimeout(() => {
-          setIsOpen(true);
-        }, 1100);
-      } else {
-        setIsOpen(false);
-      }
-    } else {
-      setIsOpen(false);
-    }
-
     document.querySelector(".page_portfolio").style.opacity = "1";
     document.querySelector(".page_portfolio").style.clipPath =
       "polygon(0 100%, 100% 100%, 100% 0%, 0 0%)";
@@ -188,26 +158,6 @@ const Portfolio = () => {
     }, 2500);
   };
   const handleLandingTriggerClick = () => {
-    setIsOpen(() => {
-      const portfolioWork = document.querySelector(".portfolio_home__work");
-      const portfolioPage = document.querySelector(".page_portfolio");
-      console.log("r : ", portfolioPage);
-      console.log("p : ", portfolioWork);
-
-      if (portfolioWork && portfolioPage) {
-        const isExpanded = portfolioWork.classList.contains("expand");
-        const opacity = window
-          .getComputedStyle(portfolioPage)
-          .getPropertyValue("opacity");
-        console.log("opacity is: ", opacity, isExpanded);
-
-        if (isExpanded && opacity === "0") {
-          return true;
-        }
-      }
-      console.log("returning : ", false);
-      return false;
-    });
     // Reset styles for .page_portfolio
     const pagePortfolio = document.querySelector(".page_portfolio");
     if (pagePortfolio) {
@@ -238,18 +188,16 @@ const Portfolio = () => {
   // };
 
   let prev_parent;
-  // const prevParentRef = useRef(null);
 
-  const handleButtonClick = (e, part_name = "") => {
-    setPartName(part_name);
+  const handleButtonClick = (e) => {
+    setPartName(e.target.dataset.partName);
     setTimeout(() => {
       // setIsScrolling((prev) => !prev);
       setIsOpen((prev) => !prev);
     }, 500);
 
     const parent = e.target.parentNode;
-    prevParentRef.current = parent;
-    console.log("prev sssss ....", prevParentRef.current);
+    prev_parent = parent;
     const grandParent = parent.parentNode.parentNode;
     const portfolioWork = document.querySelector(".portfolio_home__work");
     console.log("parent", parent);
@@ -317,18 +265,16 @@ const Portfolio = () => {
   };
   const prevIdxRef = useRef(1);
   const moveBetweenPages = (openIdx) => {
-    setIsOpen((prev) => false);
-    console.log("hello......", prevParentRef.current);
-    if (prevParentRef.current) {
-      console.log("prev : ", prevParentRef.current);
+    if (prev_parent) {
+      console.log("prev : ", prev_parent);
 
       // Remove classes from previous elements
-      prevParentRef.current.parentNode.parentNode.classList.remove("clicked");
-      prevParentRef.current.parentNode.classList.remove("clicked");
+      prev_parent.parentNode.parentNode.classList.remove("clicked");
+      prev_parent.parentNode.classList.remove("clicked");
       document
         .querySelector(".portfolio_home__work")
         .classList.remove("expand");
-      prevParentRef.current.parentNode.classList.remove("expand");
+      prev_parent.parentNode.classList.remove("expand");
 
       // Animate previous elements
     }
@@ -454,9 +400,8 @@ const Portfolio = () => {
       });
 
       if (sliderInnerRef.current) {
-        sliderInnerRef.current.style.transform = `translateX(${
-          newDifference + endPosition
-        }px) translateY(120px)`;
+        sliderInnerRef.current.style.transform = `translateX(${newDifference + endPosition
+          }px) translateY(120px)`;
       }
     }
   };
@@ -538,7 +483,7 @@ const Portfolio = () => {
 
   const handleBackClick = (e) => {
     console.log("click");
-    setIsOpen((prev) => false);
+    setIsOpen((prev) => !prev);
     console.log(e);
     e.target.parentNode.parentNode.parentNode.classList.remove("clicked");
     e.target.parentNode.parentNode.classList.remove("clicked");
@@ -603,9 +548,8 @@ const Portfolio = () => {
           const velocity = 0.5 - pps / 40000;
 
           document.querySelectorAll(".slider_inner__slide").forEach((slide) => {
-            slide.style.transform = `rotateY(${direction}${
-              pps / 110
-            }deg) scale(1)`;
+            slide.style.transform = `rotateY(${direction}${pps / 110
+              }deg) scale(1)`;
             slide.style.transition = `all ${velocity}s`;
           });
         }
@@ -802,19 +746,6 @@ const Portfolio = () => {
                 alt="Logo"
               />
               <div className="page_portfolio">
-                <BlackHole />
-                {/* <div className="portfolio-animation-overlay"></div>
-                <div className="portfolio-animation-container">
-                  <video
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="portfolio-animation-video animation-opacity"
-                  >
-                    <source src={one} type="video/mp4" />
-                  </video>
-                </div> */}
                 <div className="portfolio_home__header">
                   <div className="logoMain">
                     <img src={nav_jscop} alt="jscop" />
@@ -1012,10 +943,10 @@ const Portfolio = () => {
                     </div>
                     <div
                       className="image parent_1"
-                      // style={{
-                      //   position: "relative",
-                      //   overflow: flag ? "scroll" : "hidden",
-                      // }}
+                    // style={{
+                    //   position: "relative",
+                    //   overflow: flag ? "scroll" : "hidden",
+                    // }}
                     >
                       <img
                         draggable="false"
@@ -1095,6 +1026,7 @@ const Portfolio = () => {
                         src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5181c7f5-4300-4d23-a0d1-d0cc2a40214b/de8ruib-78b98309-28f0-4c3f-a560-f58e885d2d27.jpg/v1/fill/w_1192,h_670,q_70,strp/anomaly_by_tobiasroetsch_de8ruib-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTA4MCIsInBhdGgiOiJcL2ZcLzUxODFjN2Y1LTQzMDAtNGQyMy1hMGQxLWQwY2MyYTQwMjE0YlwvZGU4cnVpYi03OGI5ODMwOS0yOGYwLTRjM2YtYTU2MC1mNThlODg1ZDJkMjcuanBnIiwid2lkdGgiOiI8PTE5MjAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.EqxrCHV903nldbc4EMwoSlVlWfP51pWUJUi__43zbw0
                         "
                         alt="Jade Teriyaki"
+
                       />
                       <div className="overlay"></div>
                       <div className="cats">
@@ -1107,10 +1039,10 @@ const Portfolio = () => {
                   </div>
                   <div
                     className="slideClone"
-                    // style={{
-                    //   overflowY: isScrolling ? "scroll" : "hidden",
-                    //   overflowX: "hidden",
-                    // }}
+                  // style={{
+                  //   overflowY: isScrolling ? "scroll" : "hidden",
+                  //   overflowX: "hidden",
+                  // }}
                   >
                     <div className="title f">
                       .06
@@ -1143,7 +1075,7 @@ const Portfolio = () => {
                     <div className="image parent_6">
                       <img
                         draggable="false"
-                        src="https://images7.alphacoders.com/550/550739.jpg"
+                        src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/9f4085a5-316b-4aa3-9708-18958f71343d/dj6qfii-99ab04c2-8a40-404a-be03-900f6ab30361.jpg/v1/fill/w_1210,h_660,q_70,strp/tidal_gravity_generation_habitat__by_artworksstudio_dj6qfii-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9Njk5IiwicGF0aCI6IlwvZlwvOWY0MDg1YTUtMzE2Yi00YWEzLTk3MDgtMTg5NThmNzEzNDNkXC9kajZxZmlpLTk5YWIwNGMyLThhNDAtNDA0YS1iZTAzLTkwMGY2YWIzMDM2MS5qcGciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.mS4eLyHQInmTOGAb7VFCLlYPvDbVWNF_7JV-TtgNpdY"
                         alt="Jade Teriyaki"
                         width={"100%"}
                       />
@@ -1192,7 +1124,7 @@ const Portfolio = () => {
                     onMouseMove={handleSliderMouseMove}
                     onMouseUp={handleSliderMouseUp}
                     onScroll={handleSliderScroll}
-                    // ref={scrollRef}
+                  // ref={scrollRef}
                   >
                     <div className="slider_inner__slide">
                       <div className="title" data-index="0">
@@ -1215,27 +1147,15 @@ const Portfolio = () => {
                           Optica’s student-led journey through JSCOP
                         </div>
                         <div
-                          className="button-wrapper button__container button button_0"
-                          style={{
-                            filter: "grayscale(100%)",
-                            WebkitFilter: "grayscale(100%)",
-                          }}
-                          onClick={handleButtonClick}
-                        >
-                          <a className="background-button" href="#" title="Get to Know Us">
-                          </a>
-                        </div>
-                        {/* <div
                           className="button button_0"
                           onClick={handleButtonClick}
-                          data-part-name="aboutus"
                         >
                           Get to Know Us
                           <img
                             src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/arrowbblakc.png"
                             alt="Arrow"
                           />
-                        </div> */}
+                        </div>
                       </div>
                     </div>
                     <div className="slider_inner__slide">
@@ -1259,19 +1179,6 @@ const Portfolio = () => {
                           From Fun Games to Tech & ECE Events
                         </div>
                         <div
-                          className="button-wrapper button__container button button_1"
-                          style={{
-                            filter: "grayscale(100%)",
-                            WebkitFilter: "grayscale(100%)",
-                          }}
-
-                          onClick={(e) => handleButtonClick(e, "events")}
-                        // data-part-name="events"
-                        >
-                          <a className="background-button" href="#" title="See What’s Happening">
-                          </a>
-                        </div>
-                        {/* <div
                           className="button button_1"
                           onClick={handleButtonClick}
                           data-part-name="events"
@@ -1281,7 +1188,7 @@ const Portfolio = () => {
                             src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/arrowbblakc.png"
                             alt="Arrow"
                           />
-                        </div> */}
+                        </div>
                       </div>
                     </div>
                     <div className="slider_inner__slide">
@@ -1303,18 +1210,6 @@ const Portfolio = () => {
                           Get inspired by expert speakers & professionals.
                         </div>
                         <div
-                          className="button-wrapper button__container button button_2"
-                          style={{
-                            filter: "grayscale(100%)",
-                            WebkitFilter: "grayscale(100%)",
-                          }}
-                          onClick={handleButtonClick}
-                        // onClick={(e) => handleButtonClick(e, "events")}
-                        >
-                          <a className="background-button" href="#" title=" Meet Our Guests">
-                          </a>
-                        </div>
-                        {/* <div
                           className="button button_2"
                           onClick={handleButtonClick}
                         >
@@ -1323,7 +1218,7 @@ const Portfolio = () => {
                             src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/arrowbblakc.png"
                             alt="Arrow"
                           />
-                        </div> */}
+                        </div>
                       </div>
                     </div>
                     <div className="slider_inner__slide">
@@ -1347,17 +1242,6 @@ const Portfolio = () => {
                           Keep up with what's next — stay tuned!
                         </div>
                         <div
-                          className="button-wrapper button__container button button_3"
-                          style={{
-                            filter: "grayscale(100%)",
-                            WebkitFilter: "grayscale(100%)",
-                          }}
-                          onClick={(e) => handleButtonClick(e, "timeline")}
-                        >
-                          <a className="background-button" href="#" title="View Full Timeline">
-                          </a>
-                        </div>
-                        {/* <div
                           className="button button_3"
                           onClick={handleButtonClick}
                           data-part-name="timeline"
@@ -1367,7 +1251,7 @@ const Portfolio = () => {
                             src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/arrowbblakc.png"
                             alt="Arrow"
                           />
-                        </div> */}
+                        </div>
                       </div>
                     </div>
                     <div className="slider_inner__slide">
@@ -1382,6 +1266,7 @@ const Portfolio = () => {
                           src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5181c7f5-4300-4d23-a0d1-d0cc2a40214b/de8ruib-78b98309-28f0-4c3f-a560-f58e885d2d27.jpg/v1/fill/w_1192,h_670,q_70,strp/anomaly_by_tobiasroetsch_de8ruib-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTA4MCIsInBhdGgiOiJcL2ZcLzUxODFjN2Y1LTQzMDAtNGQyMy1hMGQxLWQwY2MyYTQwMjE0YlwvZGU4cnVpYi03OGI5ODMwOS0yOGYwLTRjM2YtYTU2MC1mNThlODg1ZDJkMjcuanBnIiwid2lkdGgiOiI8PTE5MjAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.EqxrCHV903nldbc4EMwoSlVlWfP51pWUJUi__43zbw0"
                           alt="Jade Teriyaki"
                           width={"100%"}
+
                         />
                         <div className="overlay overlay_4"></div>
                         <div className="cats cats_4">
@@ -1391,17 +1276,6 @@ const Portfolio = () => {
                           Meet the crew making JSCOP 7.0 magic
                         </div>
                         <div
-                          className="button-wrapper button__container button button_4"
-                          style={{
-                            filter: "grayscale(100%)",
-                            WebkitFilter: "grayscale(100%)",
-                          }}
-                          onClick={(e) => handleButtonClick(e, "team")}
-                        >
-                          <a className="background-button" href="#" title="Meet the Team">
-                          </a>
-                        </div>
-                        {/* <div
                           className="button button_4"
                           onClick={handleButtonClick}
                           data-part-name="team"
@@ -1411,7 +1285,7 @@ const Portfolio = () => {
                             src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/arrowbblakc.png"
                             alt="Arrow"
                           />
-                        </div> */}
+                        </div>
                       </div>
                     </div>
                     <div className="slider_inner__slide">
@@ -1435,17 +1309,6 @@ const Portfolio = () => {
                           Browse through memories of our events
                         </div>
                         <div
-                          className="button-wrapper button__container button button_5"
-                          style={{
-                            filter: "grayscale(100%)",
-                            WebkitFilter: "grayscale(100%)",
-                          }}
-                          onClick={(e) => handleButtonClick(e, "gallery")}
-                        >
-                          <a className="background-button" href="#" title="View Moments">
-                          </a>
-                        </div>
-                        {/* <div
                           className="button button_5"
                           onClick={handleButtonClick}
                           data-part-name="gallery"
@@ -1455,7 +1318,7 @@ const Portfolio = () => {
                             src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/arrowbblakc.png"
                             alt="Arrow"
                           />
-                        </div> */}
+                        </div>
                       </div>
                     </div>
                     <div className="slider_inner__slide">
@@ -1467,7 +1330,7 @@ const Portfolio = () => {
                       <div className="image parent_6">
                         <img
                           draggable="false"
-                          src="https://images7.alphacoders.com/550/550739.jpg"
+                          src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/9f4085a5-316b-4aa3-9708-18958f71343d/dj6qfii-99ab04c2-8a40-404a-be03-900f6ab30361.jpg/v1/fill/w_1210,h_660,q_70,strp/tidal_gravity_generation_habitat__by_artworksstudio_dj6qfii-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9Njk5IiwicGF0aCI6IlwvZlwvOWY0MDg1YTUtMzE2Yi00YWEzLTk3MDgtMTg5NThmNzEzNDNkXC9kajZxZmlpLTk5YWIwNGMyLThhNDAtNDA0YS1iZTAzLTkwMGY2YWIzMDM2MS5qcGciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.mS4eLyHQInmTOGAb7VFCLlYPvDbVWNF_7JV-TtgNpdY"
                           alt="Jade Teriyaki"
                           width={"100%"}
                         />
@@ -1479,17 +1342,6 @@ const Portfolio = () => {
                           Collaborate, compete, and create at Hackathon
                         </div>
                         <div
-                          className="button-wrapper button__container button button_6"
-                          style={{
-                            filter: "grayscale(100%)",
-                            WebkitFilter: "grayscale(100%)",
-                          }}
-                          onClick={(e) => handleButtonClick(e, "hackathon")}
-                        >
-                          <a className="background-button" href="#" title="Join the Hack">
-                          </a>
-                        </div>
-                        {/* <div
                           className="button button_6"
                           onClick={handleButtonClick}
                           data-part-name="hackathon"
@@ -1499,7 +1351,7 @@ const Portfolio = () => {
                             src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/arrowbblakc.png"
                             alt="Arrow"
                           />
-                        </div> */}
+                        </div>
                       </div>
                     </div>
                     <div className="slider_inner__slide">
@@ -1523,28 +1375,15 @@ const Portfolio = () => {
                           Questions, ideas, or feedback? Let’s connect.
                         </div>
                         <div
-                          className="button-wrapper button__container button button_7"
-                          style={{
-                            filter: "grayscale(100%)",
-                            WebkitFilter: "grayscale(100%)",
-                          }}
-                          // onClick={(e) => handleButtonClick(e, "hackathon")}
-                          onClick={handleButtonClick}
-                        >
-                          <a className="background-button" href="#" title=" Get in Touch">
-                          </a>
-                        </div>
-                        {/* <div
                           className="button button_7"
                           onClick={handleButtonClick}
-                          data-part-name="contact"
                         >
                           Get in Touch
                           <img
                             src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/arrowbblakc.png"
                             alt="Arrow"
                           />
-                        </div> */}
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -1585,7 +1424,7 @@ const Portfolio = () => {
             </div>
           </div>
         </div>
-      </div >
+      </div>
     </>
   );
 };

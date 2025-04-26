@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { CalendarDays, Clock, MapPinned } from "lucide-react";
 import "./SpeakerCard.scss";
 
 function SpeakerCard({
@@ -92,14 +93,17 @@ function SpeakerCard({
           </h4>
         </div>
         <div className="event-details">
-          <div className="date-container">
-            <p className="animate-text date">Date: {date}</p>
+          <div className="animate-text date-container">
+            <CalendarDays />
+            <p className="animate-text date">: {date}</p>
           </div>
-          <div className="time-container">
-            <p className="animate-text time">Time: {time}</p>
+          <div className="animate-text time-container">
+            <Clock />
+            <p className="animate-text time">: {time}</p>
           </div>
-          <div className="venue-container">
-            <p className="animate-text venue">Venue: {venue}</p>
+          <div className="animate-text venue-container">
+            <MapPinned />
+            <p className="animate-text venue">: {venue}</p>
           </div>
         </div>
       </div>

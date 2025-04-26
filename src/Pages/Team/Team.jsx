@@ -29,9 +29,8 @@ function Team() {
         <main className="toggle-box">
           <div style={{ marginLeft: "10px" }}>
             <div
-              className={`button-wrapper ${
-                (activeTab === "technical" ? "active" : "", "button__container")
-              }`}
+              className={`button-wrapper ${(activeTab === "technical" ? "active" : "", "button__container")
+                }`}
               style={{
                 // filter: `hue-rotate(${36}deg)`,
                 // WebkitFilter: `hue-rotate(${36}deg)`,
@@ -45,10 +44,9 @@ function Team() {
           </div>
           <div>
             <div
-              className={`button-wrapper ${
-                (activeTab === "management" ? "active" : "",
-                "button__container")
-              }`}
+              className={`button-wrapper ${(activeTab === "management" ? "active" : "",
+                  "button__container")
+                }`}
               style={{
                 filter: "grayscale(100%)",
                 WebkitFilter: "grayscale(100%)",
