@@ -32,8 +32,8 @@ const Discord = () => {
                   <a
                     target="_blank"
                     className="background-button"
-                    href="https://discord.gg/hackbyte"
-                    title="Join"
+                    href="https://discord.com/channels/1357765728794579214/1358304465408622815"
+                    title="Discord Server"
                   ></a>
                 </div>
               </div>
@@ -442,7 +442,7 @@ function Hackathon() {
       >
         <About />
         <Countdown
-          eventDate="2025-05-02T04:00:00"
+          eventDate="2025-05-02T12:00:00"
           eventLocation="JIIT Optica Student Chapter"
           eventMode="Online"
         />
