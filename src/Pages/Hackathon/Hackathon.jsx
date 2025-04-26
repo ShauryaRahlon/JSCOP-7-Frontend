@@ -8,7 +8,7 @@ import "./Discord.css";
 import "./Countdown.css";
 import { CalendarDays, Clock, User, Globe } from "lucide-react";
 import logo from "./../../assets/jscopLogo.png";
-import ethereum_icon from "../../../public/images/ethereum_icon.png";
+import ethereum_icon from "../../assets/images/ethereum_icon.png";
 import innovation from "/images/innovation.png";
 import ethereum from "./../../assets/ethereum-logo.png";
 import devfolio1 from "./../../assets/devfolio1.png";
