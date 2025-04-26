@@ -8,9 +8,11 @@ import nav_jscop from "./../../assets/nav_jscop.png";
 import nav_2_jscop from "./../../assets/nav_2_jscop.png";
 // import rocketanimation from "./../../assets/rocket-animation.mp4";
 import HomePageBG from "./../../assets/HomePageBG.mp4";
+// import one from "./../../assets/earth-rotate-moewalls-com.mp4"
 import "./NewLandingPage.css";
 import Events from "../Events/Events";
 import LoadComponent, { BackToHome } from "../LoadComponent/LoadComponent";
+import BlackHole from "../../Components/UI/BlackHole";
 
 const Portfolio = () => {
   const [introComplete, setIntroComplete] = useState(false);
@@ -189,8 +191,8 @@ const Portfolio = () => {
 
   let prev_parent;
 
-  const handleButtonClick = (e) => {
-    setPartName(e.target.dataset.partName);
+  const handleButtonClick = (e, part_name = "") => {
+    setPartName(part_name);
     setTimeout(() => {
       // setIsScrolling((prev) => !prev);
       setIsOpen((prev) => !prev);
@@ -400,9 +402,8 @@ const Portfolio = () => {
       });
 
       if (sliderInnerRef.current) {
-        sliderInnerRef.current.style.transform = `translateX(${
-          newDifference + endPosition
-        }px) translateY(120px)`;
+        sliderInnerRef.current.style.transform = `translateX(${newDifference + endPosition
+          }px) translateY(120px)`;
       }
     }
   };
@@ -549,9 +550,8 @@ const Portfolio = () => {
           const velocity = 0.5 - pps / 40000;
 
           document.querySelectorAll(".slider_inner__slide").forEach((slide) => {
-            slide.style.transform = `rotateY(${direction}${
-              pps / 110
-            }deg) scale(1)`;
+            slide.style.transform = `rotateY(${direction}${pps / 110
+              }deg) scale(1)`;
             slide.style.transition = `all ${velocity}s`;
           });
         }
@@ -748,6 +748,19 @@ const Portfolio = () => {
                 alt="Logo"
               />
               <div className="page_portfolio">
+                <BlackHole />
+                {/* <div className="portfolio-animation-overlay"></div>
+                <div className="portfolio-animation-container">
+                  <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="portfolio-animation-video animation-opacity"
+                  >
+                    <source src={one} type="video/mp4" />
+                  </video>
+                </div> */}
                 <div className="portfolio_home__header">
                   <div className="logoMain">
                     <img src={nav_jscop} alt="jscop" />
@@ -945,10 +958,10 @@ const Portfolio = () => {
                     </div>
                     <div
                       className="image parent_1"
-                      // style={{
-                      //   position: "relative",
-                      //   overflow: flag ? "scroll" : "hidden",
-                      // }}
+                    // style={{
+                    //   position: "relative",
+                    //   overflow: flag ? "scroll" : "hidden",
+                    // }}
                     >
                       <img
                         draggable="false"
@@ -1040,10 +1053,10 @@ const Portfolio = () => {
                   </div>
                   <div
                     className="slideClone"
-                    // style={{
-                    //   overflowY: isScrolling ? "scroll" : "hidden",
-                    //   overflowX: "hidden",
-                    // }}
+                  // style={{
+                  //   overflowY: isScrolling ? "scroll" : "hidden",
+                  //   overflowX: "hidden",
+                  // }}
                   >
                     <div className="title f">
                       .06
@@ -1125,7 +1138,7 @@ const Portfolio = () => {
                     onMouseMove={handleSliderMouseMove}
                     onMouseUp={handleSliderMouseUp}
                     onScroll={handleSliderScroll}
-                    // ref={scrollRef}
+                  // ref={scrollRef}
                   >
                     <div className="slider_inner__slide">
                       <div className="title" data-index="0">
@@ -1148,6 +1161,17 @@ const Portfolio = () => {
                           Optica’s student-led journey through JSCOP
                         </div>
                         <div
+                          className="button-wrapper button__container button button_0"
+                          style={{
+                            filter: "grayscale(100%)",
+                            WebkitFilter: "grayscale(100%)",
+                          }}
+                          onClick={handleButtonClick}
+                        >
+                          <a className="background-button" href="#" title="Get to Know Us">
+                          </a>
+                        </div>
+                        {/* <div
                           className="button button_0"
                           onClick={handleButtonClick}
                         >
@@ -1156,7 +1180,7 @@ const Portfolio = () => {
                             src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/arrowbblakc.png"
                             alt="Arrow"
                           />
-                        </div>
+                        </div> */}
                       </div>
                     </div>
                     <div className="slider_inner__slide">
@@ -1180,6 +1204,19 @@ const Portfolio = () => {
                           From Fun Games to Tech & ECE Events
                         </div>
                         <div
+                          className="button-wrapper button__container button button_1"
+                          style={{
+                            filter: "grayscale(100%)",
+                            WebkitFilter: "grayscale(100%)",
+                          }}
+
+                          onClick={(e) => handleButtonClick(e, "events")}
+                        // data-part-name="events"
+                        >
+                          <a className="background-button" href="#" title="See What’s Happening">
+                          </a>
+                        </div>
+                        {/* <div
                           className="button button_1"
                           onClick={handleButtonClick}
                           data-part-name="events"
@@ -1189,7 +1226,7 @@ const Portfolio = () => {
                             src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/arrowbblakc.png"
                             alt="Arrow"
                           />
-                        </div>
+                        </div> */}
                       </div>
                     </div>
                     <div className="slider_inner__slide">
@@ -1211,6 +1248,18 @@ const Portfolio = () => {
                           Get inspired by expert speakers & professionals.
                         </div>
                         <div
+                          className="button-wrapper button__container button button_2"
+                          style={{
+                            filter: "grayscale(100%)",
+                            WebkitFilter: "grayscale(100%)",
+                          }}
+                          onClick={handleButtonClick}
+                        // onClick={(e) => handleButtonClick(e, "events")}
+                        >
+                          <a className="background-button" href="#" title=" Meet Our Guests">
+                          </a>
+                        </div>
+                        {/* <div
                           className="button button_2"
                           onClick={handleButtonClick}
                         >
@@ -1219,7 +1268,7 @@ const Portfolio = () => {
                             src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/arrowbblakc.png"
                             alt="Arrow"
                           />
-                        </div>
+                        </div> */}
                       </div>
                     </div>
                     <div className="slider_inner__slide">
@@ -1243,6 +1292,17 @@ const Portfolio = () => {
                           Keep up with what's next — stay tuned!
                         </div>
                         <div
+                          className="button-wrapper button__container button button_3"
+                          style={{
+                            filter: "grayscale(100%)",
+                            WebkitFilter: "grayscale(100%)",
+                          }}
+                          onClick={(e) => handleButtonClick(e, "timeline")}
+                        >
+                          <a className="background-button" href="#" title="View Full Timeline">
+                          </a>
+                        </div>
+                        {/* <div
                           className="button button_3"
                           onClick={handleButtonClick}
                           data-part-name="timeline"
@@ -1252,7 +1312,7 @@ const Portfolio = () => {
                             src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/arrowbblakc.png"
                             alt="Arrow"
                           />
-                        </div>
+                        </div> */}
                       </div>
                     </div>
                     <div className="slider_inner__slide">
@@ -1276,6 +1336,17 @@ const Portfolio = () => {
                           Meet the crew making JSCOP 7.0 magic
                         </div>
                         <div
+                          className="button-wrapper button__container button button_4"
+                          style={{
+                            filter: "grayscale(100%)",
+                            WebkitFilter: "grayscale(100%)",
+                          }}
+                          onClick={(e) => handleButtonClick(e, "team")}
+                        >
+                          <a className="background-button" href="#" title="Meet the Team">
+                          </a>
+                        </div>
+                        {/* <div
                           className="button button_4"
                           onClick={handleButtonClick}
                           data-part-name="team"
@@ -1285,7 +1356,7 @@ const Portfolio = () => {
                             src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/arrowbblakc.png"
                             alt="Arrow"
                           />
-                        </div>
+                        </div> */}
                       </div>
                     </div>
                     <div className="slider_inner__slide">
@@ -1309,6 +1380,17 @@ const Portfolio = () => {
                           Browse through memories of our events
                         </div>
                         <div
+                          className="button-wrapper button__container button button_5"
+                          style={{
+                            filter: "grayscale(100%)",
+                            WebkitFilter: "grayscale(100%)",
+                          }}
+                          onClick={(e) => handleButtonClick(e, "gallery")}
+                        >
+                          <a className="background-button" href="#" title="View Moments">
+                          </a>
+                        </div>
+                        {/* <div
                           className="button button_5"
                           onClick={handleButtonClick}
                           data-part-name="gallery"
@@ -1318,7 +1400,7 @@ const Portfolio = () => {
                             src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/arrowbblakc.png"
                             alt="Arrow"
                           />
-                        </div>
+                        </div> */}
                       </div>
                     </div>
                     <div className="slider_inner__slide">
@@ -1342,6 +1424,17 @@ const Portfolio = () => {
                           Collaborate, compete, and create at Hackathon
                         </div>
                         <div
+                          className="button-wrapper button__container button button_6"
+                          style={{
+                            filter: "grayscale(100%)",
+                            WebkitFilter: "grayscale(100%)",
+                          }}
+                          onClick={(e) => handleButtonClick(e, "hackathon")}
+                        >
+                          <a className="background-button" href="#" title="Join the Hack">
+                          </a>
+                        </div>
+                        {/* <div
                           className="button button_6"
                           onClick={handleButtonClick}
                           data-part-name="hackathon"
@@ -1351,7 +1444,7 @@ const Portfolio = () => {
                             src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/arrowbblakc.png"
                             alt="Arrow"
                           />
-                        </div>
+                        </div> */}
                       </div>
                     </div>
                     <div className="slider_inner__slide">
@@ -1375,6 +1468,18 @@ const Portfolio = () => {
                           Questions, ideas, or feedback? Let’s connect.
                         </div>
                         <div
+                          className="button-wrapper button__container button button_7"
+                          style={{
+                            filter: "grayscale(100%)",
+                            WebkitFilter: "grayscale(100%)",
+                          }}
+                          // onClick={(e) => handleButtonClick(e, "hackathon")}
+                          onClick={handleButtonClick}
+                        >
+                          <a className="background-button" href="#" title=" Get in Touch">
+                          </a>
+                        </div>
+                        {/* <div
                           className="button button_7"
                           onClick={handleButtonClick}
                         >
@@ -1383,7 +1488,7 @@ const Portfolio = () => {
                             src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/arrowbblakc.png"
                             alt="Arrow"
                           />
-                        </div>
+                        </div> */}
                       </div>
                     </div>
                   </div>
@@ -1424,7 +1529,7 @@ const Portfolio = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div >
     </>
   );
 };
