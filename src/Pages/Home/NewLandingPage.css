@@ -1000,6 +1000,23 @@ body .portfolio_home__title .page_portfolio {
   }
 }
 
+.arrow-icon {
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 10px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Slightly brighter */
+    transform: scale(1.1); /* Slight zoom on hover */
+  }
+}
+
 .rocket-animation-container {
   position: fixed;
   width: 100vw;
