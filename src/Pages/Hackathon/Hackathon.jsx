@@ -7,11 +7,11 @@ import "./Stats.css";
 import "./Discord.css";
 import "./Countdown.css";
 import { CalendarDays, Clock, User, Globe } from "lucide-react";
-import logo from "./../../assets/jscopLogo.png";
+import logo from "/images/jscopLogo.png";
 import ethereum_icon from "/images/ethereum_icon.png";
 import innovation from "/images/innovation.png";
-import ethereum from "./../../assets/ethereum-logo.png";
-import devfolio1 from "./../../assets/devfolio1.png";
+import ethereum from "/images/ethereum-logo.png";
+import devfolio1 from "/images/devfolio1.png";
 
 const Discord = () => {
   return (

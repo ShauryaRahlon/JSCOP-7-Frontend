@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./Gallery.scss";
-import cross_icon from "../../assets/cross_icon.png"; // Import the cross icon
+import cross_icon from "/images/cross_icon.png"; // Import the cross icon
 
 const Gallery = () => {
   // State to track which book is selected for the modal

@@ -2,12 +2,12 @@ import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom"; // Import useNavigate
 import Navbar from "../../Components/Navbar/Navbar";
 import { Home, ArrowDown, ArrowLeft, Rotate3D } from "lucide-react";
-import jscopLogo from "./../../assets/jscopLogo.png";
-import opticaLogo from "./../../assets/opticaLogo.png";
-import nav_jscop from "./../../assets/nav_jscop.png";
-import nav_2_jscop from "./../../assets/nav_2_jscop.png";
+import jscopLogo from "/images/jscopLogo.png";
+import opticaLogo from "/images/opticaLogo.png";
+import nav_jscop from "/images/nav_jscop.png";
+import nav_2_jscop from "/images/nav_2_jscop.png";
 // import rocketanimation from "./../../assets/rocket-animation.mp4";
-import HomePageBG from "./../../assets/HomePageBG.mp4";
+import HomePageBG from "/videos/HomePageBG.mp4";
 // import one from "./../../assets/earth-rotate-moewalls-com.mp4"
 import "./NewLandingPage.css";
 import Events from "../Events/Events";

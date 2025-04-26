@@ -267,7 +267,7 @@ export default function RegistrationForm() {
                 <div className="regis-sub-heading">QR CODE</div>
 
                 <div className="qr-container">
-                  <img src="src/assets/qrimage/qr.jpeg" className="qr-image" alt="QR code" />
+                  <img src="/qrimage/qr.jpeg" className="qr-image" alt="QR code" />
                 </div>
               </div>
             </div>
