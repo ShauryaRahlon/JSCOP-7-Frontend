@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import "./Hackathon.css";
 import "./About.css";
 import "./Tracks.css";
@@ -7,11 +7,11 @@ import "./Stats.css";
 import "./Discord.css";
 import "./Countdown.css";
 import { CalendarDays, Clock, User, Globe } from "lucide-react";
-import logo from "./../../assets/jscopLogo.png";
+import logo from "/images/jscopLogo.png";
 import ethereum_icon from "/images/ethereum_icon.png";
 import innovation from "/images/innovation.png";
-import ethereum from "./../../assets/ethereum-logo.png";
-import devfolio1 from "./../../assets/devfolio1.png";
+import ethereum from "/images/ethereum-logo.png";
+import devfolio1 from "/images/devfolio1.png";
 
 const Discord = () => {
   return (
@@ -32,8 +32,8 @@ const Discord = () => {
                   <a
                     target="_blank"
                     className="background-button"
-                    href="https://discord.gg/hackbyte"
-                    title="Join"
+                    href="https://discord.com/channels/1357765728794579214/1358304465408622815"
+                    title="Discord Server"
                   ></a>
                 </div>
               </div>
@@ -226,7 +226,7 @@ const About = () => {
     <section className="section about" id="about">
       <div className="container">
         {/* <span className="section-subtitle">What is HackByte?</span> */}
-        <h2 className="section-title">About TESSERX</h2>
+        <h2 className="section-title about-title">About TESSERX</h2>
 
         <div className="about-content">
           <div className="about-text">
@@ -442,7 +442,7 @@ function Hackathon() {
       >
         <About />
         <Countdown
-          eventDate="2025-05-02T04:00:00"
+          eventDate="2025-05-02T12:00:00"
           eventLocation="JIIT Optica Student Chapter"
           eventMode="Online"
         />

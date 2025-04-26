@@ -7,6 +7,7 @@
       black 10%);
   padding: 15px 70px;
   /* Remove horizontal padding, let .container handle it */
+  z-index: 0;
 }
 
 /* .section .container .section-title {
@@ -155,6 +156,10 @@
     margin-bottom: 30px;
   }
 
+  .about-title {
+    font-size: 2.2rem !important;
+  }
+
   .about-content {
     grid-template-columns: 1fr;
     /* gap: var(--spacing-lg); */
@@ -206,6 +211,7 @@
     max-width: 600px;
     margin: 0 auto;
   }
+
 }
 
 /* @media (max-width:920px) rule removed for simplification */
@@ -217,10 +223,12 @@
   }
 
   .feature-item {
-    padding: var(--spacing-md);
-    /* Reduce padding */
-    justify-content: center;
-    /* Change alignment back to flex-start */
+    flex-direction: column;
+    /* Stack icon and text vertically */
+    align-items: center;
+    /* Center items horizontally */
+    padding: var(--spacing-sm);
+    /* Further reduce padding */
   }
 
   .about-card {

@@ -1,16 +1,17 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useNavigate } from "react-router-dom"; // Import useNavigate
+// import { useNavigate } from "react-router-dom"; // Import useNavigate
 import Navbar from "../../Components/Navbar/Navbar";
-import { Home, ArrowDown, ArrowLeft, Rotate3D } from "lucide-react";
-import jscopLogo from "./../../assets/jscopLogo.png";
-import opticaLogo from "./../../assets/opticaLogo.png";
-import nav_jscop from "./../../assets/nav_jscop.png";
-import nav_2_jscop from "./../../assets/nav_2_jscop.png";
+import { ArrowDown } from "lucide-react";
+// import jscopLogo from "/images/jscopLogo.png";
+import Jscop_homeLogo from "/images/Jscop_homeLogo.png";
+import opticaLogo from "/images/opticaLogo.png";
+import nav_jscop from "/images/nav_jscop.png";
+import nav_2_jscop from "/images/nav_2_jscop.png";
 // import rocketanimation from "./../../assets/rocket-animation.mp4";
-import HomePageBG from "./../../assets/HomePageBG.mp4";
+import HomePageBG9 from "/videos/HomePageBG9.mp4";
 // import one from "./../../assets/earth-rotate-moewalls-com.mp4"
 import "./NewLandingPage.css";
-import Events from "../Events/Events";
+// import Events from "../Events/Events";
 import LoadComponent, { BackToHome } from "../LoadComponent/LoadComponent";
 import BlackHole from "../../Components/UI/BlackHole";
 
@@ -29,11 +30,11 @@ const Portfolio = () => {
   const contentRef = useRef(null);
   const sliderInnerRef = useRef(null);
   const cursorRef = useRef(null);
-  const scrollRef = useRef(null);
+  // const scrollRef = useRef(null);
 
   const offset = window.innerWidth <= 768 ? 370 : 760;
   const margin = 0;
-  const threshold = 100;
+  // const threshold = 100;
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const prevParentRef = useRef(null);
@@ -774,7 +775,7 @@ const Portfolio = () => {
               playsInline
               className="rocket-animation-video"
             >
-              <source src={HomePageBG} type="video/mp4" />
+              <source src={HomePageBG9} type="video/mp4" />
             </video>
           </div>
           <div className="portfolio_home__header">
@@ -795,7 +796,7 @@ const Portfolio = () => {
               &nbsp;
               <img
                 className="second"
-                src={jscopLogo}
+                src={Jscop_homeLogo}
                 // src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/clogotemp2.png"
                 alt="Logo"
               />
@@ -1118,8 +1119,9 @@ const Portfolio = () => {
                     <div className="image parent_5">
                       <img
                         draggable="false"
-                        src="https://i.pinimg.com/1200x/1f/dc/04/1fdc0438f61ea244d2e48ea3ccefffb6.jpg"
+                        src="/images/Home_Backgrounds/Gallery_cover.jpg"
                         alt="Jade Teriyaki"
+                        width={"100%"}
                       />
                       <div className="overlay"></div>
                       <div className="cats">
@@ -1141,7 +1143,7 @@ const Portfolio = () => {
                     <div className="image parent_6">
                       <img
                         draggable="false"
-                        src="https://images7.alphacoders.com/550/550739.jpg"
+                        src="/images/Home_Backgrounds/Hackathon-BG.jpeg"
                         alt="Jade Teriyaki"
                         width={"100%"}
                       />
@@ -1161,7 +1163,7 @@ const Portfolio = () => {
                     <div className="image parent_7">
                       <img
                         draggable="false"
-                        src="https://i.pinimg.com/1200x/5f/e3/e1/5fe3e182ec10205edfc194c3126eb3aa.jpg"
+                        src="/images/Home_Backgrounds/Contact_us_img.jpg"
                         alt="Jade Teriyaki"
                         width={"100%"}
                       />
@@ -1434,7 +1436,7 @@ const Portfolio = () => {
                       <div className="image parent_5">
                         <img
                           draggable="false"
-                          src="https://i.pinimg.com/1200x/1f/dc/04/1fdc0438f61ea244d2e48ea3ccefffb6.jpg"
+                          src="/images/Home_Backgrounds/Gallery_cover.jpg"
                           alt="Jade Teriyaki"
                           width={"100%"}
                         />
@@ -1481,7 +1483,7 @@ const Portfolio = () => {
                       <div className="image parent_6">
                         <img
                           draggable="false"
-                          src="https://images7.alphacoders.com/550/550739.jpg"
+                          src="/images/Home_Backgrounds/Hackathon-BG.jpeg"
                           alt="Jade Teriyaki"
                           width={"100%"}
                         />
@@ -1528,7 +1530,7 @@ const Portfolio = () => {
                       <div className="image parent_7">
                         <img
                           draggable="false"
-                          src="https://i.pinimg.com/1200x/5f/e3/e1/5fe3e182ec10205edfc194c3126eb3aa.jpg"
+                          src="/images/Home_Backgrounds/Contact_us_img.jpg"
                           alt="Jade Teriyaki"
                           width={"100%"}
                         />
@@ -1545,8 +1547,8 @@ const Portfolio = () => {
                             filter: "grayscale(100%)",
                             WebkitFilter: "grayscale(100%)",
                           }}
-                          // onClick={(e) => handleButtonClick(e, "hackathon")}
-                          onClick={handleButtonClick}
+                          onClick={(e) => handleButtonClick(e, "contact")}
+                        // onClick={handleButtonClick}
                         >
                           <a
                             className="background-button"
