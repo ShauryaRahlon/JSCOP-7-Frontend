@@ -211,6 +211,7 @@
     max-width: 600px;
     margin: 0 auto;
   }
+
 }
 
 /* @media (max-width:920px) rule removed for simplification */
@@ -222,10 +223,12 @@
   }
 
   .feature-item {
-    padding: var(--spacing-md);
-    /* Reduce padding */
-    justify-content: center;
-    /* Change alignment back to flex-start */
+    flex-direction: column;
+    /* Stack icon and text vertically */
+    align-items: center;
+    /* Center items horizontally */
+    padding: var(--spacing-sm);
+    /* Further reduce padding */
   }
 
   .about-card {

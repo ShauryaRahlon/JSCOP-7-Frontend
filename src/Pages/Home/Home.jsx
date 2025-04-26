@@ -1141,7 +1141,7 @@ const Portfolio = () => {
                     <div className="image parent_6">
                       <img
                         draggable="false"
-                        src="https://images7.alphacoders.com/550/550739.jpg"
+                        src="/images/Home_Backgrounds/Hackathon-BG.jpeg"
                         alt="Jade Teriyaki"
                         width={"100%"}
                       />
@@ -1481,7 +1481,7 @@ const Portfolio = () => {
                       <div className="image parent_6">
                         <img
                           draggable="false"
-                          src="https://images7.alphacoders.com/550/550739.jpg"
+                          src="/images/Home_Backgrounds/Hackathon-BG.jpeg"
                           alt="Jade Teriyaki"
                           width={"100%"}
                         />
@@ -1545,8 +1545,8 @@ const Portfolio = () => {
                             filter: "grayscale(100%)",
                             WebkitFilter: "grayscale(100%)",
                           }}
-                          onClick={(e) => handleButtonClick(e, "contact")}
-
+                          // onClick={(e) => handleButtonClick(e, "hackathon")}
+                          onClick={handleButtonClick}
                         >
                           <a
                             className="background-button"
