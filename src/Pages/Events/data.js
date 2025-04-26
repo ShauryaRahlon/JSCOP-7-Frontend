@@ -1,58 +1,127 @@
+import { time } from "framer-motion";
+
 // Placeholder data structure based on inferred original format
 export const cardData = [
-    {
-        id: 1,
-        imgSrc: '/img/g.jpg', // Corrected path
-        title: 'Placeholder Title 1',
-        subtitle: 'Placeholder Subtitle 1',
-        // authorImg: '/img/authors/1.png', // Corrected path
-        authorName: 'Author One',
-        date: 'Jan 1, 2024',
-        secondaryImgSrc: 'https://res.cloudinary.com/dnqsoxydq/image/upload/v1713953806/1_23_mijkxc.jpg', // Added secondary image source
-        copy: [
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-            'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
-        ]
-    },
-    {
-        id: 2,
-        imgSrc: '/img/b.jpg', // Corrected path
-        title: 'Placeholder Title 2',
-        subtitle: 'Placeholder Subtitle 2',
-        // authorImg: '/img/authors/2.png', // Corrected path
-        authorName: 'Author Two',
-        date: 'Jan 2, 2024',
-        secondaryImgSrc: 'https://res.cloudinary.com/dnqsoxydq/image/upload/v1713941592/JSCOP6.0/Eceevent_mcit2h.jpg', // Added secondary image source
-        copy: [
-            'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'
-        ]
-    },
-    {
-        id: 3,
-        imgSrc: '/img/c.jpg', // Corrected path
-        title: 'Placeholder Title 3',
-        subtitle: 'Placeholder Subtitle 3',
-        // authorImg: '/img/a.jpg', // Corrected path
-        authorName: 'Author Three',
-        date: 'Jan 3, 2024',
-        secondaryImgSrc: 'https://res.cloudinary.com/dnqsoxydq/image/upload/v1713953870/1_xwie7e.png', // Added secondary image source
-        copy: [
-            'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-        ]
-    },
-    {
-        id: 4,
-        imgSrc: '/img/d.jpg', // Corrected path
-        title: 'Placeholder Title 4',
-        subtitle: 'Placeholder Subtitle 4',
-        // authorImg: '/img/authors/4.png', // Corrected path
-        authorName: 'Author Four',
-        date: 'Jan 4, 2024',
-        secondaryImgSrc: 'https://res.cloudinary.com/dnqsoxydq/image/upload/v1713961188/center_fun_ll4ghp.jpg', // Added secondary image source
-        copy: [
-            'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.',
-        ]
-    }
-    // Assuming there were originally 4 cards based on the number of author images.
+	{
+		id: 1,
+		imgSrc: "/img/b.jpg", // Corrected path
+		title: "Placeholder Title 1",
+
+		date: "Jan 1, 2024",
+
+		Description: [
+			"Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+			"Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+		],
+		location: "Location One",
+		venue: "Venue One",
+		time: "10:00 AM - 12:00 PM",
+		faq: [
+			{
+				question: "What is the event about?",
+				answer: "The event focuses on the latest trends in technology and innovation.",
+			},
+			{
+				question: "Who are the speakers?",
+				answer: "We have a lineup of industry experts and thought leaders.",
+			},
+			{
+				question: "How can I register?",
+				answer: "You can register through our website or at the venue.",
+			},
+		],
+		rules_link: "https://example.com/rules",
+		contact_number: [
+			{
+				name: "John Doe",
+				number: "+1234567890",
+			},
+			{
+				name: "Jane Smith",
+				number: "+0987654321",
+			},
+		],
+	},
+	{
+		id: 2,
+		imgSrc: "/img/b.jpg", // Corrected path
+		title: "Placeholder Title 1",
+
+		date: "Jan 1, 2024",
+
+		Description: [
+			"Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+			"Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+		],
+		location: "Location One",
+		venue: "Venue One",
+		time: "10:00 AM - 12:00 PM",
+		faq: [
+			{
+				question: "What is the event about?",
+				answer: "The event focuses on the latest trends in technology and innovation.",
+			},
+			{
+				question: "Who are the speakers?",
+				answer: "We have a lineup of industry experts and thought leaders.",
+			},
+			{
+				question: "How can I register?",
+				answer: "You can register through our website or at the venue.",
+			},
+		],
+		rules_link: "https://example.com/rules",
+		contanct_number: [
+			{
+				name: "John Doe",
+				number: "+1234567890",
+			},
+			{
+				name: "Jane Smith",
+				number: "+0987654321",
+			},
+		],
+	},
+	{
+		id: 3,
+
+		imgSrc: "/img/b.jpg", // Corrected path
+		title: "Placeholder Title 1",
+
+		date: "Jan 1, 2024",
+
+		Description: [
+			"Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+			"Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+		],
+		location: "Location One",
+		venue: "Venue One",
+		time: "10:00 AM - 12:00 PM",
+		faq: [
+			{
+				question: "What is the event about?",
+				answer: "The event focuses on the latest trends in technology and innovation.",
+			},
+			{
+				question: "Who are the speakers?",
+				answer: "We have a lineup of industry experts and thought leaders.",
+			},
+			{
+				question: "How can I register?",
+				answer: "You can register through our website or at the venue.",
+			},
+		],
+		rules_link: "https://example.com/rules",
+		contanct_number: [
+			{
+				name: "John Doe",
+				number: "+1234567890",
+			},
+			{
+				name: "Jane Smith",
+				number: "+0987654321",
+			},
+		],
+	},
+	// Assuming there were originally 4 cards based on the number of author images.
 ];

@@ -87,10 +87,10 @@ function SpeakerCard({
         <h1 className="speaker-title">{title}</h1>
         <h2 className="animate-text speaker-subtitle">{subtitle}</h2>
         <div className="speaker-description-box">
-          <h4 className="animate-text description">
+          <p className="animate-text description">
             {description}
             <div className="cosmic-line2"></div>
-          </h4>
+          </p>
         </div>
         <div className="event-details">
           <div className="animate-text date-container">
