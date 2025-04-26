@@ -1,6 +1,13 @@
 .about {
   position: relative;
-  background-color: var(--dark);
+  background-color: var(--bg-color);
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, black 10%);
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    black 10%
+  );
+  padding: 15px 70px;
 }
 
 .about-content {
@@ -27,6 +34,7 @@
 .feature-item {
   background-color: rgba(255, 255, 255, 0.05);
   border-radius: var(--border-radius-md);
+  display: flex;
   padding: var(--spacing-md);
   transition: var(--transition);
   border: 1px solid rgba(255, 255, 255, 0.03);
@@ -46,7 +54,7 @@
 .feature-title {
   font-weight: 600;
   font-size: 1.2rem;
-  margin-bottom: var(--spacing-xs);
+  /* margin-bottom: var(--spacing-xs); */
 }
 
 .feature-desc {
@@ -71,7 +79,7 @@
 }
 
 .about-card {
-  background-color: var(--secondary);
+  background-color: rgba(131, 120, 123, 0.5);
   padding: var(--spacing-lg);
   border-radius: var(--border-radius-lg);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);

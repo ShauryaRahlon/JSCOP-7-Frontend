@@ -452,8 +452,9 @@ const Portfolio = () => {
       });
 
       if (sliderInnerRef.current) {
-        sliderInnerRef.current.style.transform = `translateX(${newDifference + endPosition
-          }px) translateY(120px)`;
+        sliderInnerRef.current.style.transform = `translateX(${
+          newDifference + endPosition
+        }px) translateY(120px)`;
       }
     }
   };
@@ -600,8 +601,9 @@ const Portfolio = () => {
           const velocity = 0.5 - pps / 40000;
 
           document.querySelectorAll(".slider_inner__slide").forEach((slide) => {
-            slide.style.transform = `rotateY(${direction}${pps / 110
-              }deg) scale(1)`;
+            slide.style.transform = `rotateY(${direction}${
+              pps / 110
+            }deg) scale(1)`;
             slide.style.transition = `all ${velocity}s`;
           });
         }
@@ -772,7 +774,7 @@ const Portfolio = () => {
               playsInline
               className="rocket-animation-video"
             >
-              {/* <source src={HomePageBG} type="video/mp4" /> */}
+              <source src={HomePageBG} type="video/mp4" />
             </video>
           </div>
           <div className="portfolio_home__header">
@@ -995,10 +997,10 @@ const Portfolio = () => {
                     </div>
                     <div
                       className="image parent_1"
-                    // style={{
-                    //   position: "relative",
-                    //   overflow: flag ? "scroll" : "hidden",
-                    // }}
+                      // style={{
+                      //   position: "relative",
+                      //   overflow: flag ? "scroll" : "hidden",
+                      // }}
                     >
                       <img
                         draggable="false"
@@ -1090,10 +1092,10 @@ const Portfolio = () => {
                   </div>
                   <div
                     className="slideClone"
-                  // style={{
-                  //   overflowY: isScrolling ? "scroll" : "hidden",
-                  //   overflowX: "hidden",
-                  // }}
+                    // style={{
+                    //   overflowY: isScrolling ? "scroll" : "hidden",
+                    //   overflowX: "hidden",
+                    // }}
                   >
                     <div className="title f">
                       .06
@@ -1175,7 +1177,7 @@ const Portfolio = () => {
                     onMouseMove={handleSliderMouseMove}
                     onMouseUp={handleSliderMouseUp}
                     onScroll={handleSliderScroll}
-                  // ref={scrollRef}
+                    // ref={scrollRef}
                   >
                     <div className="slider_inner__slide">
                       <div className="title" data-index="0">

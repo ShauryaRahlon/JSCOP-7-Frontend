@@ -7,6 +7,9 @@ import "./Stats.css";
 import "./Discord.css";
 import "./Countdown.css";
 import { CalendarDays, Clock, User, Globe } from "lucide-react";
+import logo from "./../../assets/jscopLogo.png";
+import ethereum_icon from "../../../public/images/ethereum_icon.png";
+import innovation from "/images/innovation.png";
 
 const Discord = () => {
   return (
@@ -15,33 +18,6 @@ const Discord = () => {
         <div className="discord-card">
           <div className="discord-content">
             <h2 className="discord-title">Join our Discord Server!</h2>
-            <p className="discord-description">
-              To stay up-to-date with <strong>HackByte 3.0</strong>, consider
-              joining our discord. Helps us share important updates right away
-              with hackers and enthusiasts alike!
-            </p>
-
-            <ul className="discord-benefits">
-              <li>
-                <span className="benefit-bullet">○</span>
-                <span className="benefit-text">
-                  Get the latest news and announcements.
-                </span>
-              </li>
-              <li>
-                <span className="benefit-bullet">○</span>
-                <span className="benefit-text">
-                  Get notified for exciting events!
-                </span>
-              </li>
-              <li>
-                <span className="benefit-bullet">○</span>
-                <span className="benefit-text">
-                  Connect with like-minded individuals.
-                </span>
-              </li>
-            </ul>
-
             <a
               href="https://discord.gg/hackbyte"
               target="_blank"
@@ -67,16 +43,16 @@ const Discord = () => {
               </span>
               Join
             </a>
+            <div className="Contact">
+              <h3 className="contact-header">Contact Us</h3>
+              <p className="contact-para">
+                For any queries, please email us at: JiitOptica@gmail.com
+              </p>
+            </div>
           </div>
 
           <div className="discord-logo">
-            <div className="logo-container">
-              <img
-                src="https://placehold.co/300x300/808080/FFF?text=HackByte+3.0"
-                alt="HackByte 3.0 Logo"
-                className="hackbyte-logo"
-              />
-            </div>
+            <img src={logo} alt="TESSERX Logo" className="tesserx-logo" />
           </div>
         </div>
       </div>
@@ -250,15 +226,23 @@ const About = () => {
 
             <div className="features-grid">
               <div className="feature-item">
-                <div className="feature-icon">🏆</div>
-                <div className="feature-title">Win Cash Prize</div>
-                <div className="feature-desc">Win cash prize of upto $182</div>
+                <div className="feature-icon">🏆</div> &nbsp;
+                <div>
+                  <div className="feature-title">Win Cash Prize</div>
+                  <div className="feature-desc">
+                    Win cash prize of upto $182
+                  </div>
+                </div>
               </div>
 
               <div className="feature-item">
-                <div className="feature-icon">🚀</div>
-                <div className="feature-title">Innovation</div>
-                <div className="feature-desc">Transform ideas into reality</div>
+                <div className="feature-icon">🚀</div> &nbsp; &nbsp;
+                <div>
+                  <div className="feature-title">Innovation</div>
+                  <div className="feature-desc">
+                    Transform ideas into reality
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -329,7 +313,7 @@ const Stats = () => {
 
   return (
     <section className="section stats" id="stats" ref={sectionRef}>
-      <h2 className="section-title sponsors-title">Proud Sponsors</h2>
+      <h2 className="section-title sponsors-title">Our Proud Sponsor</h2>
       <div className="sponsor-logos">
         <img
           src="https://static.vecteezy.com/system/resources/previews/008/073/640/non_2x/ethereum-logo-icon-isolated-on-white-background-free-vector.jpg"
@@ -350,7 +334,8 @@ const Tracks = () => {
     {
       id: 1,
       title: "Ethereum Track",
-      icon: "🤖",
+      // ethereum icon
+      icon: ethereum_icon,
       description:
         "Select this track if you're building on Ethereum to be eligible for the prizes!",
       problems: [
@@ -362,7 +347,7 @@ const Tracks = () => {
     {
       id: 5,
       title: "Open Innovation",
-      icon: "💡",
+      icon: innovation,
       description:
         "Choose your own adventure! Build any innovative solution that doesn't fit the other tracks.",
       problems: [
@@ -376,12 +361,24 @@ const Tracks = () => {
     <section className="section tracks" id="tracks">
       <div className="container-1">
         {/* <span className="section-subtitle">Challenge Areas</span> */}
-        <h2 className="section-title">Available Track</h2>
+        <h2 className="section-title">Available Tracks</h2>
         <div className="tracks-grid">
           {tracks.map((track) => (
             <div key={track.id} className="track-card">
-              <div className="track-header">
-                <div className="track-icon">{track.icon}</div>
+              <div
+                className="track-header "
+                style={{
+                  paddingBottom: "20px",
+                }}
+              >
+                <img
+                  src={track.icon}
+                  alt={track.title}
+                  className="track-icon"
+                  style={{
+                    height: "40px",
+                  }}
+                />
                 <h3 className="track-title">{track.title}</h3>
               </div>
               <p className="track-description">{track.description}</p>
@@ -402,7 +399,14 @@ const Tracks = () => {
 
 function Hackathon() {
   return (
-    <div className="app">
+    <div className="app hackathon-box">
+      <div
+        className="stars "
+        style={{
+          backgroundColor: "#16212c",
+          minHeight: "fit-content",
+        }}
+      ></div>
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

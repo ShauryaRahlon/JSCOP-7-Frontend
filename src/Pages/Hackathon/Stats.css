@@ -1,5 +1,5 @@
 .stats {
-  background-color: var(--primary);
+  background-color: rgba(131, 120, 123, 0.5);
   color: white;
   position: relative;
   overflow: hidden;
