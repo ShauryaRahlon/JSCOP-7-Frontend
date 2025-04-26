@@ -13,11 +13,9 @@
   --gray-light: #cccccc;
   /* --bg-color: #696968; */
 
-  --gradient-primary: linear-gradient(
-    135deg,
-    var(--primary) 0%,
-    var(--secondary) 100%
-  );
+  --gradient-primary: linear-gradient(135deg,
+      var(--primary) 0%,
+      var(--secondary) 100%);
   --gradient-dark: linear-gradient(135deg, #121212 0%, #1e1e1e 100%);
 
   --spacing-xs: 8px;
@@ -57,11 +55,9 @@
 
   /* Fade from transparent to solid color from top */
   mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, black 15%);
-  -webkit-mask-image: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0) 0%,
-    black 15%
-  );
+  -webkit-mask-image: linear-gradient(to bottom,
+      rgba(0, 0, 0, 0) 0%,
+      black 15%);
 }
 
 html {
@@ -151,7 +147,7 @@ a:hover {
 .section-title::after {
   content: "";
   position: absolute;
-  bottom: -15px;
+  bottom: -10px;
   left: 50%;
   transform: translateX(-50%);
   width: 250px;
@@ -259,12 +255,10 @@ a:hover {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    45deg,
-    transparent,
-    rgba(255, 255, 255, 0.05),
-    transparent
-  );
+  background: linear-gradient(45deg,
+      transparent,
+      rgba(255, 255, 255, 0.05),
+      transparent);
   transform: translateX(-100%);
   transition: var(--transition);
 }
@@ -329,11 +323,13 @@ a:hover {
 }
 
 @keyframes pulse {
+
   0%,
   100% {
     opacity: 1;
     transform: scale(1);
   }
+
   50% {
     opacity: 0.8;
     transform: scale(0.95);
@@ -344,9 +340,11 @@ a:hover {
   0% {
     transform: translateX(-100%);
   }
+
   50% {
     transform: translateX(0);
   }
+
   100% {
     transform: translateX(100%);
   }
@@ -354,20 +352,24 @@ a:hover {
 
 /* Animations */
 @keyframes float {
+
   0%,
   100% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(-20px);
   }
 }
 
 @keyframes glow {
+
   0%,
   100% {
     opacity: 1;
   }
+
   50% {
     opacity: 0.5;
   }
@@ -392,11 +394,16 @@ a:hover {
   }
 
   .container {
-    padding: 0 var(--spacing-sm);
+    /* padding: 0 var(--spacing-sm); */
   }
 
   .section {
     padding: var(--spacing-md) 0;
+  }
+
+  .new-t {
+    padding-top: 50px !important;
+    font-size: 2.2rem !important;
   }
 }
 

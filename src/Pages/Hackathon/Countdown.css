@@ -10,16 +10,14 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: linear-gradient(
-    45deg,
-    rgba(237, 58, 69, 0.05) 25%,
-    transparent 25%,
-    transparent 50%,
-    rgba(237, 58, 69, 0.05) 50%,
-    rgba(237, 58, 69, 0.05) 75%,
-    transparent 75%,
-    transparent
-  );
+  background-image: linear-gradient(45deg,
+      rgba(237, 58, 69, 0.05) 25%,
+      transparent 25%,
+      transparent 50%,
+      rgba(237, 58, 69, 0.05) 50%,
+      rgba(237, 58, 69, 0.05) 75%,
+      transparent 75%,
+      transparent);
   background-size: 20px 20px;
   opacity: 0.2;
   z-index: 0;
@@ -91,15 +89,15 @@
 
 .countdown-details {
   display: grid;
-  background: linear-gradient(
-    to right,
-    transparent 0%,
-    #83787b 50%,
-    transparent 100%
-  );
+  background: linear-gradient(to right,
+      transparent 0%,
+      #83787b 50%,
+      transparent 100%);
   padding: 30px;
-  display: flex;
-  justify-content: space-evenly;
+  /* display: flex; */
+  /* Removed conflicting rule */
+  /* justify-content: space-evenly; */
+  /* Removed conflicting rule */
   grid-template-columns: repeat(4, 1fr);
   gap: var(--spacing-md);
   margin-bottom: var(--spacing-lg);
@@ -172,5 +170,54 @@
   .countdown-cta {
     flex-direction: column;
     gap: var(--spacing-sm);
+  }
+}
+
+@media (max-width: 500px) {
+  .countdown-wrapper {
+    padding: var(--spacing-md) 30px;
+    /* Increased horizontal padding */
+  }
+
+  .countdown-timer {
+    gap: 1px;
+  }
+
+  .timer-value {
+    font-size: 1rem;
+    /* Further reduced timer font size */
+  }
+
+  .timer-separator {
+    font-size: 1.6rem;
+    /* Further reduced separator font size */
+  }
+
+  .timer-label {
+    font-size: 0.8rem;
+    /* Further reduced label font size */
+  }
+
+  .timer-item {
+    min-width: 60px;
+    /* Reduce min-width */
+  }
+
+  .detail-item {
+    gap: var(--spacing-xs);
+    /* Reduce gap in details */
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+    /* Further reduced section title size */
+  }
+}
+
+@media (max-width: 500px) {
+  .detail-item:nth-child(2) .detail-value {
+    /* Target the Time value specifically */
+    font-size: 0.8rem;
+    /* Further reduce font size to prevent wrapping */
   }
 }

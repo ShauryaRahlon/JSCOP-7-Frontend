@@ -3,6 +3,7 @@
   position: relative;
   z-index: 1;
   padding-left: 5%;
+  padding-top: 2%;
 }
 
 .tracks::before {
@@ -52,6 +53,7 @@
   /* display: flex; */
   /* flex-direction: column; */
 }
+
 .track-header {
   display: flex;
   align-items: center;
@@ -68,6 +70,14 @@
 .track-icon {
   font-size: 2rem;
   margin-bottom: 0;
+  border-radius: 50%;
+  /* Make icon circular */
+  object-fit: cover;
+  /* Ensure image covers the circle */
+  background-color: rgba(255, 255, 255, 0.1);
+  /* Optional: add background */
+  padding: 5px;
+  /* Optional: add padding */
 }
 
 .track-title {
@@ -139,12 +149,44 @@
 }
 
 @media (max-width: 768px) {
+  .container-1 {
+    flex-direction: column;
+    /* Stack title and grid vertically */
+    align-items: center;
+    /* Center items */
+    gap: var(--spacing-lg);
+    /* Add gap between title and grid */
+  }
+
   .tracks-grid {
     grid-template-columns: 1fr;
+    width: 90%;
+    /* Make grid wider */
+    margin: 0 auto;
+    /* Center grid */
   }
 
   .track-card {
     max-width: 500px;
+    /* Keep max-width for cards */
     margin: 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .tracks {
+    padding-left: 30px;
+    /* Increased horizontal padding */
+    padding-right: 30px;
+  }
+
+  .tracks-grid {
+    width: 100%;
+    /* Use full width on very small screens */
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+    /* Further reduced section title size */
   }
 }

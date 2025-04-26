@@ -2,14 +2,16 @@
   position: relative;
   z-index: 1;
   background-color: var(--bg-color);
+  padding-bottom: 0;
+  padding-top: 6%;
 }
 
 .discord-card {
   display: grid;
   grid-template-columns: 1fr auto;
   background: linear-gradient(135deg, white 0%, #f5f5f5 100%);
-  border-radius: var(--border-radius-lg);
-  overflow: hidden;
+  /* border-radius: var(--border-radius-lg); */
+  /* overflow: hidden; */
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
   position: relative;
   z-index: 2;
@@ -23,20 +25,24 @@
   right: -20px;
   bottom: -20px;
   background: linear-gradient(135deg, var(--secondary-light), var(--secondary));
-  border-radius: var(--border-radius-xl);
+  /* border-radius: var(--border-radius-xl); */
   z-index: -1;
-  transform: rotate(-2deg);
+  /* transform: rotate(-2deg); */
 }
 
 .discord-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: var(--spacing-lg);
   color: var(--dark);
 }
 
 .discord-title {
   font-size: 2.5rem;
-  color: var(--dark);
-  margin-bottom: var(--spacing-md);
+  /* color: var(--gray-light); */
+  color: #FFFF;
+  margin-bottom: var(--spacing-lg);
 }
 
 .discord-description {
@@ -108,6 +114,7 @@
 }
 
 .Contact {
+  color: #FFFFFF;
   margin-top: 10px;
   display: flex;
   flex-direction: column;
@@ -115,8 +122,20 @@
   /* align-items: center; */
   /* gap: 2px; */
 }
+
 .contact-header {
-  margin-bottom: 4px;
+  margin-bottom: 20px;
+}
+
+.Contact .section-title::after {
+  width: 100px;
+}
+
+.discord-btn-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* gap: var(--spacing-xs); */
 }
 
 @media (max-width: 768px) {
@@ -134,7 +153,51 @@
     height: 120px;
   }
 
+  .discord-btn-container {
+    flex-direction: column;
+    /* Stack buttons vertically */
+    gap: var(--spacing-md);
+    /* Add gap between buttons */
+  }
+}
+
+@media (max-width: 480px) {
+  .discord {
+    padding-top: 30px;
+    /* Reduced top padding */
+    /* padding-left: 30px; */
+    /* Increased horizontal padding */
+    /* padding-right: 30px; */
+  }
+
+  .discord-content {
+    padding: var(--spacing-md);
+    /* Reduce content padding */
+  }
+
   .discord-title {
-    font-size: 2rem;
+    font-size: 1rem;
+    /* Further reduce title size for small screens */
+    margin-bottom: var(--spacing-lg);
+    /* Reduce margin */
+  }
+
+  .discord-btn-container {
+    gap: var(--spacing-lg);
+    /* Increase gap between buttons */
+    margin-bottom: var(--spacing-lg);
+    /* Add margin below buttons */
+  }
+
+  .contact-header {
+    margin-bottom: 15px;
+    /* Reduce margin */
+    font-size: 1.5rem;
+    /* Reduce header size */
+  }
+
+  .Contact p {
+    margin-bottom: 8px;
+    /* Add small margin between contact paras */
   }
 }

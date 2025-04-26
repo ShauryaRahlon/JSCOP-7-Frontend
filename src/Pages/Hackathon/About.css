@@ -2,26 +2,41 @@
   position: relative;
   background-color: var(--bg-color);
   mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, black 10%);
-  -webkit-mask-image: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0) 0%,
-    black 10%
-  );
+  -webkit-mask-image: linear-gradient(to bottom,
+      rgba(0, 0, 0, 0) 0%,
+      black 10%);
   padding: 15px 70px;
+  /* Remove horizontal padding, let .container handle it */
 }
+
+/* .section .container .section-title {
+  text-align: center;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+} */
 
 .about-content {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: var(--spacing-xl);
   align-items: center;
+  padding: var(--spacing-lg);
+
+  /* Add padding to match countdown-wrapper inset */
 }
+
 
 .about-text p {
   margin-bottom: var(--spacing-md);
   color: var(--gray-light);
   font-size: 1.1rem;
   line-height: 1.6;
+  text-align: justify;
+  /* Justify the paragraph text */
+  text-align: left;
 }
 
 .features-grid {
@@ -35,9 +50,10 @@
   background-color: rgba(255, 255, 255, 0.05);
   border-radius: var(--border-radius-md);
   display: flex;
-  padding: var(--spacing-md);
+  padding: var(--spacing-lg);
   transition: var(--transition);
   border: 1px solid rgba(255, 255, 255, 0.03);
+  justify-content: space-evenly;
 }
 
 .feature-item:hover {
@@ -83,6 +99,7 @@
   padding: var(--spacing-lg);
   border-radius: var(--border-radius-lg);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  text-align: left;
 }
 
 .about-card h3 {
@@ -126,14 +143,62 @@
 }
 
 @media (max-width: 1024px) {
+  .section .container .section-title {
+    /* font-size: 2.5rem; */
+    text-align: center;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+
   .about-content {
     grid-template-columns: 1fr;
-    gap: var(--spacing-lg);
+    /* gap: var(--spacing-lg); */
+    /* Reorder items for tablet/mobile */
+    /* grid-template-columns: 1fr; */
+    gap: 1px;
+    /* Ensure single column */
+    text-align: center;
+  }
+
+  .about-text {
+    /* order: 1; */
+    /* Removed */
+    display: contents;
+    /* Make children grid items */
   }
 
   .about-image {
-    order: -1;
+    order: 2;
+    /* "Why Participate" card second */
   }
+
+  /* Order the effective children of .about-content */
+  .about-text>p {
+    order: 1;
+    /* Welcome text paragraphs first */
+  }
+
+  .about-text>.features-grid {
+    order: 3;
+    /* Features grid third */
+  }
+
+  /* Keep features grid side-by-side if space allows */
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+
+  .about {
+    mask-image: none;
+    /* Remove mask for smaller screens */
+    -webkit-mask-image: none;
+  }
+
+  /* .about-image order: -1 removed */
 
   .image-wrapper {
     max-width: 600px;
@@ -144,6 +209,7 @@
 @media (max-width: 768px) {
   .features-grid {
     grid-template-columns: 1fr;
+    /* Features grid becomes single column */
   }
 
   .about-card {
@@ -152,5 +218,17 @@
 
   .reason-title {
     font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .about {
+    padding: 15px 30px;
+    /* Increased horizontal padding */
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+    /* Further reduced section title size */
   }
 }

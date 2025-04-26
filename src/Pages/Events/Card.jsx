@@ -305,9 +305,8 @@ function Card({
     <div className="card_events" ref={cardRef}>
       <div
         // Apply closed class based on local isOpen state
-        className={`card_events__container ${
-          !isOpen ? CLASSES.containerClosed : ""
-        }`}
+        className={`card_events__container ${!isOpen ? CLASSES.containerClosed : ""
+          }`}
         ref={containerRef}
       >
         <svg
