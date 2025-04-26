@@ -1,325 +1,460 @@
-@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;600;700&display=swap');
+
 .RegistrationPage {
   display: flex;
   justify-content: center;
   padding: 2%;
-  font-family:'Exo 2', sans-serif;
+  font-family: 'Exo 2', sans-serif;
+  color: #EAEAEA;
+}
 
-  .RegistrationPageSection {
-    display: flex;
-    justify-content: center;
-    // align-items: center;
-    // background-color: #d4f2ff;
-    height: 100%;
-    max-width: 1300px;
-    background-image: url("/public/images/image5.png");
-    background-size: cover;       /* Make the image cover the entire section */
-    background-repeat: no-repeat; /* Prevent the image from repeating */
-    background-position: center;  /* Center the image */ 
+.RegistrationPageSection {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  max-width: 1300px;
+  background-image: url("/public/images/image5.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  overflow: hidden; /* Ensures the border-radius applies to content */
+}
 
-    .regisGuidelineSection {
-      display: flex;
-      flex-direction: column;
-      padding: 2%;
-      flex-basis: 50%;
-      // background-color: white;
-      flex: 1;
+.regisGuidelineSection {
+  display: flex;
+  flex-direction: column;
+  padding: 3% 2%;
+  flex-basis: 50%;
+  flex: 1;
+  backdrop-filter: blur(5px);
+  background: rgba(33, 13, 51, 0.6);
+}
 
-      .GuidelineContainer {
-        // height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        .regisGuidelines {
-          font-size: 1rem;
-          font-style: normal;
-          font-weight: 400;
-          line-height: normal;
-          letter-spacing: 0.0875rem;
-          width: 95%;
+.GuidelineContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
-          ol {
-            li {
-              margin: 2% 0% 2% 5%;
-              color: rgb(207, 187, 255);
-              // padding-left: 5% !important;
-            }
-          }
-        }
-      }
-    }
+.regisGuidelines {
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: 0.075rem;
+  width: 95%;
+  background: rgba(20, 8, 30, 0.6);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
 
-    .regis {
-      padding-bottom: 30px;
-      padding: 2%;
-      height: 100%;
-      flex-basis: 50%;
-      // background-color: #d9d9d9;
-      border-radius: 2%;
-      flex: 1;
+.regisGuidelines ol li {
+  margin: 3% 0% 3% 5%;
+  color: rgb(207, 187, 255);
+  padding-right: 5px;
+}
 
-      .registration-form {
-        color: white;
-        font-size: small;
-        max-width: 450px;
-        margin: auto;
-        padding: 20px;
-        background: linear-gradient(180deg,rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.25), rgba(255,255,255,0)); /* Subtle dark blue to black gradient */
+.regis {
+  padding: 3% 2%;
+  height: 100%;
+  flex-basis: 50%;
+  border-radius: 2%;
+  flex: 1;
+  backdrop-filter: blur(8px);
+  background: rgba(20, 8, 30, 0.7);
+}
 
-    }
+.registration-form {
+  color: white;
+  font-size: small;
+  max-width: 450px;
+  margin: auto;
+  padding: 25px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05));
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
 
-    .reginput {
-      width: 100%;
-      padding: 12px;
-      margin-bottom: 15px;
-      color: #ffffff;
-      background: rgba(33, 13, 51, 0.7); /* Semi-transparent dark purple */
-      border: 1px solid rgba(141, 92, 255, 0.3); /* Subtle border using your purple button color */
-      border-radius: 6px;
-      outline: none;
-      transition: all 0.3s ease;
-      font-family: 'Exo 2', sans-serif;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    }
-    
-    .reginput:focus {
-      border-color: rgb(141, 92, 255); /* Match your button color when focused */
-      box-shadow: 0 0 8px rgba(141, 92, 255, 0.4);
-    }
-    
-    /* Improved autofill styles */
-    .reginput:-webkit-autofill,
-    .reginput:-webkit-autofill:hover, 
-    .reginput:-webkit-autofill:focus,
-    .reginput:-webkit-autofill:active {
-      -webkit-text-fill-color: white !important;
-      transition: background-color 5000s ease-in-out 0s;
-      box-shadow: 0 0 0px 1000px rgba(33, 13, 51, 0.8) inset !important;
-      -webkit-box-shadow: 0 0 0px 1000px rgba(33, 13, 51, 0.8) inset !important;
-    }
-    
-    /* Placeholder text styling */
-    .reginput::placeholder {
-      color: rgba(255, 255, 255, 0.5);
-      font-style: italic;
-    }
-    
-    /* Adjust font size for better readability */
-    .reginput, label {
-      font-size: 1rem;
-    }
-    
-    /* For Firefox */
-    .reginput:-moz-autofill,
-    .reginput:-moz-autofill:focus {
-      background: rgba(33, 13, 51, 0.7) !important;
-      color: white !important;
-    }
-    
-    .error {
-      color: #ff6b6b; /* Brighter red that's visible on dark backgrounds */
-      font-size: 14px;
-      margin-bottom: 10px;
-      font-weight: 500;
-    }
-  
-  /* Fix for autofill background color change */
-  .reginput:-webkit-autofill,
+.reginput {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 18px;
+  color: #ffffff;
+  background: rgba(33, 13, 51, 0.7);
+  border: 1px solid rgba(141, 92, 255, 0.3);
+  border-radius: 8px;
+  outline: none;
+  transition: all 0.3s ease;
+  font-family: 'Exo 2', sans-serif;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  font-size: 0.95rem;
+}
+
+.reginput:focus {
+  border-color: rgb(141, 92, 255);
+  box-shadow: 0 0 10px rgba(141, 92, 255, 0.6);
+  transform: translateY(-2px);
+}
+
+/* Improved autofill styles */
+.reginput:-webkit-autofill,
 .reginput:-webkit-autofill:hover, 
 .reginput:-webkit-autofill:focus,
 .reginput:-webkit-autofill:active {
-    -webkit-background-clip: text !important;
-    -webkit-text-fill-color: white !important;
-    transition: background-color 5000s ease-in-out 0s;
-    background: linear-gradient(to right, #000000, #210d33) !important;
-    box-shadow: inset 0 0 20px 20px #210d33 !important;
+  -webkit-text-fill-color: white !important;
+  transition: background-color 5000s ease-in-out 0s;
+  box-shadow: 0 0 0px 1000px rgba(33, 13, 51, 0.8) inset !important;
+  -webkit-box-shadow: 0 0 0px 1000px rgba(33, 13, 51, 0.8) inset !important;
+}
+
+/* Placeholder text styling */
+.reginput::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+  font-style: italic;
+  font-weight: 300;
 }
 
 /* For Firefox */
 .reginput:-moz-autofill,
 .reginput:-moz-autofill:focus {
-    background: linear-gradient(to right, #000000, #2e0d33) !important;
-    color: white !important;
-        }
-        .reginput2 {
-          width: 100%;
-          padding: 10px 0px;
-          margin-bottom: 10px;
-          // border: 1px solid #ccc;
-          // border: 1px solid black;
-          //   border-radius: 3px;
-          //   color: black;
-        }
-        label {
-          display: block;
-          // background-color: aqua;
-          width: 100%;
-          margin-bottom: 5px;
-        }
-
-        .form-group {
-          margin-bottom: 15px;
-        }
-
-        .reglist {
-          list-style-type: disc;
-          background-color: #000000;
-        }
-
-        .dareg {
-          min-width: 100px;
-        }
-
-        /* Style for error messages */
-        .error {
-          color: red;
-          font-size: 14px;
-          margin-bottom: 10px;
-        }
-
-        .dayregi {
-          height: 20px;
-          width: 20px;
-          // position: relative;
-          // right: 0px !important;
-        }
-
-        .dayylab {
-          display: flex;
-          align-items: center;
-        }
-
-        .checkbox-group {
-          display: flex;
-          // flex-direction: column;
-          align-items: center;
-        }
-
-        .regbtn {
-          background-color: rgb(141, 92, 255) !important;
-          // color: white;
-          color: white;
-          border: none;
-          text-align: center;
-          font-weight: bold;
-          padding: 14px 10px;
-          width: 50%;
-          font-size: 17px;
-          cursor: pointer;
-          border-radius: 10px;
-          // border: 2px solid white;
-        }
-
-        .heyreg {
-          display: flex;
-          justify-content: center;
-        }
-
-        .regbtn:hover {
-          background-color: rgb(190, 162, 255) !important;
-        }
-
-        option:first {
-          color: #999;
-        }
-      }
-    }
-  }
-
-.registernecessary {
-  color: rgb(192, 15, 15);
-  font-weight: bold;
+  background: rgba(33, 13, 51, 0.7) !important;
+  color: white !important;
 }
 
-.registerr-header {
+.error {
+  color: #ff6b6b;
+  font-size: 14px;
+  margin: -12px 0 15px 2px;
+  font-weight: 500;
+  opacity: 0.9;
+  transition: all 0.3s ease;
+}
+
+/* File input customization */
+.custom-file-input {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.custom-file-input input[type="file"] {
+  opacity: 0;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.custom-file-button {
+  background: rgba(33, 13, 51, 0.7);
+  color: #ffffff;
+  border: 1px solid rgba(141, 92, 255, 0.3);
+  border-radius: 8px;
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: 'Exo 2', sans-serif;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.custom-file-button:hover {
+  background: rgba(43, 18, 66, 0.8);
+  border-color: rgba(141, 92, 255, 0.6);
+}
+
+.file-icon {
+  margin-right: 12px;
+  font-size: 18px;
+}
+
+/* Select input styling */
+.custom-select-container {
+  position: relative;
+  margin-bottom: 18px;
+}
+
+.custom-select {
+  width: 100%;
+  padding: 12px 15px;
+  color: #ffffff;
+  background: rgba(33, 13, 51, 0.7);
+  border: 1px solid rgba(141, 92, 255, 0.3);
+  border-radius: 8px;
+  outline: none;
+  transition: all 0.3s ease;
+  font-family: 'Exo 2', sans-serif;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+.custom-select:focus {
+  border-color: rgb(141, 92, 255);
+  box-shadow: 0 0 10px rgba(141, 92, 255, 0.6);
+}
+
+.select-arrow {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  font-size: 16px;
   color: white;
-  text-align: center;
-  font-size: 36px;
-  font-weight: 700;
-  //   margin-top: 750px;
-  padding-top: 75px;
+  transition: transform 0.3s ease;
 }
 
+.custom-select:focus + .select-arrow {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+.custom-select option {
+  background: rgba(33, 13, 51, 0.9);
+  color: white;
+  padding: 12px;
+}
+
+/* Radio button styling */
+.radio-group {
+  display: flex;
+  margin-bottom: 20px;
+  gap: 20px;
+}
+
+.radio-label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.radio-label input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+}
+
+.radio-custom {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  border: 2px solid rgba(141, 92, 255, 0.6);
+  border-radius: 50%;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.radio-label input[type="radio"]:checked + .radio-custom::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgb(141, 92, 255);
+}
+
+.radio-label:hover .radio-custom {
+  border-color: rgb(141, 92, 255);
+  box-shadow: 0 0 5px rgba(141, 92, 255, 0.4);
+}
+
+/* Button styling */
+.regbtn {
+  background: linear-gradient(45deg, rgb(121, 72, 235), rgb(141, 92, 255));
+  color: white;
+  border: none;
+  text-align: center;
+  font-weight: bold;
+  padding: 16px 24px;
+  width: 60%;
+  font-size: 17px;
+  cursor: pointer;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(141, 92, 255, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.regbtn:hover {
+  background: linear-gradient(45deg, rgb(141, 92, 255), rgb(161, 122, 255));
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(141, 92, 255, 0.6);
+}
+
+.regbtn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 10px rgba(141, 92, 255, 0.4);
+}
+
+.heyreg {
+  display: flex;
+  justify-content: center;
+  margin-top: 29px;
+  // display: none;
+}
+
+/* Header styling */
 .RegistrationPageHeader {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
   margin-bottom: 5%;
+}
 
-  .RegistrationPageHeaderSectionHeader_text {
-    width: fit-content;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    .RegistrationPageHeaderSectionHeader_text_text-content {
-      color: #EAEAEA; /* deep sky blue / light blue */
-      font-size: 36px;
-      font-weight: 700;
-      line-height: normal;
-      text-align: center;
-      padding-bottom: 5px;
-    }
-    
+.RegistrationPageHeaderSectionHeader_text {
+  width: fit-content;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
 
-    .RegistrationPageHeaderUnderline {
-      background-color: #EAEAEA; /* light blue */
-      width: 80%;
-      height: 2px;}
+.RegistrationPageHeaderSectionHeader_text_text-content {
+  color: #EAEAEA;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: normal;
+  text-align: center;
+  padding-bottom: 10px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.RegistrationPageHeaderUnderline {
+  background: linear-gradient(to right, rgba(141, 92, 255, 0.3), rgba(141, 92, 255, 1), rgba(141, 92, 255, 0.3));
+  width: 100%;
+  height: 3px;
+  border-radius: 2px;
+  box-shadow: 0 2px 8px rgba(141, 92, 255, 0.4);
+}
+
+.registerr-header {
+  color: white;
+  text-align: center;
+  font-size: 42px;
+  font-weight: 700;
+  padding-top: 40px;
+  margin-bottom: 20px;
+  text-shadow: 0 2px 15px rgba(0, 0, 0, 0.6);
+  background: linear-gradient(90deg, rgba(141, 92, 255, 0.8), #ffffff, rgba(141, 92, 255, 0.8));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 3s infinite linear;
+}
+
+@keyframes shine {
+  0% {
+    background-position: -200px;
   }
+  100% {
+    background-position: 200px;
+  }
+}
+
+.registernecessary {
+  color: #ff6b6b;
+  font-weight: bold;
 }
 
 .regis-sub-heading {
   font-weight: bold;
-  font-size: 1.2rem;
-  text-decoration: underline;
+  font-size: 1.3rem;
+  text-decoration: none;
   color: white;
-}
-.regis-sub-head {
-  font-weight: bold;
-  font-size: 1.2rem;
+  padding: 10px 0;
+  margin: 15px 0;
+  border-bottom: 2px solid rgba(141, 92, 255, 0.6);
+  text-align: center;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 
-/* styles.css or your custom CSS file */
+/* Toast styling */
 .custom-toast-success {
-  background-color: #d4f2ff !important;
-  /* Change the background color */
+  background-color: rgba(33, 13, 51, 0.9) !important;
+  color: white !important;
+  border-left: 4px solid rgb(141, 92, 255) !important;
+  font-family: 'Exo 2', sans-serif;
 }
 
-// .Toastify__progress-bar {
-//   // display: none;
-//   // background-color: #a0c4ea !important;
-// }
+/* QR code styling */
+.qr-container {
+  display: flex;
+  justify-content: center;
+  margin: 15px 0;
+}
 
+.qr-image {
+  height: 200px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  padding: 10px;
+  background: white;
+  transition: transform 0.3s ease;
+}
+
+.qr-image:hover {
+  transform: scale(1.05);
+}
+
+/* Loading spinner enhancement */
+.loading-spinner {
+  border: 4px solid rgba(141, 92, 255, 0.3);
+  border-radius: 50%;
+  border-top: 4px solid rgb(141, 92, 255);
+  width: 30px;
+  height: 30px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Label styling */
+label {
+  display: block;
+  width: 100%;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.95rem;
+  letter-spacing: 0.025rem;
+}
+
+/* Responsive design improvements */
 @media screen and (max-width: 1280px) {
-  .RegistrationPage {
-    .RegistrationPageSection {
-      .regisGuidelineSection {
-        .GuidelineContainer {
-          .regisGuidelines {
-            font-family: 'Exo 2', sans-serif;
-            font-size: 0.9rem;
-          }
-        }
-      }
-    }
+  .regisGuidelines {
+    font-size: 0.9rem;
+  }
+  
+  .RegistrationPageHeaderSectionHeader_text_text-content {
+    font-size: 32px;
   }
 }
 
 @media screen and (max-width: 1080px) {
-  .RegistrationPage {
-    .RegistrationPageSection {
-      .regisGuidelineSection {
-        .GuidelineContainer {
-          .regisGuidelines {
-            font-family: 'Exo 2', sans-serif;
-            font-size: 0.85rem;
-          }
-        }
-      }
-    }
+  .regisGuidelines {
+    font-size: 0.85rem;
+  }
+  
+  .RegistrationPageHeaderSectionHeader_text_text-content {
+    font-size: 28px;
   }
 }
 
@@ -327,79 +462,65 @@
   .regbtn {
     width: 80% !important;
   }
-  .RegistrationPage {
-    .RegistrationPageSection {
-      flex-direction: column;
-      padding: 0%;
-      background-image: none; /* Remove background image on mobile */
-      background-color: transparent;
-      align-items: center;
-      
-      .regisGuidelineSection {
-        width: 95%;
-        border-radius: 10px;
-        margin-top: 5%;
-        background: rgba(33, 13, 51, 0.9); /* Dark background to match form */
-        color: white;
-
-        .GuidelineContainer {
-          height: 100%;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-
-          .regisGuidelines {
-            font-family: 'Exo 2', sans-serif;
-            font-size: 0.8rem;
-            width: 95%;
-            
-            ol li {
-              color: rgb(207, 187, 255); /* Maintain the purple text color */
-            }
-          }
-        }
-      }
-
-      .regis {
-        width: 95%;
-        border-radius: 10px;
-        margin-top: 5%;
-        padding: 5%;
-        margin-bottom: 5%;
-        background: rgba(15, 5, 25, 0.95); /* Dark background to match the theme */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-
-        .registration-form {
-          box-shadow: none;
-          background: transparent; /* Remove the form background */
-        }
-        
-        /* Ensure input styling remains consistent */
-        .reginput {
-          background: rgba(33, 13, 51, 0.7);
-          border: 1px solid rgba(141, 92, 255, 0.3);
-        }
-      }
-    }
+  
+  .RegistrationPageSection {
+    flex-direction: column;
+    padding: 0;
+    background-image: none;
+    background: linear-gradient(to bottom, rgba(20, 8, 30, 0.95), rgba(33, 13, 51, 0.95));
+    align-items: center;
   }
+  
+  .regisGuidelineSection {
+    width: 95%;
+    border-radius: 10px;
+    margin-top: 5%;
+    background: rgba(20, 8, 30, 0.7);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  }
+  
+  .regis {
+    width: 95%;
+    border-radius: 10px;
+    margin: 5% 0;
+    padding: 5%;
+    background: rgba(15, 5, 25, 0.7);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  }
+  
+  .RegistrationPageHeaderSectionHeader_text_text-content {
+    font-size: 24px;
+  }
+  
+  .registerr-header {
+    font-size: 32px;
+    padding-top: 30px;
+  }
+}
 
-  .RegistrationPageHeader {
-    .RegistrationPageHeaderSectionHeader_text {
-      .RegistrationPageHeaderSectionHeader_text_text-content {
-        color: white; /* Changed to white to match dark theme */
-        font-size: 1.26rem;
-        font-weight: 700;
-        line-height: normal;
-        text-align: center;
-        padding-bottom: 5px;
-      }
-
-      .RegistrationPageHeaderUnderline {
-        background-color: rgb(141, 92, 255); /* Match the accent color */
-        width: 80%;
-        height: 2px;
-      }
-    }
+@media screen and (max-width: 480px) {
+  .radio-group {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .registration-form {
+    padding: 15px;
+  }
+  
+  .regbtn {
+    width: 100% !important;
+  }
+  
+  .RegistrationPageHeaderSectionHeader_text_text-content {
+    font-size: 22px;
+  }
+  
+  .registerr-header {
+    font-size: 28px;
+  }
+  
+  .regisGuidelines ol li {
+    margin: 5% 0% 5% 5%;
   }
 }

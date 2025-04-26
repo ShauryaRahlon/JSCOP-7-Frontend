@@ -479,7 +479,7 @@ const RegisterForm = () => {
                     MozAppearance: "none" /* For Firefox */
                   }}
                 >
-                  <option value="" disabled style={{ background: "rgba(33, 13, 51, 0.9)", color: "white" }}>
+                  <option value="" disabled style={{ background: "rgba(33, 13, 51, 0.9)", color: "white", margin: "10px" }}>
                     Select College
                   </option>
                   <option value={`JIIT-62`} style={{ background: "rgba(33, 13, 51, 0.9)", color: "white" }}>JIIT-62</option>
@@ -490,7 +490,7 @@ const RegisterForm = () => {
                 {/* Custom dropdown arrow */}
                 <div style={{
                   position: "relative",
-                  top: "-38px", /* Adjust based on your select height */
+                  top: "-47px", /* Adjust based on your select height */
                   right: "10px",
                   float: "right",
                   pointerEvents: "none",
