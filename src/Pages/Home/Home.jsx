@@ -1161,7 +1161,7 @@ const Portfolio = () => {
                     <div className="image parent_7">
                       <img
                         draggable="false"
-                        src="https://i.pinimg.com/1200x/5f/e3/e1/5fe3e182ec10205edfc194c3126eb3aa.jpg"
+                        src="/images/Home_Backgrounds/Contact_us_img.jpg"
                         alt="Jade Teriyaki"
                         width={"100%"}
                       />
@@ -1528,7 +1528,7 @@ const Portfolio = () => {
                       <div className="image parent_7">
                         <img
                           draggable="false"
-                          src="https://i.pinimg.com/1200x/5f/e3/e1/5fe3e182ec10205edfc194c3126eb3aa.jpg"
+                          src="/images/Home_Backgrounds/Contact_us_img.jpg"
                           alt="Jade Teriyaki"
                           width={"100%"}
                         />
@@ -1545,8 +1545,8 @@ const Portfolio = () => {
                             filter: "grayscale(100%)",
                             WebkitFilter: "grayscale(100%)",
                           }}
-                          // onClick={(e) => handleButtonClick(e, "hackathon")}
-                          onClick={handleButtonClick}
+                          onClick={(e) => handleButtonClick(e, "contact")}
+
                         >
                           <a
                             className="background-button"
