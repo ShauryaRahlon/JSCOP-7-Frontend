@@ -67,6 +67,8 @@ const LoadComponent = ({ isOpen, part }) => {
         return <Hackathon />;
       case "contact":
         return <Contact />;
+      case "speakers":
+        return <Speaker />;
 
       default:
         return null;
