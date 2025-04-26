@@ -3,13 +3,29 @@
   --black: rgb(154, 145, 145);
 }
 
+.gallary-box {
+  position: relative;
+  //   background: linear-gradient(to bottom, #1f3341, #274051, #325b6c);
+  color: white;
+  //   padding: 200px 0px 10px 0px;
+  overflow: hidden;
+  padding-top: 300px;
+  padding-bottom: 70px;
+
+  /* Fade from transparent to solid color from top */
+  //   mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, black 20%);
+  -webkit-mask-image: linear-gradient(to bottom,
+      rgba(0, 0, 0, 0) 0%,
+      black 20%);
+}
+
 .book-grid-container {
   background-color: #16212C;
 
   .book-grid {
     display: grid;
     grid-template-columns: repeat(var(--columns), 1fr);
-    margin: 200px -40px;
+    // margin: 200px -40px;
     list-style-type: none;
     padding: 0;
 
@@ -280,7 +296,7 @@
 
 @media (min-width: 450px) {
   .book-grid-container .book-grid {
-    margin: 190px 40px;
+    // margin: 190px 40px;
   }
 }
 

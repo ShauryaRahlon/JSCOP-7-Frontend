@@ -57,7 +57,13 @@ const Gallery = () => {
   }, [selectedBook]);
 
   return (
-    <div className="book-grid-container">
+    <div className="book-grid-container gallary-box">
+      <div
+        className="stars"
+        style={{
+          backgroundColor: "#16212c",
+        }}
+      ></div>
       <ul className="book-grid">
         {allBookImages.map((src, index) => (
           <li
