@@ -34,6 +34,7 @@ function Speaker() {
       <div className="speaker-container" ref={containerRef}>
         <div className="speaker-heading">
           <h2>Featured Speakers</h2>
+          <div />
           <div className="cosmic-line"></div>
         </div>
         <div className="wrap">
