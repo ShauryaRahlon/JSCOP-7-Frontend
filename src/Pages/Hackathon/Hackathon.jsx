@@ -226,7 +226,7 @@ const About = () => {
     <section className="section about" id="about">
       <div className="container">
         {/* <span className="section-subtitle">What is HackByte?</span> */}
-        <h2 className="section-title new-t">About TESSERX</h2>
+        <h2 className="section-title">About TESSERX</h2>
 
         <div className="about-content">
           <div className="about-text">
@@ -241,7 +241,7 @@ const About = () => {
               innovations that exist beyond the visible spectrum of reality.
             </p>
             <p></p>
-
+            {/* Features grid moved back inside about-text */}
             <div className="features-grid about-cta">
               <div className="feature-item">
                 <div className="feature-icon">🏆</div> &nbsp;

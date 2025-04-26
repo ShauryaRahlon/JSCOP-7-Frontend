@@ -35,7 +35,6 @@
   font-size: 1.1rem;
   line-height: 1.6;
   text-align: justify;
-  /* Justify the paragraph text */
   text-align: left;
 }
 
@@ -65,6 +64,7 @@
 .feature-icon {
   font-size: 2rem;
   margin-bottom: var(--spacing-xs);
+  margin-right: 15px;
 }
 
 .feature-title {
@@ -143,6 +143,8 @@
 }
 
 @media (max-width: 1024px) {
+  /* .feature-icon rule removed for simplification */
+
   .section .container .section-title {
     /* font-size: 2.5rem; */
     text-align: center;
@@ -206,10 +208,19 @@
   }
 }
 
+/* @media (max-width:920px) rule removed for simplification */
+
 @media (max-width: 768px) {
   .features-grid {
     grid-template-columns: 1fr;
     /* Features grid becomes single column */
+  }
+
+  .feature-item {
+    padding: var(--spacing-md);
+    /* Reduce padding */
+    justify-content: center;
+    /* Change alignment back to flex-start */
   }
 
   .about-card {
@@ -218,6 +229,11 @@
 
   .reason-title {
     font-size: 1.1rem;
+  }
+
+  .feature-icon {
+    margin-right: var(--spacing-sm);
+    /* Use variable for consistency */
   }
 }
 
@@ -231,4 +247,45 @@
     font-size: 1.8rem;
     /* Further reduced section title size */
   }
+
+  .features-grid {
+    gap: var(--spacing-sm);
+    /* Reduce gap between stacked items */
+  }
+
+  .feature-item {
+    flex-direction: column;
+    /* Stack icon and text vertically */
+    align-items: center;
+    /* Center items horizontally */
+    padding: var(--spacing-sm);
+    /* Further reduce padding */
+  }
+
+  .feature-icon {
+    margin-right: 0;
+    /* Remove right margin */
+    margin-bottom: var(--spacing-xm);
+    /* Add bottom margin */
+    font-size: 1.8rem;
+    /* Reduce icon size */
+  }
+
+  /* Target the div containing title/desc - assumes it's the last child */
+  .feature-item>div:last-child {
+    /* text-align: center; */
+    /* Removed - keep text left-aligned */
+  }
+
+  .feature-title {
+    font-size: 1.1rem;
+    /* Reduce title font size */
+  }
+
+  .feature-desc {
+    font-size: 0.9rem;
+    /* Reduce description font size */
+  }
 }
+
+/* @media (max-width: 375px) rule removed for simplification */
