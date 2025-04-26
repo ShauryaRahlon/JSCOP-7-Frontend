@@ -1,23 +1,4 @@
-@font-face {
-  font-family: "codropsicons";
-  font-weight: normal;
-  font-style: normal;
-  src: url("../fonts/codropsicons/codropsicons.eot");
-  src: url("../fonts/codropsicons/codropsicons.eot?#iefix")
-      format("embedded-opentype"),
-    url("../fonts/codropsicons/codropsicons.woff") format("woff"),
-    url("../fonts/codropsicons/codropsicons.ttf") format("truetype"),
-    url("../fonts/codropsicons/codropsicons.svg#codropsicons") format("svg");
-}
 
-*,
-*:after,
-*:before {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
 
 .clearfix:before,
 .clearfix:after {
@@ -34,7 +15,7 @@
     sans-serif;
   line-height: 1.5;
   color: #3b393d;
-  background: #0f0d0d;
+  background: #624c4c;
   background-size: cover;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
