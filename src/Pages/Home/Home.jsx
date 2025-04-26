@@ -774,7 +774,7 @@ const Portfolio = () => {
               playsInline
               className="rocket-animation-video"
             >
-              <source src={HomePageBG9} type="video/mp4" />
+              {/* <source src={HomePageBG9} type="video/mp4" /> */}
             </video>
           </div>
           <div className="portfolio_home__header">
@@ -1118,8 +1118,9 @@ const Portfolio = () => {
                     <div className="image parent_5">
                       <img
                         draggable="false"
-                        src="https://i.pinimg.com/1200x/1f/dc/04/1fdc0438f61ea244d2e48ea3ccefffb6.jpg"
+                        src="/images/Home_Backgrounds/Gallery_cover.jpg"
                         alt="Jade Teriyaki"
+                        width={"100%"}
                       />
                       <div className="overlay"></div>
                       <div className="cats">
@@ -1434,7 +1435,7 @@ const Portfolio = () => {
                       <div className="image parent_5">
                         <img
                           draggable="false"
-                          src="https://i.pinimg.com/1200x/1f/dc/04/1fdc0438f61ea244d2e48ea3ccefffb6.jpg"
+                          src="/images/Home_Backgrounds/Gallery_cover.jpg"
                           alt="Jade Teriyaki"
                           width={"100%"}
                         />

@@ -17,11 +17,12 @@
   -webkit-mask-image: linear-gradient(to bottom,
       rgba(0, 0, 0, 0) 0%,
       black 20%);
+
 }
+
 
 .book-grid-container {
   background-color: #16212C;
-
   .book-grid {
     display: grid;
     grid-template-columns: repeat(var(--columns), 1fr);
@@ -175,7 +176,7 @@
 
       .gal_img {
         position: absolute !important;
-        width: 43% !important;
+        width: 53% !important;
         left: 50% !important;
         top: 50% !important;
         z-index: 0 !important;
@@ -199,6 +200,7 @@
     left: 0;
     right: 0;
     bottom: 0;
+    width: 100vw; // Changed from 60vw to full width
     background: rgba(0, 0, 0, 0);
     display: flex;
     justify-content: center;
@@ -209,35 +211,24 @@
     animation: fade-in 0.6s ease forwards;
   }
 
-  .book-modal-image {
-    // border-radius: 20px;
-  }
-
-  @keyframes fade-in {
-    0% {
-      background: rgba(0, 0, 0, 0);
-      backdrop-filter: blur(0px);
-    }
-
-    100% {
-      background: rgba(0, 0, 0, 0.8);
-      backdrop-filter: blur(3px);
-    }
-  }
-
   .book-modal {
     position: relative;
-    max-width: 90vw; // increased flexibility for small screens
-    max-height: 80vh;
-    margin: auto; // ensures centering
+    width: 90vw;
+    height: 90vh;
+    margin: auto;
     opacity: 0;
     transform: scale(0.8) translateY(20px);
     animation: modal-appear 0.8s cubic-bezier(0.19, 1, 0.22, 1) forwards;
     animation-delay: 0.2s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-    .gal_img {
-      max-width: 100%;
-      max-height: 80vh;
+    .book-modal-image {
+      max-width: 90vw;
+      max-height: 85vh;
+      width: auto;
+      height: auto;
       object-fit: contain;
       box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
       border-radius: 4px;
@@ -266,6 +257,18 @@
       &:hover {
         opacity: 0.8;
       }
+    }
+  }
+
+  @keyframes fade-in {
+    0% {
+      background: rgba(0, 0, 0, 0);
+      backdrop-filter: blur(0px);
+    }
+
+    100% {
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(3px);
     }
   }
 

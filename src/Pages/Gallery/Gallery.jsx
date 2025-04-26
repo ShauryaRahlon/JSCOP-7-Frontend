@@ -10,26 +10,36 @@ const Gallery = () => {
 
   // Book image URLs
   const bookImages = [
-    "https://s3-us-west-2.amazonaws.com/s.cdpn.io/881020/book10.jpg",
-    "https://s3-us-west-2.amazonaws.com/s.cdpn.io/881020/book02.jpg",
-    "https://s3-us-west-2.amazonaws.com/s.cdpn.io/881020/book03.jpg",
-    "https://s3-us-west-2.amazonaws.com/s.cdpn.io/881020/book04.jpg",
-    "https://s3-us-west-2.amazonaws.com/s.cdpn.io/881020/book05.jpg",
-    "https://s3-us-west-2.amazonaws.com/s.cdpn.io/881020/book06.jpg",
-    "https://s3-us-west-2.amazonaws.com/s.cdpn.io/881020/book07.jpg",
-    "https://s3-us-west-2.amazonaws.com/s.cdpn.io/881020/book08.jpg",
-    "https://s3-us-west-2.amazonaws.com/s.cdpn.io/881020/book09.jpg",
-    "https://s3-us-west-2.amazonaws.com/s.cdpn.io/881020/book01.jpg",
-  ];
+    "/images/Event_Images/Rename0.jpg",
+    "/images/Event_Images/Rename1.webp",
+    "/images/Event_Images/Rename2.webp",
+    "/images/Event_Images/Rename3.webp",
+    "/images/Event_Images/Rename4.jpg",
+    "/images/Event_Images/Rename5.JPG",
+    "/images/Event_Images/Rename6.JPG",
+    "/images/Event_Images/Rename7.JPG",
+    "/images/Event_Images/Rename8.JPG",
+    "/images/Event_Images/Rename9.JPG",
+    "/images/Event_Images/Rename0.jpg",
+    "/images/Event_Images/Rename1.webp",
+    "/images/Event_Images/Rename2.webp",
+    "/images/Event_Images/Rename3.webp",
+    "/images/Event_Images/Rename4.jpg",
+    "/images/Event_Images/Rename5.JPG",
+    "/images/Event_Images/Rename6.JPG",
+    "/images/Event_Images/Rename7.JPG",
+    "/images/Event_Images/Rename8.JPG",
+    "/images/Event_Images/Rename9.JPG",
 
-  // Duplicate the array to match the original HTML
-  const allBookImages = [...bookImages, ...bookImages];
+
+
+  ];
 
   // Handle book click
   const handleBookClick = (index) => {
     // Prevent opening if another modal is in the process of closing
     if (isClosing) return;
-    setSelectedBook(allBookImages[index]);
+    setSelectedBook(bookImages[index]);
   };
 
   // Start the closing animation
@@ -65,7 +75,7 @@ const Gallery = () => {
         }}
       ></div>
       <ul className="book-grid">
-        {allBookImages.map((src, index) => (
+        {bookImages.map((src, index) => (
           <li
             key={index}
             className="book-item"
