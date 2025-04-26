@@ -328,3 +328,11 @@ $transition-speed: 500ms;
     padding-top: 100px;
   }
 }
+@media (max-width:360px) {
+  .us-contact-container {
+    padding-top: 30px;
+  }
+  .mobile-us {
+    margin-top: 10px;
+  }
+}

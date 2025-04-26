@@ -297,9 +297,66 @@
   }
 }
 
+// Modify the base styles for small screens
+.book-grid-container {
+  .book-grid {
+    .book-item {
+      .gal_img {
+        width: 70% !important; // Increased from 53% for better visibility on mobile
+        transform: translateX(-50%) translateY(-50%); // Adjusted positioning
+        
+        &:hover {
+          transform: translateX(-50%) translateY(-50%); // Remove rotation on mobile
+        }
+      }
+    }
+  }
+
+  // Improve modal for mobile
+  .book-modal {
+    width: 95vw;
+    height: 80vh;
+    
+    .book-modal-image {
+      max-width: 95vw;
+      max-height: 75vh;
+    }
+
+    .gal-close-button {
+      top: -30px; // Move up slightly for better positioning
+      right: 0;
+    }
+  }
+}
+
+// Override styles for very small screens
+@media (max-width: 450px) {
+  :root {
+    --columns: 3; // Ensure minimum 3 columns
+  }
+
+  .gallary-box {
+    padding-top: 150px; // Reduce top padding on mobile
+  }
+
+  .book-grid-container .book-grid {
+    margin: 0 10px; // Reduce margins
+    
+    .book-item {
+      grid-column-end: span 2;
+      margin-top: -30%; // Reduce overlap
+      
+      .gal_img {
+        width: 85% !important; // Even larger on very small screens
+      }
+    }
+  }
+}
+
 @media (min-width: 450px) {
   .book-grid-container .book-grid {
     // margin: 190px 40px;
+    margin: 0 20px; // Reduced margin
   }
 }
 
