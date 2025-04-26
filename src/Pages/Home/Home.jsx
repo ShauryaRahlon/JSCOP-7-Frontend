@@ -455,9 +455,8 @@ const Portfolio = () => {
       });
 
       if (sliderInnerRef.current) {
-        sliderInnerRef.current.style.transform = `translateX(${
-          newDifference + endPosition
-        }px) translateY(120px)`;
+        sliderInnerRef.current.style.transform = `translateX(${newDifference + endPosition
+          }px) translateY(120px)`;
       }
     }
   };
@@ -604,9 +603,8 @@ const Portfolio = () => {
           const velocity = 0.5 - pps / 40000;
 
           document.querySelectorAll(".slider_inner__slide").forEach((slide) => {
-            slide.style.transform = `rotateY(${direction}${
-              pps / 110
-            }deg) scale(1)`;
+            slide.style.transform = `rotateY(${direction}${pps / 110
+              }deg) scale(1)`;
             slide.style.transition = `all ${velocity}s`;
           });
         }
@@ -1013,10 +1011,10 @@ const Portfolio = () => {
                     </div>
                     <div
                       className="image parent_1"
-                      // style={{
-                      //   position: "relative",
-                      //   overflow: flag ? "scroll" : "hidden",
-                      // }}
+                    // style={{
+                    //   position: "relative",
+                    //   overflow: flag ? "scroll" : "hidden",
+                    // }}
                     >
                       <img
                         draggable="false"
@@ -1108,10 +1106,10 @@ const Portfolio = () => {
                   </div>
                   <div
                     className="slideClone"
-                    // style={{
-                    //   overflowY: isScrolling ? "scroll" : "hidden",
-                    //   overflowX: "hidden",
-                    // }}
+                  // style={{
+                  //   overflowY: isScrolling ? "scroll" : "hidden",
+                  //   overflowX: "hidden",
+                  // }}
                   >
                     <div className="title f">
                       .06
@@ -1165,7 +1163,7 @@ const Portfolio = () => {
                     <div className="image parent_7">
                       <img
                         draggable="false"
-                        src="https://i.pinimg.com/1200x/5f/e3/e1/5fe3e182ec10205edfc194c3126eb3aa.jpg"
+                        src="/images/Home_Backgrounds/Contact_us_img.jpg"
                         alt="Jade Teriyaki"
                         width={"100%"}
                       />
@@ -1194,7 +1192,7 @@ const Portfolio = () => {
                     onMouseMove={handleSliderMouseMove}
                     onMouseUp={handleSliderMouseUp}
                     onScroll={handleSliderScroll}
-                    // ref={scrollRef}
+                  // ref={scrollRef}
                   >
                     <div className="slider_inner__slide">
                       <div className="title" data-index="0">
@@ -1270,7 +1268,7 @@ const Portfolio = () => {
                             WebkitFilter: "grayscale(100%)",
                           }}
                           onClick={(e) => handleButtonClick(e, "events")}
-                          // data-part-name="events"
+                        // data-part-name="events"
                         >
                           <a
                             className="background-button"
@@ -1532,7 +1530,7 @@ const Portfolio = () => {
                       <div className="image parent_7">
                         <img
                           draggable="false"
-                          src="https://i.pinimg.com/1200x/5f/e3/e1/5fe3e182ec10205edfc194c3126eb3aa.jpg"
+                          src="/images/Home_Backgrounds/Contact_us_img.jpg"
                           alt="Jade Teriyaki"
                           width={"100%"}
                         />
@@ -1549,8 +1547,8 @@ const Portfolio = () => {
                             filter: "grayscale(100%)",
                             WebkitFilter: "grayscale(100%)",
                           }}
-                          // onClick={(e) => handleButtonClick(e, "hackathon")}
-                          onClick={handleButtonClick}
+                          onClick={(e) => handleButtonClick(e, "contact")}
+                        // onClick={handleButtonClick}
                         >
                           <a
                             className="background-button"
