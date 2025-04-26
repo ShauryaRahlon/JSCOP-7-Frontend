@@ -1,29 +1,218 @@
 const TeamDetails = [
   {
     id: 1,
-    imgsrc:
-      "https://res.cloudinary.com/dnqsoxydq/image/upload/v1713941423/JSCOP6.0/Harsh_sharma_lpzstx.jpg",
-    name: "Harsh Sharma",
-    role: "Vice President",
-    type: "technical",
+    imgsrc: "https://res.cloudinary.com/dcuc1uetk/image/upload/v1738172961/core%20team%20img/Shantanu_rquccf.png",
+    name: "Shantanu Pandey",
+    role: "President",
+    type: "management",
     social: [
       {
         platform: "instagram",
-        url: "https://www.instagram.com/x_harsh.sharma_x?igsh=c2YwZjFwYW42d2dp",
+        url: "https://www.instagram.com/shantanu_pandey_108?igsh=c3hxZmswODRsaGt6",
       },
       {
         platform: "linkedin",
-        url: "https://www.linkedin.com/in/harshsharma20503",
+        url: "https://www.linkedin.com/in/shantanu-pandey-b0609925b",
       },
-      { platform: "github", url: "https://github.com/HarshSharma20503" },
     ],
   },
   {
     id: 2,
-    imgsrc:
-      "https://res.cloudinary.com/dnqsoxydq/image/upload/v1713941469/JSCOP6.0/RajatBhatinew_x337ms.jpg",
+    imgsrc: "https://res.cloudinary.com/dcuc1uetk/image/upload/v1738172959/core%20team%20img/Sairaj_e9zkdz.png",
+    name: "Sai Raj Singh",
+    role: "Vice President",
+    type: "management",
+    social: [
+      {
+        platform: "instagram",
+        url: "https://www.instagram.com/sairajsingh04?igsh=ZmUwdW40dms1cHk3",
+      },
+    ],
+  },
+  {
+    id: 3,
+    imgsrc: "https://res.cloudinary.com/dcuc1uetk/image/upload/v1738172961/core%20team%20img/Tashif_eu7mr1.png",
+    name: "Tashif Ahmad Khan",
+    role: "Treasurer",
+    type: "management",
+    social: [
+      {
+        platform: "instagram",
+        url: "https://www.instagram.com/khan_tashif?utm_source=qr&igsh=MTVnOThleHFzb3M4aQ==",
+      },
+      {
+        platform: "linkedin",
+        url: "https://www.linkedin.com/in/tashif-ahmad-khan-982304244",
+      },
+    ],
+  },
+  {
+    id: 4,
+    imgsrc: "https://res.cloudinary.com/dcuc1uetk/image/upload/v1738172962/core%20team%20img/Vaibhav_hsdh2q.jpg",
+    name: "Vaibhav Vinayak",
+    role: "Secratary",
+    type: "management",
+    social: [
+      {
+        platform: "instagram",
+        url: "https://www.instagram.com/vaibhavvinayak47?igsh=bmY2ZXcxZ2FzdTA0&utm_source=qr",
+      },
+      {
+        platform: "linkedin",
+        url: "https://www.linkedin.com/in/vaibhav-vinayak-9690b3172",
+      },
+    ],
+  },
+  {
+    id: 5,
+    imgsrc: "https://res.cloudinary.com/dcuc1uetk/image/upload/v1738172961/core%20team%20img/Rajat_bnwvxt.png",
     name: "Rajat Bhati",
-    role: "Tech Volunteer",
+    role: "Web Master",
+    type: "management",
+    social: [
+      {
+        platform: "instagram",
+        url: "https://www.instagram.com/rajat___.13?igsh=NWVpaWxxMzRpc2ht",
+      },
+      {
+        platform: "linkedin",
+        url: "https://www.linkedin.com/in/rajat-bhati-6a2114216",
+      },
+    ],
+  },
+  {
+    id: 6,
+    imgsrc: "https://res.cloudinary.com/dcuc1uetk/image/upload/v1738172960/core%20team%20img/Aryan_ylbro3.png",
+    name: "Aryan Goyal",
+    role: "Technical Head",
+    type: "management",
+    social: [
+      {
+        platform: "instagram",
+        url: "https://www.instagram.com/ag_0080/",
+      },
+      {
+        platform: "linkedin",
+        url: "https://www.linkedin.com/in/aryangoyal80/",
+      },
+    ],
+  },
+  {
+    id: 7,
+    imgsrc: "https://res.cloudinary.com/dcuc1uetk/image/upload/v1738172960/core%20team%20img/Nandini_jgccau.png",
+    name: "Nandini Jindal",
+    role: "Strategic Chief",
+    type: "management",
+    social: [
+      {
+        platform: "linkedin",
+        url: "https://www.linkedin.com/in/nandini-jindal-33a3a7282/",
+      },
+    ],
+  },
+  {
+    id: 8,
+    imgsrc: "https://res.cloudinary.com/dcuc1uetk/image/upload/v1738172962/core%20team%20img/Yash_z7k74z.png",
+    name: "Yash Mittal",
+    role: "Management Head",
+    type: "management",
+    social: [
+      {
+        platform: "instagram",
+        url: "https://www.instagram.com/yashmittal_05?igsh=MXI2MGR4YWhwZnQ5Yw==",
+      },
+      {
+        platform: "linkedin",
+        url: "https://www.linkedin.com/in/yash-mittal-433307251/",
+      },
+    ],
+  },
+  {
+    id: 9,
+    imgsrc: "https://res.cloudinary.com/dcuc1uetk/image/upload/v1738172959/core%20team%20img/Adarsh_n7z3eo.jpg",
+    name: "Adarsh Sharma",
+    role: "Digital Head",
+    type: "management",
+    social: [
+      {
+        platform: "instagram",
+        url: "https://www.instagram.com/adarsh_sharma374?igsh=NW1ldXozcGlkbTAx",
+      },
+      {
+        platform: "linkedin",
+        url: "https://www.linkedin.com/in/adarsh-sharma-3bb87027b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+      },
+    ],
+  },
+  {
+    id: 10,
+    imgsrc: "https://res.cloudinary.com/dcuc1uetk/image/upload/v1738172961/core%20team%20img/Sumant_z7k8jb.png",
+    name: "Sumant Sharma",
+    role: "Strategic Chief",
+    type: "management",
+    social: [
+      {
+        platform: "instagram",
+        url: "https://www.instagram.com/sumant45960?igsh=MXFxN3V3ZHV3dzVxaQ%3D%3D&utm_source=qr",
+      },
+      {
+        platform: "linkedin",
+        url: "https://www.linkedin.com/in/sumant-sharma-9ba135244",
+      },
+    ],
+  },
+  {
+    id: 11,
+    imgsrc: "https://res.cloudinary.com/dcuc1uetk/image/upload/v1738172960/core%20team%20img/Mayer_jvfyv2.jpg",
+    name: "Mayer Goyal",
+    role: "Outreach Head",
+    type: "management",
+    social: [
+      {
+        platform: "instagram",
+        url: "https://www.instagram.com/mayer_goyallll/",
+      },
+      {
+        platform: "linkedin",
+        url: "https://www.linkedin.com/in/mayer-goyal-07a58527a/",
+      },
+    ],
+  },
+  {
+    id: 12,
+    imgsrc: "https://res.cloudinary.com/dcuc1uetk/image/upload/v1738172961/core%20team%20img/Navy_xek5gj.png",
+    name: "Navy Gautam",
+    role: "Management Head",
+    type: "management",
+    social: [
+      {
+        platform: "instagram",
+        url: "https://www.instagram.com/navy_gautam_/",
+      },
+      {
+        platform: "linkedin",
+        url: "https://www.linkedin.com/in/navy-gautam-0247b1249/",
+      },
+    ],
+  },
+  {
+    id: 13,
+    imgsrc: "https://res.cloudinary.com/dcuc1uetk/image/upload/v1738172959/core%20team%20img/Raunak_exxuvp.jpg",
+    name: "Raunak Sharma",
+    role: "Creative Head",
+    type: "management",
+    social: [
+      {
+        platform: "instagram",
+        url: "https://www.instagram.com/raunak._.sharma_?igsh=MXFidXd0ZDQxemEwOQ==",
+      },
+    ],
+  },
+  {
+    id: 14,
+    imgsrc: "https://res.cloudinary.com/dcuc1uetk/image/upload/v1738172961/core%20team%20img/Rajat_bnwvxt.png",
+    name: "Rajat Bhati",
+    role: "Web Master",
     type: "technical",
     social: [
       {
@@ -32,119 +221,246 @@ const TeamDetails = [
       },
       {
         platform: "linkedin",
-        url: "https://www.linkedin.com/in/rajat-bhati-6a2114216/",
+        url: "https://www.linkedin.com/in/rajat-bhati-6a2114216",
       },
-      { platform: "github", url: "https://github.com/Rajatt09" },
-    ],
-  },
-  {
-    id: 3,
-    imgsrc:
-      "https://res.cloudinary.com/dnqsoxydq/image/upload/v1713941412/JSCOP6.0/Aryan-hackathon_omjleg.jpg",
-    name: "ARYAN GOYAL",
-    role: "Tech Volunteer",
-    type: "technical",
-    social: [
-      { platform: "instagram", url: "https://www.instagram.com/ag_0080/" },
       {
-        platform: "linkedin",
-        url: "https://www.linkedin.com/in/aryangoyal80/",
+        platform: "github",
+        url: "https://github.com/Rajatt09",
       },
-      { platform: "github", url: "https://github.com/AryanAg08" },
     ],
   },
   {
-    id: 4,
-    imgsrc:
-      "https://res.cloudinary.com/dnqsoxydq/image/upload/v1713941503/JSCOP6.0/YashMittalnew_wmdgnz.jpg",
-    name: "YASH MITTAL",
-    role: "Tech Volunteer",
+    id: 15,
+    imgsrc: "https://res.cloudinary.com/dcuc1uetk/image/upload/v1738172960/core%20team%20img/Aryan_ylbro3.png",
+    name: "Aryan Goyal",
+    role: "Technical Head",
     type: "technical",
     social: [
       {
         platform: "instagram",
-        url: "https://www.instagram.com/yashmittal_05/",
+        url: "https://www.instagram.com/ag_0080/",
+      },
+      {
+        platform: "linkedin",
+        url: "https://www.linkedin.com/in/aryangoyal80/",
+      },
+      {
+        platform: "github",
+        url: "https://github.com/AryanAg08",
+      },
+    ],
+  },
+  {
+    id: 16,
+    imgsrc: "https://res.cloudinary.com/dcuc1uetk/image/upload/v1738172962/core%20team%20img/Yash_z7k74z.png",
+    name: "Yash Mittal",
+    role: "Technical Member",
+    type: "technical",
+    social: [
+      {
+        platform: "instagram",
+        url: "https://www.instagram.com/yashmittal_05?igsh=MXI2MGR4YWhwZnQ5Yw==",
       },
       {
         platform: "linkedin",
         url: "https://www.linkedin.com/in/yash-mittal-433307251/",
       },
-      { platform: "github", url: "https://github.com/Geekyash10" },
+      {
+        platform: "github",
+        url: "https://github.com/Geekyash10",
+      },
     ],
   },
   {
-    id: 5,
-    imgsrc:
-      "https://res.cloudinary.com/dnqsoxydq/image/upload/v1713941451/JSCOP6.0/krishnadeol_y3tpj3.jpg",
-    name: "Krishna Deol",
-    role: "Tech Volunteer",
+    id: 17,
+    imgsrc: "/images/TeamImages/Shaurya.jpg",
+    name: "Shaurya Rahlon",
+    role: "Technical Member",
     type: "technical",
     social: [
       {
         platform: "instagram",
-        url: "https://www.instagram.com/krishnadeol5?igsh=MWN3a2FzNHRxZG1tbg==",
+        url: "https://www.instagram.com/sh4urya.r/",
       },
       {
         platform: "linkedin",
-        url: "https://www.linkedin.com/in/krishna-deol-449873251",
-      },
-      { platform: "github", url: "https://github.com/Krishnadeol" },
-    ],
-  },
-  {
-    id: 6,
-    imgsrc:
-      "https://res.cloudinary.com/dnqsoxydq/image/upload/v1713941343/JSCOP6.0/Aman_Tripathi_jbkmzi.jpg",
-    name: "Aman Tripathi",
-    role: "President",
-    type: "management",
-    social: [
-      {
-        platform: "instagram",
-        url: "https://www.instagram.com/aman_tripathi1609/",
+        url: "https://www.linkedin.com/in/shaurya-rahlon/",
       },
       {
-        platform: "linkedin",
-        url: "https://www.linkedin.com/in/aman-tripathi-808a4319b/",
+        platform: "github",
+        url: "https://github.com/ShauryaRahlon",
       },
     ],
   },
   {
-    id: 7,
-    imgsrc:
-      "https://res.cloudinary.com/dnqsoxydq/image/upload/v1713941748/JSCOP6.0/shantanu_isjcsw.png",
-    name: "SHANTANU",
-    role: "Management Volunteer",
-    type: "management",
+    id: 18,
+    imgsrc: "/images/TeamImages/Saarthak.jpg",
+    name: "Saarthak Agarwal",
+    role: "Technical Member",
+    type: "technical",
     social: [
       {
         platform: "instagram",
-        url: "https://www.instagram.com/shantanu_pandey_108?igsh=c3hxZmswODRsaGt6",
+        url: "https://www.instagram.com/saarthak.__.0408/",
       },
       {
         platform: "linkedin",
-        url: "https://www.linkedin.com/in/shantanu-pandey-b0609925b",
+        url: "https://www.linkedin.com/in/saarthak-agarwal-982200287/",
+      },
+      {
+        platform: "github",
+        url: "https://github.com/Saarthak1234",
       },
     ],
   },
   {
-    id: 8,
-    imgsrc:
-      "https://res.cloudinary.com/dnqsoxydq/image/upload/v1713941748/JSCOP6.0/shantanu_isjcsw.png",
-    name: "SHANTANU",
-    role: "Management Volunteer",
-    type: "management",
+    id: 19,
+    imgsrc: "/images/TeamImages/Vishwas.jpg",
+    name: "Vishwas Shrivastava",
+    role: "Technical Member",
+    type: "technical",
     social: [
       {
         platform: "instagram",
-        url: "https://www.instagram.com/shantanu_pandey_108?igsh=c3hxZmswODRsaGt6",
+        url: "https://www.instagram.com/vishwas_0006?igsh=MXc3eG9xZDNpanYyNA==",
       },
       {
         platform: "linkedin",
-        url: "https://www.linkedin.com/in/shantanu-pandey-b0609925b",
+        url: "http://www.linkedin.com/in/vishwas-srivastava-483416285",
+      },
+      {
+        platform: "github",
+        url: "https://github.com/Vishwas-0612",
       },
     ],
   },
+  {
+    id: 20,
+    imgsrc: "/images/TeamImages/Vansh.jpg",
+    name: "Vansh Arora",
+    role: "Technical Member",
+    type: "technical",
+    social: [
+      {
+        platform: "instagram",
+        url: "https://www.instagram.com/vansharora1293/",
+      },
+      {
+        platform: "linkedin",
+        url: "https://www.linkedin.com/in/vansh-arora-52a0ab2a7/",
+      },
+      {
+        platform: "github",
+        url: "https://github.com/vansh1293",
+      },
+    ],
+  },
+  {
+    id: 21,
+    imgsrc: "/images/TeamImages/dishi.jpg",
+    name: "Dishi Gautam",
+    role: "Technical Member",
+    type: "technical",
+    social: [
+      {
+        platform: "instagram",
+        url: "https://www.instagram.com/dishi__gautam/",
+      },
+      {
+        platform: "linkedin",
+        url: "http://www.linkedin.com/in/dishi02",
+      },
+      {
+        platform: "github",
+        url: "",
+      },
+    ],
+  },
+  {
+    id: 22,
+    imgsrc: "/images/TeamImages/Bhavishyy.jpg",
+    name: "Bhavishyy",
+    role: "Technical Member",
+    type: "technical",
+    social: [
+      {
+        platform: "instagram",
+        url: "https://www.instagram.com/_bhavishyy_?igsh=b2J3ZmhnZWFhZW9l"
+      },
+      {
+        platform: "linkedin",
+        url: "https://www.linkedin.com/in/bhavishya-katariya-94119a330?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+      },
+      {
+        platform: "github",
+        url: "https://github.com/bhavishy09",
+      },
+    ],
+  },
+  {
+    id: 23,
+    imgsrc: "/images/TeamImages/Arnav.jpg",
+    name: "Arnav Khandelwal",
+    role: "Technical Member",
+    type: "technical",
+    social: [
+      {
+        platform: "instagram",
+        url: "https://www.instagram.com/_okayarnav_",
+      },
+      {
+        platform: "linkedin",
+        url: "https://www.linkedin.com/in/arnav-khandelwal-7a0aa2278/",
+      },
+      {
+        platform: "github",
+        url: "https://github.com/arnav-khandelwal",
+      },
+    ],
+  },
+  {
+    id: 24,
+    imgsrc: "/images/TeamImages/Sneha.jpg",
+    name: "Sneha Gusain",
+    role: "Technical Member",
+    type: "technical",
+    social: [
+      {
+        platform: "instagram",
+        url: "https://www.instagram.com/yjhkdjsg/",
+      },
+      {
+        platform: "linkedin",
+        url: "http://www.linkedin.com/in/snehagusain7",
+      },
+      {
+        platform: "github",
+        url: "https://github.com/yjhkdjsg",
+      },
+    ],
+  },
+  {
+    id: 25,
+    imgsrc: "/images/TeamImages/Janvi.jpg",
+    name: "Janvi Gupta",
+    role: "Technical Member",
+    type: "technical",
+    social: [
+      {
+        platform: "instagram",
+        url: "https://www.instagram.com/?deoia=1",
+      },
+      {
+        platform: "linkedin",
+        url: "https://www.linkedin.com/in/janvi-gupta-b6a374285?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+      },
+      {
+        platform: "github",
+        url: "https://github.com/janviii09",
+      },
+    ],
+  },
+  
 ];
 
 export default TeamDetails;
