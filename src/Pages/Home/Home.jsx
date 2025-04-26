@@ -1091,8 +1091,7 @@ const Portfolio = () => {
                     <div className="image parent_4">
                       <img
                         draggable="false"
-                        src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5181c7f5-4300-4d23-a0d1-d0cc2a40214b/de8ruib-78b98309-28f0-4c3f-a560-f58e885d2d27.jpg/v1/fill/w_1192,h_670,q_70,strp/anomaly_by_tobiasroetsch_de8ruib-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTA4MCIsInBhdGgiOiJcL2ZcLzUxODFjN2Y1LTQzMDAtNGQyMy1hMGQxLWQwY2MyYTQwMjE0YlwvZGU4cnVpYi03OGI5ODMwOS0yOGYwLTRjM2YtYTU2MC1mNThlODg1ZDJkMjcuanBnIiwid2lkdGgiOiI8PTE5MjAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.EqxrCHV903nldbc4EMwoSlVlWfP51pWUJUi__43zbw0
-                        "
+                        src="/images/Home_Backgrounds/TeamBackground.jpg"
                         alt="Jade Teriyaki"
                       />
                       <div className="overlay"></div>
@@ -1389,7 +1388,7 @@ const Portfolio = () => {
                       <div className="image parent_4">
                         <img
                           draggable="false"
-                          src="/images/TeamImages/TeamBackground.jpg"
+                          src="/images/Home_Backgrounds/TeamBackground.jpg"
                           alt="Jade Teriyaki"
                           width={"100%"}
                         />

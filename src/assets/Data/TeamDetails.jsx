@@ -316,7 +316,7 @@ const TeamDetails = [
   {
     id: 19,
     imgsrc: "/images/TeamImages/Vishwas.jpg",
-    name: "Vishwas Shrivastava",
+    name: "Vishwas Srivastava",
     role: "Technical Member",
     type: "technical",
     social: [
@@ -460,7 +460,7 @@ const TeamDetails = [
       },
     ],
   },
-  
+
 ];
 
 export default TeamDetails;
