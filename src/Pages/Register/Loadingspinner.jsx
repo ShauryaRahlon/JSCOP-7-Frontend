@@ -1,16 +1,12 @@
-// LoadingSpinnerModal.js
-import React from "react";
-import "./Loadingspinner.css"; // Import CSS for styling
+export default function LoadingSpinner({ show }) {
+    if (!show) return null;
 
-const LoadingSpinner = ({ show }) => {
     return (
-        <div className="modal" style={{ display: show ? "block" : "none" }}>
+        <div className="modal">
             <div className="modal-content">
                 <div className="spinner"></div>
                 <p>Processing...</p>
             </div>
         </div>
     );
-};
-
-export default LoadingSpinner;
+}

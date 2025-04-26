@@ -1,12 +1,10 @@
-import React, { useRef, useState } from "react";
-import "./RegisterForm.scss";
-import { ToastContainer, toast } from "react-toastify";
+import React, { useState, useRef } from "react";
+import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import axios from "axios";
-import qr from "../../assets/qrimage/qr.jpeg";
-import Loadingspinner from "./Loadingspinner";
+import LoadingSpinner from './Loadingspinner'
+import "../Register/RegisterForm.scss";
 
-const RegisterForm = () => {
+export default function RegistrationForm() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -17,11 +15,12 @@ const RegisterForm = () => {
     college: "",
     enrollmentType: "",
   });
+
   const [loading, setLoading] = useState(false);
-  const [clg, setclg] = useState("");
+  const [clg, setClg] = useState("");
+  const [image, setImage] = useState(null);
   const formRef = useRef(null);
-  const [changeField, setChangeField] = useState(1);
-  const [image, setImage] = useState([]);
+
   const [formErrors, setFormErrors] = useState({
     name: "",
     email: "",
@@ -35,66 +34,42 @@ const RegisterForm = () => {
   });
 
   const handleInputChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    // if (name == "clg" && value == "others") {
-    //   setFormData((prevData) => ({
-    //     ...prevData,
-    //     [name]: "",
-    //   }));
-    //   setclg("others");
-    //   setChangeField(0);
+    const { name, value } = e.target;
 
-    //   return;
-    // }
-    if (name == "clg" && (value == "JIIT-62" || value == "JIIT-128")) {
-      setclg(value);
+    if (name === "clg" && (value === "JIIT-62" || value === "JIIT-128")) {
+      setClg(value);
       setFormData((prevData) => ({
         ...prevData,
         college: value,
       }));
       return;
-      // setclg("others");
-      setChangeField(0);
-      // setChangeField(0);
-      // return;
-    } else if (name == "clg" && value == "others") {
-      setclg("others");
+    } else if (name === "clg" && value === "others") {
+      setClg("others");
       setFormData((prevData) => ({
         ...prevData,
         college: "",
       }));
       return;
     }
-    console.log("name: ", name, "value: ", value);
-    // if (name != "clg") {
+
     setFormData((prevData) => ({
       ...prevData,
       [name]: value,
     }));
-    // }
   };
 
-  const checkEmailExists = async (email) => {
-    try {
-      //write code for checking email existance
-    } catch (error) {
-      console.error("Error checking email existence: ", error);
-      // Log the specific error for better debugging
-      //   toast.error("Error checking email existence. See console for details", {
-      //     position: toast.POSITION.TOP_CENTER,
-      //     className: "custom-toast-error",
-      //   });
-      return false; // Assume email doesn't exist in case of an error
-    }
-  };
+  const handleImage = (e) => {
+    if (!e.target.files || e.target.files.length === 0) return;
 
-  const handleImage = (f) => {
-    const file = f.target.files[0];
-    setFileToBase(file);
+    const file = e.target.files[0];
     if (file.size > 1000000) {
-      alert("File size is too large, please upload a file less than 1MB");
+      toast.error("File size is too large, please upload a file less than 1MB");
+      return;
     }
+
+    setFileToBase(file);
   };
+
   const setFileToBase = (file) => {
     const reader = new FileReader();
     reader.readAsDataURL(file);
@@ -103,32 +78,46 @@ const RegisterForm = () => {
     };
   };
 
+  const checkEmailExists = async (email) => {
+    try {
+      // Placeholder for email existence check
+      return false;
+    } catch (error) {
+      console.error("Error checking email existence: ", error);
+      return false;
+    }
+  };
+
   const handleFormSubmit = async (e) => {
     e.preventDefault();
 
-
-    // console.log("formdata is : ", formData);
-    // Perform form validation
-    const errors = {};
+    const errors = {
+      name: "",
+      email: "",
+      phone: "",
+      enroll: "",
+      batch: "",
+      branch: "",
+      college: "",
+      screenshot: "",
+      enrollmentType: "",
+    };
 
     if (!formData.name.trim()) {
       errors.name = "Name is required";
     }
+
     if (!formData.college.trim()) {
       errors.college = "College name is required";
     }
-    // if (!formData.batch.trim()) {
-    //   errors.batch = "Batch is required";
-    // }
+
     if (!formData.email.trim()) {
       errors.email = "Email is required";
-    } else if (
-      !/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/.test(formData.email)
-    ) {
+    } else if (!/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/.test(formData.email)) {
       errors.email = "Invalid email format";
     }
 
-    if (image.length == 0) {
+    if (!image) {
       errors.screenshot = "Screenshot of payment is required";
     }
 
@@ -137,243 +126,167 @@ const RegisterForm = () => {
     } else if (!/^\d{10}$/.test(formData.phone)) {
       errors.phone = "Invalid phone number";
     }
-    if (
-      !formData.enroll.trim() &&
-      (formData.college === "JIIT-62" || formData.college === "JIIT-128")
-    ) {
+
+    if (!formData.enroll.trim() && (formData.college === "JIIT-62" || formData.college === "JIIT-128")) {
       errors.enroll = "Enrollment number is required";
+    } else if (formData.college === "JIIT-128" && !/^99\d{6,10}$/.test(formData.enroll)) {
+      errors.enroll = "Enrollment number for JIIT-128 must start with '99' and be 8-12 digits long";
+    } else if (formData.college === "JIIT-62" && /^99/.test(formData.enroll)) {
+      errors.enroll = "Enrollment number for JIIT-62 should not start with '99'";
     }
-    if (
-      !formData.enrollmentType.trim() &&
-      (formData.college === "JIIT-62" || formData.college === "JIIT-128")
-    ) {
+
+    if (!formData.enrollmentType.trim() && (formData.college === "JIIT-62" || formData.college === "JIIT-128")) {
       errors.enrollmentType = "Enrollment Type is required";
     }
-    if (
-      !formData.branch.trim() &&
-      (formData.college === "JIIT-62" || formData.college === "JIIT-128")
-    ) {
+
+    if (!formData.branch.trim() && (formData.college === "JIIT-62" || formData.college === "JIIT-128")) {
       errors.branch = "Branch is required";
-    }
-    if (
-      //!/^(A[1-7]|B[1-9]|B1[0-4]|C[1-9]|b[1-9]|b1[0-4]|a[1-7]|c[1-9]|F[1-9]|f[1-9]|E[1-9]|e[1-9])$/.test(formData.batch) &&
-      !formData.batch.trim() &&
-      (formData.college === "JIIT-62" || formData.college === "JIIT-128")
+    } else if (
+      formData.branch.trim() &&
+      !/^(cse|computer science|ece|electronics and communication|ece-vlsi|bt|biotech|bba|mba|bcom|mcom|mtech|phd|m\.des)$/i.test(
+        formData.branch
+      )
     ) {
+      errors.branch = "Invalid branch. Allowed branches are: CSE, ECE, ECE-VLSI, BT, BBA, MBA, BCOM, MCOM, MTECH, PHD";
+    }
+
+    if (!formData.batch.trim() && (formData.college === "JIIT-62" || formData.college === "JIIT-128")) {
       errors.batch = "Batch is required";
+    } else if (
+      formData.college === "JIIT-128" &&
+      !/^(f1[0-9]?|f[1-9]|e1[0-9]?|e[1-7])$/i.test(formData.batch)
+    ) {
+      errors.batch = "Batch for JIIT-128 must be in the range F1-F19 or E1-E19 (case-insensitive)";
+    } else if (!/^[a-zA-Z]/.test(formData.batch)) {
+      errors.batch = "Invalid Batch";
+    } else if (!/^\D*(\d+)$/.test(formData.batch) || parseInt(formData.batch.match(/\d+$/)[0], 10) >= 20) {
+      errors.batch = "Invalid Batch";
     }
 
     setFormErrors(errors);
 
-    if (Object.keys(errors).length === 0) {
-      console.log("Form data submitted:", formData);
+    if (!Object.values(errors).some((error) => error !== "")) {
       const emailExists = await checkEmailExists(formData.email);
+
       if (emailExists) {
-        // toast.error(`User Already Registered`, {
-        //   position: toast.POSITION.TOP_CENTER,
-        //   className: "custom-toast-error",
-        // });
+        toast.error("User Already Registered");
         return;
       }
 
-      // const formDataObj = {
-      //   data: formData,
-      // };
-      const Img = {
-        image: image,
-      };
-      const Final = {
+      const finalData = {
         ...formData,
-        ...Img,
+        image,
       };
-      console.log(Final);
 
       setLoading(true);
 
       try {
-        // let response = await fetch(
-        //   "https://temp-jscop-backend-74c1d15b652d.herokuapp.com/api/register-new",
-        //   {
-        //     method: "POST",
-        //     headers: {
-        //       "Content-Type": "application/json;charset=utf-8",
-        //     },
-        //     body: JSON.stringify(Final),
-        //   }
-        // );
+        await new Promise((resolve) => setTimeout(resolve, 1500));
 
-        // let result = await response.json();
-        let result = await axios.post(
-          `https://backend.jiitopticachapter.com/api/register-new`,
-          Final
-        );
-        console.log(" result is ", result);
-        setFormData(formData);
-        if (result.status == 201) {
-          console.log("done!!!");
+        toast.success("Registration Completed");
+        console.log("Form submitted successfully:", finalData);
 
-          toast.success("Registration Completed");
-        } else {
-          toast.error("Something went wrong");
-        }
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          enroll: "",
+          batch: "",
+          branch: "",
+          college: "",
+          enrollmentType: "",
+        });
+        setClg("");
+        setImage(null);
       } catch (error) {
-        if (error?.response?.data?.msg) {
-          toast.error(error.response.data.msg);
-        } else {
-          toast.error("Something went wrong. Please try again");
-        }
-        // console.error("Error during register:", error);
-        // toast.error("An error occured during registration");
+        toast.error("Something went wrong. Please try again");
       } finally {
-        setLoading(false); // Set loading state back to false after registration attempt
-        console.log("loading : ", loading);
+        setLoading(false);
       }
-
-      //reset the form
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        enroll: "",
-        batch: "",
-        branch: "",
-        college: "",
-        clgname: "",
-        enrollmentType: "",
-      });
-      setclg("");
-      setImage([]);
     }
   };
+
   return (
     <>
       <ToastContainer />
-      <Loadingspinner show={loading} />
-      <div className="registerr-header">Register Now</div>
-      <div className="RegistrationPage">
-        <div className="RegistrationPageSection">
-          <div className="regisGuidelineSection">
-            <div className="GuidelineContainer">
-              <div className="RegistrationPageHeader">
-                <div className="RegistrationPageHeaderSectionHeader_text">
-                  <div className="RegistrationPageHeaderSectionHeader_text_text-content">
-                    Guidelines For JSCOP 6.0
-                  </div>
-                  <div className="RegistrationPageHeaderUnderline"></div>
+      <LoadingSpinner show={loading} />
+
+      <h1 className="register-header">Register Now</h1>
+
+      <div className="registration-page">
+        <div className="registration-page-section">
+          {/* Guidelines Section */}
+          <div className="regis-guideline-section">
+            <div className="guideline-container">
+              <div className="registration-page-header">
+                <div className="registration-page-header-text">
+                  <div className="registration-page-header-content">Guidelines For JSCOP 6.0</div>
+                  <div className="registration-page-header-underline"></div>
                 </div>
               </div>
-              <div className="regisGuidelines">
-                {/* <p>Rules for JSCOP 6.0 are as follow :</p>
-                <br /> */}
 
-                <div
-                  style={{ textAlign: "center" }}
-                  className="regis-sub-heading"
-                >
-                  General Instructions
-                </div>
+              <div className="regis-guidelines">
+                <div className="regis-sub-heading">General Instructions</div>
 
-                <ol style={{ listStyleType: "decimal" }}>
-                  <li style={{ textAlign: "justify" }}>
-                    The registration charges asked during the registration is
-                    for the lunch and refreshments which will be provided on the
-                    day of the event.
+                <ol>
+                  <li>
+                    The registration charges asked during the registration is for the lunch and refreshments which will
+                    be provided on the day of the event.
                   </li>
-                  <li style={{ textAlign: "justify" }}>
-                    There are limited registrations only for the lunch and
-                    refreshments, forms may close anytime.
-                  </li>
-                  <li style={{ textAlign: "justify" }}>
-                    Individual event registration are free of cost and can be
-                    done from Event section at the home page.
-                  </li>
-
-                  {/* </ol> */}
-                  <br />
-
-                  <div
-                    style={{ textAlign: "center" }}
-                    className="regis-sub-heading"
-                  >
-                    Registration Process Details
-                  </div>
-
-                  {/* <ol style={{ listStyleType: "decimal" }}> */}
-                  <li style={{ textAlign: "justify" }}>
-                    Fill the form correctly, make the payment of Rs 70/- only by
-                    scanning the QR given below of the account holder named
-                    Mridul Saraswat.
-                  </li>
-                  <li style={{ textAlign: "justify" }}>
-                    Fill the details accurately, make the payment and than
-                    attach a screenshot of the payment with visible time, date
-                    and the name of the sender in it. In case, if these details
-                    are not present your registration will not be accepted.
-                  </li>
-                  <li style={{ textAlign: "justify" }}>
-                    After the form is submitted, within 24 hours you will get a
-                    confirmation mail of the payment recieved and an a QR
-                    attached with it.
-                  </li>
-                  <li style={{ textAlign: "justify" }}>
-                    The QR is the Lunch coupon which will be required at the
-                    mess.
-                  </li>
-                  <li style={{ textAlign: "justify" }}>
-                    Timeline and events can be viewed at the home page.
-                  </li>
-                  {/* <li style={{ textAlign: "justify" }}>
-                    In case of any technical glitch or not receiving the
-                    confirmation mail. You can contact - Mridul Saraswat :
-                    8923969236
-                  </li> */}
-                  <li style={{ textAlign: "justify" }}>
-                    In case you have any query or do not receive any
-                    confirmation within next 24 hours you can contact us on
-                    whatsapp : 8923969236 or through mail :
-                    opticastudentchapterjiit@gmail.com
+                  <li>There are limited registrations only for the lunch and refreshments, forms may close anytime.</li>
+                  <li>
+                    Individual event registration are free of cost and can be done from Event section at the home page.
                   </li>
                 </ol>
-                <br />
-                <div
-                  style={{ textAlign: "center" }}
-                  className="regis-sub-heading"
-                >
-                  QR CODE
-                </div>
-                <br />
-                <div style={{ display: "flex", justifyContent: "center" }}>
-                  <img
-                    src={qr}
-                    style={{ height: "200px", paddingBottom: "16px" }}
-                    alt="qr code"
-                  />
+
+                <div className="regis-sub-heading">Registration Process Details</div>
+
+                <ol>
+                  <li>
+                    Fill the form correctly, make the payment of Rs 90/- only by scanning the QR given below of the
+                    account holder named Tashif Ahmed Khan.
+                  </li>
+                  <li>
+                    Fill the details accurately, make the payment and than attach a screenshot of the payment with
+                    visible time, date and the name of the sender in it. In case, if these details are not present your
+                    registration will not be accepted.
+                  </li>
+                  <li>
+                    After the form is submitted, within 24 hours you will get a confirmation mail of the payment
+                    recieved and an a QR attached with it.
+                  </li>
+                  <li>The QR is the Lunch coupon which will be required at the mess.</li>
+                  <li>Timeline and events can be viewed at the home page.</li>
+                  <li>
+                    In case you have any query or do not receive any confirmation within next 24 hours you can contact
+                    us on whatsapp : 8570940287
+                    <br />mail : opticastudentchapterjiit@gmail.com
+                  </li>
+                </ol>
+
+                <div className="regis-sub-heading">QR CODE</div>
+
+                <div className="qr-container">
+                  <img src="src/assets/qrimage/qr.jpeg" className="qr-image" alt="QR code" />
                 </div>
               </div>
             </div>
           </div>
+
+          {/* Registration Form Section */}
           <div className="regis">
-            <div className="RegistrationPageHeader">
-              <div className="RegistrationPageHeaderSectionHeader_text">
-                <div className="RegistrationPageHeaderSectionHeader_text_text-content">
-                  Registration Form
-                </div>
-                <div className="RegistrationPageHeaderUnderline"></div>
+            <div className="registration-page-header">
+              <div className="registration-page-header-text">
+                <div className="registration-page-header-content">Registration Form</div>
+                <div className="registration-page-header-underline"></div>
               </div>
             </div>
 
-            <form
-              ref={formRef}
-              //   initial={{ opacity: 0 }}
-              //   whileInView={{ opacity: 1 }}
-              //   transition={{ duration: 1.5, delay: 0.3 }}
-              //   viewport={{ once: true }}
-              className="registration-form"
-              onSubmit={handleFormSubmit}
-            >
+            <form ref={formRef} className="
+            " onSubmit={handleFormSubmit}>
               <div>
                 <label htmlFor="name">
-                  Name <span className="registernecessary"> * </span>:
+                  Name <span className="required">*</span>:
                 </label>
                 <input
                   className="reginput"
@@ -384,12 +297,12 @@ const RegisterForm = () => {
                   placeholder="Enter your name"
                   onChange={handleInputChange}
                 />
-                <p className="error">{formErrors.name}</p>
+                {formErrors.name && <p className="error">{formErrors.name}</p>}
               </div>
 
               <div>
                 <label htmlFor="email">
-                  Email <span className="registernecessary"> * </span>:
+                  Email <span className="required">*</span>:
                 </label>
                 <input
                   className="reginput"
@@ -400,12 +313,12 @@ const RegisterForm = () => {
                   value={formData.email}
                   onChange={handleInputChange}
                 />
-                <p className="error">{formErrors.email}</p>
+                {formErrors.email && <p className="error">{formErrors.email}</p>}
               </div>
 
               <div>
                 <label htmlFor="phone">
-                  Phone <span className="registernecessary"> * </span>:
+                  Phone <span className="required">*</span>:
                 </label>
                 <input
                   className="reginput"
@@ -416,92 +329,26 @@ const RegisterForm = () => {
                   value={formData.phone}
                   onChange={handleInputChange}
                 />
-                <p className="error">{formErrors.phone}</p>
+                {formErrors.phone && <p className="error">{formErrors.phone}</p>}
               </div>
-
-              {/* <div>
-                <label htmlFor="age">Age:</label>
-                <input
-                  className="reginput"
-                  type="text"
-                  id="age"
-                  name="age"
-                  placeholder="Enter your age"
-                  value={formData.age}
-                  onChange={handleInputChange}
-                />
-                <p className="error">{formErrors.age}</p>
-              </div>
-              <div>
-                <label htmlFor="gender">Gender:</label>
-                <select
-                  className="reginput"
-                  id="gender"
-                  name="gender"
-                  placeholder="Select Gender"
-                  value={formData.gender}
-                  onChange={handleInputChange}
-                >
-                  <option value="">Select Gender</option>
-                  <option value="male">Male</option>
-                  <option value="female">Female</option>
-                  <option value="others">Others</option>
-                  <option value="Perfer Not To Say">Prefer Not to Say</option>
-                </select>
-                <p className="error">{formErrors.gender}</p>
-              </div> */}
 
               <div>
                 <label htmlFor="college">
-                  College <span className="registernecessary"> * </span> :
+                  College <span className="required">*</span>:
                 </label>
-
-                <select
-                  className="reginput"
-                  id="clg"
-                  name="clg"
-                  value={clg}
-                  onChange={handleInputChange}
-                  style={{
-                    width: "100%",
-                    padding: "12px",
-                    marginBottom: "15px",
-                    color: "#ffffff",
-                    background: "rgba(33, 13, 51, 0.7)",
-                    border: "1px solid rgba(141, 92, 255, 0.3)",
-                    borderRadius: "6px",
-                    outline: "none",
-                    transition: "all 0.3s ease",
-                    fontFamily: "'Exo 2', sans-serif",
-                    boxShadow: "0 2px 5px rgba(0, 0, 0, 0.2)",
-                    appearance: "none", /* Removes default browser styling */
-                    WebkitAppearance: "none", /* For Safari */
-                    MozAppearance: "none" /* For Firefox */
-                  }}
-                >
-                  <option value="" disabled style={{ background: "rgba(33, 13, 51, 0.9)", color: "white", margin: "10px" }}>
-                    Select College
-                  </option>
-                  <option value={`JIIT-62`} style={{ background: "rgba(33, 13, 51, 0.9)", color: "white" }}>JIIT-62</option>
-                  <option value={`JIIT-128`} style={{ background: "rgba(33, 13, 51, 0.9)", color: "white" }}>JIIT-128</option>
-                  <option value={`others`} style={{ background: "rgba(33, 13, 51, 0.9)", color: "white" }}>others</option>
-                </select>
-
-                {/* Custom dropdown arrow */}
-                <div style={{
-                  position: "relative",
-                  top: "-47px", /* Adjust based on your select height */
-                  right: "10px",
-                  float: "right",
-                  pointerEvents: "none",
-                  fontSize: "16px",
-                  color: "white"
-                }}>
-                  ▼
+                <div className="custom-select-container">
+                  <select className="custom-select" id="clg" name="clg" value={clg} onChange={handleInputChange}>
+                    <option value="" disabled>
+                      Select College
+                    </option>
+                    <option value="JIIT-62">JIIT-62</option>
+                    <option value="JIIT-128">JIIT-128</option>
+                    <option value="others">Others</option>
+                  </select>
+                  <div className="select-arrow">▼</div>
                 </div>
-
-                {clg === `others` ? (
-                  <div style={{ display: "flex", marginTop: "-10px" }}>
+                {clg === "others" && (
+                  <div>
                     <input
                       className="reginput"
                       type="text"
@@ -512,60 +359,47 @@ const RegisterForm = () => {
                       onChange={handleInputChange}
                     />
                   </div>
-                ) : (
-                  ""
                 )}
-                <p className="error">{formErrors.college}</p>
+                {formErrors.college && <p className="error">{formErrors.college}</p>}
               </div>
-              {/* <label htmlFor="phone">
-                Enrollment Type <span className="registernecessary"> * </span>:
-              </label> */}
-              {formData.college === "JIIT-62" ||
-                formData.college === "JIIT-128" ? (
-                <div>
-                  <div style={{ display: "flex", alignItems: "center" }}>
-                    <div>
-                      {" "}
-                      <label
-                        style={{ display: "flex", alignItems: "center" }}
-                        htmlFor="dayscholar"
-                      >
+
+              {(formData.college === "JIIT-62" || formData.college === "JIIT-128") && (
+                <>
+                  <div>
+                    <label>
+                      Enrollment Type <span className="required">*</span>:
+                    </label>
+                    <div className="radio-group">
+                      <label className="radio-label">
                         <input
                           type="radio"
                           id="dayscholar"
                           name="enrollmentType"
                           value="dayScholar"
-                          // checked={formData.enrollmentType === "day_scholar"}
                           onChange={handleInputChange}
                         />
-                        &nbsp; Day Scholar &nbsp;
+                        <span className="radio-custom"></span>
+                        Day Scholar
                       </label>
-                    </div>
-                    &nbsp; &nbsp;
-                    <div>
-                      {" "}
-                      <label
-                        style={{ display: "flex", alignItems: "center" }}
-                        htmlFor="hosteller"
-                      >
+
+                      <label className="radio-label">
                         <input
                           type="radio"
                           id="hosteller"
                           name="enrollmentType"
                           value="hosteller"
-                          // checked={formData.enrollmentType === "day_scholar"}
                           onChange={handleInputChange}
                         />
-                        &nbsp; Hosteller &nbsp;
+                        <span className="radio-custom"></span>
+                        Hosteller
                       </label>
                     </div>
+                    {formErrors.enrollmentType && <p className="error">{formErrors.enrollmentType}</p>}
                   </div>
-                  <p className="error">{formErrors.enrollmentType}</p>
 
                   <div>
                     <label htmlFor="enroll">
-                      Enrollment Number
-                      <span className="registernecessary"> * </span>:
+                      Enrollment Number <span className="required">*</span>:
                     </label>
                     <input
                       className="reginput"
@@ -576,12 +410,12 @@ const RegisterForm = () => {
                       value={formData.enroll}
                       onChange={handleInputChange}
                     />
-                    <p className="error">{formErrors.enroll}</p>
+                    {formErrors.enroll && <p className="error">{formErrors.enroll}</p>}
                   </div>
 
                   <div>
                     <label htmlFor="batch">
-                      Batch <span className="registernecessary">* </span> :
+                      Batch <span className="required">*</span>:
                     </label>
                     <input
                       className="reginput"
@@ -592,30 +426,12 @@ const RegisterForm = () => {
                       value={formData.batch}
                       onChange={handleInputChange}
                     />
-                    {/* <select
-                  className="reginput"
-                  id="batch"
-                  name="batch"
-                  value={formData.batch}
-                  onChange={handleInputChange}
-                  style={{ width: "120px" }}
-                >
-                  <option value="" disabled>
-                    Select Batch
-                  </option>
-                  
-                  {[...Array(14)].map((_, index) => (
-                    <option key={`batch-${index + 1}`} value={`B${index + 1}`}>
-                      B{index + 1}
-                    </option>
-                  ))}
-                </select> */}
-                    <p className="error">{formErrors.batch}</p>
+                    {formErrors.batch && <p className="error">{formErrors.batch}</p>}
                   </div>
 
                   <div>
                     <label htmlFor="branch">
-                      Branch <span className="registernecessary"> * </span>:
+                      Branch <span className="required">*</span>:
                     </label>
                     <input
                       className="reginput"
@@ -626,125 +442,41 @@ const RegisterForm = () => {
                       value={formData.branch}
                       onChange={handleInputChange}
                     />
-                    <p className="error">{formErrors.branch}</p>
+                    {formErrors.branch && <p className="error">{formErrors.branch}</p>}
                   </div>
-                </div>
-              ) : (
-                ""
+                </>
               )}
 
               <div>
                 <label htmlFor="screenshot">
-                  Upload Screenshot of Payment
-                  <span className="registernecessary">* </span>:
+                  Upload Screenshot of Payment <span className="required">*</span>:
                 </label>
-
-                <div style={{
-                  position: "relative",
-                  marginBottom: "15px"
-                }}>
-                  {/* Hidden actual file input */}
-                  <input
-                    className="reginput2"
-                    type="file"
-                    id="screenshot"
-                    name="screenshot"
-                    value={formData.screenshot}
-                    onChange={handleImage}
-                    style={{
-                      opacity: 0,
-                      position: "absolute",
-                      height: "100%",
-                      width: "100%",
-                      cursor: "pointer",
-                      zIndex: 2
-                    }}
-                  />
-
-                  {/* Custom styled button */}
-                  <div style={{
-                    background: "rgba(33, 13, 51, 0.7)",
-                    color: "#ffffff",
-                    border: "1px solid rgba(141, 92, 255, 0.3)",
-                    borderRadius: "6px",
-                    padding: "12px 15px",
-                    display: "flex",
-                    alignItems: "center",
-                    width: "100%",
-                    boxSizing: "border-box",
-                    fontFamily: "'Exo 2', sans-serif",
-                    boxShadow: "0 2px 5px rgba(0, 0, 0, 0.2)",
-                    transition: "all 0.3s ease"
-                  }}>
-                    <div style={{
-                      marginRight: "10px",
-                      fontSize: "16px"
-                    }}>
-                      📎
-                    </div>
-                    <div>
-                      {formData.screenshot ? formData.screenshot.split('\\').pop() : "Choose file..."}
-                    </div>
+                <div className="custom-file-input">
+                  <input type="file" id="screenshot" name="screenshot" onChange={handleImage} />
+                  <div className="custom-file-button">
+                    <span className="file-icon">📎</span>
+                    <span>{image ? "Image Uploaded" : "Choose File..."}</span>
                   </div>
                 </div>
-
-                <p className="error">{formErrors.screenshot}</p>
+                {formErrors.screenshot && <p className="error">{formErrors.screenshot}</p>}
               </div>
 
-              {/* <div className="form-group">
-                <label>Days you will be attending the fest:</label>
-                <div className="checkbox-group">
-                  <label className="dayylab">
-                    <div className="dareg">
-                      <li className="reglist">Day 1</li>
-                    </div>
-                    <input
-                      className="dayregi"
-                      type="checkbox"
-                      name="checkboxes"
-                      value="option1"
-                      checked={formData.checkboxes.option1}
-                      onChange={handleInputChange}
-                    />
-                  </label>
-                </div>
-                <div className="checkbox-group">
-                  <label className="dayylab">
-                    <div className="dareg">
-                      <li className="reglist">Day 2</li>
-                    </div>
-                    <input
-                      className="dayregi"
-                      type="checkbox"
-                      name="checkboxes"
-                      value="option2"
-                      checked={formData.checkboxes.option2}
-                      onChange={handleInputChange}
-                    />
-                  </label>
-                </div>
-                <div className="checkbox-group">
-                  <label className="dayylab">
-                    <div className="dareg">
-                      <li className="reglist">Day 3</li>
-                    </div>
-                    <input
-                      className="dayregi"
-                      type="checkbox"
-                      name="checkboxes"
-                      value="option3"
-                      checked={formData.checkboxes.option3}
-                      onChange={handleInputChange}
-                    />
-                  </label>
-                </div>
-                <p className="error">{formErrors.checkboxes}</p>
-              </div> */}
-
-              <div className="heyreg">
-                <button className="regbtn" onClick={handleFormSubmit}>
+              <div className="heyreg" onClick={handleFormSubmit}>
+                {/* <button className="regbtn" type="submit">
                   Register
-                </button>
+                </button> */}
+                <div
+                  className="button-wrapper  button__container"
+                  style={{
+                    // filter: `hue-rotate(${36}deg)`,
+                    // WebkitFilter: `hue-rotate(${36}deg)`,
+                    filter: "grayscale(100%)",
+                    WebkitFilter: "grayscale(100%)",
+                  }}
+
+                >
+                  <a className="background-button" href="#" title="Register"></a>
+                </div>
               </div>
             </form>
           </div>
@@ -752,6 +484,4 @@ const RegisterForm = () => {
       </div>
     </>
   );
-};
-
-export default RegisterForm;
+}
