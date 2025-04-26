@@ -226,7 +226,7 @@ const About = () => {
     <section className="section about" id="about">
       <div className="container">
         {/* <span className="section-subtitle">What is HackByte?</span> */}
-        <h2 className="section-title">About TESSERX</h2>
+        <h2 className="section-title about-title">About TESSERX</h2>
 
         <div className="about-content">
           <div className="about-text">
