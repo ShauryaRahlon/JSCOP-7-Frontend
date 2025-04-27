@@ -3,11 +3,9 @@
   background-color: var(--bg-color);
   background-image: "url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png')" !important;
   mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, black 10%);
-  -webkit-mask-image: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0) 0%,
-    black 10%
-  );
+  -webkit-mask-image: linear-gradient(to bottom,
+      rgba(0, 0, 0, 0) 0%,
+      black 10%);
   padding: 15px 70px;
 }
 
@@ -19,20 +17,16 @@
   background-color: #16212c !important;
   min-height: fit-content !important;
   /* height: 100vh !important; */
-  -webkit-mask-image: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 1),
-    rgba(0, 0, 0, 0.9),
-    rgba(0, 0, 0, 0)
-  ) !important;
-  mask-image: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 1),
-    rgba(0, 0, 0, 1),
-    rgba(0, 0, 0, 1),
-    rgba(0, 0, 0, 0.8),
-    rgba(0, 0, 0, 0)
-  ) !important;
+  -webkit-mask-image: linear-gradient(to top,
+      rgba(0, 0, 0, 1),
+      rgba(0, 0, 0, 0.9),
+      rgba(0, 0, 0, 0)) !important;
+  mask-image: linear-gradient(to top,
+      rgba(0, 0, 0, 1),
+      rgba(0, 0, 0, 1),
+      rgba(0, 0, 0, 1),
+      rgba(0, 0, 0, 0.8),
+      rgba(0, 0, 0, 0)) !important;
 }
 
 .abt-img {
@@ -54,11 +48,9 @@
   padding-bottom: 10px;
   margin-top: -150px;
   mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, black 30%);
-  -webkit-mask-image: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0) 0%,
-    black 30%
-  );
+  -webkit-mask-image: linear-gradient(to bottom,
+      rgba(0, 0, 0, 0) 0%,
+      black 30%);
 }
 
 .about-content {
@@ -181,6 +173,7 @@
   .abt-mobile-nav {
     display: flex;
   }
+
   .about-text {
     text-align: justify;
   }

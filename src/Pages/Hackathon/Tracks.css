@@ -2,7 +2,8 @@
   background-color: var(--bg-color);
   position: relative;
   z-index: 1;
-  padding-top: 2%;
+  padding-top: 4%;
+  padding: 10px;
 }
 
 .tracks::before {
@@ -41,6 +42,7 @@
   /* margin-left: 10%; */
   /* margin-right: 2%; */
   margin: 0 auto;
+  padding-bottom: 40px;
 }
 
 .track-card {
@@ -50,7 +52,8 @@
   transition: var(--transition);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.05);
-  height: 100%;
+  min-height: 100%;
+  min-width: 30%;
   /* display: flex; */
   /* flex-direction: column; */
 }
@@ -156,7 +159,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .container-1 {
     flex-direction: column;
     /* Stack title and grid vertically */

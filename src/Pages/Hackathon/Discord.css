@@ -112,10 +112,13 @@
   height: 70%;
   object-fit: cover;
   border-radius: 12px;
+  background: white;
+  padding: 20px;
   /* width: 85%;
   height: 92%; */
   margin: -80px 180px 0 0;
   scale: 1.1;
+
   @media (max-width: 1025px) {
     width: 66%;
     height: 71%;
@@ -146,6 +149,7 @@
   margin-bottom: 2rem;
   margin-top: -20px;
 }
+
 .Contact .section-title::after {
   width: 100px;
 }
