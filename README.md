@@ -1,6 +1,6 @@
 <div align = "center">
 
-<img height=100px src= "https://res.cloudinary.com/dnqsoxydq/image/upload/v1713942236/JSCOP6.0/jscop6logo2_ubjyj8.png">
+<img height=100px src= "/public/images/jscop_home_logo.png">
 </div>
 
 <div align = "center">
@@ -12,7 +12,7 @@
 
 ---
 
-# JSCOP 6.0 - OFFICIAL WEBSITE
+# JSCOP 7.0 - OFFICIAL WEBSITE
 
 ## Purpose
 
