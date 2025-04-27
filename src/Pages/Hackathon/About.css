@@ -280,7 +280,7 @@
 
   /* Target the div containing title/desc - assumes it's the last child */
   .feature-item > div:last-child {
-    /* text-align: center; */
+    text-align: center;
     /* Removed - keep text left-aligned */
   }
 

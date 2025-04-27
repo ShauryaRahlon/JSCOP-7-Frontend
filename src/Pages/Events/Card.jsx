@@ -291,7 +291,7 @@ function Card({
           xmlnsXlink="http://www.w3.org/1999/xlink"
           viewBox="0 0 1920 500"
           preserveAspectRatio="xMidYMid slice"
-          onClick={handleOpen} // Attach open handler
+          // onClick={handleOpen} // Attach open handler
         >
           <defs>
             {/* Use unique ID */}

@@ -9,7 +9,7 @@ import Team from "./Pages/Team/Team";
 import MainPage from "./Pages/MainPage/MainPage";
 import Hackathon from "./Pages/Hackathon/Hackathon";
 import Speaker from "./Pages/Speaker/Speaker";
-import RegisterForm from "./Pages/Register/RegisterForm";
+// import RegisterForm from "./Pages/Register/RegisterForm";
 // import RegisterForm from "./Pages/RegisterPage/RegisterForm";
 function App() {
   return (
@@ -24,7 +24,7 @@ function App() {
         <Route path="/team" element={<Team />} />
         <Route path="/speaker" element={<Speaker />} />
         <Route path="/hackathon" element={<Hackathon />} />
-        <Route path="/registration" element={<RegisterForm />} />
+        {/* <Route path="/registration" element={<RegisterForm />} /> */}
         {/* Add more routes as needed */}
       </Routes>
     </Router>
