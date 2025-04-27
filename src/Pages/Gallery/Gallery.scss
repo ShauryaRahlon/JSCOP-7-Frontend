@@ -304,6 +304,7 @@
   .book-grid {
     .book-item {
       .gal_img {
+        //minor changes for mobile
         width: 58% !important; // Increased from 53% for better visibility on mobile
         transform: translateX(-50%) translateY(-50%); // Adjusted positioning
 
