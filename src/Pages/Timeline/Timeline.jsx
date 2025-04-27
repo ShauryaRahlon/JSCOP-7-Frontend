@@ -46,7 +46,7 @@ const TimelineBox = ({ name, location, time, venue, index, isNextBox }) => {
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true, amount: 0.4 }} // triggers once when 20% of it is in view
-      transition={{ duration: 1, ease: "easeOut" }}
+      transition={{ duration: 0.7, ease: "easeOut" }}
     >
       <div className="timeline-content">
         <div className={`content-background ${isLeft ? "left" : "right"}`} />
