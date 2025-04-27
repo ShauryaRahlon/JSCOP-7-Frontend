@@ -25,7 +25,8 @@ const Gallery = () => {
     "/images/Event_Images/Rename12.JPG",
     "/images/Event_Images/Rename13.JPG",
     "/images/Event_Images/Rename14.JPG",
-
+    "/images/Event_Images/Rename15.JPG",
+    "/images/Event_Images/Rename16.JPG",
   ];
 
   // Handle book click
