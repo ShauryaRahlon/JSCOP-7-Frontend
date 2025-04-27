@@ -41,15 +41,13 @@ The website is up and running on [www.jscop.jiitopticachapter.in](https://jscop.
 
 ## Mentors
 
-- [Harsh Sharma](https://github.com/HarshSharma20503)
-- [Kaavya Baranwal](https://github.com/kaavyabaranwal)
-
-## Contributors
-
 - [Rajat Bhati](https://github.com/Rajatt09)
 - [Aryan Goyal](https://github.com/AryanAg08)
 - [Yash Mittal](https://github.com/Geekyash10)
-- [Mehul Bansal](https://github.com/mehul1409)
-- [Rishika Aggarwal](https://github.com/rishika-on-git)
-- [Teesha](https://github.com/teesha17)
-- [Krishna Deol](https://github.com/Krishnadeol)
+## Contributors
+
+
+- [Shaurya Rahlon](https://github.com/ShauryaRahlon)
+- [Vansh Arora](https://github.com/vansh1293)
+- [Vishwas Srivastava](https://github.com/Vishwas-0612)
+- [Saarthak Agarwal](https://github.com/Saarthak1234)
