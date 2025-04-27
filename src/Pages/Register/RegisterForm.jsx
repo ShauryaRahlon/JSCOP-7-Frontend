@@ -20,6 +20,7 @@ export default function RegistrationForm() {
   const [loading, setLoading] = useState(false);
   const [clg, setClg] = useState("");
   const [image, setImage] = useState(null);
+  const [isValidImage, setIsValidImage] = useState(false);
   const formRef = useRef(null);
 
   const [formErrors, setFormErrors] = useState({
@@ -38,18 +39,11 @@ export default function RegistrationForm() {
   const handleInputChange = (e) => {
     const { name, value } = e.target;
 
-    if (name === "clg" && (value === "JIIT-62" || value === "JIIT-128")) {
+    if (name === "clg") {
       setClg(value);
       setFormData((prevData) => ({
         ...prevData,
         college: value,
-      }));
-      return;
-    } else if (name === "clg" && value === "others") {
-      setClg("others");
-      setFormData((prevData) => ({
-        ...prevData,
-        college: "",
       }));
       return;
     }
@@ -61,14 +55,30 @@ export default function RegistrationForm() {
   };
 
   const handleImage = (e) => {
-    if (!e.target.files || e.target.files.length === 0) return;
-
-    const file = e.target.files[0];
-    if (file.size > 1000000) {
-      toast.error("File size is too large, please upload a file less than 1MB");
+    if (!e.target.files || e.target.files.length === 0) {
+      setIsValidImage(false);
+      setImage(null);
       return;
     }
 
+    const file = e.target.files[0];
+    const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp'];
+
+    if (!allowedTypes.includes(file.type)) {
+      toast.error("Invalid file format. Please upload JPEG, JPG, PNG or WEBP files only");
+      setIsValidImage(false);
+      setImage(null);
+      return;
+    }
+
+    if (file.size > 1000000) {
+      toast.error("File size is too large, please upload a file less than 1MB");
+      setIsValidImage(false);
+      setImage(null);
+      return;
+    }
+
+    setIsValidImage(true);
     setFileToBase(file);
   };
 
@@ -92,6 +102,11 @@ export default function RegistrationForm() {
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
+
+    if (!isValidImage) {
+      toast.error("Please upload a valid image file first");
+      return;
+    }
 
     const errors = {
       name: "",
@@ -126,8 +141,8 @@ export default function RegistrationForm() {
 
     if (!formData.phone.trim()) {
       errors.phone = "Phone number is required";
-    } else if (!/^\d{10}$/.test(formData.phone)) {
-      errors.phone = "Invalid phone number";
+    } else if (!/^[6-9]\d{9}$/.test(formData.phone)) {
+      errors.phone = "Invalid phone number.";
     }
 
     if (!formData.enroll.trim() && (formData.college === "JIIT-62" || formData.college === "JIIT-128")) {
@@ -370,23 +385,9 @@ export default function RegistrationForm() {
                     </option>
                     <option value="JIIT-62">JIIT-62</option>
                     <option value="JIIT-128">JIIT-128</option>
-                    <option value="others">Others</option>
                   </select>
                   <div className="select-arrow">▼</div>
                 </div>
-                {clg === "others" && (
-                  <div>
-                    <input
-                      className="reginput"
-                      type="text"
-                      id="college"
-                      name="college"
-                      placeholder="Enter your college name"
-                      value={formData.college}
-                      onChange={handleInputChange}
-                    />
-                  </div>
-                )}
                 {formErrors.college && <p className="error">{formErrors.college}</p>}
               </div>
 
