@@ -165,9 +165,9 @@ body {
     margin-right: 2rem;
     margin-top: 50px;
   }
+
   @media screen and (max-width:620px) {
-    .team-grid_V
-    {
+    .team-grid_V {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -276,7 +276,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-       padding: 0 0.5rem;
+    padding: 0 0.5rem;
   }
 }
 
@@ -391,7 +391,7 @@ body {
     height: 50px;
     position: absolute;
     top: -20px;
-    left: -11px;
+    left: -10px;
     padding-top: 4px;
     display: flex;
     justify-content: center;
@@ -412,24 +412,38 @@ body {
 
 @media screen and (max-width: 550px) {
 
-  .toggle-box
-  {
+  .toggle-box {
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 2rem;
   }
-  .background-button::after{
-    font-size: 24px !important;
+
+  .background-button::after {
+    font-size: 21px !important;
+    top: -15px;
   }
+
   .button-wrapper {
-    width:205px;
-}
+    width: 190px;
+  }
 }
 
 @media screen and (max-width : 500px) {
-  
-  .card_V{
+
+  .card_V {
     width: 300px;
+  }
+}
+
+@media screen and (max-width : 400px) {
+  .button-wrapper {
+    width: 150px;
+  }
+
+  .background-button::after {
+    font-size: 18px !important;
+    top: -24px;
+    left: -8px;
   }
 }
