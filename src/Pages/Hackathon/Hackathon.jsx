@@ -478,7 +478,7 @@ function Hackathon() {
 			>
 				<About />
 				<Countdown
-					eventDate="2025-05-02T12:00:00"
+					eventDate="2025-05-02T19:00:00"
 					eventLocation="JIIT Optica Student Chapter"
 					eventMode="Online"
 				/>

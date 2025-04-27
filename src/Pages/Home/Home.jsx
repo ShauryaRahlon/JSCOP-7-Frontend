@@ -9,11 +9,122 @@ import nav_jscop from "/images/nav_jscop.png";
 import nav_2_jscop from "/images/nav_2_jscop.png";
 // import rocketanimation from "./../../assets/rocket-animation.mp4";
 import HomePageBG9 from "/videos/HomePageBG9.mp4";
-// import one from "./../../assets/earth-rotate-moewalls-com.mp4"
 import "./NewLandingPage.css";
 // import Events from "../Events/Events";
 import LoadComponent, { BackToHome } from "../LoadComponent/LoadComponent";
 import BlackHole from "../../Components/UI/BlackHole";
+import { motion, AnimatePresence } from "framer-motion";
+
+
+const Countdown = ({ eventDate, Countclass }) => {
+	const [timeLeft, setTimeLeft] = useState({
+		days: 0,
+		hours: 0,
+		minutes: 0,
+		seconds: 0,
+	});
+
+	const calculateTimeLeft = () => {
+		const difference = new Date(eventDate) - new Date();
+
+		if (difference > 0) {
+			return {
+				days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+				hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+				minutes: Math.floor((difference / 1000 / 60) % 60),
+				seconds: Math.floor((difference / 1000) % 60),
+			};
+		}
+
+		return {
+			days: 0,
+			hours: 0,
+			minutes: 0,
+			seconds: 0,
+		};
+	};
+
+	useEffect(() => {
+		const timer = setInterval(() => {
+			setTimeLeft(calculateTimeLeft());
+		}, 1000);
+
+		return () => clearInterval(timer);
+	}, [eventDate]);
+	const formatTime = (time) => (time < 10 ? `0${time}` : time);
+	return (
+		<div>
+			<div className={`countdown-timer ${Countclass}`}>
+				<div className="timer-item">
+					<AnimatePresence mode="wait">
+						<motion.div
+							key={timeLeft.days}
+							initial={{ opacity: 0, y: -20 }}
+							animate={{ opacity: 1, y: 0 }}
+							exit={{ opacity: 0, y: 20 }}
+							transition={{ duration: 0.4 }}
+							className="timer-value counter-size"
+						>
+							{formatTime(timeLeft.days)}
+						</motion.div>
+					</AnimatePresence>
+					<div className="timer-label">Days</div>
+				</div>
+				<div className="timer-separator">:</div>
+
+				<div className="timer-item">
+					<AnimatePresence mode="wait">
+						<motion.div
+							key={timeLeft.hours}
+							initial={{ opacity: 0, y: -20 }}
+							animate={{ opacity: 1, y: 0 }}
+							exit={{ opacity: 0, y: 20 }}
+							transition={{ duration: 0.4 }}
+							className="timer-value counter-size"
+						>
+							{formatTime(timeLeft.hours)}
+						</motion.div>
+					</AnimatePresence>
+					<div className="timer-label">Hours</div>
+				</div>
+				<div className="timer-separator">:</div>
+
+				<div className="timer-item">
+					<AnimatePresence mode="wait">
+						<motion.div
+							key={timeLeft.minutes}
+							initial={{ opacity: 0, y: -20 }}
+							animate={{ opacity: 1, y: 0 }}
+							exit={{ opacity: 0, y: 20 }}
+							transition={{ duration: 0.4 }}
+							className="timer-value counter-size"
+						>
+							{formatTime(timeLeft.minutes)}
+						</motion.div>
+					</AnimatePresence>
+					<div className="timer-label">Minutes</div>
+				</div>
+				<div className="timer-separator">:</div>
+
+				<div className="timer-item">
+					<AnimatePresence mode="wait">
+						<motion.div
+							key={timeLeft.seconds}
+							initial={{ opacity: 0, y: -20 }}
+							animate={{ opacity: 1, y: 0 }}
+							exit={{ opacity: 0, y: 20 }}
+							transition={{ duration: 0.4 }}
+							className="timer-value counter-size"
+						>
+							{formatTime(timeLeft.seconds)}
+						</motion.div>
+					</AnimatePresence>
+					<div className="timer-label">Seconds</div>
+				</div>
+			</div>
+		</div>
+	);
+};
 
 const Portfolio = () => {
 	const [introComplete, setIntroComplete] = useState(false);
@@ -68,6 +179,7 @@ const Portfolio = () => {
 			},
 		},
 	};
+
 
 	useEffect(() => {
 		// Center the slider
@@ -786,6 +898,7 @@ const Portfolio = () => {
 
 	return (
 		<>
+
 			<div className="cursor">
 				<div className="cursor_point"></div>
 				<div className="cursor_outer"></div>
@@ -832,17 +945,17 @@ const Portfolio = () => {
 							<div className="page_portfolio">
 								<BlackHole />
 								{/* <div className="portfolio-animation-overlay"></div>
-                <div className="portfolio-animation-container">
-                  <video
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="portfolio-animation-video animation-opacity"
-                  >
-                    <source src={one} type="video/mp4" />
-                  </video>
-                </div> */}
+								<div className="portfolio-animation-container">
+									<video
+										autoPlay
+										loop
+										muted
+										playsInline
+										className="portfolio-animation-video animation-opacity"
+									>
+										<source src={one} type="video/mp4" />
+									</video>
+								</div> */}
 								<div className="portfolio_home__header">
 									<div className="logoMain">
 										<img src={nav_jscop} alt="jscop" />
@@ -1778,6 +1891,14 @@ const Portfolio = () => {
 								The Annual Flagship Event of
 								<span> JIIT Optica Student Chapter </span>
 							</div>
+							<Countdown
+								eventDate="2025-05-03T09:00:00"
+								Countclass="timer-header-fix-desktop"
+							/>
+							<Countdown
+								eventDate="2025-05-03T09:00:00"
+								Countclass="timer-header-fix"
+							/>
 						</h1>
 						{/* <img
               className="trigger"
