@@ -8,7 +8,7 @@ import Timeline from "../Timeline/Timeline";
 // import Hackathon from "../Hackathon/Hackathon";
 import { ArrowLeft } from "lucide-react";
 import Contact from "../Contact/Contact";
-import AboutUs from "../AboutUs/Aboutus";
+// import AboutUs from "../AboutUs/Aboutus";
 import Speaker from "../Speaker/Speaker";
 import Hackathon from "../Hackathon/Hackathon";
 
