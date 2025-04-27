@@ -1165,8 +1165,8 @@ const Home = () => {
                     <div className="image parent_0">
                       <img
                         draggable="false"
-                        src="https://images4.alphacoders.com/135/thumb-1920-1355268.jpeg"
-                        alt="My Protein"
+                        src="https://res.cloudinary.com/dcuc1uetk/image/upload/v1745786135/Jscop%207.O/Home_Backgrounds/about_img_no3ijn.jpg"
+                        alt="Mystic Forest"
                         width={"100%"}
                       />
                       <div className="overlay"></div>
@@ -1191,8 +1191,8 @@ const Home = () => {
                     >
                       <img
                         draggable="false"
-                        src="https://mir-s3-cdn-cf.behance.net/project_modules/source/02896e26093165.5634f7cdacf7b.png"
-                        alt="Nike Air Max"
+                        src="https://res.cloudinary.com/dcuc1uetk/image/upload/v1745786136/Jscop%207.O/Home_Backgrounds/Events_Background_fxnmng.png"
+                        alt="Ni"
                         width={"100%"}
                       />
                       <div className="overlay"></div>
@@ -1224,7 +1224,7 @@ const Home = () => {
                     <div className="image parent_2">
                       <img
                         draggable="false"
-                        src="https://i.pinimg.com/1200x/99/0d/a2/990da2cf0c344336fb5f1cb3d126cdf8.jpg"
+                        src="https://res.cloudinary.com/dcuc1uetk/image/upload/v1745786138/Jscop%207.O/Home_Backgrounds/speakers_img_of2r8d.jpg"
                         alt="Apple Watch"
                         width={"100%"}
                       />
@@ -1244,7 +1244,7 @@ const Home = () => {
                     <div className="image parent_3">
                       <img
                         draggable="false"
-                        src="https://i.pinimg.com/1200x/0b/ad/76/0bad76ab3862413a4ae861b7f55d4313.jpg"
+                        src="https://res.cloudinary.com/dcuc1uetk/image/upload/v1745786140/Jscop%207.O/Home_Backgrounds/Timeline_back_pgrqsa.jpg"
                         alt="Jade Teriyaki"
                         width={"100%"}
                       />
@@ -1264,7 +1264,7 @@ const Home = () => {
                     <div className="image parent_4">
                       <img
                         draggable="false"
-                        src="/images/Home_Backgrounds/TeamBackground.jpg"
+                        src="https://res.cloudinary.com/dcuc1uetk/image/upload/v1745786139/Jscop%207.O/Home_Backgrounds/TeamBackground_q8ymau.jpg"
                         alt="Jade Teriyaki"
                       />
                       <div className="overlay"></div>
@@ -1291,7 +1291,7 @@ const Home = () => {
                     <div className="image parent_5">
                       <img
                         draggable="false"
-                        src="/images/Home_Backgrounds/Gallery_cover.jpg"
+                        src="https://res.cloudinary.com/dcuc1uetk/image/upload/v1745786137/Jscop%207.O/Home_Backgrounds/Gallery_cover_pmmqxj.jpg"
                         alt="Jade Teriyaki"
                         width={"100%"}
                       />
@@ -1315,7 +1315,7 @@ const Home = () => {
                     <div className="image parent_6">
                       <img
                         draggable="false"
-                        src="/images/Home_Backgrounds/Hackathon-BG.jpeg"
+                        src="https://res.cloudinary.com/dcuc1uetk/image/upload/v1745786137/Jscop%207.O/Home_Backgrounds/Hackathon-BG_jlyztr.jpg"
                         alt="Jade Teriyaki"
                         width={"100%"}
                       />
@@ -1335,7 +1335,7 @@ const Home = () => {
                     <div className="image parent_7">
                       <img
                         draggable="false"
-                        src="/images/Home_Backgrounds/Contact_us_img.jpg"
+                        src="https://res.cloudinary.com/dcuc1uetk/image/upload/v1745786135/Jscop%207.O/Home_Backgrounds/Contact_us_img_or6icd.jpg"
                         alt="Jade Teriyaki"
                         width={"100%"}
                       />
@@ -1379,7 +1379,7 @@ const Home = () => {
                       <div className="image parent_0">
                         <img
                           draggable="false"
-                          src="https://images4.alphacoders.com/135/thumb-1920-1355268.jpeg"
+                          src="https://res.cloudinary.com/dcuc1uetk/image/upload/v1745786135/Jscop%207.O/Home_Backgrounds/about_img_no3ijn.jpg"
                           alt="My Protein"
                           width={"100%"}
                         />
@@ -1426,7 +1426,7 @@ const Home = () => {
                       <div className="image parent_1">
                         <img
                           draggable="false"
-                          src="https://mir-s3-cdn-cf.behance.net/project_modules/source/02896e26093165.5634f7cdacf7b.png"
+                          src="https://res.cloudinary.com/dcuc1uetk/image/upload/v1745786136/Jscop%207.O/Home_Backgrounds/Events_Background_fxnmng.png"
                           alt="Nike Air Max"
                           width={"100%"}
                         />
@@ -1476,7 +1476,7 @@ const Home = () => {
                       <div className="image parent_2">
                         <img
                           draggable="false"
-                          src="https://i.pinimg.com/1200x/99/0d/a2/990da2cf0c344336fb5f1cb3d126cdf8.jpg"
+                          src="https://res.cloudinary.com/dcuc1uetk/image/upload/v1745786138/Jscop%207.O/Home_Backgrounds/speakers_img_of2r8d.jpg"
                           alt="Apple Watch"
                           width={"100%"}
                         />
@@ -1520,7 +1520,7 @@ const Home = () => {
                       <div className="image parent_3">
                         <img
                           draggable="false"
-                          src="https://i.pinimg.com/1200x/0b/ad/76/0bad76ab3862413a4ae861b7f55d4313.jpg"
+                          src="https://res.cloudinary.com/dcuc1uetk/image/upload/v1745786140/Jscop%207.O/Home_Backgrounds/Timeline_back_pgrqsa.jpg"
                           alt="Jade Teriyaki"
                           width={"100%"}
                         />
@@ -1567,7 +1567,7 @@ const Home = () => {
                       <div className="image parent_4">
                         <img
                           draggable="false"
-                          src="/images/Home_Backgrounds/TeamBackground.jpg"
+                          src="https://res.cloudinary.com/dcuc1uetk/image/upload/v1745786139/Jscop%207.O/Home_Backgrounds/TeamBackground_q8ymau.jpg"
                           alt="Jade Teriyaki"
                           width={"100%"}
                         />
@@ -1614,7 +1614,7 @@ const Home = () => {
                       <div className="image parent_5">
                         <img
                           draggable="false"
-                          src="/images/Home_Backgrounds/Gallery_cover.jpg"
+                          src="https://res.cloudinary.com/dcuc1uetk/image/upload/v1745786137/Jscop%207.O/Home_Backgrounds/Gallery_cover_pmmqxj.jpg"
                           alt="Jade Teriyaki"
                           width={"100%"}
                         />
@@ -1661,7 +1661,7 @@ const Home = () => {
                       <div className="image parent_6">
                         <img
                           draggable="false"
-                          src="/images/Home_Backgrounds/Hackathon-BG.jpeg"
+                          src="https://res.cloudinary.com/dcuc1uetk/image/upload/v1745786137/Jscop%207.O/Home_Backgrounds/Hackathon-BG_jlyztr.jpg"
                           alt="Jade Teriyaki"
                           width={"100%"}
                         />
@@ -1708,7 +1708,7 @@ const Home = () => {
                       <div className="image parent_7">
                         <img
                           draggable="false"
-                          src="/images/Home_Backgrounds/Contact_us_img.jpg"
+                          src="https://res.cloudinary.com/dcuc1uetk/image/upload/v1745786135/Jscop%207.O/Home_Backgrounds/Contact_us_img_or6icd.jpg"
                           alt="Jade Teriyaki"
                           width={"100%"}
                         />

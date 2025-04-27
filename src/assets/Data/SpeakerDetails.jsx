@@ -1,7 +1,7 @@
 const SpeakerDetails = [
   {
     id: 1,
-    imgSrc: "/images/Prof. Bhaskar Kanesri.png",
+    imgSrc: "https://res.cloudinary.com/dcuc1uetk/image/upload/v1745786955/Jscop%207.O/Faculty/Prof._Bhaskar_Kanesri_redeyy.png",
     title: "PROF. BHASKAR KANSERI",
     subtitle: "IIT Delhi",
     description:
@@ -12,7 +12,7 @@ const SpeakerDetails = [
   },
   {
     id: 2,
-    imgSrc: "/images/Dr. Utkarsh Mishra.png",
+    imgSrc: "https://res.cloudinary.com/dcuc1uetk/image/upload/v1745786935/Jscop%207.O/Faculty/Dr._Utkarsh_Mishra_dqgv5d.png",
     title: "DR. UTKARSH MISHRA",
     subtitle: "UNIVERSITY OF DELHI ",
     description:
@@ -23,7 +23,7 @@ const SpeakerDetails = [
   },
   {
     id: 3,
-    imgSrc: "/images/Dr._Satish_Kumar_Dubey-removebg.png",
+    imgSrc: "https://res.cloudinary.com/dcuc1uetk/image/upload/v1745786936/Jscop%207.O/Faculty/Dr._Satish_Kumar_Dubey-removebg_d4mo9k.png",
     title: "PROF. SATISH DUBEY",
     subtitle: "IIT DELHI ",
     description:

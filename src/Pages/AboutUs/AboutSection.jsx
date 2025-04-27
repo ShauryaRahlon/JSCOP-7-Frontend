@@ -20,7 +20,7 @@ const AboutOptica = () => {
             <div className="about-text aboutus-text">
               <div className="abt-mobile-nav">
                 <img
-                  src="images/Jscop_logo_2.png"
+                  src="https://res.cloudinary.com/dcuc1uetk/image/upload/v1745785287/Jscop%207.O/Jscop_logo_2_eoln3i.png"
                   style={{ width: "80%", height: "70%", paddingBottom: "40px" }}
                 ></img>
               </div>
