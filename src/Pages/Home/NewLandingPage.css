@@ -560,7 +560,7 @@ body .portfolio_home__title hr {
   position: absolute;
   left: 0;
   width: 0;
-  top: 77px;
+  top: 175px;
   -webkit-animation: hr 1.3s 1.4s cubic-bezier(0.76, 0.01, 0.21, 1.02) forwards;
   animation: hr 1.3s 1.4s cubic-bezier(0.76, 0.01, 0.21, 1.02) forwards;
 }

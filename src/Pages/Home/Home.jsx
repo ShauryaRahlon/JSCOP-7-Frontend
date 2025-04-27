@@ -1229,12 +1229,7 @@ const Portfolio = () => {
                             filter: "grayscale(100%)",
                             WebkitFilter: "grayscale(100%)",
                           }}
-                          // onClick={(e) =>
-                          // 	handleButtonClick(
-                          // 		e,
-                          // 		"aboutus"
-                          // 	)
-                          // }
+                          onClick={(e) => handleButtonClick(e, "aboutus")}
                         >
                           <a
                             className="background-button"
