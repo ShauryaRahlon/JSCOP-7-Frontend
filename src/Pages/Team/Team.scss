@@ -40,15 +40,15 @@ body {
   position: relative;
   background: linear-gradient(to bottom, #1f3341, #274051, #325b6c);
   color: white;
-  padding: 200px 0px 10px 0px;
+  padding: 240px 0px 10px 0px;
   overflow: hidden;
 
   /* Fade from transparent to solid color from top */
-  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, black 20%);
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, black 18%);
   -webkit-mask-image: linear-gradient(
     to bottom,
     rgba(0, 0, 0, 0) 0%,
-    black 20%
+    black 18%
   );
 }
 
@@ -96,11 +96,12 @@ body {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 10px;
   background: transparent;
   // Responsive padding
   @media (max-width: 900px) {
-    padding: 1rem;
+    // padding: 2rem;
+    padding-top: 100px;
   }
   @media (max-width: 600px) {
     // padding: 0.5rem;
@@ -262,11 +263,19 @@ body {
 
 @media (max-width: 780px) {
   .team-section {
-    margin-top: -400px;
+    margin-top: -300px;
   }
 
   .team-box {
-    padding: 400px 0px 10px 0px;
+    
+    padding: 300px 0px 10px 0px;
+   
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, black 8%);
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0) 0%,
+      black 8%
+    );
   }
 }
 
