@@ -1,14 +1,18 @@
 .loader-div {
-  /* background-color: rgb(7, 17, 17); */
-  /* background-image: radial-gradient(#333, #111); */
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
   color: #fff;
   text-align: center;
   width: 100vw;
+  height: 100vh;
   font-weight: 700;
   overflow: hidden;
+  pointer-events: none; /* <-- important */
+  position: fixed; /* <-- important */
+  top: 0;
+  left: 0;
+  z-index: 9999; /* <-- on top of everything */
 }
 
 #fly-in {
@@ -17,6 +21,8 @@
   height: 20vh;
   text-transform: uppercase;
   display: flex;
+  position: relative;
+  z-index: 400;
   align-items: center;
 }
 
@@ -88,6 +94,7 @@
 
 .fade-out {
   animation: fadeOut 1s forwards;
+  pointer-events: none; /* <-- disable after fade-out */
 }
 
 @keyframes fadeOut {

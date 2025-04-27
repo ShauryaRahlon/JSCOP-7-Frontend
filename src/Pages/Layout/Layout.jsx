@@ -3,27 +3,33 @@ import Home from "../Home/Home";
 import FlyIn from "../Loader/Loader";
 
 const Layout = () => {
-  const [showFlyIn, setShowFlyIn] = useState(true);
   const [fadeOut, setFadeOut] = useState(false);
+  const [showFlyIn, setShowFlyIn] = useState(true);
 
   useEffect(() => {
-    // Start fade-out after 9 seconds
+    // Disable scroll when FlyIn is active
+    document.body.style.overflow = "hidden";
+
+    // Start fade-out after 8 seconds
     const fadeTimer = setTimeout(() => {
       setFadeOut(true);
+      document.body.style.overflow = "auto"; // Allow scroll after fade starts
+
+      // After fade-out animation finishes (1s), remove FlyIn
+      setTimeout(() => {
+        setShowFlyIn(false);
+      }, 1000); // match your CSS fadeOut animation duration
     }, 8000);
 
-    // Remove FlyIn after 10 seconds
-    const timer = setTimeout(() => {
-      setShowFlyIn(false);
-    }, 8000);
-
-    return () => {
-      clearTimeout(timer);
-      clearTimeout(fadeTimer);
-    };
+    return () => clearTimeout(fadeTimer);
   }, []);
 
-  return <>{showFlyIn ? <FlyIn fadeOut={fadeOut} /> : <Home />}</>;
+  return (
+    <>
+      {showFlyIn && <FlyIn fadeOut={fadeOut} />}
+      <Home />
+    </>
+  );
 };
 
 export default Layout;

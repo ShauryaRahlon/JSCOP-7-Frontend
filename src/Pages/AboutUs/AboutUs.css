@@ -41,6 +41,17 @@
   /* padding-top: 100px; */
 }
 
+@media (min-width: 786px) {
+  .abt-title {
+    /* padding-top: 100px; */
+    justify-content: left !important;
+  }
+  .abt-title::after {
+    left: 10% !important;
+    /* font-size: 2.5rem !important; */
+  }
+}
+
 .stars-background {
   color: white;
   overflow: hidden;

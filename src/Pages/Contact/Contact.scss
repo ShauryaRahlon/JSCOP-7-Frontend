@@ -324,11 +324,11 @@ $transition-speed: 500ms;
     display: flex;
   }
   .us-contact-container {
-    // margin-top: -140px;
-    padding-top: 100px;
+    margin-top: -190px;
+    // padding-top: 100px;
   }
 }
-@media (max-width:360px) {
+@media (max-width: 360px) {
   .us-contact-container {
     padding-top: 30px;
   }
@@ -336,10 +336,8 @@ $transition-speed: 500ms;
     margin-top: 10px;
   }
 }
-@media screen and  (max-width:785px) {
- .us-sidebar .us-social-media {
-  margin-bottom: 3rem;
- 
-}
-  
+@media screen and (max-width: 785px) {
+  .us-sidebar .us-social-media {
+    margin-bottom: 3rem;
+  }
 }

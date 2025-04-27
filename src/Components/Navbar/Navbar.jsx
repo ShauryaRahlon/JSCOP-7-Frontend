@@ -85,15 +85,13 @@ function Navbar({ moveBetweenPages, mobile }) {
 			) : null}
 
 			<div
-				className={`mobile_sidebar ${
-					isSidebarOpen ? "mobile_sidebar_open" : ""
-				}`}
+				className={`mobile_sidebar ${isSidebarOpen ? "mobile_sidebar_open" : ""
+					}`}
 			>
 				<div className="mobile_sidebar_header">
 					<button
-						className={`mobile_close_button ${
-							isSidebarOpen ? "mobile_close_button_animate" : ""
-						}`}
+						className={`mobile_close_button ${isSidebarOpen ? "mobile_close_button_animate" : ""
+							}`}
 						onClick={toggleSidebar}
 					>
 						×
@@ -110,13 +108,13 @@ function Navbar({ moveBetweenPages, mobile }) {
 						"Gallery",
 						"Hackathon",
 						"Contact Us",
+						"Register"
 					].map((item, index) => (
 						<div
 							key={index}
 							onClick={() => handlePageChange(index)}
-							className={`mobile_nav_item ${
-								isSidebarOpen ? "mobile_nav_item_animate" : ""
-							}`}
+							className={`mobile_nav_item ${isSidebarOpen ? "mobile_nav_item_animate" : ""
+								}`}
 							style={{ animationDelay: `${index * 0.1}s` }}
 						>
 							{item}
@@ -126,9 +124,8 @@ function Navbar({ moveBetweenPages, mobile }) {
 
 				{/* Social Media Icons */}
 				<div
-					className={`social_icons ${
-						isSidebarOpen ? "social_icons_animate" : ""
-					}`}
+					className={`social_icons ${isSidebarOpen ? "social_icons_animate" : ""
+						}`}
 				>
 					<a
 						href="https://instagram.com"
@@ -158,9 +155,8 @@ function Navbar({ moveBetweenPages, mobile }) {
 			</div>
 
 			<div
-				className={`mobile_overlay ${
-					isSidebarOpen ? "mobile_overlay_visible" : ""
-				}`}
+				className={`mobile_overlay ${isSidebarOpen ? "mobile_overlay_visible" : ""
+					}`}
 				onClick={toggleSidebar}
 			></div>
 		</div>,

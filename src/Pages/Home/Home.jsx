@@ -14,6 +14,7 @@ import "./NewLandingPage.css";
 import LoadComponent, { BackToHome } from "../LoadComponent/LoadComponent";
 import BlackHole from "../../Components/UI/BlackHole";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link, useNavigate } from "react-router-dom";
 
 const Home = () => {
   const [introComplete, setIntroComplete] = useState(false);
@@ -52,8 +53,15 @@ const Home = () => {
     const calculateTimeLeft = () => {
       const difference = new Date(eventDate) - new Date();
 
+      let timeLeft = {
+        days: 0,
+        hours: 0,
+        minutes: 0,
+        seconds: 0,
+      };
+
       if (difference > 0) {
-        return {
+        timeLeft = {
           days: Math.floor(difference / (1000 * 60 * 60 * 24)),
           hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
           minutes: Math.floor((difference / 1000 / 60) % 60),
@@ -61,15 +69,12 @@ const Home = () => {
         };
       }
 
-      return {
-        days: 0,
-        hours: 0,
-        minutes: 0,
-        seconds: 0,
-      };
+      return timeLeft;
     };
 
     useEffect(() => {
+      setTimeLeft(calculateTimeLeft()); // immediate update
+
       const timer = setInterval(() => {
         setTimeLeft(calculateTimeLeft());
       }, 1000);
@@ -79,7 +84,11 @@ const Home = () => {
     const formatTime = (time) => (time < 10 ? `0${time}` : time);
     return (
       <div>
-        <div className={`countdown-timer ${Countclass}`}>
+        <div
+          //   style={{ position: "relative" }}
+          className={`countdown-timer ${Countclass}`}
+        >
+          <div className="landing-counter">Time to go : </div>
           <div className="timer-item">
             <AnimatePresence mode="wait">
               <motion.div
@@ -572,8 +581,9 @@ const Home = () => {
       });
 
       if (sliderInnerRef.current) {
-        sliderInnerRef.current.style.transform = `translateX(${newDifference + endPosition
-          }px) translateY(120px)`;
+        sliderInnerRef.current.style.transform = `translateX(${
+          newDifference + endPosition
+        }px) translateY(120px)`;
       }
     }
   };
@@ -720,8 +730,9 @@ const Home = () => {
           const velocity = 0.5 - pps / 40000;
 
           document.querySelectorAll(".slider_inner__slide").forEach((slide) => {
-            slide.style.transform = `rotateY(${direction}${pps / 110
-              }deg) scale(1)`;
+            slide.style.transform = `rotateY(${direction}${
+              pps / 110
+            }deg) scale(1)`;
             slide.style.transition = `all ${velocity}s`;
           });
         }
@@ -909,8 +920,9 @@ const Home = () => {
       });
 
       if (sliderInnerRef.current) {
-        sliderInnerRef.current.style.transform = `translateX(${newDifference + endPosition
-          }px) translateY(120px)`;
+        sliderInnerRef.current.style.transform = `translateX(${
+          newDifference + endPosition
+        }px) translateY(120px)`;
       }
     }
   };
@@ -1034,6 +1046,8 @@ const Home = () => {
                       >
                         Contact
                       </li>
+
+                      <Link to="/registration">Register</Link>
                     </ul>
                   </div>
                   {/* <div className="number black">0161 345 3464</div> */}
@@ -1173,10 +1187,10 @@ const Home = () => {
                     </div>
                     <div
                       className="image parent_1"
-                    // style={{
-                    //   position: "relative",
-                    //   overflow: flag ? "scroll" : "hidden",
-                    // }}
+                      // style={{
+                      //   position: "relative",
+                      //   overflow: flag ? "scroll" : "hidden",
+                      // }}
                     >
                       <img
                         draggable="false"
@@ -1267,10 +1281,10 @@ const Home = () => {
                   </div>
                   <div
                     className="slideClone"
-                  // style={{
-                  //   overflowY: isScrolling ? "scroll" : "hidden",
-                  //   overflowX: "hidden",
-                  // }}
+                    // style={{
+                    //   overflowY: isScrolling ? "scroll" : "hidden",
+                    //   overflowX: "hidden",
+                    // }}
                   >
                     <div className="title f">
                       .06
@@ -1357,7 +1371,7 @@ const Home = () => {
                     onTouchMove={handleSliderTouchMove}
                     onTouchEnd={handleSliderTouchEnd}
 
-                  // ref={scrollRef}
+                    // ref={scrollRef}
                   >
                     <div className="slider_inner__slide">
                       <div className="title" data-index="0">
@@ -1434,7 +1448,7 @@ const Home = () => {
                               WebkitFilter: "grayscale(100%)",
                             }}
                             onClick={(e) => handleButtonClick(e, "events")}
-                          // data-part-name="events"
+                            // data-part-name="events"
                           >
                             <a
                               className="background-button"
@@ -1715,7 +1729,7 @@ const Home = () => {
                             WebkitFilter: "grayscale(100%)",
                           }}
                           onClick={(e) => handleButtonClick(e, "contact")}
-                        // onClick={handleButtonClick}
+                          // onClick={handleButtonClick}
                         >
                           <a
                             className="background-button"
@@ -1752,11 +1766,7 @@ const Home = () => {
               <span> JSCOP 7.0 </span>
               <div>
                 <p className="mainpage_title">—</p>
-                <span>
-                  {" "}
-                  JIIT Student Conference for Optics and
-                  Photonics
-                </span>
+                <span> JIIT Student Conference for Optics and Photonics</span>
               </div>
               <div className="mainpage_title">
                 The Annual Flagship Event of
