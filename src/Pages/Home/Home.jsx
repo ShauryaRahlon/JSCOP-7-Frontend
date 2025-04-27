@@ -872,7 +872,7 @@ const Home = () => {
                 </div> */}
                 <div className="portfolio_home__header">
                   <div className="logoMain">
-                    <img src={nav_jscop} alt="jscop" />
+                    <img src={nav_2_jscop} alt="jscop" />
                     {/* <img
                       src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/cagencylogo.png"
                       alt="Agency Logo"
