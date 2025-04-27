@@ -2,7 +2,6 @@
   background-color: var(--bg-color);
   position: relative;
   z-index: 1;
-  padding-left: 5%;
   padding-top: 2%;
 }
 
@@ -33,13 +32,15 @@
 }
 
 .tracks-grid {
-  width: 60%;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-  gap: var(--spacing-md);
+  width: 100%;
+  display: flex;
+  max-width: 1200px;
+  /* grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); */
+  gap: 3rem;
   /* margin-bottom: var(--spacing-lg); */
-  margin-left: 10%;
-  margin-right: 2%;
+  /* margin-left: 10%; */
+  /* margin-right: 2%; */
+  margin: 0 auto;
 }
 
 .track-card {
@@ -146,6 +147,13 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+  padding: 0 5rem;
+
+  @media (max-width: 900px) {
+    flex-direction: column;
+    padding: 0 0 !important;
+    margin-bottom: 2rem;
+  }
 }
 
 @media (max-width: 768px) {
@@ -159,11 +167,16 @@
   }
 
   .tracks-grid {
-    grid-template-columns: 1fr;
-    width: 90%;
+    /* grid-template-columns: 1fr; */
+    width: 100%;
     /* Make grid wider */
     margin: 0 auto;
     /* Center grid */
+
+    @media (max-width: 900px) {
+      flex-direction: column;
+      padding: 0 0 !important;
+    }
   }
 
   .track-card {
