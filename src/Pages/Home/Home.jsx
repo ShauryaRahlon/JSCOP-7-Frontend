@@ -13,6 +13,7 @@ import "./NewLandingPage.css";
 // import Events from "../Events/Events";
 import LoadComponent, { BackToHome } from "../LoadComponent/LoadComponent";
 import BlackHole from "../../Components/UI/BlackHole";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Home = () => {
   const [introComplete, setIntroComplete] = useState(false);
@@ -40,6 +41,115 @@ const Home = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const prevParentRef = useRef(null);
 
+  const Countdown = ({ eventDate, Countclass }) => {
+    const [timeLeft, setTimeLeft] = useState({
+      days: 0,
+      hours: 0,
+      minutes: 0,
+      seconds: 0,
+    });
+
+    const calculateTimeLeft = () => {
+      const difference = new Date(eventDate) - new Date();
+
+      if (difference > 0) {
+        return {
+          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+          hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+          minutes: Math.floor((difference / 1000 / 60) % 60),
+          seconds: Math.floor((difference / 1000) % 60),
+        };
+      }
+
+      return {
+        days: 0,
+        hours: 0,
+        minutes: 0,
+        seconds: 0,
+      };
+    };
+
+    useEffect(() => {
+      const timer = setInterval(() => {
+        setTimeLeft(calculateTimeLeft());
+      }, 1000);
+
+      return () => clearInterval(timer);
+    }, [eventDate]);
+    const formatTime = (time) => (time < 10 ? `0${time}` : time);
+    return (
+      <div>
+        <div className={`countdown-timer ${Countclass}`}>
+          <div className="timer-item">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={timeLeft.days}
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 20 }}
+                transition={{ duration: 0.4 }}
+                className="timer-value counter-size"
+              >
+                {formatTime(timeLeft.days)}
+              </motion.div>
+            </AnimatePresence>
+            <div className="timer-label">Days</div>
+          </div>
+          <div className="timer-separator">:</div>
+
+          <div className="timer-item">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={timeLeft.hours}
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 20 }}
+                transition={{ duration: 0.4 }}
+                className="timer-value counter-size"
+              >
+                {formatTime(timeLeft.hours)}
+              </motion.div>
+            </AnimatePresence>
+            <div className="timer-label">Hours</div>
+          </div>
+          <div className="timer-separator">:</div>
+
+          <div className="timer-item">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={timeLeft.minutes}
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 20 }}
+                transition={{ duration: 0.4 }}
+                className="timer-value counter-size"
+              >
+                {formatTime(timeLeft.minutes)}
+              </motion.div>
+            </AnimatePresence>
+            <div className="timer-label">Minutes</div>
+          </div>
+          <div className="timer-separator">:</div>
+
+          <div className="timer-item">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={timeLeft.seconds}
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 20 }}
+                transition={{ duration: 0.4 }}
+                className="timer-value counter-size"
+              >
+                {formatTime(timeLeft.seconds)}
+              </motion.div>
+            </AnimatePresence>
+            <div className="timer-label">Seconds</div>
+          </div>
+        </div>
+      </div>
+    );
+  };
   const toggleMenu = () => {
     setIsMenuOpen((prev) => !prev);
   };
@@ -1642,12 +1752,24 @@ const Home = () => {
               <span> JSCOP 7.0 </span>
               <div>
                 <p className="mainpage_title">—</p>
-                <span> JIIT Student Conference for Optics and Photonics</span>
+                <span>
+                  {" "}
+                  JIIT Student Conference for Optics and
+                  Photonics
+                </span>
               </div>
               <div className="mainpage_title">
                 The Annual Flagship Event of
                 <span> JIIT Optica Student Chapter </span>
               </div>
+              <Countdown
+                eventDate="2025-05-03T09:00:00"
+                Countclass="timer-header-fix-desktop"
+              />
+              <Countdown
+                eventDate="2025-05-03T09:00:00"
+                Countclass="timer-header-fix"
+              />
             </h1>
             {/* <img
               className="trigger"
