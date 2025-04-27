@@ -326,7 +326,15 @@ body {
 .heyreg {
   display: flex;
   justify-content: center;
-  margin-top: 29px;
+  align-items: center;
+  width: 100%;
+
+  @media screen and (max-width: 768px) {
+    .button-wrapper {
+      transform: scale(0.8);
+      margin: 0 auto;
+    }
+  }
 }
 
 /* Header styling */

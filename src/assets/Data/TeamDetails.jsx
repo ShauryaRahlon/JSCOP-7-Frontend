@@ -254,7 +254,7 @@ const TeamDetails = [
 		id: 16,
 		imgsrc: "https://res.cloudinary.com/dcuc1uetk/image/upload/v1738172962/core%20team%20img/Yash_z7k74z.png",
 		name: "Yash Mittal",
-		role: "Technical Member",
+		role: "Management Head",
 		type: "technical",
 		social: [
 			{
@@ -273,7 +273,7 @@ const TeamDetails = [
 	},
 	{
 		id: 17,
-		imgsrc: "/images/TeamImages/Shaurya.jpg",
+		imgsrc: "https://res.cloudinary.com/dcuc1uetk/image/upload/v1745779826/Jscop%207.O/Shaurya_l3yd06.jpg",
 		name: "Shaurya Rahlon",
 		role: "Technical Member",
 		type: "technical",
@@ -294,7 +294,7 @@ const TeamDetails = [
 	},
 	{
 		id: 18,
-		imgsrc: "/images/TeamImages/Saarthak.jpg",
+		imgsrc: "https://res.cloudinary.com/dcuc1uetk/image/upload/v1745779826/Jscop%207.O/Saarthak_bjvl9u.jpg",
 		name: "Saarthak Agarwal",
 		role: "Technical Member",
 		type: "technical",
@@ -315,7 +315,7 @@ const TeamDetails = [
 	},
 	{
 		id: 19,
-		imgsrc: "/images/TeamImages/Vishwas.jpg",
+		imgsrc: "https://res.cloudinary.com/dcuc1uetk/image/upload/v1745779829/Jscop%207.O/Vishwas_cmnm01.jpg",
 		name: "Vishwas Srivastava",
 		role: "Technical Member",
 		type: "technical",
@@ -336,7 +336,7 @@ const TeamDetails = [
 	},
 	{
 		id: 20,
-		imgsrc: "/images/TeamImages/Vansh.jpg",
+		imgsrc: "https://res.cloudinary.com/dcuc1uetk/image/upload/v1745779828/Jscop%207.O/Vansh_dmg9or.jpg",
 		name: "Vansh Arora",
 		role: "Technical Member",
 		type: "technical",
@@ -357,7 +357,7 @@ const TeamDetails = [
 	},
 	{
 		id: 21,
-		imgsrc: "/images/TeamImages/dishi.jpg",
+		imgsrc: "https://res.cloudinary.com/dcuc1uetk/image/upload/v1745779825/Jscop%207.O/dishi_wlos2i.jpg",
 		name: "Dishi Gautam",
 		role: "Technical Member",
 		type: "technical",
@@ -378,7 +378,7 @@ const TeamDetails = [
 	},
 	{
 		id: 22,
-		imgsrc: "/images/TeamImages/Bhavishyy.jpg",
+		imgsrc: "https://res.cloudinary.com/dcuc1uetk/image/upload/v1745779825/Jscop%207.O/Bhavishyy_vvo8df.jpg",
 		name: "Bhavishyy",
 		role: "Technical Member",
 		type: "technical",
@@ -399,7 +399,7 @@ const TeamDetails = [
 	},
 	{
 		id: 23,
-		imgsrc: "/images/TeamImages/Arnav.jpg",
+		imgsrc: "https://res.cloudinary.com/dcuc1uetk/image/upload/v1745779824/Jscop%207.O/Arnav_t9u2ng.jpg",
 		name: "Arnav Khandelwal",
 		role: "Technical Member",
 		type: "technical",
@@ -420,7 +420,7 @@ const TeamDetails = [
 	},
 	{
 		id: 24,
-		imgsrc: "/images/TeamImages/Sneha.jpg",
+		imgsrc: "https://res.cloudinary.com/dcuc1uetk/image/upload/v1745779827/Jscop%207.O/Sneha_fppfbd.jpg",
 		name: "Sneha Gusain",
 		role: "Technical Member",
 		type: "technical",
@@ -441,7 +441,7 @@ const TeamDetails = [
 	},
 	{
 		id: 25,
-		imgsrc: "/images/TeamImages/Janvi.jpg",
+		imgsrc: "https://res.cloudinary.com/dcuc1uetk/image/upload/v1745779825/Jscop%207.O/Janvi_xzkhmo.jpg",
 		name: "Janvi Gupta",
 		role: "Technical Member",
 		type: "technical",

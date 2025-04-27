@@ -1,5 +1,6 @@
 // import React, { useState, useRef } from "react";
 // import { toast, ToastContainer } from "react-toastify";
+// import axios from "axios";
 // import "react-toastify/dist/ReactToastify.css";
 // import LoadingSpinner from './Loadingspinner'
 // import "../Register/RegisterForm.scss";
@@ -203,26 +204,28 @@
 //       setLoading(true);
 
 //       try {
-//         await new Promise((resolve) => setTimeout(resolve, 1500));
-
-//         toast.success("Registration Completed");
-//         console.log("Form submitted successfully:", finalData);
-
-//         setFormData({
-//           name: "",
-//           email: "",
-//           phone: "",
-//           enroll: "",
-//           batch: "",
-//           branch: "",
-//           college: "",
-//           enrollmentType: "",
-//           selectedDay: "",
-//         });
-//         setClg("");
-//         setImage(null);
+//         setLoading(true);
+//         const response = await axios.post('url', finalData);
+//         console.log('Registration response:', finalData);
+//         if (response.status === 200) {
+//           toast.success("Registration Completed");
+//           setFormData({
+//             name: "",
+//             email: "",
+//             phone: "",
+//             enroll: "",
+//             batch: "",
+//             branch: "",
+//             college: "",
+//             enrollmentType: "",
+//             selectedDay: "",
+//           });
+//           setClg("");
+//           setImage(null);
+//         }
 //       } catch (error) {
-//         toast.error("Something went wrong. Please try again");
+//         console.error('Registration error:', error);
+//         toast.error(error.response?.data?.message || "Something went wrong. Please try again");
 //       } finally {
 //         setLoading(false);
 //       }
@@ -231,11 +234,11 @@
 
 //   const getQRCodeSource = (selectedDay) => {
 //     switch (selectedDay) {
-//       case "dayOne":
+//       case "day1":
 //         return "/qrimage/Day1.jpg";
-//       case "dayTwo":
+//       case "day2":
 //         return "/qrimage/Day1.jpg";
-//       case "bothDays":
+//       case "both":
 //         return "/qrimage/Day2.jpg";
 //       default:
 //         return "";
@@ -244,11 +247,11 @@
 
 //   const getDayPrice = (selectedDay) => {
 //     switch (selectedDay) {
-//       case "dayOne":
+//       case "day1":
 //         return "Rs. 90/-";
-//       case "dayTwo":
+//       case "day2":
 //         return "Rs. 90/-";
-//       case "bothDays":
+//       case "both":
 //         return "Rs. 180/-";
 //       default:
 //         return "";
@@ -484,8 +487,8 @@
 //                     <input
 //                       type="radio"
 //                       name="selectedDay"
-//                       value="dayOne"
-//                       checked={formData.selectedDay === "dayOne"}
+//                       value="day1"
+//                       checked={formData.selectedDay === "day1"}
 //                       onChange={handleInputChange}
 //                     />
 //                     <span className="radio-custom"></span>
@@ -496,8 +499,8 @@
 //                     <input
 //                       type="radio"
 //                       name="selectedDay"
-//                       value="dayTwo"
-//                       checked={formData.selectedDay === "dayTwo"}
+//                       value="day2"
+//                       checked={formData.selectedDay === "day2"}
 //                       onChange={handleInputChange}
 //                     />
 //                     <span className="radio-custom"></span>
@@ -508,8 +511,8 @@
 //                     <input
 //                       type="radio"
 //                       name="selectedDay"
-//                       value="bothDays"
-//                       checked={formData.selectedDay === "bothDays"}
+//                       value="both"
+//                       checked={formData.selectedDay === "both"}
 //                       onChange={handleInputChange}
 //                     />
 //                     <span className="radio-custom"></span>
