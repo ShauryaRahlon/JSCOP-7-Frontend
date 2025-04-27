@@ -19,6 +19,12 @@
   /* border-radius: 16px; */
 }
 
+.button__container_Timeline {
+  cursor: pointer;
+  margin-top: 28px;
+}
+
+
 .timeline-box:first-child {
   border-top: 6px solid white;
 }
@@ -106,9 +112,7 @@
   padding: 120px 20px;
 
   mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, black 10%);
-  -webkit-mask-image: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0) 0%,
-    black 10%
-  );
+  -webkit-mask-image: linear-gradient(to bottom,
+      rgba(0, 0, 0, 0) 0%,
+      black 10%);
 }

@@ -76,9 +76,8 @@ const Portfolio = () => {
 			const slideWidth = sliderInnerRef.current.querySelector(
 				".slider_inner__slide"
 			).offsetWidth;
-			sliderInnerRef.current.style.left = `${
-				width / 2 - slideWidth / 2
-			}px`;
+			sliderInnerRef.current.style.left = `${width / 2 - slideWidth / 2
+				}px`;
 		}
 
 		// Set introComplete after timeout
@@ -96,9 +95,8 @@ const Portfolio = () => {
 				const slideWidth = sliderInnerRef.current.querySelector(
 					".slider_inner__slide"
 				).offsetWidth;
-				sliderInnerRef.current.style.left = `${
-					width / 2 - slideWidth / 2
-				}px`;
+				sliderInnerRef.current.style.left = `${width / 2 - slideWidth / 2
+					}px`;
 			}
 		};
 		window.addEventListener("resize", handleResize);
@@ -475,9 +473,8 @@ const Portfolio = () => {
 			});
 
 			if (sliderInnerRef.current) {
-				sliderInnerRef.current.style.transform = `translateX(${
-					newDifference + endPosition
-				}px) translateY(120px)`;
+				sliderInnerRef.current.style.transform = `translateX(${newDifference + endPosition
+					}px) translateY(120px)`;
 			}
 		}
 	};
@@ -630,9 +627,8 @@ const Portfolio = () => {
 					document
 						.querySelectorAll(".slider_inner__slide")
 						.forEach((slide) => {
-							slide.style.transform = `rotateY(${direction}${
-								pps / 110
-							}deg) scale(1)`;
+							slide.style.transform = `rotateY(${direction}${pps / 110
+								}deg) scale(1)`;
 							slide.style.transition = `all ${velocity}s`;
 						});
 				}
@@ -1087,10 +1083,10 @@ const Portfolio = () => {
 										</div>
 										<div
 											className="image parent_1"
-											// style={{
-											//   position: "relative",
-											//   overflow: flag ? "scroll" : "hidden",
-											// }}
+										// style={{
+										//   position: "relative",
+										//   overflow: flag ? "scroll" : "hidden",
+										// }}
 										>
 											<img
 												draggable="false"
@@ -1193,10 +1189,10 @@ const Portfolio = () => {
 									</div>
 									<div
 										className="slideClone"
-										// style={{
-										//   overflowY: isScrolling ? "scroll" : "hidden",
-										//   overflowX: "hidden",
-										// }}
+									// style={{
+									//   overflowY: isScrolling ? "scroll" : "hidden",
+									//   overflowX: "hidden",
+									// }}
 									>
 										<div className="title f">
 											.06
@@ -1291,7 +1287,7 @@ const Portfolio = () => {
 										onMouseMove={handleSliderMouseMove}
 										onMouseUp={handleSliderMouseUp}
 										onScroll={handleSliderScroll}
-										// ref={scrollRef}
+									// ref={scrollRef}
 									>
 										<div className="slider_inner__slide">
 											<div
@@ -1367,34 +1363,36 @@ const Portfolio = () => {
 													width={"100%"}
 												/>
 												<div className="overlay overlay_1"></div>
-												<div className="cats cats_1">
-													ALL THE ACTION, ALL IN ONE
-													PLACE
-												</div>
-												<div className="title title_1">
-													From Fun Games to Tech & ECE
-													Events
-												</div>
-												<div
-													className="button-wrapper button__container button button_1"
-													style={{
-														filter: "grayscale(100%)",
-														WebkitFilter:
-															"grayscale(100%)",
-													}}
-													onClick={(e) =>
-														handleButtonClick(
-															e,
-															"events"
-														)
-													}
+												<div className="content-fix">
+													<div className="cats cats_1">
+														ALL THE ACTION, ALL IN ONE
+														PLACE
+													</div>
+													<div className="title title_1">
+														From Fun Games to Tech & ECE
+														Events
+													</div>
+													<div
+														className="button-wrapper button__container button button_1"
+														style={{
+															filter: "grayscale(100%)",
+															WebkitFilter:
+																"grayscale(100%)",
+														}}
+														onClick={(e) =>
+															handleButtonClick(
+																e,
+																"events"
+															)
+														}
 													// data-part-name="events"
-												>
-													<a
-														className="background-button"
-														href="#"
-														title="See What’s Happening"
-													></a>
+													>
+														<a
+															className="background-button"
+															href="#"
+															title="See What’s Happening"
+														></a>
+													</div>
 												</div>
 												{/* <div
                           className="button button_1"
@@ -1733,7 +1731,7 @@ const Portfolio = () => {
 															"contact"
 														)
 													}
-													// onClick={handleButtonClick}
+												// onClick={handleButtonClick}
 												>
 													<a
 														className="background-button"
