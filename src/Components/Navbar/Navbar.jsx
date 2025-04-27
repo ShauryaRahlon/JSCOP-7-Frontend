@@ -3,7 +3,7 @@ import { LayoutDashboard, Instagram, Github, Linkedin } from "lucide-react";
 import "./Navbar.css";
 import ReactDOM from "react-dom";
 
-function Navbar({ moveBetweenPages }) {
+function Navbar({ moveBetweenPages, mobile }) {
 	const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 	const [position, setPosition] = useState({ top: 30, right: 70 });
 	const [dragging, setDragging] = useState(false);
@@ -66,21 +66,23 @@ function Navbar({ moveBetweenPages }) {
 
 	return ReactDOM.createPortal(
 		<div className="mobile_nav_app">
-			<button
-				className="mobile_menu_button"
-				onClick={toggleSidebar}
-				onMouseDown={handleMouseDown}
-				onTouchStart={handleTouchStart}
-				onTouchMove={handleTouchMove}
-				onTouchEnd={handleTouchEnd}
-				style={{
-					top: `${position.top}px`,
-					right: `${position.right}px`,
-					cursor: "grab",
-				}}
-			>
-				<LayoutDashboard size={24} />
-			</button>
+			{mobile ? (
+				<button
+					className="mobile_menu_button"
+					onClick={toggleSidebar}
+					onMouseDown={handleMouseDown}
+					onTouchStart={handleTouchStart}
+					onTouchMove={handleTouchMove}
+					onTouchEnd={handleTouchEnd}
+					style={{
+						top: `${position.top}px`,
+						right: `${position.right}px`,
+						cursor: "grab",
+					}}
+				>
+					<LayoutDashboard size={24} />
+				</button>
+			) : null}
 
 			<div
 				className={`mobile_sidebar ${

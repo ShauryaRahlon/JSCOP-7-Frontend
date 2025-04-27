@@ -13,10 +13,10 @@
   padding-bottom: 70px;
 
   /* Fade from transparent to solid color from top */
-  //   mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, black 20%);
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, black 10%);
   -webkit-mask-image: linear-gradient(to bottom,
       rgba(0, 0, 0, 0) 0%,
-      black 20%);
+      black 10%);
 
 }
 
@@ -329,15 +329,16 @@
   }
 }
 
+
 // Override styles for very small screens
 @media (max-width: 450px) {
   :root {
     --columns: 3; // Ensure minimum 3 columns
   }
 
-  .gallary-box {
-    padding-top: 150px; // Reduce top padding on mobile
-  }
+  // .gallary-box {
+  //   padding-top: 150px; // Reduce top padding on mobile
+  // }
 
   .book-grid-container .book-grid {
     margin: 0 10px; // Reduce margins
@@ -466,4 +467,12 @@
       }
     }
   }
+}
+
+@media (max-width: 768px) {
+  .gallary-box {
+    margin-top: -280px;
+    padding-top: 400px;
+  }  
+  
 }
