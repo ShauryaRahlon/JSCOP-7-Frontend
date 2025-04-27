@@ -1,0 +1,114 @@
+.timeline-wrapper {
+  background-color: #4b0082;
+  min-height: 100vh;
+  padding: 50px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.timeline-box {
+  position: relative;
+  width: 80%;
+  height: 200px;
+  margin: 0;
+  overflow: hidden;
+  border: 6px solid white;
+  border-top: none;
+  box-sizing: border-box;
+  /* border-radius: 16px; */
+}
+
+.timeline-box:first-child {
+  border-top: 6px solid white;
+}
+
+.remove-right {
+  border-right: none;
+}
+
+.remove-left {
+  border-left: none;
+}
+
+.timeline-content {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  color: white;
+  text-align: left;
+  z-index: 2;
+}
+
+.remove-left .timeline-content {
+  text-align: right;
+}
+
+.timeline-content h2 {
+  font-size: 32px;
+  margin: 0;
+  letter-spacing: 3px;
+}
+
+.timeline-content p {
+  margin-top: 8px;
+  font-size: 16px;
+  color: #d1c4e9;
+}
+
+/* New background behind content */
+.content-background {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.2), transparent);
+  z-index: -1;
+  border-radius: 12px;
+}
+
+.content-background.left {
+  background: linear-gradient(to left, rgba(255, 255, 255, 0.2), transparent);
+}
+
+.content-background.right {
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.2), transparent);
+}
+
+/* Styling for Next Box */
+.next-box {
+  background-color: #6a1b9a;
+}
+
+.next-title {
+  font-size: 20px;
+  letter-spacing: 2px;
+  color: #d1c4e9;
+  margin-bottom: 10px;
+}
+
+.next-main {
+  font-size: 48px;
+  font-weight: bold;
+  color: white;
+}
+
+/* remove animation transition */
+.timeline-content {
+  transition: none;
+}
+
+.box {
+  position: relative;
+  background: linear-gradient(to bottom, #1f3341, #274051, #325b6c);
+  color: white;
+  padding: 120px 20px;
+
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, black 10%);
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    black 10%
+  );
+}

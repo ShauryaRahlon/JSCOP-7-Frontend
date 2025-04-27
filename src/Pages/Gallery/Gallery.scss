@@ -13,16 +13,17 @@
   padding-bottom: 70px;
 
   /* Fade from transparent to solid color from top */
-    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, black 10%);
+  //   mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, black 20%);
   -webkit-mask-image: linear-gradient(to bottom,
       rgba(0, 0, 0, 0) 0%,
-      black 10%);
+      black 20%);
 
 }
 
 
 .book-grid-container {
   background-color: #16212C;
+
   .book-grid {
     display: grid;
     grid-template-columns: repeat(var(--columns), 1fr);
@@ -176,9 +177,9 @@
 
       .gal_img {
         position: absolute !important;
-        width: 53% !important;
         left: 50% !important;
         top: 50% !important;
+
         z-index: 0 !important;
         transform: translateX(-50%) translateY(-60%);
         box-shadow: 5px -5px 10px rgba(0, 0, 0, 0.3);
@@ -192,6 +193,7 @@
       }
     }
   }
+
 
   /* Modal styles with improved animation */
   .book-modal-overlay {
@@ -302,9 +304,10 @@
   .book-grid {
     .book-item {
       .gal_img {
-        width: 70% !important; // Increased from 53% for better visibility on mobile
+        //minor changes for mobile
+        width: 58% !important; // Increased from 53% for better visibility on mobile
         transform: translateX(-50%) translateY(-50%); // Adjusted positioning
-        
+
         &:hover {
           transform: translateX(-50%) translateY(-50%); // Remove rotation on mobile
         }
@@ -316,7 +319,7 @@
   .book-modal {
     width: 95vw;
     height: 80vh;
-    
+
     .book-modal-image {
       max-width: 95vw;
       max-height: 75vh;
@@ -329,24 +332,23 @@
   }
 }
 
-
 // Override styles for very small screens
 @media (max-width: 450px) {
   :root {
     --columns: 3; // Ensure minimum 3 columns
   }
 
-  // .gallary-box {
-  //   padding-top: 150px; // Reduce top padding on mobile
-  // }
+  .gallary-box {
+    padding-top: 150px; // Reduce top padding on mobile
+  }
 
   .book-grid-container .book-grid {
     margin: 0 10px; // Reduce margins
-    
+
     .book-item {
       grid-column-end: span 2;
       margin-top: -30%; // Reduce overlap
-      
+
       .gal_img {
         width: 85% !important; // Even larger on very small screens
       }
@@ -354,10 +356,9 @@
   }
 }
 
-@media (min-width: 450px) {
-  .book-grid-container .book-grid {
-    // margin: 190px 40px;
-    margin: 0 20px; // Reduced margin
+@media (max-width: 450px) {
+  .book-grid-container .book-grid .book-item .gal_img {
+    width: 58% !important;
   }
 }
 
@@ -467,12 +468,4 @@
       }
     }
   }
-}
-
-@media (max-width: 768px) {
-  .gallary-box {
-    margin-top: -280px;
-    padding-top: 400px;
-  }  
-  
 }

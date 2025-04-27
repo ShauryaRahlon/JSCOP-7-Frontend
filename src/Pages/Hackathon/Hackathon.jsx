@@ -212,7 +212,7 @@ const Countdown = ({ eventDate, eventLocation, eventMode }) => {
 							</div>
 						</div>
 					</div>
-					<div className="countdown-btn-container">
+					<div className="countdown-btn-container countdown-cta">
 						<div
 							className="button-wrapper button__container"
 							style={{
