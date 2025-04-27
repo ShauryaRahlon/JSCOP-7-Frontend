@@ -5,7 +5,7 @@ const SpeakerDetails = [
     title: "PROF. BHASKAR KANSERI",
     subtitle: "IIT Delhi",
     description:
-      "Prof. Bhaskar Kanseri is an IHFC Chair Professor in the Department of Physics at the Indian Institute of Technology Delhi. He leads the Experimental Quantum Interferometry and Polarization (EQUIP) Lab, focusing on cutting-edge research in quantum optics, coherence, polarization, and ultrafast nonlinear optics. ",
+      "Prof. Bhaskar Kanseri, an IHFC Chair Professor at IIT Delhi's Physics Department, leads the Experimental Quantum Interferometry and Polarization Lab, specializing in quantum optics and ultrafast nonlinear optics.",
     date: "03-05-2025",
     time: "11:00 AM - 11:45 AM",
     venue: "LT-4",
@@ -16,7 +16,7 @@ const SpeakerDetails = [
     title: "DR. UTKARSH MISHRA",
     subtitle: "UNIVERSITY OF DELHI ",
     description:
-      "Dr. Utkarsh Mishra, Assistant Professor in the Department of Physics and Astrophysics at the University of Delhi, earned his Ph.D. from the Harish-Chandra Research Institute in 2016. He has contributed to advancements in quantum metrology, quantum scrambling, and the dynamics of entanglement in periodically driven many-body systems . ",
+      "Dr. Utkarsh Mishra, Assistant Professor at Delhi University, earned his Ph.D. from HRI in 2016 and advances research in quantum metrology, scrambling, and entanglement dynamics. ",
     date: "03-05-2025",
     time: "11:45 AM - 12:30 PM",
     venue: "LT-4",
@@ -24,10 +24,10 @@ const SpeakerDetails = [
   {
     id: 3,
     imgSrc: "/images/Dr._Satish_Kumar_Dubey-removebg.png",
-    title: "PROF. SATISH KUMAR DUBEY",
+    title: "PROF. SATISH DUBEY",
     subtitle: "IIT DELHI ",
     description:
-      "Prof. Satish Kumar Dubey is a Professor at the Centre for Sensors, Instrumentation and Cyber Physical System Engineering (SeNSE) at the Indian Institute of Technology Delhi. He leads the Laser Applications and Bioimaging Lab, focusing on the design and development of advanced optical measurement and imaging systems.  ",
+      "Prof. Satish Kumar Dubey, a professor at IIT Delhi's SeNSE, leads the Laser Applications and Bioimaging Lab, developing advanced optical measurement and imaging systems. ",
     date: "04-05-2025",
     time: "9:30 AM - 10:30 AM",
     venue: "LT-4",

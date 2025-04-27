@@ -82,7 +82,7 @@
 
 .speaker-container {
   margin: 0 auto;
-  padding: 30px 20px;
+  padding: 0 20px;
   max-width: 1300px;
   width: 100%;
   box-sizing: border-box;
@@ -217,13 +217,17 @@
   }
 
   .speaker-heading {
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     position: relative;
     top: 150px;
   }
   .speaker-container {
     position: relative;
     top: 150px;
+  }
+  .event-details {
+    position: relative;
+    top: -20px;
   }
 }
 
