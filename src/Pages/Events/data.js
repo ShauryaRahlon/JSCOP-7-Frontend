@@ -2,126 +2,251 @@
 
 // Placeholder data structure based on inferred original format
 export const cardData = [
-	{
-		id: 1,
-		imgSrc: "/img/b.jpg", // Corrected path
-		title: "Placeholder Title 1",
+  {
+    id: 1,
+    imgSrc: "/images/Event_Posters/Mock interview (2000 x 1414 px).png", // Corrected path
+    // imgSrc: "/img/b.jpg",
+    title: "Mock Interview",
 
-		date: "Jan 1, 2024",
+    date: "April 3, 2025",
 
-		Description: [
-			"Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-			"Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-		],
-		location: "Location One",
-		venue: "Venue One",
-		time: "10:00 AM - 12:00 PM",
-		faq: [
-			{
-				question: "What is the event about?",
-				answer: "The event focuses on the latest trends in technology and innovation.",
-			},
-			{
-				question: "Who are the speakers?",
-				answer: "We have a lineup of industry experts and thought leaders.",
-			},
-			{
-				question: "How can I register?",
-				answer: "You can register through our website or at the venue.",
-			},
-		],
-		rules_link: "https://example.com/rules",
-		contact_number: [
-			{
-				name: "John Doe",
-				number: "+1234567890",
-			},
-			{
-				name: "Jane Smith",
-				number: "+0987654321",
-			},
-		],
-	},
-	{
-		id: 2,
-		imgSrc: "/img/b.jpg", // Corrected path
-		title: "Placeholder Title 1",
+    Description: [
+      "Prepare to ace your real interviews with our Mock Interview session! Get a firsthand experience of facing a professional interview environment, receive constructive feedback from experienced evaluators, and build the confidence you need to stand out. Whether it’s technical or HR rounds, we’ll simulate it all. Don’t miss this golden opportunity to polish your skills!",
+    ],
+    location: "CL01",
+    venue: "ABB 1",
+    time: "2:00 PM - 3:30 PM",
+    faq: [
+      {
+        question: "What is the event about?",
+        answer:
+          "The event focuses on the latest trends in technology and innovation.",
+      },
+      {
+        question: "Who are the speakers?",
+        answer: "We have a lineup of industry experts and thought leaders.",
+      },
+      {
+        question: "How can I register?",
+        answer: "You can register through our website or at the venue.",
+      },
+    ],
+    rules_link: "https://example.com/rules",
+    contact_number: [
+      {
+        name: "John Doe",
+        number: "+1234567890",
+      },
+      {
+        name: "Jane Smith",
+        number: "+0987654321",
+      },
+    ],
+  },
+  {
+    id: 2,
+    imgSrc: "/images/Event_Posters/Astrovolt A3.png", // Corrected path
+    // imgSrc: "/img/b.jpg",
+    title: "Astrovolt",
 
-		date: "Jan 1, 2024",
+    date: "April 3, 2025",
 
-		Description: [
-			"Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-			"Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-		],
-		location: "Location One",
-		venue: "Venue One",
-		time: "10:00 AM - 12:00 PM",
-		faq: [
-			{
-				question: "What is the event about?",
-				answer: "The event focuses on the latest trends in technology and innovation.",
-			},
-			{
-				question: "Who are the speakers?",
-				answer: "We have a lineup of industry experts and thought leaders.",
-			},
-			{
-				question: "How can I register?",
-				answer: "You can register through our website or at the venue.",
-			},
-		],
-		rules_link: "https://example.com/rules",
-		contanct_number: [
-			{
-				name: "John Doe",
-				number: "+1234567890",
-			},
-			{
-				name: "Jane Smith",
-				number: "+0987654321",
-			},
-		],
-	},
-	{
-		id: 3,
+    Description: [
+      "Astrovolt is your gateway to the world of electronics and circuit building! Teams will race against time to design, debug, and deploy circuits in thrilling challenges that test your creativity and problem-solving skills. Whether you’re a pro or a passionate beginner, Astrovolt promises a spark-filled, electrifying experience!",
+    ],
+    location: "ECE Lab",
+    venue: "ABB 1",
+    time: "2:00 PM - 3:30 PM",
+    faq: [
+      {
+        question: "What is the event about?",
+        answer:
+          "The event focuses on the latest trends in technology and innovation.",
+      },
+      {
+        question: "Who are the speakers?",
+        answer: "We have a lineup of industry experts and thought leaders.",
+      },
+      {
+        question: "How can I register?",
+        answer: "You can register through our website or at the venue.",
+      },
+    ],
+    rules_link: "https://example.com/rules",
+    contanct_number: [
+      {
+        name: "John Doe",
+        number: "+1234567890",
+      },
+      {
+        name: "Jane Smith",
+        number: "+0987654321",
+      },
+    ],
+  },
+  {
+    id: 3,
 
-		imgSrc: "/img/b.jpg", // Corrected path
-		title: "Placeholder Title 1",
+    imgSrc: "/images/Event_Posters/Jaypee Got Latent.png", // Corrected path
+    title: "Jaypee's Got Talent",
 
-		date: "Jan 1, 2024",
+    date: "April 3, 2025",
 
-		Description: [
-			"Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-			"Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-		],
-		location: "Location One",
-		venue: "Venue One",
-		time: "10:00 AM - 12:00 PM",
-		faq: [
-			{
-				question: "What is the event about?",
-				answer: "The event focuses on the latest trends in technology and innovation.",
-			},
-			{
-				question: "Who are the speakers?",
-				answer: "We have a lineup of industry experts and thought leaders.",
-			},
-			{
-				question: "How can I register?",
-				answer: "You can register through our website or at the venue.",
-			},
-		],
-		rules_link: "https://example.com/rules",
-		contanct_number: [
-			{
-				name: "John Doe",
-				number: "+1234567890",
-			},
-			{
-				name: "Jane Smith",
-				number: "+0987654321",
-			},
-		],
-	},
-	// Assuming there were originally 4 cards based on the number of author images.
+    Description: [
+      "Unleash your inner star at Jaypee’s Got Talent! From soulful singing to mesmerizing dance performances, hilarious stand-ups to mind-blowing magic tricks — if you have a talent, this is your stage! Show your skills, win hearts, and maybe even some exciting prizes. Let’s make the evening unforgettable!",
+    ],
+    location: "LT-4",
+    venue: "JBS",
+    time: "3:30 PM - 5:00 PM",
+    faq: [
+      {
+        question: "What is the event about?",
+        answer:
+          "The event focuses on the latest trends in technology and innovation.",
+      },
+      {
+        question: "Who are the speakers?",
+        answer: "We have a lineup of industry experts and thought leaders.",
+      },
+      {
+        question: "How can I register?",
+        answer: "You can register through our website or at the venue.",
+      },
+    ],
+    rules_link: "https://example.com/rules",
+    contanct_number: [
+      {
+        name: "John Doe",
+        number: "+1234567890",
+      },
+      {
+        name: "Jane Smith",
+        number: "+0987654321",
+      },
+    ],
+  },
+  {
+    id: 4,
+
+    imgSrc: "/img/b.jpg", // Corrected path
+    title: "Fun Event",
+
+    date: "April 4, 2025",
+
+    Description: [
+      "Need a break from the hustle? Join us for a Fun Event loaded with laughter, surprises, and unforgettable memories. Enjoy exciting games, quirky activities, and friendly competitions designed to make you smile and bond with fellow students. It's not just about winning — it's about having a blast!",
+    ],
+    location: "Campus",
+    venue: "Venue One",
+    time: "10:30 AM - 12:30 PM",
+    faq: [
+      {
+        question: "What is the event about?",
+        answer:
+          "The event focuses on the latest trends in technology and innovation.",
+      },
+      {
+        question: "Who are the speakers?",
+        answer: "We have a lineup of industry experts and thought leaders.",
+      },
+      {
+        question: "How can I register?",
+        answer: "You can register through our website or at the venue.",
+      },
+    ],
+    rules_link: "https://example.com/rules",
+    contanct_number: [
+      {
+        name: "John Doe",
+        number: "+1234567890",
+      },
+      {
+        name: "Jane Smith",
+        number: "+0987654321",
+      },
+    ],
+  },
+  {
+    id: 5,
+
+    imgSrc: "/img/b.jpg", // Corrected path
+    title: "Tech Talk",
+
+    date: "April 4, 2025",
+
+    Description: [
+      "Step into the future with our inspiring Tech Talk! Industry experts and thought leaders will share insights on emerging technologies, groundbreaking innovations, and real-world tech applications. Whether you’re a tech enthusiast or just curious, this session promises valuable takeaways to fuel your passion for technology.",
+    ],
+    location: "LT-4",
+    venue: "JBS",
+    time: "2:00 PM - 3:00 PM",
+    faq: [
+      {
+        question: "What is the event about?",
+        answer:
+          "The event focuses on the latest trends in technology and innovation.",
+      },
+      {
+        question: "Who are the speakers?",
+        answer: "We have a lineup of industry experts and thought leaders.",
+      },
+      {
+        question: "How can I register?",
+        answer: "You can register through our website or at the venue.",
+      },
+    ],
+    rules_link: "https://example.com/rules",
+    contanct_number: [
+      {
+        name: "John Doe",
+        number: "+1234567890",
+      },
+      {
+        name: "Jane Smith",
+        number: "+0987654321",
+      },
+    ],
+  },
+  {
+    id: 6,
+
+    imgSrc: "/images/Event_Posters/Pointless (2000 x 1414 px).png", // Corrected path
+    title: "Pointless",
+
+    date: "April 4, 2025",
+
+    Description: [
+      "Get ready for Pointless — a game of knowledge, strategy, and thinking outside the box! Unlike traditional quizzes, here you aim for the least obvious correct answers. It's a unique twist on quizzing that’ll challenge your wits and make you rethink what you know. Fun, competitive, and refreshingly different!",
+    ],
+    location: "CL01",
+    venue: "ABB 3",
+    time: "3:00 PM - 4:30 PM",
+    faq: [
+      {
+        question: "What is the event about?",
+        answer:
+          "The event focuses on the latest trends in technology and innovation.",
+      },
+      {
+        question: "Who are the speakers?",
+        answer: "We have a lineup of industry experts and thought leaders.",
+      },
+      {
+        question: "How can I register?",
+        answer: "You can register through our website or at the venue.",
+      },
+    ],
+    rules_link: "https://example.com/rules",
+    contanct_number: [
+      {
+        name: "John Doe",
+        number: "+1234567890",
+      },
+      {
+        name: "Jane Smith",
+        number: "+0987654321",
+      },
+    ],
+  },
+  // Assuming there were originally 4 cards based on the number of author images.
 ];
