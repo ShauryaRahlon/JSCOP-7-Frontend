@@ -1,0 +1,288 @@
+.about-optica {
+  position: relative;
+  background-color: var(--bg-color);
+  background-image: "url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png')" !important;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, black 10%);
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    black 10%
+  );
+  padding: 15px 70px;
+}
+
+.container {
+  padding-top: 20px;
+}
+
+.aboutus-stars {
+  background-color: #16212c !important;
+  min-height: fit-content !important;
+  /* height: 100vh !important; */
+  -webkit-mask-image: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 1),
+    rgba(0, 0, 0, 0.9),
+    rgba(0, 0, 0, 0)
+  ) !important;
+  mask-image: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 1),
+    rgba(0, 0, 0, 1),
+    rgba(0, 0, 0, 1),
+    rgba(0, 0, 0, 0.8),
+    rgba(0, 0, 0, 0)
+  ) !important;
+}
+
+.abt-img {
+  background-color: gray;
+}
+
+.about-card {
+  background-color: rgba(131, 120, 123, 0.5) !important;
+}
+
+.abt-title {
+  /* padding-top: 100px; */
+}
+
+.stars-background {
+  color: white;
+  overflow: hidden;
+  padding-top: 250px;
+  padding-bottom: 10px;
+  margin-top: -150px;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, black 30%);
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    black 30%
+  );
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-xl);
+  padding-right: 50px;
+  padding-left: 50px;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.section-container {
+  padding-left: 225px;
+}
+
+.section-title {
+  position: relative;
+  z-index: 2;
+  color: white;
+  /* font-size: 2.5rem; */
+  font-weight: bold;
+  text-align: center;
+}
+
+.about-text p {
+  margin-bottom: var(--spacing-md);
+  color: var(--gray-light);
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.aboutus-text p {
+  text-align: justify !important;
+}
+
+.about-image {
+  position: relative;
+  z-index: 2;
+}
+
+.image-wrapper {
+  position: relative;
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  transform: perspective(1000px) rotateY(-5deg) rotateX(5deg);
+  transition: var(--transition);
+}
+
+.image-wrapper:hover {
+  transform: perspective(1000px) rotateY(0) rotateX(0);
+}
+
+.about-card {
+  background: transparent;
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius-lg);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  align-items: center;
+  text-align: center;
+}
+
+.aboutus-card {
+  /* background: none !important; */
+  display: flex;
+  justify-content: center;
+  margin-right: 100px;
+}
+
+.abt-mobile-nav {
+  display: flex;
+  justify-content: center;
+  display: none;
+}
+
+.abt-title {
+  font-size: 2.5rem !important;
+}
+
+.aboutus-section {
+  /* background-color: #16212c; */
+  margin-top: 150px !important;
+}
+
+/* Responsive */
+@media (max-width: 1300px) {
+  .aboutus-image {
+    display: none !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  .aboutus-stars {
+    /* height: 160vh !important; */
+  }
+
+  .about-content {
+    grid-template-columns: 1fr;
+    /* gap: var(--spacing-lg); */
+    padding: 0 30px;
+  }
+
+  .about-image {
+    order: -1;
+  }
+
+  .image-wrapper {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .section-container {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+}
+
+@media (max-width: 768px) {
+  .abt-mobile-nav {
+    display: flex;
+  }
+  .about-text {
+    text-align: justify;
+  }
+
+  .stars-background {
+    height: 130vh;
+  }
+
+  .aboutus-stars {
+    /* height: 140vh !important; */
+  }
+
+  .section-container {
+    padding: 0 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .abt-title {
+    margin-top: 100px;
+  }
+
+  .section-title {
+    /* font-size: 2rem; */
+    width: 100%;
+    text-align: center;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-card {
+    margin-top: 25px;
+    padding: var(--spacing-sm);
+  }
+
+  .aboutus-card {
+    background-color: rgba(131, 120, 123, 0) !important;
+  }
+
+  .card-image {
+    height: 100%;
+    width: 80%;
+    max-width: 80%;
+    object-fit: cover;
+  }
+}
+
+.reason-title {
+  font-size: 1.1rem;
+}
+
+.about-optica {
+  padding: 15px 20px;
+}
+
+.about-text p {
+  font-size: 1rem;
+}
+
+@media (max-width: 480px) {
+  .about-card {
+    padding: var(--spacing-xs);
+  }
+
+  .card-image {
+    width: 120%;
+    max-width: 120%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .aboutus-stars {
+    /* height: 125vh !important; */
+  }
+
+  .section-title {
+    /* font-size: 2.5rem; */
+    padding: 0 10px;
+  }
+
+  .about-optica {
+    padding: 10px 15px;
+  }
+
+  .about-content {
+    padding: 0 15px;
+  }
+
+  .about-text p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .image-wrapper {
+    max-width: 90%;
+  }
+
+  .section-container {
+    padding: 0 15px;
+  }
+}

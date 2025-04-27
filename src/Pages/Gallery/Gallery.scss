@@ -310,6 +310,7 @@
     transform: scale(1);
   }
 }
+
 // Modify the base styles for small screens
 .book-grid-container {
   .book-grid {
@@ -480,5 +481,26 @@
         grid-column-start: 2;
       }
     }
+  }
+}
+
+@media (max-width: 899px) {
+  .book-grid-container {
+    padding-top: 500px;
+    margin-top: -272px;
+  }
+}
+
+@media (max-width: 768px) {
+  .book-grid-container {
+    padding-top: 300px !important;
+    margin-top: -10px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .book-grid-container {
+    padding-top: 750px;
+    margin-top: -472px;
   }
 }
