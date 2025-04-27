@@ -483,3 +483,24 @@
     }
   }
 }
+
+@media (max-width: 899px) {
+  .book-grid-container {
+    padding-top: 500px;
+    margin-top: -272px;
+  }
+}
+
+@media (max-width: 768px) {
+  .book-grid-container {
+    padding-top: 300px !important;
+    margin-top: -10px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .book-grid-container {
+    padding-top: 750px;
+    margin-top: -472px;
+  }
+}
