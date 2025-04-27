@@ -179,126 +179,137 @@
         position: absolute !important;
         left: 50% !important;
         top: 50% !important;
-
         z-index: 0 !important;
-        transform: translateX(-50%) translateY(-60%);
+        transform: translateX(-50%) translateY(-50%);
         box-shadow: 5px -5px 10px rgba(0, 0, 0, 0.3);
-        transition-property: transform;
-        transition-duration: 0.3s;
-        height: fit-content !important;
+        transition: all 0.3s ease;
+        max-width: 58% !important;
+        max-height: 120% !important;
+        width: auto !important;
+        height: auto !important;
+        object-fit: contain !important;
 
         &:hover {
-          transform: translateX(-40%) translateY(-70%) rotatez(25deg);
+          transform: translateX(-45%) translateY(-55%) rotatez(15deg);
         }
       }
     }
   }
+}
 
+// Update modal styles
+.book-modal {
+  .book-modal-image {
+    max-width: 85vw !important;
+    max-height: 85vh !important;
+    width: auto !important;
+    height: auto !important;
+    object-fit: contain !important;
+  }
+}
 
-  /* Modal styles with improved animation */
-  .book-modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100vw; // Changed from 60vw to full width
-    background: rgba(0, 0, 0, 0);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 100;
-    backdrop-filter: blur(0px);
-    transition: background 0.6s ease, backdrop-filter 0.6s ease;
-    animation: fade-in 0.6s ease forwards;
+/* Modal styles with improved animation */
+.book-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw; // Changed from 60vw to full width
+  background: rgba(0, 0, 0, 0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  backdrop-filter: blur(0px);
+  transition: background 0.6s ease, backdrop-filter 0.6s ease;
+  animation: fade-in 0.6s ease forwards;
+}
+
+.book-modal {
+  position: relative;
+  width: 90vw;
+  height: 90vh;
+  margin: auto;
+  opacity: 0;
+  transform: scale(0.8) translateY(20px);
+  animation: modal-appear 0.8s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+  animation-delay: 0.2s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .book-modal-image {
+    max-width: 90vw;
+    max-height: 85vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
   }
 
-  .book-modal {
-    position: relative;
-    width: 90vw;
-    height: 90vh;
-    margin: auto;
+  .gal-close-button {
+    position: absolute;
+    top: -18px;
+    right: -18px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: white;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
     opacity: 0;
-    transform: scale(0.8) translateY(20px);
-    animation: modal-appear 0.8s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+    transform: scale(0.8);
+    animation: button-appear 0.2s ease forwards;
     animation-delay: 0.2s;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 
-    .book-modal-image {
-      max-width: 90vw;
-      max-height: 85vh;
-      width: auto;
-      height: auto;
-      object-fit: contain;
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
-      border-radius: 4px;
-    }
-
-    .gal-close-button {
-      position: absolute;
-      top: -18px;
-      right: -18px;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: white;
-      border: none;
-      font-size: 24px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-      opacity: 0;
-      transform: scale(0.8);
-      animation: button-appear 0.2s ease forwards;
-      animation-delay: 0.2s;
-
-      &:hover {
-        opacity: 0.8;
-      }
-    }
-  }
-
-  @keyframes fade-in {
-    0% {
-      background: rgba(0, 0, 0, 0);
-      backdrop-filter: blur(0px);
-    }
-
-    100% {
-      background: rgba(0, 0, 0, 0.8);
-      backdrop-filter: blur(3px);
-    }
-  }
-
-  @keyframes modal-appear {
-    0% {
-      opacity: 0;
-      transform: scale(0.8) translateY(20px);
-    }
-
-    100% {
-      opacity: 1;
-      transform: scale(1) translateY(0);
-    }
-  }
-
-  @keyframes button-appear {
-    0% {
-      opacity: 0;
-      transform: scale(0.8);
-    }
-
-    100% {
-      opacity: 1;
-      transform: scale(1);
+    &:hover {
+      opacity: 0.8;
     }
   }
 }
 
+@keyframes fade-in {
+  0% {
+    background: rgba(0, 0, 0, 0);
+    backdrop-filter: blur(0px);
+  }
+
+  100% {
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(3px);
+  }
+}
+
+@keyframes modal-appear {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes button-appear {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
 // Modify the base styles for small screens
 .book-grid-container {
   .book-grid {
@@ -359,6 +370,8 @@
 @media (max-width: 450px) {
   .book-grid-container .book-grid .book-item .gal_img {
     width: 58% !important;
+    max-width: 75% !important;
+    max-height: 150% !important;
   }
 }
 
