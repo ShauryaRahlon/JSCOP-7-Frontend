@@ -5,7 +5,13 @@ const AboutOptica = () => {
     <section>
       <div></div>
       <div>
-        <div className="container">
+        <div
+          className="container"
+          style={{
+            background:
+              "linear-gradient(transparent 0%,#16212c 50%, #16212c 100%)",
+          }}
+        >
           <div className="section-container">
             <h2 className="section-title abt-title">WHAT JSCOP IS?</h2>
           </div>

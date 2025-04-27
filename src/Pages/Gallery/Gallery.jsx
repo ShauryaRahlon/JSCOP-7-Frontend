@@ -10,23 +10,21 @@ const Gallery = () => {
 
   // Book image URLs
   const bookImages = [
-    "/images/Event_Images/Rename0.jpg",
-    "/images/Event_Images/Rename1.webp",
-    "/images/Event_Images/Rename2.webp",
-    "/images/Event_Images/Rename3.webp",
-    "/images/Event_Images/Rename4.jpg",
-    "/images/Event_Images/Rename5.JPG",
-    "/images/Event_Images/Rename6.JPG",
-    "/images/Event_Images/Rename7.JPG",
-    "/images/Event_Images/Rename8.JPG",
-    "/images/Event_Images/Rename9.JPG",
-    "/images/Event_Images/Rename10.JPG",
+    "https://res.cloudinary.com/dcuc1uetk/image/upload/v1745778399/Jscop%207.O/Rename9_jmme31.jpg",
+    "https://res.cloudinary.com/dcuc1uetk/image/upload/v1745778399/Jscop%207.O/Rename7_stegmk.jpg",
+    "https://res.cloudinary.com/dcuc1uetk/image/upload/v1745778398/Jscop%207.O/Rename8_zqvkiy.jpg",
+    "https://res.cloudinary.com/dcuc1uetk/image/upload/v1745778398/Jscop%207.O/Rename4_os4fik.jpg",
+    "https://res.cloudinary.com/dcuc1uetk/image/upload/v1745778398/Jscop%207.O/Rename6_bctff3.jpg",
+    "https://res.cloudinary.com/dcuc1uetk/image/upload/v1745778398/Jscop%207.O/Rename5_pqsamb.jpg",
+    "https://res.cloudinary.com/dcuc1uetk/image/upload/v1745778398/Jscop%207.O/Rename3_uylaqi.jpg",
+    "https://res.cloudinary.com/dcuc1uetk/image/upload/v1745778397/Jscop%207.O/Rename2_u3zffm.jpg",
+    "https://res.cloudinary.com/dcuc1uetk/image/upload/v1745778397/Jscop%207.O/Rename0_a7mb1l.jpg",
+    "https://res.cloudinary.com/dcuc1uetk/image/upload/v1745778397/Jscop%207.O/Rename1_ol5uav.jpg",
+    "https://res.cloudinary.com/dcuc1uetk/image/upload/v1745778400/Jscop%207.O/Rename10_dluajo.jpg",
+    "https://res.cloudinary.com/dcuc1uetk/image/upload/v1745778399/Jscop%207.O/Rename12_kmsxkv.jpg",
+    "https://res.cloudinary.com/dcuc1uetk/image/upload/v1745778400/Jscop%207.O/Rename13_o5osyx.jpg",
+    "https://res.cloudinary.com/dcuc1uetk/image/upload/v1745778400/Jscop%207.O/Rename14_rxthvj.jpg",
 
-    "/images/Event_Images/Rename12.JPG",
-    "/images/Event_Images/Rename13.JPG",
-    "/images/Event_Images/Rename14.JPG",
-    "/images/Event_Images/Rename15.JPG",
-    "/images/Event_Images/Rename16.JPG",
   ];
 
   // Handle book click
