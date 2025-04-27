@@ -20,14 +20,14 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Layout />} />
-        <Route path="/Home" element={<MainPage />} />
-        <Route path="/gallery" element={<Gallery />} />
-        <Route path="/about" element={<Aboutus />} />
-        <Route path="/events" element={<Events />} />
-        <Route path="/timeline" element={<Timeline />} />
-        <Route path="/team" element={<Team />} />
-        <Route path="/speaker" element={<Speaker />} />
-        <Route path="/hackathon" element={<Hackathon />} />
+        {/* <Route path="/Home" element={<MainPage />} />
+          <Route path="/gallery" element={<Gallery />} />
+          <Route path="/about" element={<Aboutus />} />
+          <Route path="/events" element={<Events />} />
+          <Route path="/timeline" element={<Timeline />} />
+          <Route path="/team" element={<Team />} />
+          <Route path="/speaker" element={<Speaker />} />
+          <Route path="/hackathon" element={<Hackathon />} /> */}
         <Route path="/registration" element={<RegisterForm />} />
         <Route
           path="*"
