@@ -14,6 +14,7 @@ import "./NewLandingPage.css";
 import LoadComponent, { BackToHome } from "../LoadComponent/LoadComponent";
 import BlackHole from "../../Components/UI/BlackHole";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link, useNavigate } from "react-router-dom";
 
 const Home = () => {
   const [introComplete, setIntroComplete] = useState(false);
@@ -1034,6 +1035,8 @@ const Home = () => {
                       >
                         Contact
                       </li>
+
+                      <Link to="/registration">Register</Link>
                     </ul>
                   </div>
                   {/* <div className="number black">0161 345 3464</div> */}
