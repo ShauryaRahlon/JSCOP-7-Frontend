@@ -4,14 +4,14 @@
 export const cardData = [
   {
     id: 1,
-    imgSrc: "/images/Event_Posters/Mock interview (2000 x 1414 px).png", // Corrected path
+    imgSrc: "/images/Event_Posters/Mock interview.png", // Corrected path
     // imgSrc: "/img/b.jpg",
     title: "Mock Interview",
 
     date: "April 3, 2025",
 
     Description: [
-      "Prepare to ace your real interviews with our Mock Interview session! Get a firsthand experience of facing a professional interview environment, receive constructive feedback from experienced evaluators, and build the confidence you need to stand out. Whether it’s technical or HR rounds, we’ll simulate it all. Don’t miss this golden opportunity to polish your skills!",
+      "Ace your real interviews with our Mock Interview session! Experience a professional interview environment, get constructive feedback from experts, and build confidence to stand out. Whether it’s technical or HR, we simulate it all. Don’t miss this opportunity to polish your skills!",
     ],
     location: "CL01",
     venue: "ABB 1",
@@ -45,7 +45,7 @@ export const cardData = [
   },
   {
     id: 2,
-    imgSrc: "/images/Event_Posters/Astrovolt A3.png", // Corrected path
+    imgSrc: "/images/Event_Posters/Astrovolt.png", // Corrected path
     // imgSrc: "/img/b.jpg",
     title: "Astrovolt",
 
@@ -128,7 +128,7 @@ export const cardData = [
   {
     id: 4,
 
-    imgSrc: "/img/b.jpg", // Corrected path
+    imgSrc: "/images/Event_Posters/AmongUs.jpg", // Corrected path
     title: "Fun Event",
 
     date: "April 4, 2025",
@@ -210,7 +210,7 @@ export const cardData = [
   {
     id: 6,
 
-    imgSrc: "/images/Event_Posters/Pointless (2000 x 1414 px).png", // Corrected path
+    imgSrc: "/images/Event_Posters/Pointless.png", // Corrected path
     title: "Pointless",
 
     date: "April 4, 2025",
