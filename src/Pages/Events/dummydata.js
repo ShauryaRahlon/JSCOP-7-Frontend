@@ -1,12 +1,12 @@
 // import { time } from "framer-motion";
 
 // Placeholder data structure based on inferred original format
-export const cardData = [
+export const dummydata = [
   {
     id: 1,
-    imgSrc: "/images/Event_Posters/Mock interview.png", // Corrected path
+    imgSrc: "/images/Event_Posters/DummyPoster.jpg", // Corrected path
     // imgSrc: "/img/b.jpg",
-    title: "Mock Interview",
+    title: "To Be Revealed Soon",
 
     date: "April 3, 2025",
 
@@ -45,9 +45,9 @@ export const cardData = [
   },
   {
     id: 2,
-    imgSrc: "/images/Event_Posters/Astrovolt.png", // Corrected path
+    imgSrc: "/images/Event_Posters/DummyPoster.jpg", // Corrected path
     // imgSrc: "/img/b.jpg",
-    title: "Astrovolt",
+    title: "To Be Revealed Soon",
 
     date: "April 3, 2025",
 
@@ -87,8 +87,8 @@ export const cardData = [
   {
     id: 3,
 
-    imgSrc: "/images/Event_Posters/Jaypee Got Latent.png", // Corrected path
-    title: "Jaypee's Got Talent",
+    imgSrc: "/images/Event_Posters/DummyPoster.jpg", // Corrected path
+    title: "To Be Revealed Soon",
 
     date: "April 3, 2025",
 
@@ -128,8 +128,8 @@ export const cardData = [
   {
     id: 4,
 
-    imgSrc: "/images/Event_Posters/AmongUs.jpg", // Corrected path
-    title: "Fun Event",
+    imgSrc: "/images/Event_Posters/DummyPoster.jpg", // Corrected path
+    title: "To Be Revealed Soon",
 
     date: "April 4, 2025",
 
@@ -169,8 +169,8 @@ export const cardData = [
   {
     id: 5,
 
-    imgSrc: "/img/b.jpg", // Corrected path
-    title: "Tech Talk",
+    imgSrc: "/images/Event_Posters/DummyPoster.jpg", // Corrected path
+    title: "To Be Revealed Soon",
 
     date: "April 4, 2025",
 
@@ -210,8 +210,8 @@ export const cardData = [
   {
     id: 6,
 
-    imgSrc: "/images/Event_Posters/Pointless.png", // Corrected path
-    title: "Pointless",
+    imgSrc: "/images/Event_Posters/DummyPoster.jpg", // Corrected path
+    title: "To Be Revealed Soon",
 
     date: "April 4, 2025",
 

@@ -14,11 +14,13 @@ export default function RegistrationForm() {
     branch: "",
     college: "",
     enrollmentType: "",
+    selectedDay: "", // Add this new field
   });
 
   const [loading, setLoading] = useState(false);
   const [clg, setClg] = useState("");
   const [image, setImage] = useState(null);
+  const [isValidImage, setIsValidImage] = useState(false);
   const formRef = useRef(null);
 
   const [formErrors, setFormErrors] = useState({
@@ -31,23 +33,17 @@ export default function RegistrationForm() {
     college: "",
     screenshot: "",
     enrollmentType: "",
+    selectedDay: "",
   });
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
 
-    if (name === "clg" && (value === "JIIT-62" || value === "JIIT-128")) {
+    if (name === "clg") {
       setClg(value);
       setFormData((prevData) => ({
         ...prevData,
         college: value,
-      }));
-      return;
-    } else if (name === "clg" && value === "others") {
-      setClg("others");
-      setFormData((prevData) => ({
-        ...prevData,
-        college: "",
       }));
       return;
     }
@@ -59,14 +55,30 @@ export default function RegistrationForm() {
   };
 
   const handleImage = (e) => {
-    if (!e.target.files || e.target.files.length === 0) return;
-
-    const file = e.target.files[0];
-    if (file.size > 1000000) {
-      toast.error("File size is too large, please upload a file less than 1MB");
+    if (!e.target.files || e.target.files.length === 0) {
+      setIsValidImage(false);
+      setImage(null);
       return;
     }
 
+    const file = e.target.files[0];
+    const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp'];
+
+    if (!allowedTypes.includes(file.type)) {
+      toast.error("Invalid file format. Please upload JPEG, JPG, PNG or WEBP files only");
+      setIsValidImage(false);
+      setImage(null);
+      return;
+    }
+
+    if (file.size > 1000000) {
+      toast.error("File size is too large, please upload a file less than 1MB");
+      setIsValidImage(false);
+      setImage(null);
+      return;
+    }
+
+    setIsValidImage(true);
     setFileToBase(file);
   };
 
@@ -91,6 +103,11 @@ export default function RegistrationForm() {
   const handleFormSubmit = async (e) => {
     e.preventDefault();
 
+    if (!isValidImage) {
+      toast.error("Please upload a valid image file first");
+      return;
+    }
+
     const errors = {
       name: "",
       email: "",
@@ -101,6 +118,7 @@ export default function RegistrationForm() {
       college: "",
       screenshot: "",
       enrollmentType: "",
+      selectedDay: "",
     };
 
     if (!formData.name.trim()) {
@@ -123,8 +141,8 @@ export default function RegistrationForm() {
 
     if (!formData.phone.trim()) {
       errors.phone = "Phone number is required";
-    } else if (!/^\d{10}$/.test(formData.phone)) {
-      errors.phone = "Invalid phone number";
+    } else if (!/^[6-9]\d{9}$/.test(formData.phone)) {
+      errors.phone = "Invalid phone number.";
     }
 
     if (!formData.enroll.trim() && (formData.college === "JIIT-62" || formData.college === "JIIT-128")) {
@@ -163,6 +181,10 @@ export default function RegistrationForm() {
       errors.batch = "Invalid Batch";
     }
 
+    if (!formData.selectedDay) {
+      errors.selectedDay = "Please select a day option";
+    }
+
     setFormErrors(errors);
 
     if (!Object.values(errors).some((error) => error !== "")) {
@@ -195,6 +217,7 @@ export default function RegistrationForm() {
           branch: "",
           college: "",
           enrollmentType: "",
+          selectedDay: "",
         });
         setClg("");
         setImage(null);
@@ -203,6 +226,32 @@ export default function RegistrationForm() {
       } finally {
         setLoading(false);
       }
+    }
+  };
+
+  const getQRCodeSource = (selectedDay) => {
+    switch (selectedDay) {
+      case "dayOne":
+        return "/qrimage/Day1.jpg";
+      case "dayTwo":
+        return "/qrimage/Day1.jpg";
+      case "bothDays":
+        return "/qrimage/Day2.jpg";
+      default:
+        return "";
+    }
+  };
+
+  const getDayPrice = (selectedDay) => {
+    switch (selectedDay) {
+      case "dayOne":
+        return "Rs. 90/-";
+      case "dayTwo":
+        return "Rs. 90/-";
+      case "bothDays":
+        return "Rs. 180/-";
+      default:
+        return "";
     }
   };
 
@@ -263,12 +312,6 @@ export default function RegistrationForm() {
                     <br />mail : opticastudentchapterjiit@gmail.com
                   </li>
                 </ol>
-
-                <div className="regis-sub-heading">QR CODE</div>
-
-                <div className="qr-container">
-                  <img src="/qrimage/qr.jpeg" className="qr-image" alt="QR code" />
-                </div>
               </div>
             </div>
           </div>
@@ -282,8 +325,7 @@ export default function RegistrationForm() {
               </div>
             </div>
 
-            <form ref={formRef} className="
-            " onSubmit={handleFormSubmit}>
+            <form ref={formRef} className="registration-form" onSubmit={handleFormSubmit}>
               <div>
                 <label htmlFor="name">
                   Name <span className="required">*</span>:
@@ -343,23 +385,9 @@ export default function RegistrationForm() {
                     </option>
                     <option value="JIIT-62">JIIT-62</option>
                     <option value="JIIT-128">JIIT-128</option>
-                    <option value="others">Others</option>
                   </select>
                   <div className="select-arrow">▼</div>
                 </div>
-                {clg === "others" && (
-                  <div>
-                    <input
-                      className="reginput"
-                      type="text"
-                      id="college"
-                      name="college"
-                      placeholder="Enter your college name"
-                      value={formData.college}
-                      onChange={handleInputChange}
-                    />
-                  </div>
-                )}
                 {formErrors.college && <p className="error">{formErrors.college}</p>}
               </div>
 
@@ -448,6 +476,64 @@ export default function RegistrationForm() {
               )}
 
               <div>
+                <label>
+                  Select Day Option <span className="required">*</span>:
+                </label>
+                <div className="radio-group">
+                  <label className="radio-label">
+                    <input
+                      type="radio"
+                      name="selectedDay"
+                      value="dayOne"
+                      checked={formData.selectedDay === "dayOne"}
+                      onChange={handleInputChange}
+                    />
+                    <span className="radio-custom"></span>
+                    Day One (90/-)
+                  </label>
+
+                  <label className="radio-label">
+                    <input
+                      type="radio"
+                      name="selectedDay"
+                      value="dayTwo"
+                      checked={formData.selectedDay === "dayTwo"}
+                      onChange={handleInputChange}
+                    />
+                    <span className="radio-custom"></span>
+                    Day Two (90/-)
+                  </label>
+
+                  <label className="radio-label">
+                    <input
+                      type="radio"
+                      name="selectedDay"
+                      value="bothDays"
+                      checked={formData.selectedDay === "bothDays"}
+                      onChange={handleInputChange}
+                    />
+                    <span className="radio-custom"></span>
+                    Both Days (180/-)
+                  </label>
+                </div>
+                {formErrors.selectedDay && <p className="error">{formErrors.selectedDay}</p>}
+              </div>
+
+              {/* Show selected QR code and price */}
+              {formData.selectedDay && (
+                <div className="qr-section">
+                  <h3>Payment QR Code ({getDayPrice(formData.selectedDay)})</h3>
+                  <div className="qr-container">
+                    <img
+                      src={getQRCodeSource(formData.selectedDay)}
+                      className="qr-image"
+                      alt={`QR code for ${formData.selectedDay}`}
+                    />
+                  </div>
+                </div>
+              )}
+
+              <div>
                 <label htmlFor="screenshot">
                   Upload Screenshot of Payment <span className="required">*</span>:
                 </label>
@@ -462,7 +548,7 @@ export default function RegistrationForm() {
               </div>
 
               <div className="heyreg" onClick={handleFormSubmit}>
-                {/* <button className="regbtn" type="submit">
+                {/* <button className="rebtn" type="submit">
                   Register
                 </button> */}
                 <div

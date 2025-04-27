@@ -2,9 +2,11 @@
   position: relative;
   background-color: var(--bg-color);
   mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, black 10%);
-  -webkit-mask-image: linear-gradient(to bottom,
-      rgba(0, 0, 0, 0) 0%,
-      black 10%);
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    black 10%
+  );
   padding: 15px 70px;
   /* Remove horizontal padding, let .container handle it */
   z-index: 0;
@@ -28,7 +30,6 @@
 
   /* Add padding to match countdown-wrapper inset */
 }
-
 
 .about-text p {
   margin-bottom: var(--spacing-md);
@@ -183,12 +184,12 @@
   }
 
   /* Order the effective children of .about-content */
-  .about-text>p {
+  .about-text > p {
     order: 1;
     /* Welcome text paragraphs first */
   }
 
-  .about-text>.features-grid {
+  .about-text > .features-grid {
     order: 3;
     /* Features grid third */
   }
@@ -197,7 +198,6 @@
   .features-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-
 
   .about {
     mask-image: none;
@@ -211,7 +211,6 @@
     max-width: 600px;
     margin: 0 auto;
   }
-
 }
 
 /* @media (max-width:920px) rule removed for simplification */
@@ -280,8 +279,8 @@
   }
 
   /* Target the div containing title/desc - assumes it's the last child */
-  .feature-item>div:last-child {
-    /* text-align: center; */
+  .feature-item > div:last-child {
+    text-align: center;
     /* Removed - keep text left-aligned */
   }
 

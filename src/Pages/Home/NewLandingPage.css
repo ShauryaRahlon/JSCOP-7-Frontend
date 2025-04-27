@@ -1034,7 +1034,7 @@ body .portfolio_home__title .page_portfolio {
   &:hover {
     background-color: rgba(255, 255, 255, 0.2);
     /* Slightly brighter */
-    transform: scale(1.1);
+    transform: scale(1.01);
     /* Slight zoom on hover */
   }
 }

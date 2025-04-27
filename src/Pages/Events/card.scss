@@ -51,6 +51,10 @@
   cursor: pointer;
 }
 
+.card_image__page {
+  background: linear-gradient(90deg, transparent, #b9c1caf9, transparent);
+}
+
 .card_events__content {
   position: relative;
   width: 100%;
@@ -72,7 +76,7 @@
   font-size: 2em;
   max-width: 900px;
   margin: 0 auto;
-  padding: 35px 30px 0px;
+  padding: 20px 10px;
 }
 
 .card_events__container--closed .card_events__caption {
@@ -88,7 +92,7 @@
   font-size: 1.5em;
   line-height: 1;
   margin: 5px 0 0 0;
-  color: #0f172a;
+  color: #636262;
 }
 
 .card_events__container--closed .card_events__title {
@@ -145,7 +149,7 @@
   display: -webkit-flex;
   display: flex;
   padding: 0 0 35px 0;
-
+  margin-top: 10px;
   -webkit-align-items: center;
   align-items: center;
 }
@@ -166,6 +170,8 @@
 .meta_events__date {
   margin: 0 0 0 auto;
   font-size: 1.4rem;
+  background: linear-gradient(90deg, transparent, #b9c1ca, transparent);
+  padding: 10px 20px;
 }
 
 /* Secondary Image Styles */
@@ -350,7 +356,7 @@
   font-size: 2.5rem;
   font-weight: bold;
   margin-bottom: 2rem;
-  color: #0f172a;
+  color: #636262;
 }
 
 .faq_list {
@@ -404,7 +410,7 @@
 
 .faq_item__answer {
   font-size: 1.2rem;
-  color: #475569;
+  color: #1e293b;
 }
 
 .card_events__btn-close-icon {
@@ -416,6 +422,8 @@
 .card_events__buttons {
   display: flex;
   gap: 14px;
+  justify-content: center;
+  align-items: center;
 }
 
 .evt-background-btn::after {
@@ -431,8 +439,10 @@
   // position: relative;
   // z-index: 1;
   // margin: 0 auto;
-  background-color: rgb(94, 92, 92);
+  // background-color: rgb(94, 92, 92);
+  background: #1a2737;
   /* border-radius: var(--border-radius-lg); */
+  margin-top: 0.5px;
   padding: var(--spacing-lg);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(10px);
@@ -444,12 +454,11 @@
   // opacity: 0.4;
 }
 
-.card_events__title::after {
-  content: "";
+.white-line {
   position: absolute;
   // bottom: -10px;
-  top: 150px;
-  left: 35%;
+  top: 140px;
+  left: 30%;
   transform: translateX(-50%);
   width: 250px;
   height: 3px;
@@ -468,6 +477,8 @@
     justify-content: center;
     align-items: center;
     gap: 14px;
+    position: relative;
+    left: -30px;
   }
   .event_details__item {
     gap: 20px !important;
@@ -483,6 +494,7 @@
 
   .card_events__title {
     font-size: 2.2rem;
+    position: relative;
   }
 
   .card_events__btn-close {
@@ -515,12 +527,11 @@
     margin-top: 70px;
   }
 
-  .card_events__title::after {
-    content: "";
+  .white-line {
     position: absolute;
     // bottom: -10px;
-    top: 120px;
-    left: 50%;
+    top: 50px;
+    left: 35%;
     transform: translateX(-50%);
     width: 250px;
     height: 3px;
