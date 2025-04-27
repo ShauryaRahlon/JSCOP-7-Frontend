@@ -357,7 +357,7 @@ body {
   width: 100%;
   height: 100%;
   position: absolute;
-  top: -8px;
+  top: -11px;
   left: -10px;
   padding-top: 4px;
   display: flex;
@@ -378,25 +378,26 @@ body {
   color: black;
 }
 
+// @media screen and (max-width: 1024px) {
+//   .button-wrapper {
+//     width: 100%;
+//     display: inline-block;
+//     margin: -10px;
+//     gap: 20px;
+//     margin-top: 5px;
+//     margin-left: 15px !important;
+//   }
+
+// }
+
 @media screen and (max-width: 1024px) {
-  .button-wrapper {
-    width: 100%;
-    display: inline-block;
-    margin: -10px;
-    gap: 20px;
-    margin-top: 5px;
-    margin-left: 15px !important;
-  }
-
-}
-
-@media screen and (max-width: 912px) {
   .button-wrapper {
     width: 170px;
     display: inline-block;
     margin: -10px;
     gap: 20px;
     margin-top: 5px;
+    margin-left: 15px !important;
   }
 
   .background-button {
@@ -422,7 +423,7 @@ body {
     width: 100%;
     height: 50px;
     position: absolute;
-    top: -17px;
+    top: -20px;
     left: -11px;
     padding-top: 4px;
     display: flex;

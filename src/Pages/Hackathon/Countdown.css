@@ -136,7 +136,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  /* margin-right: 50px !important; */
   /* gap: var(--spacing-md); */
+}
+
+.countdown-cta {
+  margin-right: 50px !important;
 }
 
 @media (max-width: 1024px) {
