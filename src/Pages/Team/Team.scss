@@ -378,6 +378,18 @@ body {
   color: black;
 }
 
+@media screen and (max-width: 1024px) {
+  .button-wrapper {
+    width: 100%;
+    display: inline-block;
+    margin: -10px;
+    gap: 20px;
+    margin-top: 5px;
+    margin-left: 15px !important;
+  }
+
+}
+
 @media screen and (max-width: 912px) {
   .button-wrapper {
     width: 170px;
