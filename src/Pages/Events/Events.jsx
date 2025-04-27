@@ -20,9 +20,9 @@ function Events() {
   };
 
   return (
-    <div className="container_final demo-3_final ">
+    <div className="container_final demo-3_final events-box ">
       <div
-        className="stars events-box"
+        className="stars "
         style={{
           backgroundColor: "#1a2737",
         }}

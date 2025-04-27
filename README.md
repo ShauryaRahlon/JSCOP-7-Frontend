@@ -1,6 +1,6 @@
 <div align = "center">
 
-<img height=100px src= "/public/images/jscop_home_logo.png">
+<img height=300px src= "/public/images/jscop_home_logo.png">
 </div>
 
 <div align = "center">
@@ -25,15 +25,11 @@ This website has been built to effectively share all information regarding our a
 ## Packages Used
 
 - framer-motion
-- react-bootstrap
-- react-image-gallery
-- react-router-dom
-- react-icons
-- react-loading-skeleton
-- slick-carousel
-- tsparticles
+- react-toastify
+- lucide-react-icons
+- threejs
 
-## View The Project
+## View The Website
 
 The website is up and running on [www.jscop.jiitopticachapter.in](https://jscop.jiitopticachapter.com/)
 

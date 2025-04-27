@@ -52,7 +52,7 @@
 
 @media (max-width: 768px) {
   .component_wrapper {
-    top: 50%;
+    /* top: 50%; */
   }
   /* .backToHome {
     bottom: 20px;

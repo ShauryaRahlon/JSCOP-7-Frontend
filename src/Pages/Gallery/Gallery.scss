@@ -14,15 +14,15 @@
 
   /* Fade from transparent to solid color from top */
   //   mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, black 20%);
-  -webkit-mask-image: linear-gradient(to bottom,
-      rgba(0, 0, 0, 0) 0%,
-      black 20%);
-
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    black 20%
+  );
 }
 
-
 .book-grid-container {
-  background-color: #16212C;
+  background-color: #16212c;
 
   .book-grid {
     display: grid;
@@ -59,119 +59,153 @@
         clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
         -webkit-clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
         background-repeat: no-repeat;
-        background-image: linear-gradient(-45deg,
+        background-image: linear-gradient(
+            -45deg,
             var(--black) 53.5%,
             var(--black) 53.5%,
             var(--black) 60%,
-            var(--black) 60%),
-          linear-gradient(45deg,
+            var(--black) 60%
+          ),
+          linear-gradient(
+            45deg,
             var(--black) 53.5%,
             var(--black) 53.5%,
             var(--black) 60%,
-            var(--black) 60%);
+            var(--black) 60%
+          );
       }
 
       &::after {
-        clip-path: polygon(100% 50%,
-            50% 100%,
-            0 50%,
-            20% 50%,
-            50% 80%,
-            80% 50%);
-        -webkit-clip-path: polygon(100% 50%,
-            50% 100%,
-            0 50%,
-            20% 50%,
-            50% 80%,
-            80% 50%);
+        clip-path: polygon(
+          100% 50%,
+          50% 100%,
+          0 50%,
+          20% 50%,
+          50% 80%,
+          80% 50%
+        );
+        -webkit-clip-path: polygon(
+          100% 50%,
+          50% 100%,
+          0 50%,
+          20% 50%,
+          50% 80%,
+          80% 50%
+        );
         background-repeat: no-repeat;
-        background-image: linear-gradient(45deg,
+        background-image: linear-gradient(
+            45deg,
             var(--black) 40%,
-            var(--black) 40%),
+            var(--black) 40%
+          ),
           linear-gradient(-45deg, var(--black) 40%, var(--black) 40%);
       }
 
       &:nth-child(2n)::before {
-        background-image: linear-gradient(-45deg,
+        background-image: linear-gradient(
+            -45deg,
             var(--black) 53.5%,
             var(--black) 53.5%,
             var(--black) 60%,
-            var(--black) 60%),
-          linear-gradient(45deg,
+            var(--black) 60%
+          ),
+          linear-gradient(
+            45deg,
             var(--black) 53.5%,
             var(--black) 53.5%,
             var(--black) 60%,
-            var(--black) 60%);
+            var(--black) 60%
+          );
       }
 
       &:nth-child(2n)::after {
-        background-image: linear-gradient(45deg,
+        background-image: linear-gradient(
+            45deg,
             var(--black) 40%,
-            var(--black) 40%),
+            var(--black) 40%
+          ),
           linear-gradient(-45deg, var(--black) 40%, var(--black) 40%);
       }
 
       &:nth-child(5n)::before {
-        background-image: linear-gradient(-45deg,
+        background-image: linear-gradient(
+            -45deg,
             var(--black) 53.5%,
             var(--black) 53.5%,
             var(--black) 60%,
-            var(--black) 60%),
-          linear-gradient(45deg,
+            var(--black) 60%
+          ),
+          linear-gradient(
+            45deg,
             var(--black) 53.5%,
             var(--black) 53.5%,
             var(--black) 60%,
-            var(--black) 60%);
+            var(--black) 60%
+          );
       }
 
       &:nth-child(5n)::after {
-        background-image: linear-gradient(45deg,
+        background-image: linear-gradient(
+            45deg,
             var(--black) 40%,
-            var(--black) 40%),
+            var(--black) 40%
+          ),
           linear-gradient(-45deg, var(--black) 40%, var(--black) 40%);
       }
 
       &:nth-child(7n)::before,
       &:nth-child(7n-4)::before {
-        background-image: linear-gradient(-45deg,
+        background-image: linear-gradient(
+            -45deg,
             var(--black) 53.5%,
             var(--black) 53.5%,
             var(--black) 60%,
-            var(--black) 60%),
-          linear-gradient(45deg,
+            var(--black) 60%
+          ),
+          linear-gradient(
+            45deg,
             var(--black) 53.5%,
             var(--black) 53.5%,
             var(--black) 60%,
-            var(--black) 60%);
+            var(--black) 60%
+          );
       }
 
       &:nth-child(7n)::after,
       &:nth-child(7n-4)::after {
-        background-image: linear-gradient(45deg,
+        background-image: linear-gradient(
+            45deg,
             var(--black) 40%,
-            var(--black) 40%),
+            var(--black) 40%
+          ),
           linear-gradient(-45deg, var(--black) 40%, var(--black) 40%);
       }
 
       &:nth-child(9n)::before,
       &:nth-child(9n-5)::before {
-        background-image: linear-gradient(-45deg,
+        background-image: linear-gradient(
+            -45deg,
             var(--black) 53.5%,
             var(--black) 53.5%,
             var(--black) 60%,
-            var(--black) 60%),
-          linear-gradient(45deg,
+            var(--black) 60%
+          ),
+          linear-gradient(
+            45deg,
             var(--black) 53.5%,
             var(--black) 53.5%,
             var(--black) 60%,
-            var(--black) 60%);
+            var(--black) 60%
+          );
       }
 
       &:nth-child(9n)::after,
       &:nth-child(9n-5)::after {
-        background-image: linear-gradient(45deg,
+        background-image: linear-gradient(
+            45deg,
             var(--black) 40%,
-            var(--black) 40%),
+            var(--black) 40%
+          ),
           linear-gradient(-45deg, var(--black) 40%, var(--black) 40%);
       }
 
@@ -352,6 +386,7 @@
 
   .gallary-box {
     padding-top: 150px; // Reduce top padding on mobile
+    // margin-top: -400px;
   }
 
   .book-grid-container .book-grid {
@@ -409,6 +444,12 @@
         grid-column-start: 2;
       }
     }
+  }
+}
+
+@media (max-width: 768px) {
+  .book-grid {
+    padding-top: 200px !important;
   }
 }
 
@@ -494,7 +535,7 @@
 @media (max-width: 768px) {
   .book-grid-container {
     padding-top: 300px !important;
-    margin-top: -10px !important;
+    // margin-top: -10px !important;
   }
 }
 
