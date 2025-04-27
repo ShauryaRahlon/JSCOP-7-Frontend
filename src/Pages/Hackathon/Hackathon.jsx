@@ -64,7 +64,7 @@ const Discord = () => {
 								For any queries, please contact us at:
 							</p>
 							<p className="contact-para">
-								<strong>Aryan Goel:</strong> +91 9928590499
+								<strong>Aryan Goyal:</strong> +91 9928590499
 							</p>
 							<p className="contact-para">
 								<strong>Shaurya Rahlon:</strong> +91 7905230216
