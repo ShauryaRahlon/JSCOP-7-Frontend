@@ -362,7 +362,7 @@ const Tracks = () => {
       icon: ethereum_icon,
       description:
         "Select this track if you're building on Ethereum to be eligible for the prizes!",
-      problems: ["$100: Best hack built on Ethereum"],
+      problems: ["$100: will be awarded to best hack built on Ethereum"],
     },
 
     {
@@ -370,7 +370,7 @@ const Tracks = () => {
       title: "Open Innovation",
       icon: innovation,
       description:
-        "Choose your own adventure! Build any innovative solution that doesn't fit the other tracks.",
+        "Build any innovative solution that doesn't fit the other tracks.",
       problems: ["Create something entirely new and innovative"],
     },
     {
