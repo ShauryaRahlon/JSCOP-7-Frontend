@@ -24,7 +24,6 @@
   margin-top: 28px;
 }
 
-
 .timeline-box:first-child {
   border-top: 6px solid white;
 }
@@ -56,7 +55,6 @@
   margin: 0;
   letter-spacing: 3px;
 }
-
 
 .timeline-contentp {
   margin-top: 8px;
@@ -113,9 +111,11 @@
   padding: 120px 20px;
 
   mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, black 10%);
-  -webkit-mask-image: linear-gradient(to bottom,
-      rgba(0, 0, 0, 0) 0%,
-      black 10%);
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    black 10%
+  );
 }
 
 .timeline-box.end-day .timeline-content {
@@ -133,12 +133,15 @@
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 5px;
-
 }
 
+@media (max-width: 786px) {
+  .timeline-wrapper {
+    top: -200px;
+  }
+}
 
-
-@media (max-width:412px) {
+@media (max-width: 412px) {
   .timeline-box {
     width: 100%;
   }
@@ -160,7 +163,7 @@
   }
 }
 
-@media (max-width:430px) {
+@media (max-width: 430px) {
   .timeline-box {
     width: 100%;
   }
@@ -170,7 +173,6 @@
     margin: 0;
     letter-spacing: 3px;
   }
-
 
   .timeline-contentp {
     font-size: 14px;
@@ -183,5 +185,4 @@
   .next-main {
     font-size: 32px;
   }
-
 }
