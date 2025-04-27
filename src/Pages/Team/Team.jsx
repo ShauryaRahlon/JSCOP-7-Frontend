@@ -14,8 +14,8 @@ function Team() {
 	return (
 		<div className="team-section team-box">
 			<div className="stars"></div>
-			{/* <div className="twinkling"></div>
-			<div className="wormhole"></div> */}
+			<div className="twinkling"></div>
+			<div className="wormhole"></div>
 
 			<div className="content">
 				{/* <header className="heading">
