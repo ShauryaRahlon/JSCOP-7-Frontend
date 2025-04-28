@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { LayoutDashboard, Instagram, Github, Linkedin } from "lucide-react";
 import "./Navbar.css";
 import ReactDOM from "react-dom";
+import { Link } from "react-router-dom";
 
 function Navbar({ moveBetweenPages, mobile }) {
 	const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -85,13 +86,15 @@ function Navbar({ moveBetweenPages, mobile }) {
 			) : null}
 
 			<div
-				className={`mobile_sidebar ${isSidebarOpen ? "mobile_sidebar_open" : ""
-					}`}
+				className={`mobile_sidebar ${
+					isSidebarOpen ? "mobile_sidebar_open" : ""
+				}`}
 			>
 				<div className="mobile_sidebar_header">
 					<button
-						className={`mobile_close_button ${isSidebarOpen ? "mobile_close_button_animate" : ""
-							}`}
+						className={`mobile_close_button ${
+							isSidebarOpen ? "mobile_close_button_animate" : ""
+						}`}
 						onClick={toggleSidebar}
 					>
 						×
@@ -108,27 +111,44 @@ function Navbar({ moveBetweenPages, mobile }) {
 						"Gallery",
 						"Hackathon",
 						"Contact Us",
-						"Register"
 					].map((item, index) => (
 						<div
 							key={index}
 							onClick={() => handlePageChange(index)}
-							className={`mobile_nav_item ${isSidebarOpen ? "mobile_nav_item_animate" : ""
-								}`}
+							className={`mobile_nav_item ${
+								isSidebarOpen ? "mobile_nav_item_animate" : ""
+							}`}
 							style={{ animationDelay: `${index * 0.1}s` }}
 						>
 							{item}
 						</div>
 					))}
+					<Link to="https://forms.gle/jhuEqSkR61SReV7M7">
+						<div
+							className={`mobile_nav_item ${
+								isSidebarOpen ? "mobile_nav_item_animate" : ""
+							}`}
+							style={{
+								animationDelay: `${8 * 0.1}s`,
+								backgroundColor: "rgba(47, 81, 108, 0.7)",
+								borderRadius: "30px",
+								textAlign: "center",
+								padding: "6px 30px",
+							}}
+						>
+							Register
+						</div>
+					</Link>
 				</nav>
 
 				{/* Social Media Icons */}
 				<div
-					className={`social_icons ${isSidebarOpen ? "social_icons_animate" : ""
-						}`}
+					className={`social_icons ${
+						isSidebarOpen ? "social_icons_animate" : ""
+					}`}
 				>
 					<a
-						href="https://instagram.com"
+						href="https://www.instagram.com/jiitopticachapter/"
 						target="_blank"
 						rel="noopener noreferrer"
 						className="social_icon"
@@ -136,7 +156,7 @@ function Navbar({ moveBetweenPages, mobile }) {
 						<Instagram size={24} />
 					</a>
 					<a
-						href="https://github.com"
+						href="https://github.com/jiitopticachapter"
 						target="_blank"
 						rel="noopener noreferrer"
 						className="social_icon"
@@ -144,7 +164,7 @@ function Navbar({ moveBetweenPages, mobile }) {
 						<Github size={24} />
 					</a>
 					<a
-						href="https://linkedin.com"
+						href="https://www.linkedin.com/company/jiitopticachapter/"
 						target="_blank"
 						rel="noopener noreferrer"
 						className="social_icon"
@@ -155,8 +175,9 @@ function Navbar({ moveBetweenPages, mobile }) {
 			</div>
 
 			<div
-				className={`mobile_overlay ${isSidebarOpen ? "mobile_overlay_visible" : ""
-					}`}
+				className={`mobile_overlay ${
+					isSidebarOpen ? "mobile_overlay_visible" : ""
+				}`}
 				onClick={toggleSidebar}
 			></div>
 		</div>,
