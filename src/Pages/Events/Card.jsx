@@ -29,6 +29,9 @@ function Card({
   faq,
   rules_link,
   contact_number,
+  showbg,
+  setShowbg,
+  form_link,
 }) {
   const clipPathId = `clipPath-${cardKey}`; // Generate unique ID
   const [isOpen, setIsOpen] = useState(false);
@@ -200,6 +203,9 @@ function Card({
   };
 
   const handleClose = () => {
+    setTimeout(() => {
+      setShowbg(false);
+    }, 500);
     if (!isOpen || !timelineRef.current || timelineRef.current.isActive())
       return; // Prevent if already closed or animating
 
@@ -285,16 +291,28 @@ function Card({
         ref={containerRef}
       >
         <svg
-          className="card_events__image"
+          className="card_events__image evt-card-img"
           ref={primaryImageRef} // Add ref here
           xmlns="http://www.w3.org/2000/svg"
           xmlnsXlink="http://www.w3.org/1999/xlink"
           viewBox="0 0 1920 500"
           preserveAspectRatio="xMidYMid slice"
-          // onClick={handleOpen} // Attach open handler
+          onClick={handleOpen} // Attach open handler
+          style={{
+            ...(showbg && {
+              backgroundColor: "rgb(26, 39, 55)",
+              backgroundImage: `url(${imgSrc})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+              backdropFilter: "blur(8px)",
+              // filter: showbg ? "blur(8px)" : "blur(0px)",
+              // transition: "filter 0.5s ease, background-image 0.5s ease",
+            }),
+          }}
         >
           <defs>
-            {/* Use unique ID */}
+            {/* Use unique ID for the clip path */}
             <clipPath id={clipPathId}>
               <polygon
                 ref={clipRef}
@@ -303,7 +321,8 @@ function Card({
               ></polygon>
             </clipPath>
           </defs>
-          {/* Use imgSrc prop and reference unique ID */}
+
+          {/* Main image clipped and sharp (not blurred) */}
           <image
             clipPath={`url(#${clipPathId})`}
             width="1920"
@@ -313,6 +332,7 @@ function Card({
         </svg>
 
         <div className="card_events__content event-box" ref={contentRef}>
+          <div className="top-fade-mask-2"></div>
           <button
             className="card_events__btn-close "
             onClick={handleClose} // Attach close handler
@@ -391,19 +411,21 @@ function Card({
                 className="card_events__buttons card_events__buttons2"
                 style={{ paddingTop: "40px" }}
               >
-                <div
-                  className={`button-wrapper`}
-                  style={{
-                    filter: "grayscale(100%)",
-                    WebkitFilter: "grayscale(100%)",
-                  }}
-                >
-                  <a
-                    className="background-button evt-background-btn"
-                    href="#"
-                    title="Register"
-                  ></a>
-                </div>
+                {form_link && (
+                  <div
+                    className={`button-wrapper`}
+                    style={{
+                      filter: "grayscale(100%)",
+                      WebkitFilter: "grayscale(100%)",
+                    }}
+                  >
+                    <a
+                      className="background-button evt-background-btn"
+                      href={form_link}
+                      title="Register"
+                    ></a>
+                  </div>
+                )}
                 {rules_link && (
                   <div
                     className={`button-wrapper`}
@@ -414,7 +436,7 @@ function Card({
                   >
                     <a
                       className="background-button evt-background-btn"
-                      href="#"
+                      href={rules_link}
                       title="Rules"
                     ></a>
                   </div>
