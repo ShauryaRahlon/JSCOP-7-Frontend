@@ -47,7 +47,7 @@ const Contact = () => {
               <p>
                 <Phone size={15} /> +91 9876543210
               </p>
-              <p>shantanu@example.com</p>
+              <p>shantan.pandeydm@gmail.com</p>
             </div>
             <div className="mobile-contact-card">
               <h3>Sai Raj Singh - Vice President</h3>
@@ -55,7 +55,7 @@ const Contact = () => {
               <p>
                 <Phone size={15} /> +91 9123456780
               </p>
-              <p> sairaj@example.com</p>
+              <p> sairajsingh400@gmail.com</p>
             </div>
           </div>
         </div>
