@@ -194,9 +194,8 @@ const Home = () => {
 			const slideWidth = sliderInnerRef.current.querySelector(
 				".slider_inner__slide"
 			).offsetWidth;
-			sliderInnerRef.current.style.left = `${
-				width / 2 - slideWidth / 2
-			}px`;
+			sliderInnerRef.current.style.left = `${width / 2 - slideWidth / 2
+				}px`;
 		}
 
 		// Set introComplete after timeout
@@ -214,9 +213,8 @@ const Home = () => {
 				const slideWidth = sliderInnerRef.current.querySelector(
 					".slider_inner__slide"
 				).offsetWidth;
-				sliderInnerRef.current.style.left = `${
-					width / 2 - slideWidth / 2
-				}px`;
+				sliderInnerRef.current.style.left = `${width / 2 - slideWidth / 2
+					}px`;
 			}
 		};
 		window.addEventListener("resize", handleResize);
@@ -593,9 +591,8 @@ const Home = () => {
 			});
 
 			if (sliderInnerRef.current) {
-				sliderInnerRef.current.style.transform = `translateX(${
-					newDifference + endPosition
-				}px) translateY(120px)`;
+				sliderInnerRef.current.style.transform = `translateX(${newDifference + endPosition
+					}px) translateY(120px)`;
 			}
 		}
 	};
@@ -748,9 +745,8 @@ const Home = () => {
 					document
 						.querySelectorAll(".slider_inner__slide")
 						.forEach((slide) => {
-							slide.style.transform = `rotateY(${direction}${
-								pps / 110
-							}deg) scale(1)`;
+							slide.style.transform = `rotateY(${direction}${pps / 110
+								}deg) scale(1)`;
 							slide.style.transition = `all ${velocity}s`;
 						});
 				}
@@ -940,9 +936,8 @@ const Home = () => {
 			});
 
 			if (sliderInnerRef.current) {
-				sliderInnerRef.current.style.transform = `translateX(${
-					newDifference + endPosition
-				}px) translateY(120px)`;
+				sliderInnerRef.current.style.transform = `translateX(${newDifference + endPosition
+					}px) translateY(120px)`;
 			}
 		}
 	};
@@ -980,6 +975,11 @@ const Home = () => {
 							<div className="hamburger_part"></div>
 							<div className="hamburger_part"></div>
 							<div className="hamburger_part"></div>
+						</div>
+						<div className="link">
+							<Link to="https://forms.gle/jhuEqSkR61SReV7M7" target="_blank" rel="noopener noreferrer">
+								Register
+							</Link>
 						</div>
 					</div>
 					<div className="portfolio_home__title">
@@ -1086,9 +1086,6 @@ const Home = () => {
 												Contact
 											</li>
 
-											<Link to="https://forms.gle/jhuEqSkR61SReV7M7">
-												Register
-											</Link>
 										</ul>
 									</div>
 									{/* <div className="number black">0161 345 3464</div> */}
@@ -1105,6 +1102,11 @@ const Home = () => {
 										<div className="hamburger_part"></div>
 										<div className="hamburger_part"></div>
 										<div className="hamburger_part"></div>
+									</div>
+									<div className="link2">
+										<Link to="https://forms.gle/jhuEqSkR61SReV7M7" target="_blank" rel="noopener noreferrer">
+											Register
+										</Link>
 									</div>
 								</div>
 								<div className="slider_note">
@@ -1258,10 +1260,10 @@ const Home = () => {
 										</div>
 										<div
 											className="image parent_1"
-											// style={{
-											//   position: "relative",
-											//   overflow: flag ? "scroll" : "hidden",
-											// }}
+										// style={{
+										//   position: "relative",
+										//   overflow: flag ? "scroll" : "hidden",
+										// }}
 										>
 											<img
 												draggable="false"
@@ -1364,10 +1366,10 @@ const Home = () => {
 									</div>
 									<div
 										className="slideClone"
-										// style={{
-										//   overflowY: isScrolling ? "scroll" : "hidden",
-										//   overflowX: "hidden",
-										// }}
+									// style={{
+									//   overflowY: isScrolling ? "scroll" : "hidden",
+									//   overflowX: "hidden",
+									// }}
 									>
 										<div className="title f">
 											.06
@@ -1466,7 +1468,7 @@ const Home = () => {
 										onTouchMove={handleSliderTouchMove}
 										onTouchEnd={handleSliderTouchEnd}
 
-										// ref={scrollRef}
+									// ref={scrollRef}
 									>
 										<div className="slider_inner__slide">
 											<div
@@ -1564,7 +1566,7 @@ const Home = () => {
 																"events"
 															)
 														}
-														// data-part-name="events"
+													// data-part-name="events"
 													>
 														<a
 															className="background-button"
@@ -1910,7 +1912,7 @@ const Home = () => {
 															"contact"
 														)
 													}
-													// onClick={handleButtonClick}
+												// onClick={handleButtonClick}
 												>
 													<a
 														className="background-button"
