@@ -50,6 +50,7 @@ const BackToHome = ({ isOpen, handleBackClick }) => {
 
 const LoadComponent = ({ isOpen, part }) => {
   //   if (!isOpen) return null;
+  const [shareZindex, setShareZindex] = useState(false);
 
   const renderComponent = () => {
     switch (part) {
@@ -58,7 +59,7 @@ const LoadComponent = ({ isOpen, part }) => {
       case "gallery":
         return <Gallery />;
       case "events":
-        return <Events />;
+        return <Events setShareZindex={setShareZindex} />;
       case "team":
         return <Team />;
       case "timeline":
@@ -78,7 +79,11 @@ const LoadComponent = ({ isOpen, part }) => {
 
   return (
     <FadePortal isOpen={isOpen}>
-      <div className="component_wrapper loadComponent-fade-back">
+      <div
+        // style={{ minHeight: "fit-content" }}
+        style={{ zIndex: shareZindex ? "200" : "10" }}
+        className="component_wrapper loadComponent-fade-back"
+      >
         {/* <Gallery /> */}
         {renderComponent()}
       </div>

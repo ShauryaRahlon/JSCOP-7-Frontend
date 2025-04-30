@@ -42,6 +42,7 @@ export const dummydata = [
         number: "+0987654321",
       },
     ],
+    form_link: "https://example.com/form",
   },
   {
     id: 2,
@@ -83,6 +84,7 @@ export const dummydata = [
         number: "+0987654321",
       },
     ],
+    form_link: "https://example.com/form",
   },
   {
     id: 3,
@@ -124,6 +126,7 @@ export const dummydata = [
         number: "+0987654321",
       },
     ],
+    form_link: "https://example.com/form",
   },
   {
     id: 4,
@@ -165,6 +168,7 @@ export const dummydata = [
         number: "+0987654321",
       },
     ],
+    form_link: "https://example.com/form",
   },
   {
     id: 5,
@@ -206,47 +210,8 @@ export const dummydata = [
         number: "+0987654321",
       },
     ],
+    form_link: "https://example.com/form",
   },
-  {
-    id: 6,
 
-    imgSrc: "/images/Event_Posters/DummyPoster.jpg", // Corrected path
-    title: "To Be Revealed Soon",
-
-    date: "April 4, 2025",
-
-    Description: [
-      "Get ready for Pointless — a game of knowledge, strategy, and thinking outside the box! Unlike traditional quizzes, here you aim for the least obvious correct answers. It's a unique twist on quizzing that’ll challenge your wits and make you rethink what you know. Fun, competitive, and refreshingly different!",
-    ],
-    location: "CL01",
-    venue: "ABB 3",
-    time: "3:00 PM - 4:30 PM",
-    faq: [
-      {
-        question: "What is the event about?",
-        answer:
-          "The event focuses on the latest trends in technology and innovation.",
-      },
-      {
-        question: "Who are the speakers?",
-        answer: "We have a lineup of industry experts and thought leaders.",
-      },
-      {
-        question: "How can I register?",
-        answer: "You can register through our website or at the venue.",
-      },
-    ],
-    rules_link: "https://example.com/rules",
-    contanct_number: [
-      {
-        name: "John Doe",
-        number: "+1234567890",
-      },
-      {
-        name: "Jane Smith",
-        number: "+0987654321",
-      },
-    ],
-  },
   // Assuming there were originally 4 cards based on the number of author images.
 ];

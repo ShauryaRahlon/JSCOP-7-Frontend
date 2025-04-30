@@ -273,17 +273,46 @@ a:focus {
 
   /* Fade from transparent to solid color from top */
   //   mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, black 20%);
-  -webkit-mask-image: linear-gradient(
+  // -webkit-mask-image: linear-gradient(
+  //   to bottom,
+  //   rgba(0, 0, 0, 0) 0%,
+  //   black 30%
+  // );
+}
+
+.click-guide {
+  width: 100%;
+}
+
+.evt-stars {
+  height: 115vh !important;
+}
+
+.top-fade-mask {
+  position: absolute;
+  top: -195px;
+  left: 0;
+  right: 0;
+  height: 200px; /* adjust height of fading */
+  background: linear-gradient(
     to bottom,
-    rgba(0, 0, 0, 0) 0%,
-    black 30%
+    rgba(26, 39, 55, 0) 0%,
+    rgba(26, 39, 55, 1) 100%
   );
+  z-index: 2;
+  pointer-events: none; /* super important: make it unclickable */
 }
 
 @media (max-width: 768px) {
   .content_final {
-    padding: 200px 0px 4px 20px;
+    padding: 10px 0px 4px 20px;
     // padding-top: 200px;
     // padding-left: 20px;
+  }
+  .evt-stars {
+    height: 200vh !important;
+  }
+  .click-guide {
+    width: 90%;
   }
 }
