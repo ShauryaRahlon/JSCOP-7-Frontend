@@ -235,7 +235,23 @@ body {
   color: white;
   transition: transform 0.3s ease;
 }
-
+.custom-college-box {
+  width: 100%;
+  padding: 12px 15px;
+  color: #ffffff;
+  background: rgba(13, 33, 51, 0.7);
+  border: 1px solid rgba(92, 141, 255, 0.3);
+  border-radius: 8px;
+  outline: none;
+  transition: all 0.3s ease;
+  font-family: "Exo 2", sans-serif;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
 .custom-select:focus + .select-arrow {
   transform: translateY(-50%) rotate(180deg);
 }
@@ -332,7 +348,7 @@ body {
   @media screen and (max-width: 768px) {
     .button-wrapper {
       transform: scale(0.8);
-      margin: 0 auto;
+      margin: 0 50px 0 0;
     }
   }
 }
@@ -441,7 +457,7 @@ body {
   border-radius: 10px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
 }
-.qr-section h3{
+.qr-section h3 {
   color: white;
   font-size: 1.5rem;
   margin-bottom: 10px;
@@ -628,5 +644,35 @@ label {
 
   .regis-guidelines ol li {
     margin: 5% 0% 5% 5%;
+  }
+}
+
+.fullscreen-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(153, 153, 153, 0.8);
+  backdrop-filter: blur(5px); /* 🔍 Add blur */
+  -webkit-backdrop-filter: blur(5px); /* Safari support */
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.spinner {
+  width: 60px;
+  height: 60px;
+  border: 6px solid #ddd;
+  border-top: 6px solid #007bff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
   }
 }
