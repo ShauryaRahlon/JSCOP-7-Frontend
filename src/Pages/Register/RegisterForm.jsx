@@ -136,6 +136,8 @@ export default function RegistrationForm() {
       errors.name = "Name is required";
     }
 
+    console.log("dhdhjjdh", formData.college);
+
     if (!formData.college.trim()) {
       errors.college = "College name is required";
     }
@@ -236,14 +238,15 @@ export default function RegistrationForm() {
       errors.college = "Please provide college name";
       // toast.error("College not selected.");
       // return;
-    } else {
+    } else if (formData.college === "other") {
       // console.log(customCollege, " ", formData.college);
-      formData.college = customCollege;
       formData.batch = "other";
       formData.branch = "other";
       formData.enroll = "other";
       formData.enrollmentType = "other";
+      formData.college = customCollege;
     }
+
     if (!formData.selectedDay) {
       errors.selectedDay = "Please select a day option";
     }
@@ -262,7 +265,9 @@ export default function RegistrationForm() {
         ...formData,
         image,
       };
+      console.log(finalData);
       setLoading(true);
+      console.log(finalData);
       try {
         setLoading(true);
         const response = await axios.post(
