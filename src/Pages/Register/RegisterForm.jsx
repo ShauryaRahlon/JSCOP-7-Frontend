@@ -195,7 +195,6 @@ export default function RegistrationForm() {
       errors.branch =
         "Invalid branch. Allowed branches are: CSE, ECE, ECE-VLSI, BT, BBA, MBA, BCOM, MCOM, MTECH, PHD";
     }
-
     const batchMatch = formData?.batch?.match(/\d+$/);
     const batchNumber = batchMatch ? parseInt(batchMatch[0], 10) : NaN;
 
@@ -240,8 +239,11 @@ export default function RegistrationForm() {
     } else {
       // console.log(customCollege, " ", formData.college);
       formData.college = customCollege;
+      formData.batch = "other";
+      formData.branch = "other";
+      formData.enroll = "other";
+      formData.enrollmentType = "other";
     }
-
     if (!formData.selectedDay) {
       errors.selectedDay = "Please select a day option";
     }
@@ -260,8 +262,7 @@ export default function RegistrationForm() {
         ...formData,
         image,
       };
-
-      // setLoading(true);
+      setLoading(true);
       try {
         setLoading(true);
         const response = await axios.post(
@@ -288,10 +289,6 @@ export default function RegistrationForm() {
           setClg("");
           setImage(null);
         }
-        // else {
-        //   toast.error(error.response?.data?.msg || "Something went wrong!");
-        //   setLoading(false); // Stop loading on failure
-        // }
       } catch (error) {
         console.error("Registration error:", error);
         toast.error(
@@ -370,7 +367,7 @@ export default function RegistrationForm() {
               <div className="registration-page-header">
                 <div className="registration-page-header-text">
                   <div className="registration-page-header-content">
-                    Guidelines For JSCOP 6.0
+                    Guidelines For JSCOP 7.0
                   </div>
                   <div className="registration-page-header-underline"></div>
                 </div>
@@ -556,96 +553,96 @@ export default function RegistrationForm() {
 
               {(formData.college === "JIIT-62" ||
                 formData.college === "JIIT-128") && (
-                <>
-                  <div>
-                    <label>
-                      Enrollment Type <span className="required">*</span>:
-                    </label>
-                    <div className="radio-group">
-                      <label className="radio-label">
-                        <input
-                          type="radio"
-                          id="dayscholar"
-                          name="enrollmentType"
-                          value="dayScholar"
-                          onChange={handleInputChange}
-                        />
-                        <span className="radio-custom"></span>
-                        Day Scholar
+                  <>
+                    <div>
+                      <label>
+                        Enrollment Type <span className="required">*</span>:
                       </label>
+                      <div className="radio-group">
+                        <label className="radio-label">
+                          <input
+                            type="radio"
+                            id="dayscholar"
+                            name="enrollmentType"
+                            value="dayScholar"
+                            onChange={handleInputChange}
+                          />
+                          <span className="radio-custom"></span>
+                          Day Scholar
+                        </label>
 
-                      <label className="radio-label">
-                        <input
-                          type="radio"
-                          id="hosteller"
-                          name="enrollmentType"
-                          value="hosteller"
-                          onChange={handleInputChange}
-                        />
-                        <span className="radio-custom"></span>
-                        Hosteller
-                      </label>
+                        <label className="radio-label">
+                          <input
+                            type="radio"
+                            id="hosteller"
+                            name="enrollmentType"
+                            value="hosteller"
+                            onChange={handleInputChange}
+                          />
+                          <span className="radio-custom"></span>
+                          Hosteller
+                        </label>
+                      </div>
+                      {formErrors.enrollmentType && (
+                        <p className="error">{formErrors.enrollmentType}</p>
+                      )}
                     </div>
-                    {formErrors.enrollmentType && (
-                      <p className="error">{formErrors.enrollmentType}</p>
-                    )}
-                  </div>
 
-                  <div>
-                    <label htmlFor="enroll">
-                      Enrollment Number <span className="required">*</span>:
-                    </label>
-                    <input
-                      className="reginput"
-                      type="text"
-                      id="enroll"
-                      name="enroll"
-                      placeholder="Enter your Enrollment number"
-                      value={formData.enroll}
-                      onChange={handleInputChange}
-                    />
-                    {formErrors.enroll && (
-                      <p className="error">{formErrors.enroll}</p>
-                    )}
-                  </div>
+                    <div>
+                      <label htmlFor="enroll">
+                        Enrollment Number <span className="required">*</span>:
+                      </label>
+                      <input
+                        className="reginput"
+                        type="text"
+                        id="enroll"
+                        name="enroll"
+                        placeholder="Enter your Enrollment number"
+                        value={formData.enroll}
+                        onChange={handleInputChange}
+                      />
+                      {formErrors.enroll && (
+                        <p className="error">{formErrors.enroll}</p>
+                      )}
+                    </div>
 
-                  <div>
-                    <label htmlFor="batch">
-                      Batch <span className="required">*</span>:
-                    </label>
-                    <input
-                      className="reginput"
-                      type="text"
-                      id="batch"
-                      name="batch"
-                      placeholder="Enter your batch"
-                      value={formData.batch}
-                      onChange={handleInputChange}
-                    />
-                    {formErrors.batch && (
-                      <p className="error">{formErrors.batch}</p>
-                    )}
-                  </div>
+                    <div>
+                      <label htmlFor="batch">
+                        Batch <span className="required">*</span>:
+                      </label>
+                      <input
+                        className="reginput"
+                        type="text"
+                        id="batch"
+                        name="batch"
+                        placeholder="Enter your batch"
+                        value={formData.batch}
+                        onChange={handleInputChange}
+                      />
+                      {formErrors.batch && (
+                        <p className="error">{formErrors.batch}</p>
+                      )}
+                    </div>
 
-                  <div>
-                    <label htmlFor="branch">
-                      Branch <span className="required">*</span>:
-                    </label>
-                    <input
-                      className="reginput"
-                      type="text"
-                      id="branch"
-                      name="branch"
-                      placeholder="Enter your branch"
-                      value={formData.branch}
-                      onChange={handleInputChange}
-                    />
-                    {formErrors.branch && (
-                      <p className="error">{formErrors.branch}</p>
-                    )}
-                  </div>
-                </>
-              )}
+                    <div>
+                      <label htmlFor="branch">
+                        Branch <span className="required">*</span>:
+                      </label>
+                      <input
+                        className="reginput"
+                        type="text"
+                        id="branch"
+                        name="branch"
+                        placeholder="Enter your branch"
+                        value={formData.branch}
+                        onChange={handleInputChange}
+                      />
+                      {formErrors.branch && (
+                        <p className="error">{formErrors.branch}</p>
+                      )}
+                    </div>
+                  </>
+                )}
 
               <div>
                 <label>
@@ -752,15 +749,15 @@ export default function RegistrationForm() {
                     href="#"
                     title="Register"
                     onClick={handleFormSubmit}
-                    // onClick={(e) => {
-                    // e.preventDefault(); // prevent jumping to top
-                    // setLoading(true);
-                    // Simulate async action, remove this in real use
-                    // setTimeout(() => {
-                    //   setLoading(false);
-                    //   // You can trigger navigation or form submission here
-                    // }, 2000);
-                    // }}
+                  // onClick={(e) => {
+                  // e.preventDefault(); // prevent jumping to top
+                  // setLoading(true);
+                  // Simulate async action, remove this in real use
+                  // setTimeout(() => {
+                  //   setLoading(false);
+                  //   // You can trigger navigation or form submission here
+                  // }, 2000);
+                  // }}
                   ></a>
                 </div>
               </div>
