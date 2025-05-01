@@ -47,7 +47,7 @@ const Contact = () => {
               <p>
                 <Phone size={15} /> +91 9876543210
               </p>
-              <p>shantan.pandeydm@gmail.com</p>
+              <p>shantanu.pandeydm@gmail.com</p>
             </div>
             <div className="mobile-contact-card">
               <h3>Sai Raj Singh - Vice President</h3>

@@ -35,8 +35,7 @@ const timelineData = [
   },
   {
     name: "CSE & ECE Events",
-    location: "CL-01 ^ Ece Lab(ABB-1)",
-    date: "03-05-2025",
+    location: "CL-01 and Ece Lab(ABB-1)",
     time: "2:00 PM - 3:00 PM",
   },
   {
