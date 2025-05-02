@@ -362,11 +362,23 @@ export default function RegistrationForm() {
       <ToastContainer />
       <LoadingSpinner show={loading} />
 
-      <h1 className="register-header">Register Now</h1>
+      {/* <h1 className="register-header">Register Now</h1> */}
 
-      <div className="registration-page">
+      <div
+        style={{
+          textAlign: "center",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "100vh",
+          width: "100vw",
+        }}
+      >
+        <h3>Registrations are Closed !!</h3>
+      </div>
+
+      {/* <div className="registration-page">
         <div className="registration-page-section">
-          {/* Guidelines Section */}
           <div className="regis-guideline-section">
             <div className="guideline-container">
               <div className="registration-page-header">
@@ -435,7 +447,6 @@ export default function RegistrationForm() {
             </div>
           </div>
 
-          {/* Registration Form Section */}
           <div className="regis">
             <div className="registration-page-header">
               <div className="registration-page-header-text">
@@ -508,18 +519,6 @@ export default function RegistrationForm() {
                   College <span className="required">*</span>:
                 </label>
                 <div className="custom-select-container">
-                  {/* {clg === "other" ? (
-                    <input
-                      type="text"
-                      id="clg"
-                      name="college"
-                      placeholder="Enter your college name"
-                      value={customCollege}
-                      onChange={handleCustomCollegeChange}
-                      className="custom-college-box"
-                      // style={{ marginTop: "10px", display: "block" }}
-                    />
-                  ) : ( */}
                   <select
                     className="custom-select"
                     id="clg"
@@ -535,7 +534,6 @@ export default function RegistrationForm() {
                     <option value="other">Other...</option>
                   </select>
 
-                  {/* )} */}
                   <div className="select-arrow">▼</div>
                 </div>
                 {formErrors.college && (
@@ -558,96 +556,96 @@ export default function RegistrationForm() {
 
               {(formData.college === "JIIT-62" ||
                 formData.college === "JIIT-128") && (
-                  <>
-                    <div>
-                      <label>
-                        Enrollment Type <span className="required">*</span>:
+                <>
+                  <div>
+                    <label>
+                      Enrollment Type <span className="required">*</span>:
+                    </label>
+                    <div className="radio-group">
+                      <label className="radio-label">
+                        <input
+                          type="radio"
+                          id="dayscholar"
+                          name="enrollmentType"
+                          value="dayScholar"
+                          onChange={handleInputChange}
+                        />
+                        <span className="radio-custom"></span>
+                        Day Scholar
                       </label>
-                      <div className="radio-group">
-                        <label className="radio-label">
-                          <input
-                            type="radio"
-                            id="dayscholar"
-                            name="enrollmentType"
-                            value="dayScholar"
-                            onChange={handleInputChange}
-                          />
-                          <span className="radio-custom"></span>
-                          Day Scholar
-                        </label>
 
-                        <label className="radio-label">
-                          <input
-                            type="radio"
-                            id="hosteller"
-                            name="enrollmentType"
-                            value="hosteller"
-                            onChange={handleInputChange}
-                          />
-                          <span className="radio-custom"></span>
-                          Hosteller
-                        </label>
-                      </div>
-                      {formErrors.enrollmentType && (
-                        <p className="error">{formErrors.enrollmentType}</p>
-                      )}
-                    </div>
-
-                    <div>
-                      <label htmlFor="enroll">
-                        Enrollment Number <span className="required">*</span>:
+                      <label className="radio-label">
+                        <input
+                          type="radio"
+                          id="hosteller"
+                          name="enrollmentType"
+                          value="hosteller"
+                          onChange={handleInputChange}
+                        />
+                        <span className="radio-custom"></span>
+                        Hosteller
                       </label>
-                      <input
-                        className="reginput"
-                        type="text"
-                        id="enroll"
-                        name="enroll"
-                        placeholder="Enter your Enrollment number"
-                        value={formData.enroll}
-                        onChange={handleInputChange}
-                      />
-                      {formErrors.enroll && (
-                        <p className="error">{formErrors.enroll}</p>
-                      )}
                     </div>
+                    {formErrors.enrollmentType && (
+                      <p className="error">{formErrors.enrollmentType}</p>
+                    )}
+                  </div>
 
-                    <div>
-                      <label htmlFor="batch">
-                        Batch <span className="required">*</span>:
-                      </label>
-                      <input
-                        className="reginput"
-                        type="text"
-                        id="batch"
-                        name="batch"
-                        placeholder="Enter your batch"
-                        value={formData.batch}
-                        onChange={handleInputChange}
-                      />
-                      {formErrors.batch && (
-                        <p className="error">{formErrors.batch}</p>
-                      )}
-                    </div>
+                  <div>
+                    <label htmlFor="enroll">
+                      Enrollment Number <span className="required">*</span>:
+                    </label>
+                    <input
+                      className="reginput"
+                      type="text"
+                      id="enroll"
+                      name="enroll"
+                      placeholder="Enter your Enrollment number"
+                      value={formData.enroll}
+                      onChange={handleInputChange}
+                    />
+                    {formErrors.enroll && (
+                      <p className="error">{formErrors.enroll}</p>
+                    )}
+                  </div>
 
-                    <div>
-                      <label htmlFor="branch">
-                        Branch <span className="required">*</span>:
-                      </label>
-                      <input
-                        className="reginput"
-                        type="text"
-                        id="branch"
-                        name="branch"
-                        placeholder="Enter your branch"
-                        value={formData.branch}
-                        onChange={handleInputChange}
-                      />
-                      {formErrors.branch && (
-                        <p className="error">{formErrors.branch}</p>
-                      )}
-                    </div>
-                  </>
-                )}
+                  <div>
+                    <label htmlFor="batch">
+                      Batch <span className="required">*</span>:
+                    </label>
+                    <input
+                      className="reginput"
+                      type="text"
+                      id="batch"
+                      name="batch"
+                      placeholder="Enter your batch"
+                      value={formData.batch}
+                      onChange={handleInputChange}
+                    />
+                    {formErrors.batch && (
+                      <p className="error">{formErrors.batch}</p>
+                    )}
+                  </div>
+
+                  <div>
+                    <label htmlFor="branch">
+                      Branch <span className="required">*</span>:
+                    </label>
+                    <input
+                      className="reginput"
+                      type="text"
+                      id="branch"
+                      name="branch"
+                      placeholder="Enter your branch"
+                      value={formData.branch}
+                      onChange={handleInputChange}
+                    />
+                    {formErrors.branch && (
+                      <p className="error">{formErrors.branch}</p>
+                    )}
+                  </div>
+                </>
+              )}
 
               <div>
                 <label>
@@ -695,7 +693,6 @@ export default function RegistrationForm() {
                 )}
               </div>
 
-              {/* Show selected QR code and price */}
               {formData.selectedDay && (
                 <div className="qr-section">
                   <h3>Payment QR Code ({getDayPrice(formData.selectedDay)})</h3>
@@ -732,37 +729,18 @@ export default function RegistrationForm() {
               </div>
 
               <div className="heyreg" onClick={handleFormSubmit}>
-                {/* <button className="rebtn" type="submit">
-                  Register
-                </button> */}
                 <div
                   className="button-wrapper  button__container"
                   style={{
-                    // filter: `hue-rotate(${36}deg)`,
-                    // WebkitFilter: `hue-rotate(${36}deg)`,
                     filter: "grayscale(100%)",
                     WebkitFilter: "grayscale(100%)",
                   }}
                 >
-                  {/* <a
-                    className="background-button"
-                    href="#"
-                    title="Register"
-                  ></a> */}
                   <a
                     className="background-button"
                     href="#"
                     title="Register"
                     onClick={handleFormSubmit}
-                  // onClick={(e) => {
-                  // e.preventDefault(); // prevent jumping to top
-                  // setLoading(true);
-                  // Simulate async action, remove this in real use
-                  // setTimeout(() => {
-                  //   setLoading(false);
-                  //   // You can trigger navigation or form submission here
-                  // }, 2000);
-                  // }}
                   ></a>
                 </div>
               </div>
@@ -774,55 +752,7 @@ export default function RegistrationForm() {
             <div className="spinner"></div>
           </div>
         )}
-      </div>
+      </div> */}
     </>
   );
 }
-
-// import React from 'react'
-
-// const RegisterForm = () => {
-//   const containerStyle = {
-//     height: '100vh',
-//     display: 'flex',
-//     justifyContent: 'center',
-//     alignItems: 'center',
-//     background: 'linear-gradient(45deg, #1a1a1a, #2c3e50)',
-//     color: '#fff',
-//     fontFamily: 'Arial, sans-serif'
-//   }
-
-//   const textStyle = {
-//     fontSize: '3rem',
-//     fontWeight: 'bold',
-//     textTransform: 'uppercase',
-//     letterSpacing: '0.2em',
-//     animation: 'pulse 2s infinite ease-in-out, glow 2s infinite alternate',
-//     textShadow: '0 0 10px rgba(255,255,255,0.5)',
-//   }
-
-//   return (
-//     <>
-//       <style>
-//         {`
-//           @keyframes pulse {
-//             0% { transform: scale(1); }
-//             50% { transform: scale(1.05); }
-//             100% { transform: scale(1); }
-//           }
-//           @keyframes glow {
-//             from { text-shadow: 0 0 10px rgba(0, 0, 0, 0.5); }
-//             to { text-shadow: 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #fff; }
-//           }
-//         `}
-//       </style>
-//       <div className='solving_register' style={containerStyle}>
-//         <div style={textStyle}>
-//           Coming Soon
-//         </div>
-//       </div>
-//     </>
-//   )
-// }
-
-// export default RegisterForm
