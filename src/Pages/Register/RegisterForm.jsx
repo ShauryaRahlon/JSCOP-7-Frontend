@@ -364,7 +364,7 @@ export default function RegistrationForm() {
 
       <h1 className="register-header">Register Now</h1>
 
-      {/* <div
+      <div
         style={{
           textAlign: "center",
           display: "flex",
@@ -375,9 +375,9 @@ export default function RegistrationForm() {
         }}
       >
         <h3>Registrations are Closed !!</h3>
-      </div> */}
+      </div>
 
-      <div className="registration-page">
+      {/* <div className="registration-page">
         <div className="registration-page-section">
           <div className="regis-guideline-section">
             <div className="guideline-container">
@@ -652,7 +652,7 @@ export default function RegistrationForm() {
                   Select Day Option <span className="required">*</span>:
                 </label>
                 <div className="radio-group">
-                  {/* <label className="radio-label">
+                  <label className="radio-label">
                     <input
                       type="radio"
                       name="selectedDay"
@@ -662,7 +662,7 @@ export default function RegistrationForm() {
                     />
                     <span className="radio-custom"></span>
                     Day One (90/-)
-                  </label> */}
+                  </label>
 
                   <label className="radio-label">
                     <input
@@ -676,7 +676,7 @@ export default function RegistrationForm() {
                     Day Two [4th May, Sun] (90/-)
                   </label>
 
-                  {/* <label className="radio-label">
+                  <label className="radio-label">
                     <input
                       type="radio"
                       name="selectedDay"
@@ -686,7 +686,7 @@ export default function RegistrationForm() {
                     />
                     <span className="radio-custom"></span>
                     Both Days (180/-)
-                  </label> */}
+                  </label>
                 </div>
                 {formErrors.selectedDay && (
                   <p className="error">{formErrors.selectedDay}</p>
@@ -752,7 +752,7 @@ export default function RegistrationForm() {
             <div className="spinner"></div>
           </div>
         )}
-      </div>
+      </div> */}
     </>
   );
 }
