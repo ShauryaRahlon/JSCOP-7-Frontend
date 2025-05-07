@@ -31,7 +31,7 @@ This website has been built to effectively share all information regarding our a
 
 ## View The Website
 
-The website is up and running on [www.jscop.jiitopticachapter.in](https://jscop.jiitopticachapter.com/)
+The website is up and running on [www.jscop.jiitopticachapter.com](https://jscop.jiitopticachapter.com/)
 
 ---
 
