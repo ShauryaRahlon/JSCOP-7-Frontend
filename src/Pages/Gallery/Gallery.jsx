@@ -3,15 +3,19 @@ import "./Gallery.scss";
 import cross_icon from "/images/cross_icon.png"; // Import the cross icon
 
 const Gallery = () => {
-  // State to track which book is selected for the modal
+
   const [selectedBook, setSelectedBook] = useState(null);
-  // State to control the visibility of the modal (for smooth exit animation)
   const [isClosing, setIsClosing] = useState(false);
 
   // Book image URLs
   const bookImages = [
+    "https://res.cloudinary.com/dcuc1uetk/image/upload/v1747515980/Jscop%207.O/JSCOP%20Events/img5_ihzvw7.jpg",
+    "https://res.cloudinary.com/dcuc1uetk/image/upload/v1747515989/Jscop%207.O/JSCOP%20Events/img4_p5vfmc.jpg",
+    "https://res.cloudinary.com/dcuc1uetk/image/upload/v1747515989/Jscop%207.O/JSCOP%20Events/img3_uobryk.jpg",
     "https://res.cloudinary.com/dcuc1uetk/image/upload/v1745778399/Jscop%207.O/Rename9_jmme31.jpg",
     "https://res.cloudinary.com/dcuc1uetk/image/upload/v1745778399/Jscop%207.O/Rename7_stegmk.jpg",
+    "https://res.cloudinary.com/dcuc1uetk/image/upload/v1747516401/Jscop%207.O/JSCOP%20Events/img1_qmhuhw.jpg",
+    "https://res.cloudinary.com/dcuc1uetk/image/upload/v1747516644/Jscop%207.O/JSCOP%20Events/img8_azjako.jpg",
     "https://res.cloudinary.com/dcuc1uetk/image/upload/v1745778398/Jscop%207.O/Rename8_zqvkiy.jpg",
     "https://res.cloudinary.com/dcuc1uetk/image/upload/v1745778398/Jscop%207.O/Rename4_os4fik.jpg",
     "https://res.cloudinary.com/dcuc1uetk/image/upload/v1745778398/Jscop%207.O/Rename6_bctff3.jpg",
